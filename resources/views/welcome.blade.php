@@ -10,6 +10,7 @@
     Hello Kelompok XMaS!!!
     hai ak dsni
     <br> HAI INI OCIR<br>
+    <div class="w-[100px] h-[100px] bg-slate-700 border-2">hhh</div>
     cecil here :<
   </h1>
 </body>
