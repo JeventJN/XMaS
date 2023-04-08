@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/header', function () {
+Route::get('/homeNU', function () {
     return view('Non-User/homeNU');
 });
