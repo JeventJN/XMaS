@@ -1,6 +1,6 @@
 .segment{
     width: 100%;
-    height: 55.5vw;
+    height: 40vw;
 }
 
 #segmentTitle{
@@ -12,3 +12,85 @@
 }
 
 .segment:hover > #segmentTitle {width: 50%; background-color: #1B2F45;}
+
+.upcomingxtra{
+    width: 15vw;
+    height: 20vw;
+    background-color: #395474;
+    margin-left: 2.7vw;
+    border-radius: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.upcomingxtra .logo{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 8.75vw;
+}
+
+.upcomingxtra .photo{
+    position: absolute;
+    width: 15vw;
+    height: 4.375vw;
+    border-radius: 2vw 2vw 0 0;
+    margin-bottom: 4.375vw;
+}
+
+.upcomingxtra .logoxtra{
+    padding: 4vw;
+    border-radius: 50%;
+
+}
+
+.upcomingxtra .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 2.5vw;
+    background-color: #D3F1FF;
+}
+
+.upcomingxtra .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8.75vw;
+    border-radius: 0 0 2vw 2vw;
+}
+
+.upcomingxtra:hover{
+    transform: scale(1.1);
+}
+
+/* class xtra */
+.xtra{
+    width: 15vw;
+    height: 20vw;
+    background-color: white;
+    border-color: black;
+    border-width: 0.25vw;
+    margin-left: 2vw;
+    border-radius: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.xtra:hover{
+    transform: scale(1.1);
+}
+
+.viewall{
+    font-size: 1.5vw;
+    color: #0079FF;
+    text-decoration: underline;
+    text-align: right;
+}
+
+.viewall:hover{
+    color: blue;
+}

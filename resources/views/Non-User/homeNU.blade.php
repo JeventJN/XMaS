@@ -2,63 +2,95 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="carousel/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="carousel/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+  <link rel="stylesheet" href="carouse/lcss/style.css">
   <link rel="stylesheet" href="css/Non-User/homeNU.css">
   @vite('resources/css/app.css')
 </head>
-<body>
+<body class="overflow-x-hidden">
     {{-- Navbar Non-User --}}
-    <div class="fixed w-screen h-[5.25vw] bg-[#1B2F45] flex items-center opacity-80">
-        <div class="content w-[48%]">
-            <img class="w-[10vw] h-[5vw] ml-[1vw]" src="Assets/LogoXMaS.png" alt="">
-        </div>
-        <div class="content w-[70%] font-nunito text-[1.5vw] text-white flex justify-center justify-between mr-[3vw] font-thin">
-            <a class="w-[8vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] hover:font-black flex items-center justify-center rounded-[1.6vw]" href="homeNU">
-                Home
-            </a>
-            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] hover:font-black flex items-center justify-center rounded-[1.6vw]" href="xtralistNU">
-                Xtra List
-            </a>
-            <a class="w-[16vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45]  hover:font-black flex items-center justify-center rounded-[1.6vw]" href="login">
-                Xtra Registration
-            </a>
-            <a class="w-[8.75vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] hover:font-black flex items-center justify-center rounded-[1.6vw]" href="login">
-                MyClub
-            </a>
-            <a class="w-[8.75vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] hover:font-black flex items-center justify-center rounded-[1.6vw]" href="login">
-                Log In
-            </a>
-        </div>
-    </div>
+    @include('Non-User.navbarNU')
     {{-- Header --}}
-    <div class="pt-[5.25vw] w-full h-[42.335vw] bg-blue-100">
-        <div class="bg-cover w-full h-[42.335vw] " style="background-image: url('Assets/Header.png');">
-            <div class="w-[41%] h-[42.335vw] bg-[#1B2F45] opacity-70 flex flex-col hover:opacity-100 hover:bg-[#42556A] leading-tight">
-                <img class="h-[12vw] mr-[1vw] ml-[1vw] mt-[2vw]" src="Assets/LogoXMaSWord.png" alt="">
-                <div class="font-noto text-[2.5vw] text-center mt-[5vw] text-white font-black pl-[3vw] pr-[3vw]">
-                    Xmas is a website used to manage all extracurricular activities that have been formed in the RTB and BLI areas.
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('header')
+
     {{-- Upcoming Extracurricular Segment --}}
     <div class="segment">
         <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-black flex text-[1.75vw] items-center justify-center">
             Upcoming Extracurriculars
         </div>
+        <div class="h-[30vw] w-[screen] flex items-center">
+            <div class="featured-carousel owl-carousel">
+                <a href="">
+                    <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                        <div class="upcomingxtra">
+                            <div class="logo">
+                                <img class="photo" src="Assets/RunningBg.jpeg" alt="">
+                                <img class="logoxtra absolute" src="Assets/RunningLogo.png" alt="">
+                            </div>
+                            <div class="title text-[1.5vw]">Running</div>
+                            <div class="content text-white text-[1.5vw]">
+                                <h3>RTB</h3>
+                                <h3>Rabu, 12/3/2023</h3>
+                                <h3>082175932808</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                        <div class="upcomingxtra">
+                            <div class="logo">
+                                <img class="photo" src="Assets/RunningBg.jpeg" alt="">
+                                <img class="logoxtra absolute" src="Assets/RunningLogo.png" alt="">
+                            </div>
+                            <div class="title text-[1.5vw]">Dance</div>
+                            <div class="content text-white text-[1.5vw]">
+                                <h3>RTB</h3>
+                                <h3>Rabu, 12/3/2023</h3>
+                                <h3>082175932808</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 
-    <div class="bg-cover w-full" style="background-image: url('Assets/SignUpNowBG.png');">
+    <div class="bg-cover w-screen" style="background-image: url('Assets/SignUpNowBG.png');">
         <a href="">
-            <img src="Assets/SignUpNow.png" alt="" class="">
+            <img src="Assets/SignUpNow.png" alt="" class="w-[40vw] h-[22vw]">
         </a>
     </div>
 
+    {{-- Extracurricular Segment --}}
     <div class="segment">
         <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-black flex text-[1.75vw] items-center justify-center">
             Extracurriculars
+        </div>
+        <a href="">
+            <h1 class="viewall font-noto">View All...</h1>
+        </a>
+        <div class="h-[30vw] w-[screen] flex items-center">
+            <div class="featured-carousel owl-carousel">
+                <a href="">
+                    <div class="xtrahover h-[25vw] flex items-center justify-center font-noto text-[2vw]">
+                        <div class="xtra">
+                            <img class="rounded-[50%] p-[2vw]" src="Assets/RunningLogo.png" alt="">
+                            <h3>Running</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <script src="carousel/js/jquery.min.js"></script>
+            <script src="carousel/js/popper.js"></script>
+            <script src="carousel/js/bootstrap.min.js"></script>
+            <script src="carousel/js/owl.carousel.min.js"></script>
+            <script src="carousel/js/main.js"></script>
         </div>
     </div>
 </body>
