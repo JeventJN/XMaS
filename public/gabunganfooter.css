@@ -1,0 +1,196 @@
+/* style 1 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* Ini Footer Awal */
+
+  #footer {
+    font-size: 14px;
+    background: #364657;
+
+    padding-top: 0.3vw;
+    padding-bottom: 0.5vw;
+    /* padding-left: 0.35vw; */
+    /* padding-right: 0.35vw; */
+    color: #fff;
+    border: red solid;
+  }
+
+  .footer-flex{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+
+  }
+
+  #footer .copyright {
+    flex: 3;
+    display: flex;
+    align-items:end;
+    font-size: 18px;
+    font-weight: lighter;
+    text-align: right;
+    padding-left:1vw;
+    /* border: solid 1px; */
+  }
+
+  #footer .credits {
+    flex: 4;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 2vw;
+    padding-top: 2vw;
+    font-family: 'Nunito', sans-serif;
+    font-weight: Bold;
+    /* border: solid 1px; */
+  }
+
+  #footer .learnabout {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: right;
+    font-size: 25px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    /* border: solid 1px; */
+    /* padding-left: -100vw; */
+  }
+
+  .text{
+    /* border: solid 1px; */
+    margin-right: 5vw;
+  }
+
+  /* akhir dari style 1 */
+
+  /* style 2 */
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* Ini Footer Awal */
+
+  #footer {
+    font-size: 14px;
+    background: #364657;
+
+    padding-top: 0.8vw;
+    padding-bottom: 0.5vw;
+    padding-left: 0.35vw;
+    padding-right: 0.35vw;
+    color: #fff;
+  }
+
+  .footer-flex{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+
+  }
+
+  #footer .copyright {
+    flex: 2;
+    display: flex;
+    align-items:end;
+    font-size: 18px;
+    font-weight: lighter;
+    text-align: right;
+    padding-left:1vw;
+    /* border: solid 1px; */
+  }
+
+  #footer .tengah {
+    flex: 4;
+    /* font-size: 40px; */
+    /* text-align: center; */
+    /* padding-bottom: 2vw; */
+    /* padding-top: 2vw; */
+    /* border: solid 1px;   */
+    display: flex;
+    flex-direction: column;
+  }
+
+  #footer .tengah .judul{
+    /* border: red solid 1px; */
+    text-align: center;
+    font-size: 45px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: Bold;
+  }
+
+  #footer .tengah .isi{
+    /* border: pink solid 1px; */
+    display: flex;
+    flex-direction: row;
+  }
+
+  #footer .tengah .isi .isikiri{
+    /* border: purple solid 1px; */
+    text-align: right;
+    flex: 1;
+    font-size: 20px;
+    padding-right: 0.5vw;
+    line-height: 1.8vw;
+    font-family: 'Nunito', sans-serif;
+    font-weight: Bold;
+  }
+
+  #footer .tengah .isi .isitengah{
+    border: rgb(255, 255, 255) solid 1px;
+  }
+
+  #footer .tengah .isi .isikanan{
+    /* border: green solid 1px; */
+    text-align: left;
+    flex: 1;
+    font-size: 20px;
+    padding-left: 0.5vw;
+    line-height: 1.8vw;
+    font-family: 'Nunito', sans-serif;
+    font-weight: Bold;
+  }
+
+  #footer .kanan {
+    flex: 2;
+    /* border: solid 1px;  */
+    display: flex;
+    flex-direction: column;
+    /* padding-left: 1vw; */
+  }
+
+  #footer .kanan .needhelp{
+    /* border: blueviolet solid 1px; */
+    text-align: left;
+    padding-left: 1.5vw;
+    font-size: 33px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+  }
+
+  #footer .kanan .contact{
+    /* border: yellow solid 1px; */
+    font-size: 23px;
+    padding-left: 1.5vw;
+    line-height: 1.8vw;
+    font-family: 'Nunito', sans-serif;
+    /* font-weight: bold; */
+  }
+
+  .linktext {
+    text-decoration: none !important;
+    color: rgb(255, 255, 255);
+  }
+
+  .antara{
+    margin-right: 1vw;
+  }
+
+  /* akhir dari style 2 */
