@@ -39,6 +39,19 @@
     font-size: 1.5vw
 }
 
+.login:hover{
+    cursor: pointer;
+    margin-right: 0.2vw;
+    width: 6.4vw;
+    height: 2.7vw;
+    background-color: #56B8E6;
+    border-radius: 3vw;
+    font-size: 1.5vw;
+    color: white;
+}
+
+.signuplogin:hover > .signup{background-color: #D3F1FF; color: black;}
+
 .signupcontainer{
     display: flex;
     margin-left: 30vw;

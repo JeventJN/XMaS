@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/Register/signup.css">
-    <title>Sign Up</title>
+    <title>Log In</title>
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -19,9 +19,7 @@
                     <div>Sign Up</div>
                 </div>
                 <div class="login">
-                    <a href="/login">
-                        <div>Log In</div>
-                    </a>
+                    <div>Log In</div>
                 </div>
             </div>
             <img class="absolute z-0 ml-[10.5vw] mt-[15vw] w-[42vw]" src="Assets/LogoXMaSBlack.png" alt="">

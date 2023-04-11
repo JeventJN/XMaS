@@ -24,3 +24,12 @@ Route::get('/homeNU', function () {
 Route::get('/signup', function () {
     return view('Register/signup');
 });
+
+Route::get(('/login'), function(){
+    return view('Register/login');
+});
+
+Route::get(('/footer'), function(){
+    return view('footer');
+});
+

@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="bg-cover w-screen scale-[0.01]" style="background-image: url('Assets/SignUpNowBG.png')">
+    <div class="bg-cover w-[screen]" style="background-image: url('Assets/SignUpNowBG.png')">
         <a href="">
             <img src="Assets/SignUpNow.png" alt="" class="w-[40vw] h-[22vw]">
         </a>
@@ -93,5 +93,6 @@
             <script src="carousel/js/main.js"></script>
         </div>
     </div>
+    @include('footer')
 </body>
 </html>
