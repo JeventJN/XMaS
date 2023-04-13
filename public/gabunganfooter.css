@@ -5,17 +5,12 @@
     box-sizing: border-box;
   }
 
-  /* Ini Footer Awal */
-
-  #footer {
-    font-size: 14px;
+  #footerA {
+    font-size: 1.1vw;
     background: #364657;
-    width: 100%;
 
     padding-top: 0.3vw;
     padding-bottom: 0.5vw;
-    /* padding-left: 0.35vw; */
-    /* padding-right: 0.35vw; */
     color: #fff;
     border: red solid;
   }
@@ -27,60 +22,46 @@
 
   }
 
-  #footer .copyright {
-    flex: 3;
+  #footerA .copyright {
+    flex: 2;
     display: flex;
     align-items:end;
-    font-size: 18px;
+    font-size: 0.95vw;
     font-weight: lighter;
     text-align: right;
     padding-left:1vw;
-    /* border: solid 1px; */
   }
 
-  #footer .credits {
+  #footerA .credits {
     flex: 4;
-    font-size: 40px;
+    font-size: 2.8vw;
     text-align: center;
     padding-bottom: 2vw;
     padding-top: 2vw;
     font-family: 'Nunito', sans-serif;
     font-weight: Bold;
-    /* border: solid 1px; */
+    border: solid 1px;
   }
 
-  #footer .learnabout {
+  #footerA .learnabout {
     flex: 2;
     display: flex;
     align-items: center;
     text-align: right;
     justify-content: right;
-    font-size: 25px;
+    font-size: 1.5vw;
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
-    /* border: solid 1px; */
-    /* padding-left: -100vw; */
   }
 
   .text{
-    /* border: solid 1px; */
     margin-right: 5vw;
   }
-
   /* akhir dari style 1 */
 
   /* style 2 */
-
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  /* Ini Footer Awal */
-
-  #footer {
-    font-size: 14px;
+  #footerB {
+    font-size: 1.1vw;
     background: #364657;
 
     padding-top: 0.8vw;
@@ -88,6 +69,7 @@
     padding-left: 0.35vw;
     padding-right: 0.35vw;
     color: #fff;
+    width: 1920px;
   }
 
   .footer-flex{
@@ -97,92 +79,78 @@
 
   }
 
-  #footer .copyright {
+  #footerB .copyright {
     flex: 2;
     display: flex;
     align-items:end;
-    font-size: 18px;
+    font-size: 0.95vw;
     font-weight: lighter;
     text-align: right;
     padding-left:1vw;
-    /* border: solid 1px; */
   }
 
-  #footer .tengah {
+  #footerB .tengah {
     flex: 4;
-    /* font-size: 40px; */
-    /* text-align: center; */
-    /* padding-bottom: 2vw; */
-    /* padding-top: 2vw; */
-    /* border: solid 1px;   */
     display: flex;
     flex-direction: column;
   }
 
-  #footer .tengah .judul{
-    /* border: red solid 1px; */
+  #footerB .tengah .judul{
     text-align: center;
-    font-size: 45px;
+    font-size: 2.4vw;
     font-family: 'Nunito', sans-serif;
     font-weight: Bold;
   }
 
-  #footer .tengah .isi{
-    /* border: pink solid 1px; */
+  #footerB .tengah .isi{
     display: flex;
     flex-direction: row;
   }
 
-  #footer .tengah .isi .isikiri{
-    /* border: purple solid 1px; */
+  #footerB .tengah .isi .isikiri{
     text-align: right;
     flex: 1;
-    font-size: 20px;
+    font-size: 1.1vw;
     padding-right: 0.5vw;
     line-height: 1.8vw;
     font-family: 'Nunito', sans-serif;
     font-weight: Bold;
   }
 
-  #footer .tengah .isi .isitengah{
+  #footerB .tengah .isi .isitengah{
     border: rgb(255, 255, 255) solid 1px;
   }
 
-  #footer .tengah .isi .isikanan{
-    /* border: green solid 1px; */
+  #footerB .tengah .isi .isikanan{
     text-align: left;
     flex: 1;
-    font-size: 20px;
+    font-size: 1.1vw;
     padding-left: 0.5vw;
     line-height: 1.8vw;
     font-family: 'Nunito', sans-serif;
     font-weight: Bold;
   }
 
-  #footer .kanan {
+  #footerB .kanan {
     flex: 2;
-    /* border: solid 1px;  */
     display: flex;
     flex-direction: column;
-    /* padding-left: 1vw; */
   }
 
-  #footer .kanan .needhelp{
-    /* border: blueviolet solid 1px; */
+  #footerB .kanan .needhelp{
     text-align: left;
     padding-left: 1.5vw;
-    font-size: 33px;
+    font-size: 1.4vw;
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
   }
 
-  #footer .kanan .contact{
-    /* border: yellow solid 1px; */
-    font-size: 23px;
+  #footerB .kanan .contact{
+    text-align: left;
+    font-size: 1.25vw;
     padding-left: 1.5vw;
     line-height: 1.8vw;
     font-family: 'Nunito', sans-serif;
-    /* font-weight: bold; */
   }
 
   .linktext {
