@@ -1,0 +1,53 @@
+.topcontainer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 7vw;
+}
+
+.signuplogin{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1vw;
+    width: 13vw;
+    height: 3vw;
+    background-color: #D3F1FF;
+    border-radius: 3vw;
+}
+
+.signup{
+    display: flex;
+    width: 6.5vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vw;
+}
+
+.login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.2vw;
+    width: 6.4vw;
+    height: 2.7vw;
+    background-color: #56B8E6;
+    border-radius: 3vw;
+    font-size: 1.5vw;
+    color: white;
+}
+
+.login:hover{
+    cursor: pointer;
+    margin-right: 0.2vw;
+    width: 6.4vw;
+    height: 2.7vw;
+    background-color: #56B8E6;
+    border-radius: 3vw;
+    font-size: 1.5vw;
+    color: white;
+}
+
+.signuplogin:hover > .signup{background-color: #D3F1FF; color: black;}
