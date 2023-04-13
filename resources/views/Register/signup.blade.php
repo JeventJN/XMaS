@@ -39,14 +39,14 @@
                     <img class="h-[3vw] w-[3vw]" src="Assets/nip.png" alt="">
                     <div class="input">textfield</div>
                 </div>
-                <div class="radiobutton text-white ml-[5vw]">
+                <div class="radiobutton text-white ml-[5vw] text-[1.5vw]">
                     <p>Program <br/> </p>
                     <div class="radiobuttoncheck">
-                        <img class="scale-[0.7]" src="Assets/agreebox.png" alt="">
+                        <img class="w-[2vw]" src="Assets/agreebox.png" alt="">
                         <p>PPTI</p>
                     </div>
-                    <div class="radiobuttoncheck">
-                        <img class="scale-[0.7]" src="Assets/agreebox.png" alt="">
+                    <div class="radiobuttoncheck ">
+                        <img class="w-[2vw]" src="Assets/agreebox.png" alt="">
                         <p>PPBP</p>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
 
                 </div>
                 <div class="buttonsignup">
-                    <img class="scale-[0.7]" src="Assets/agreebox.png" alt="">
+                    <img class="w-[2vw]" src="Assets/agreebox.png" alt="">
                     <p class="text-white text-[0.8vw]">I agree on term and condition</p>
                 </div>
                 <a href="">
