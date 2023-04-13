@@ -19,7 +19,6 @@
   <link href="gabunganfooter.css" rel="stylesheet">
   <style>
     #min{
-        min-height: 50vw;
         display: flex;
         flex-direction: column;
         justify-content: end;
@@ -29,16 +28,15 @@
         display: block;
     }
     #max{
-        min-height: 50vw;
         display:none;
     }
   </style>
 </head>
 
 <body>
-    <button onmouseover ="hover()">
+    <button class="cursor-default" onclick ="hover()">
         <div id="min">
-            <footer id="footer">
+            <footer id="footerA">
                 <div class="footer-flex">
                     <div class="copyright">
                         &copy;<strong><span>2023 Sneakys</span></strong>.
@@ -54,27 +52,8 @@
                 </div>
             </div>
         </footer>
-    </button>
-
-    <script>
-        function hover() {
-            var x = document.getElementById("min");
-            var y = document.getElementById('max');
-
-            if(x.style.display==="block") {
-                x.style.display="none";
-                y.style.display="block";
-            }
-            else{
-                x.style.display="block";
-                y.style.display="none";
-            }
-        }
-    </script>
-
-    <button onmouseout ="out()">
         <div id="max">
-            <footer id="footer">
+            <footer id="footerB">
                 <div class="footer-flex">
                     <div class="copyright">
                         &copy;<strong><span>2023 Sneakys</span></strong>.
@@ -114,21 +93,23 @@
             </div>
         </div>
     </button>
+
     <script>
-        function out() {
+        function hover() {
             var x = document.getElementById("min");
             var y = document.getElementById('max');
 
-            if(y.style.display==="block") {
-                y.style.display="none";
-                x.style.display="block";
+            if(x.style.display==="block") {
+                x.style.display="none";
+                y.style.display="block";
             }
             else{
-                y.style.display="block";
-                x.style.display="none";
+                x.style.display="block";
+                y.style.display="none";
             }
         }
     </script>
+
 </body>
 
 </html>
