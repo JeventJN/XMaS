@@ -15,16 +15,16 @@
     <div class="bg-cover" style="background-image: url('Assets/LogIn.png')">
         <div class="topcontainer flex items-center">
             <img class="h-[5vw] w-[5vw]" src="Assets/BackButton.png" alt="">
-            <div class="signuplogin z-50">
-                <div class="signup">
-                    <a href="/signup">
+            <a href="/signup">
+                <div class="signuplogin z-50">
+                    <div class="signup">
                         <div>Sign Up</div>
-                    </a>
+                    </div>
+                    <div class="login">
+                        <div>Log In</div>
+                    </div>
                 </div>
-                <div class="login">
-                    <div>Log In</div>
-                </div>
-            </div>
+            </a>
             <div class="flex justify-end w-screen">
                 <p class="font-nunito font-black text-white text-[5.5vw] mr-[1.5vw] mt-[3vw]">Log In</p>
             </div>

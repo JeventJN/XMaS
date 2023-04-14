@@ -20,9 +20,12 @@
 .signup{
     display: flex;
     width: 6.5vw;
+    height: 2.7vw;
     justify-content: center;
     align-items: center;
     font-size: 1.5vw;
+    margin-left: 0.1vw;
+    border-radius: 3vw;
 }
 
 .login{
@@ -37,20 +40,12 @@
     border-radius: 3vw;
     font-size: 1.5vw;
     color: white;
-}
-
-.signup:hover{
-    cursor: pointer;
-    margin-right: 0.2vw;
-    width: 6.4vw;
-    height: 2.7vw;
-    background-color: #56B8E6;
-    border-radius: 3vw;
-    font-size: 1.5vw;
-    color: white;
+    margin-right: 0.1vw;
 }
 
 .signuplogin:hover > .login{background-color: #D3F1FF; color: black;}
+.signuplogin:hover > .signup{background-color: #56B8E6; color: white;}
+
 
 .logincontainer{
     display: flex;

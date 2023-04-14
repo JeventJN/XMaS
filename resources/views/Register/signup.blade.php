@@ -15,16 +15,16 @@
     <div class="bg-cover" style="background-image: url('Assets/SignUp.png')">
         <div class="topcontainer z-0">
             <img class="h-[5vw] w-[5vw]" src="Assets/BackButton.png" alt="">
-            <div class="signuplogin z-50">
-                <div class="signup ">
-                    <div>Sign Up</div>
-                </div>
-                <div class="login">
-                    <a href="/login">
+            <a href="/login">
+                <div class="signuplogin z-50">
+                    <div class="signup ">
+                        <div>Sign Up</div>
+                    </div>
+                    <div class="login">
                         <div>Log In</div>
-                    </a>
+                    </div>
                 </div>
-            </div>
+            </a>
             <img class="absolute z-0 mt-[50vw] w-[35vw]" src="Assets/LogoXMaSBlack.png" alt="">
             <div class="flex justify-end w-screen">
                 <p class="font-nunito text-white font-black text-[5.5vw] mr-[1.5vw] mt-[3vw]">Sign Up</p>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="textfield mt-[2vw]">
                         <img class="h-[3vw] w-[3vw]" src="Assets/nip.png" alt="">
-                        <input type="tel" id="nip" name="nip" placeholder="Input your NIP here" class="no-outline bg-[#1B2F45] w-[30vw] text-white" required pattern="[0-9]">
+                        <input type="tel" id="nip" name="nip" placeholder="Input your NIP here" class="no-outline bg-[#1B2F45] w-[30vw] text-white" required pattern="[0-9]+">
                     </div>
                     <div class="radiobutton text-white ml-[5vw] text-[1.5vw]">
                         <div class="flex items-center">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="textfield mb-[2vw]">
                         <img class="h-[3vw] w-[3vw]" src="Assets/call.png" alt="">
-                        <input type="tel" id="phone" name="phone" placeholder="Input your phone-number here" class="no-outline bg-[#1B2F45] w-[30vw] text-white" required pattern="[0-9]">
+                        <input type="tel" id="phone" name="phone" placeholder="Input your phone-number here" class="no-outline bg-[#1B2F45] w-[30vw] text-white" required pattern="[0-9]+">
                     </div>
                     <div class="textfield mb-[2vw]">
                         <img class="h-[3vw] w-[3vw]"  src="Assets/password.png" alt="">
