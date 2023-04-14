@@ -135,3 +135,19 @@
     height:3vw;
     background-color: #1B2F45;
 }
+
+.no-outline:focus {
+    outline: none;
+}
+
+.loginnav{
+    color: black;
+}
+
+.loginnav:hover{
+    color:yellow;
+}
+
+.signupcontainer .boxfield2 .buttonsignup .signup1:hover{
+    background-color: black;
+}
