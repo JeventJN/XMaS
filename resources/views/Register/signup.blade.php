@@ -91,7 +91,7 @@
                             </div>
                         </a>
                     </button>
-                    <p class="text-[1vw] text-white ml-[0.3vw]">Already have an account? <a class="loginnav" href="">Log In</a></p>
+                    <p class="text-[1vw] text-white ml-[0.3vw]">Already have an account? <a class="loginnav" href="/login">Log In</a></p>
                 </div>
             </div>
         </form>

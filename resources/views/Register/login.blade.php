@@ -49,6 +49,7 @@
                         </div>
                     </a>
                 </button>
+                <p class="text-[1vw] text-white ml-[21.7vw]">Don't have an account yet? <a class="signnav" href="/signup">Sign Up</a></p>
             </div>
         </form>
     </div>
