@@ -17,7 +17,7 @@ function eventsubmits(){
     }
 
     if(nip.value.length != 4){
-        alert("NIP must be 4 number");
+        alert("NIP must be 4 numbers");
         return false;
     }
 
@@ -29,7 +29,7 @@ function eventsubmits(){
 
     if(password.value.length < 6)
     {
-        alert("Password can't be less than 6")
+        alert("Password can't be less than 6 characters")
         return false;
     }
 

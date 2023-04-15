@@ -28,8 +28,3 @@ Route::get(('/login'), function(){
 Route::get(('/footer'), function(){
     return view('footer');
 });
-
-Route::get(('User/homeU'), function(){
-    return view('User/homeU');
-});
-

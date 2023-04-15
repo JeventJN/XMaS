@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
   <link rel="stylesheet" href="carousel/css/style.css">
   <link rel="stylesheet" href="css/home.css">
+  <title>User Home</title>
   @vite('resources/css/app.css')
 </head>
 <body class="overflow-x-hidden">
@@ -94,7 +95,7 @@
             Extracurriculars
         </div>
         <a href="">
-            <h1 class="viewall font-noto">View All...</h1>
+            <h1 class="viewall font-noto">View All</h1>
         </a>
         <div class="h-[30vw] w-[screen] flex items-center">
             <div class="featured-carousel owl-carousel">
@@ -112,7 +113,7 @@
             <script src="carousel/js/bootstrap.min.js"></script>
             <script src="carousel/js/owl.carousel.min.js"></script>
             <script src="carousel/js/main.js"></script>
-        </div>  
+        </div>
     </div>
     @include('footer')
 </body>
