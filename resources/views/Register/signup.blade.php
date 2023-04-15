@@ -15,15 +15,15 @@
     <div class="bg-cover" style="background-image: url('Assets/SignUp.png')">
         <div class="topcontainer">
             <a href="/home">
-                <img class="ml-[3vw] h-[4vw] w-[4vw]" src="Assets/BackButton.png" alt="">
+                <svg class="ml-[3vw] mt-[-0.1vw]" xmlns="http://www.w3.org/2000/svg" width="4vw" height="4vw" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M249.38 336L170 256l79.38-80m-68.35 80H342"/><path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192s192-86 192-192Z"/></svg>
             </a>
-            <div class="signuplogin ml-[3.5vw] font-nunito text-[1.2vw] font-medium">
+            <div class="signuplogin ml-[2.5vw] font-nunito text-[1.2vw] font-medium">
                 <div class="signup">
-                    <div>Sign Up</div>
+                    <div class="mt-[0.2vw]">Sign Up</div>
                 </div>
                 <a href="/login">
                     <div class="login hover:text-[#1B2F45] hover:font-extrabold">
-                        <div>Log In</div>
+                        <div class="mt-[0.2vw] ml-[-1vw]">Log In</div>
                     </div>
                 </a>
             </div>
@@ -45,38 +45,53 @@
         <div class="flex flex-row">
             <img class="mt-[3vw] w-[35vw]" src="Assets/LogoXMaSBlack.png" alt="">
             <form action="/login" id="signupvalid" method="POST" autocomplete="off" onsubmit="return eventsubmits(this);">
-                <div class="absolute signupcontainer mt-[2vw] ml-[-5vw] z-50">
+                <div class="absolute signupcontainer mt-[2vw] ml-[-5vw] z-30">
                     <div class="boxfield text-[1.2vw]">
                         <div class="textfield mt-[5vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/username.png" alt="">
-                            <input type="name" id="username" name="username" placeholder="Enter your name here                                                               " class="no-outline bg-[#1B2F45] w-[32vw] text-white underline italic focus:not-italic" required>
+                            <div class="flex flex-col">
+                                <input type="name" id="username" name="username" placeholder="Enter your name here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required>
+                                <img class="w-[50vw] ml-[-4.8vw]" src="Assets/Line.png" alt="">
+                            </div>
                         </div>
-                        <div class="textfield mt-[2vw]">
+                        <div class="textfield mt-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/nip.png" alt="">
-                            <input type="tel" id="nip" name="nip" placeholder="Enter your NIP here                                                                               " class="no-outline bg-[#1B2F45] w-[32vw] text-white underline italic focus:not-italic" required pattern="[0-9]+">
+                            <div>
+                                <input type="tel" id="nip" name="nip" placeholder="Enter your NIP here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required pattern="[0-9]+">
+                                <img class="w-[50vw] ml-[-4.8vw]" src="Assets/Line.png" alt="">
+                            </div>
                         </div>
                         <div class="radiobutton text-white ml-[5vw] text-[1.5vw] font-nunito">
-                            <label class="text-[1.5vw]" for="PPTI">Choose Program:</label>
+                            <label class="text-[1.3vw]" for="PPTI">Program</label>
                             <div class="flex items-center">
-                                <input type="radio" id="program" name="program" value="PPTI" class="h-[1.2vw] w-[1.2vw]" required>
+                                <input type="radio" id="program" name="program" value="PPTI" class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]" required>
                                 <label class="ml-[0.8vw] text-[1.2vw]" for="PPTI">PPTI</label>
                             </div>
                             <div class="flex items-center">
-                                <input type="radio" id="program" name="program" value="PPBP" class="h-[1.2vw] w-[1.2vw]" required>
+                                <input type="radio" id="program" name="program" value="PPBP" class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]" required>
                                 <label class="ml-[0.8vw] text-[1.2vw]" for="PPTI">PPBP</label>
                             </div>
                         </div>
-                        <div class="textfield mb-[2vw]">
+                        <div class="textfield mb-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/call.png" alt="">
-                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone-number here                                                              " class="no-outline bg-[#1B2F45] w-[32vw] text-white underline italic focus:not-italic" required pattern="[0-9]+">
+                            <div>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required pattern="[0-9]+">
+                                <img class="w-[50vw] ml-[-4.8vw]" src="Assets/Line.png" alt="">
+                            </div>
                         </div>
-                        <div class="textfield mb-[2vw]">
+                        <div class="textfield mb-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]"  src="Assets/password.png" alt="">
-                            <input type="password" id="password" name="password" placeholder="Enter your password here                                                            " class="no-outline bg-[#1B2F45] w-[32vw] text-white underline italic focus:not-italic" required>
+                            <div>
+                                <input type="password" id="password" name="password" placeholder="Enter your password here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required>
+                                <img  class="w-[50vw] ml-[-4.8vw]" src="Assets/Line.png" alt="">
+                            </div>
                         </div>
-                        <div class="textfield">
+                        <div class="textfield flex items-center">
                             <img class="h-[3vw] w-[3vw]"  src="Assets/password.png" alt="">
-                            <input type="password" id="password1" name="password1" placeholder="Confirm your Password                                                              " class="no-outline bg-[#1B2F45] w-[32vw] text-white underline italic focus:not-italic" required>
+                            <div>
+                                <input type="password" id="password1" name="password1" placeholder="Confirm your password" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required>
+                                <img  class="w-[50vw] ml-[-4.8vw]" src="Assets/Line.png" alt="">
+                            </div>
                         </div>
                     </div>
                     <div class="boxfield2">
@@ -93,10 +108,10 @@
                         </div>
                         <button type="submit">
                             <div class="buttonsignup mt-[2vw] text-[1.1vw] ">
-                                <div class="signup1 text-white rounded-[0.5vw]">Sign Up</div>
+                                <div class="signup1 text-white rounded-[0.4vw]">Sign Up</div>
                             </div>
                         </button>
-                        <p class="text-[1vw] text-white ml-[0.3vw]">Already have an account? <a class="loginnav" href="/login">Log In</a></p>
+                        <p class="text-[0.95vw] text-white ml-[0.3vw] mt-[0.5vw]">Already have an account? <a class="loginnav" href="/login">Log In</a></p>
                     </div>
                 </div>
             </form>
