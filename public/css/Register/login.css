@@ -60,6 +60,10 @@
     height: 11vw;
 }
 
+::-webkit-input-placeholder{
+    font-style: italic;
+}
+
 
 .fieldbox{
     display: flex;
@@ -92,10 +96,6 @@
 .signnav{
     color: #56B8E6;
 }
-
-/* .signnav:hover{
-    color:yellow;
-} */
 
 .no-outline:focus {
     outline: none;

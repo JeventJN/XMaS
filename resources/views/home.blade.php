@@ -95,7 +95,7 @@
             Extracurriculars
         </div>
         <a href="">
-            <h1 class="viewall font-noto">View All</h1>
+            <h1 class="text-[#56B8E6] mr-[0.7vw] viewall font-nunito">View All</h1>
         </a>
         <div class="h-[30vw] w-[screen] flex items-center">
             <div class="featured-carousel owl-carousel">

@@ -42,7 +42,9 @@
     margin-right: 0.2vw;
 }
 
-
+::-webkit-input-placeholder{
+    font-style: italic;
+}
 
 .signupcontainer{
     display: flex;
