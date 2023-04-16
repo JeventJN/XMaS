@@ -1,0 +1,59 @@
+.bigcontainer
+{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #A1A9B2;
+    border-radius: 1vw;
+}
+
+.headercontainer{
+    width: 90%;
+    height: 13.5vw;
+}
+
+.rowcontainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.xtraboxcontainer{
+    cursor: pointer;
+    width: 36vw;
+    height: 20vw;
+    background-color: white;
+    margin: 2vw;
+    border-radius: 1.375vw;
+    border-width: 0.2vw;
+    border-color: black;
+}
+
+.xtraboxcontainer:hover{
+    background-color: #395474;
+    color: white;
+}
+
+.xtrabox{
+    width: 15vw;
+    height: 15vw;
+}
+
+.modal{
+    width:48vw;
+    height: 28vw;
+    border-color: #1B2F45;
+    border-width: 0.5vw;
+    border-radius: 3vw;
+}
