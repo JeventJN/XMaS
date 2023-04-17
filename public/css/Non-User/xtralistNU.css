@@ -8,10 +8,7 @@
 }
 
 .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    min-width: 90%;
     background-color: #A1A9B2;
     border-radius: 1vw;
 }
@@ -22,6 +19,7 @@
 }
 
 .rowcontainer{
+    min-width: 80vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -51,9 +49,19 @@
 }
 
 .modal{
+    display: none;
+    position: fixed;
+    margin-left: 24vw;
+    margin-top: 17vw;
+    background-color: white;
     width:48vw;
     height: 28vw;
     border-color: #1B2F45;
     border-width: 0.5vw;
     border-radius: 3vw;
+}
+
+.svg{
+    height: 3vw;
+    width: 3vw;
 }

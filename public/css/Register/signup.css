@@ -58,7 +58,7 @@
 .signupcontainer .boxfield{
     display: flex;
     flex-direction: column;
-    width: 58%;
+    max-width: 36vw;
     margin-left: 4vw;
     margin-bottom: 8vw;
     align-items: center;
@@ -67,7 +67,7 @@
 .signupcontainer .boxfield .textfield{
     display: flex;
     background-color: #1B2F45;
-    width: 100%;
+    max-width: 36vw;
     border-radius: 1vw;
     height: 3.5vw;
 }
