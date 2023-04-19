@@ -1,0 +1,407 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Nunito&display=swap");
+
+/* memanggil class di html  */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* height: 10000000px; */
+  font-family: "Anton", sans-serif;
+  font-family: "Nunito", sans-serif;
+}
+
+/* mengatur navbar   */
+/* .navbar {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.78vw;
+  line-height: 1.56vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.navbar .logo {
+  width: 5.73vw;
+}
+
+.navbar .user {
+  width: 1.56vw;
+} */
+
+/* mengatur position relative supaya di bawah satu dimensi box-jumboron */
+.jumbotron {
+  background-image: url("../assets/image_jumbo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 52vw;
+}
+
+/* Mengatur box-jumbotron, menggunakan position absolut supaya objek di atas jumbotron 1 dimensi */
+.box-jumbotron {
+  padding: 1.56vw;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 24vw;
+  background-color: rgba(161, 169, 178, 0.8);
+  /* border: red solid; */
+}
+
+/* mengatur jumbotron bagian logo BCA */
+.box-jumbotron #bca {
+  display: flex;
+  align-items: center;
+}
+
+.box-jumbotron .bca,
+.elips {
+  width: 100%;
+}
+
+/* ========================= */
+
+/* ======================== */
+
+.box-jumbotron .elips {
+  position: relative;
+  z-index: 2;
+}
+
+.button-elips a { /*Extra Schedule Leader*/
+  text-decoration: none;
+  color: black;
+  padding: 0.52vw 3.125vw;
+  padding-top: 1.2vw;
+  padding-bottom: 1.2vw;
+  padding-left: 17vw;
+  padding-right: 5vw;
+  border-radius: 0vw 1.3vw 1.3vw 0vw;
+  background-color: #d9d9d9;
+  border: blue 1px solid;
+  font-size: 22px;
+
+}
+
+.button-elips {
+  z-index: 2;
+  justify-content: space-around;
+  gap: 0.45vw;
+  top: 1.04vw;
+  height: 70%;
+  left: 2vw;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2.6vw;
+  border: red solid;
+}
+
+.button-make-advance a { /*Make Attendace dan Add Schedule*/
+  background-color: #395474;
+  color: white;
+  border-radius: 1.04vw;
+  padding: 0.78vw;
+  margin-top: -2.6vw;
+  margin-left: 1.3vw;
+  font-size: 1.04vw;
+}
+
+.button-make-advance a:hover { /*Make Attendace dan Add Schedule*/
+  background-color: #1B2F45;
+  color: white;
+}
+
+main .nav {
+  border: none;
+}
+
+/* untuk Description, Documentation, dan Member */
+main .nav-item { /*non-active*/
+  background-color: #395474;
+  color: white;
+  border-top-left-radius: 1.04vw;
+  border-top-right-radius: 1.04vw;
+  border: none;
+}
+
+main .nav-item:hover { /*non-active*/
+  background-color: #C1D5ED;
+  color: #395474;
+}
+
+main .nav-item a {
+  color: white;
+}
+
+main .nav-item a:hover {
+  color: #395474;
+}
+/* untuk Description, Documentation, dan Member */
+
+main .tab-content {
+  border-bottom-left-radius: 1.04vw;
+  border-top-right-radius: 1.04vw;
+  border-bottom-right-radius: 1.04vw;
+  background-color: #1b2f45;
+}
+
+main .tab-content .tab-pane {
+  padding: 3.125vw;
+  color: white;
+}
+
+.nav-link.active {
+  background-color: red;
+}
+
+.nav-item .nav-link.active { /*active*/
+  background-color: #1b2f45;
+  color: white;
+  border-top-left-radius: 1.04vw;
+  border-top-right-radius: 1.04vw;
+  border: none;
+  height: 3.17vw;
+}
+
+main .form-group textarea,
+input {
+  background-color: #d9d9d9;
+  border-radius: 1.04vw;
+  padding: 1.04vw;
+}
+
+main .card {
+  border: none;
+  background-color: transparent;
+}
+
+/* member */
+
+main #contact .card {
+  padding: 1.04vw;
+  background-color: #d9d9d9;
+  border-radius: 1.04vw;
+  overflow: auto;
+  height: 26vw;
+}
+
+/* main #contact .card ::-webkit-scrollbar {
+  display: none;
+} */
+main #contact .card .badge {
+  margin-top: 0.52vw;
+  font-size: 0.78vw;
+  border-radius: 1.5625vw;
+  padding: 1.04vw;
+  background-color: #395474;
+}
+
+main #contact img { /*gambar stop*/
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gambarstop{
+  width: auto;
+  height: 39vw;
+  justify-content: center;
+}
+
+main #contact .btn-member {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+main #contact .btn-member button {
+  padding: 1.04vw 7.81vw;
+  border: 0;
+  background-color: #d9d9d9;
+  font-size: 1.04vw;
+  font-weight: bold;
+  border-radius: 1.56vw;
+}
+
+main #contact .btn-member button:hover {
+  background-color: rgb(2, 133, 209);
+  color: wheat;
+}
+
+main #contact .modal {
+  border-radius: 1.04vw;
+  border: 0.3125 solid black;
+}
+
+/* mengatur tombol di modal  */
+.btn-yes-or-close {
+  margin-top: 1.04vw;
+}
+.btn-yes-or-close a {
+  padding: 0.36vw 2.6vw;
+}
+
+.btn-yes-or-close button {
+  padding: 0.36vw 2.6vw;
+}
+
+main .presence {
+  margin: 0;
+  margin-top: 100px;
+}
+
+main .presence-list {
+  width: 100%;
+  height: 20.833vw;
+  background-color: #1b2f45;
+  color: white;
+  border-top-right-radius: 1.04vw;
+  border: none;
+}
+
+main .presence .dropdown { /*dropdown choose date*/
+  border-top-left-radius: 1.04vw;
+  border-top-right-radius: 1.04vw;
+  padding: 0.52vw 0.52vw;
+  padding-left: 1.822vw;
+  width: 10.416vw;
+
+  background-color: #1b2f45;
+}
+
+main .presence .dropdown a {
+  color: white;
+}
+
+main .presence .dropdown-menu {
+  width: 15.625vw;
+}
+
+main .presence .dropdown-menu a {
+  font-weight: bold;
+  color: black !important;
+  border-bottom: 1px solid black;
+  border: red solid;
+}
+
+main .presence .badge {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.52vw;
+  font-size: 0.78vw;
+  border-radius: 1.5625vw;
+  padding: 1.04vw;
+  color: black;
+  background-color: #e5e5e5;
+}
+
+main .presence-list { /*Presence List Member*/
+  overflow-y: scroll;
+}
+
+/* mengatur warna inputan dan radius */
+.form_add input {
+  background-color: #d9d9d9;
+  border-radius: 1.04vw;
+  padding: 1.04vw;
+}
+
+.form_add label {
+  color: white;
+}
+
+/* mengatur tombol konfirmasi */
+.form_add #btn-confirm {
+  padding: 0.52vw 2.083vw;
+  font-weight: bold;
+  background-color: #d9d9d9;
+}
+
+/* membuat animasi ketika cursor di atas objek  */
+form_add #btn-confirm :hover {
+  background-color: aqua;
+}
+/* footoer */
+
+/* mengatur footer agar mempunyai space atas, padding atas dan mengatur warna background */
+footer {
+  margin-top: 5.2vw;
+  padding-top: 1.5625vw;
+  padding-bottom: 1.5625vw;
+  background-color: #364657;
+}
+
+/* untuk mencakum supaya css nya kena, dengan menambahkan koma (,) */
+footer ul li,
+footer p,
+footer i,
+footer h4 {
+  color: white;
+}
+
+/* bagian persentasi.html */
+
+section {
+  margin: 0;
+}
+section .row {
+  height: 100vh;
+}
+
+section img {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+section .btn_close a {
+  color: black;
+  width: 1.5625vw;
+  height: 1.5625vw;
+  border-radius: 100%;
+  border: 2px solid black;
+  top: 1.04vw;
+  left: 5.2vw;
+  font-size: 1.04vw;
+  z-index: 999;
+  position: absolute;
+}
+
+section .fa-sharp {
+  margin-top: 0.1vw;
+  display: flex;
+  align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+section .btn_close:hover {
+  background-color: black;
+  color: white;
+}
+
+section .blank {
+  padding: 1.04vw;
+  width: 100vh;
+  height: 100vh;
+  background-color: #000000;
+}
+
+section p {
+  color: white;
+}
