@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('chats', function (Blueprint $table) {
             $table->increments('kdChat');
-            $table->integer('kdMember');
+            $table->unsignedInteger('kdMember');
             $table->date('date');
             $table->time('time');
             $table->text('message');
             $table->string('photo');
             $table->timestamps();
+            $table->foreign('kdMember')
+                ->references('kdMember')->on('members')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

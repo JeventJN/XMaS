@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('presences', function (Blueprint $table) {
             $table->increments('kdPresence');
-            $table->integer('kdSchedule');
-            $table->integer('kdMember');
+            $table->unsignedInteger('kdSchedule');
+            $table->unsignedInteger('kdMember');
             $table->time('time');
             $table->timestamps();
+            $table->foreign('kdSchedule')
+                ->references('kdSchedule')->on('schedules')->cascadeOnDelete()->cascadeOnUpdate();
+                $table->foreign('kdMember')
+                ->references('kdMember')->on('members')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

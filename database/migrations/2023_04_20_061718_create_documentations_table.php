@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('documentations', function (Blueprint $table) {
             $table->increments('kdDocumentation');
-            $table->integer('kdExtracurricular');
+            $table->unsignedInteger('kdExtracurricular');
             $table->string('photo');
             $table->timestamps();
-        });
+            $table->foreign('kdExtracurricular')
+                ->references('kdExtracurricular')->on('extracurriculars')->cascadeOnDelete()->cascadeOnUpdate();
+    });
     }
 
     /**

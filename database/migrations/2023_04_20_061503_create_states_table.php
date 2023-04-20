@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
-            $table->increments('kdReport');
-            $table->integer('kdSchedule');
-            $table->integer('kdState');
-            $table->string('title');
-            $table->text('explanation');
-            $table->string('photo');
+        Schema::create('states', function (Blueprint $table) {
+            $table->increments('kdState');
+            $table->string('currState');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('states');
     }
 };

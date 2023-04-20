@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('reports', function (Blueprint $table) {
+            $table->increments('kdReport');
+            $table->unsignedInteger('kdSchedule');
+            $table->unsignedInteger('kdState');
+            $table->string('title');
+            $table->text('explanation');
+            $table->string('photo');
+            $table->timestamps();
+            $table->foreign('kdSchedule')
+                ->references('kdSchedule')->on('schedules')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('kdState')
+                ->references('kdState')->on('states')->cascadeOnDelete()->cascadeOnUpdate();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('reports');
+    }
+};

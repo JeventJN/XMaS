@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('schedules', function (Blueprint $table) {
-            $table->increments('kdSchedule');
-            $table->integer('kdExtracurricular');
-            $table->date('date');
-            $table->time('timeStart');
-            $table->time('timeEnd');
-            $table->string('location');
-            $table->text('explanation');
+        Schema::create('user_xmas', function (Blueprint $table) {
+            $table->char('NIP')->primary();
+            $table->string('name');
+            $table->string('program');
+            $table->string('phoneNumber');
+            $table->string('password');
+            $table->string('photo');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('user_xmas');
     }
 };
