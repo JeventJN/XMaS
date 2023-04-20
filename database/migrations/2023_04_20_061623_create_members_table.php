@@ -16,10 +16,16 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->increments('kdMember');
             $table->char('NIP');
-            $table->integer('kdExtracurricular');
-            $table->integer('kdState');
+            $table->unsignedInteger('kdExtracurricular');
+            $table->unsignedInteger('kdState');
             $table->text('reason');
             $table->timestamps();
+            $table->foreign('NIP')
+                ->references('NIP')->on('user_xmas')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('kdExtracurricular')
+                ->references('kdExtracurricular')->on('extracurriculars')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('kdState')
+                ->references('kdState')->on('states')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
