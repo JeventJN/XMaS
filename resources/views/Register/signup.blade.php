@@ -15,7 +15,7 @@
     <div class="bg-cover" style="background-image: url('Assets/SignUp.png')">
         <div class="topcontainer">
             <a href="/home">
-                <svg class="ml-[3vw] mt-[-0.1vw]" xmlns="http://www.w3.org/2000/svg" width="4vw" height="4vw" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M249.38 336L170 256l79.38-80m-68.35 80H342"/><path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192s192-86 192-192Z"/></svg>
+                <svg class="ml-[3vw] mt-[-0.1vw] back" xmlns="http://www.w3.org/2000/svg" width="4vw" height="4vw" viewBox="0 0 512 512"><path stroke-linecap="round" stroke-linejoin="round" d="M249.38 336L170 256l79.38-80m-68.35 80H342"/><path stroke-miterlimit="10" d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192s192-86 192-192Z"/></svg>
             </a>
             <div class="signuplogin ml-[2.5vw] font-nunito text-[1.2vw] font-medium">
                 <div class="signup">
