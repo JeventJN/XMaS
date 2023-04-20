@@ -100,3 +100,14 @@
 .no-outline:focus {
     outline: none;
 }
+
+.back{
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2vw;
+}
+
+.back:hover{
+    stroke: #D3F1FF;
+    stroke-width: 3.5vw;
+}
