@@ -142,3 +142,14 @@
 .signupcontainer .boxfield2 .buttonsignup .signup1:hover{
     background-color: black;
 }
+
+.back{
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2vw;
+}
+
+.back:hover{
+    stroke: #797D81;
+    stroke-width: 3.5vw;
+}
