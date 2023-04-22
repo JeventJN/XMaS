@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: 7vw;
+    height: 11vw;
 }
 
 .signuplogin{
@@ -11,43 +11,103 @@
     align-items: center;
     justify-content: center;
     margin-left: 1vw;
-    width: 13vw;
-    height: 3vw;
+    width: 11.5vw;
+    height: 3.1vw;
     background-color: #D3F1FF;
     border-radius: 3vw;
 }
 
 .signup{
     display: flex;
-    width: 6.5vw;
+    width: 5vw;
+    height: 2.7vw;
     justify-content: center;
     align-items: center;
-    font-size: 1.5vw;
+    margin-left: 0.2vw;
+    border-radius: 3vw;
+    color: black;
 }
 
 .login{
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-left: 0.2vw;
     width: 6.4vw;
     height: 2.7vw;
-    background-color: #56B8E6;
+    background-color: #1B2F45;
     border-radius: 3vw;
-    font-size: 1.5vw;
     color: white;
-}
-
-.login:hover{
-    cursor: pointer;
     margin-right: 0.2vw;
-    width: 6.4vw;
-    height: 2.7vw;
-    background-color: #56B8E6;
-    border-radius: 3vw;
-    font-size: 1.5vw;
-    color: white;
 }
 
-.signuplogin:hover > .signup{background-color: #D3F1FF; color: black;}
+.logincontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 57vw;
+    height: 31vw;
+    background-color: #395474;
+}
+
+.loginform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 37vw;
+    height: 11vw;
+}
+
+::-webkit-input-placeholder{
+    font-style: italic;
+}
+
+
+.fieldbox{
+    display: flex;
+    width: 100%;
+    background-color: #1B2F45;
+    height: 3.5vw;
+    border-radius: 1vw;
+}
+
+.buttonlogin{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonlogin .login1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:12vw;
+    height:2.6vw;
+    background-color: #1B2F45;
+}
+
+.login1:hover{
+    background-color: black;
+}
+
+.signnav{
+    color: #56B8E6;
+}
+
+.no-outline:focus {
+    outline: none;
+}
+
+.back{
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2vw;
+}
+
+.back:hover{
+    stroke: #D3F1FF;
+    stroke-width: 3.5vw;
+}

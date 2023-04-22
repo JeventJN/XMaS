@@ -1,0 +1,67 @@
+.bigcontainer
+{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    min-width: 90%;
+    background-color: #A1A9B2;
+    border-radius: 1vw;
+}
+
+.headercontainer{
+    width: 90%;
+    height: 13.5vw;
+}
+
+.rowcontainer{
+    min-width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.xtraboxcontainer{
+    cursor: pointer;
+    width: 36vw;
+    height: 20vw;
+    background-color: white;
+    margin: 2vw;
+    border-radius: 1.375vw;
+    border-width: 0.2vw;
+    border-color: black;
+}
+
+.xtraboxcontainer:hover{
+    background-color: #395474;
+    color: white;
+}
+
+.xtrabox{
+    width: 15vw;
+    height: 15vw;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    margin-left: 24vw;
+    margin-top: 17vw;
+    background-color: white;
+    width:48vw;
+    height: 28vw;
+    border-color: #1B2F45;
+    border-width: 0.5vw;
+    border-radius: 3vw;
+}
+
+.svg{
+    height: 3vw;
+    width: 3vw;
+}

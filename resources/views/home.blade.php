@@ -8,13 +8,16 @@
   <link rel="stylesheet" href="carousel/css/owl.carousel.min.css">
   <link rel="stylesheet" href="carousel/css/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
-  <link rel="stylesheet" href="carouse/lcss/style.css">
-  <link rel="stylesheet" href="css/Non-User/homeNU.css">
+  <link rel="stylesheet" href="carousel/css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <title>User Home</title>
   @vite('resources/css/app.css')
 </head>
 <body class="overflow-x-hidden">
-    {{-- Navbar Non-User --}}
+    {{-- Navbar Options --}}
     @include('Non-User.navbarNU')
+    {{-- @include('User.navbarU') --}}
+    {{-- @include('Admin.navbarA') --}}
     {{-- Header --}}
     @include('header')
 
@@ -61,11 +64,30 @@
         </div>
     </div>
 
-    <div class="bg-cover w-[screen]" style="background-image: url('Assets/SignUpNowBG.png')">
+    {{-- Banner Options --}}
+
+    {{-- Banner Home Non-User --}}
+    <div class="h-fit w-[screen]">
         <a href="">
-            <img src="Assets/SignUpNow.png" alt="" class="w-[40vw] h-[22vw]">
+            <div class="registernow absolute ml-[14vw] mt-[10.5vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw]">
+                JOIN NOW!!!
+            </div>
         </a>
+        <img src="Assets/SignUpNowBG.png" alt="">
     </div>
+
+    {{-- Banner Home User --}}
+    {{-- <img src="Assets/UserBanner.png" alt=""> --}}
+
+    {{-- Banner Admin --}}
+    {{-- <div class="h-fit w-[screen]">
+        <a href="">
+            <div class="checkreport absolute ml-[11.5vw] mt-[8.75vw] flex flex-col justify-center items-center font-nunito font-bold text-[2vw]">
+                CHECK REPORT
+            </div>
+        </a>
+        <img src="Assets/BannerAdmin.png" alt="">
+    </div> --}}
 
     {{-- Extracurricular Segment --}}
     <div class="segment">
@@ -73,7 +95,7 @@
             Extracurriculars
         </div>
         <a href="">
-            <h1 class="viewall font-noto">View All...</h1>
+            <h1 class="text-[#56B8E6] mr-[0.7vw] viewall font-nunito">View All</h1>
         </a>
         <div class="h-[30vw] w-[screen] flex items-center">
             <div class="featured-carousel owl-carousel">

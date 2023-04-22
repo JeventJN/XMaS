@@ -94,3 +94,25 @@
 .viewall:hover{
     color: blue;
 }
+
+.registernow{
+    width: fit-content ;
+    background-color:#D9D9D9;
+    color: black;
+}
+
+.registernow:hover{
+    color:red;
+}
+
+.checkreport{
+    width: fit-content ;
+    background-color:white;
+    color: black;
+}
+
+.checkreport:hover{
+    color:red;
+}
+
+
