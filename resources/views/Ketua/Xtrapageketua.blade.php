@@ -17,7 +17,7 @@
     />
 
     <!-- memanggil css di dalam folder css -->
-    <link rel="stylesheet" href="../public/css/Xtrapage.css" />
+    <link rel="stylesheet" href="../../../public/css/Xtrapage.css" />
 
     <!-- memanggil swiper js  -->
     <link
@@ -52,17 +52,17 @@
 
     <div class="jumbotron jumbotron-fluid">
       <div class="box-jumbotron">
-        <!-- membuat baris dan kolom di boo tstrap : row untuk membuat baris col untuk collom -->
+        <!-- membuat baris dan kolom di bootstrap : row untuk membuat baris col untuk collom -->
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-right ">
               <div class="button-elips">
-                <a href="#">Xtra</a>
-                <a href="">Schedule</a>
-                <a href="">Leader</a>
+                <a href="#" class="JudulXtra">Xtra Running</a>
+                <a href="" class="ScheduleXtra">Wed (17.00-19.00)</a>
+                <a href="" class="LeaderXtra">Jevent Natthannael</a>
               </div>
               <div class="elips">
-                <img src="assets/Ellipse 45.png" alt="" class="elips" style="margin-left: -4.8vw; width: 20.8vw;"/> <!--ganti margin-left-->
+                <img src="../../../public/Assets/Xtrapage assets/Ellipse 45.png" alt="" class="elips" style="margin-left: -4vw; width: 20.8vw;"/> <!--ganti margin-left-->
               </div>
             </div>
 
@@ -72,7 +72,7 @@
               data-aos="fade-left"
             >
               <center>
-                <img src="assets/bca.png" alt="" class="bca" style="width: 32vw; margin-left: 4.5vw;"/>
+                <img src="../../../public/Assets/Xtrapage assets/bca.png" alt="" class="bca" style="width: 32vw; margin-left: 4.5vw;"/>
               </center>
             </div>
           </div>
@@ -84,7 +84,7 @@
       <br /><br />
       <div class="container">
         <div class="button-make-advance float-right" data-aos="fade-down">
-          <a href="absensi.html" class="btn">Make Attendance</a>
+          <a href="absensiketua.html" class="btn">Make Attendance</a>
           <a type="button" class="btn" data-toggle="modal" data-target="#add">
             Add Schedule
           </a>
@@ -107,6 +107,7 @@
               role="tab"
               aria-controls="home"
               aria-selected="true"
+              style="padding-top: 1vw;"
               >Description</a
             >
           </li>
@@ -119,6 +120,7 @@
               role="tab"
               aria-controls="profile"
               aria-selected="false"
+              style="padding-top: 1vw;"
               >Documentation</a
             >
           </li>
@@ -131,6 +133,7 @@
               role="tab"
               aria-controls="contact"
               aria-selected="false"
+              style="padding-top: 1vw;"
               >Member</a
             >
           </li>
@@ -144,7 +147,7 @@
           >
             <form action="">
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Description :</label>
+                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw;">Description :</label>
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
@@ -153,7 +156,7 @@
               </div>
 
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Activity :</label>
+                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw;">Activity :</label>
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
@@ -173,7 +176,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="assets/foto/1.png"
+                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -182,7 +185,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="assets/foto/2.png"
+                      src="../../../public/Assets/Xtrapage assets/foto/2.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -191,7 +194,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="assets/foto/3.png"
+                      src="../../../public/Assets/Xtrapage assets/foto/3.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -200,7 +203,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="assets/foto/1.png"
+                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -209,7 +212,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="assets/foto/1.png"
+                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -218,7 +221,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="assets/foto/1.png"
+                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -227,7 +230,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="assets/foto/1.png"
+                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -236,7 +239,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="assets/foto/1.png"
+                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -254,6 +257,7 @@
             role="tabpanel"
             aria-labelledby="contact-tab"
           >
+          <h5 class="font-weight-bold">Member : 14</h5>
             <div class="row" id="member">
               <br />
               <div class="col-lg-6 col-sm-6 col-md-6">
@@ -273,7 +277,7 @@
 
               <br />
               <div class="col-lg-6 col-sm-6 col-md-6">
-                <img src="assets/stop.png" alt="" class="gambarstop"/>
+                <img src="../../../public/Assets/Xtrapage assets/stop.png" alt="" class="gambarstop"/>
                 <div class="btn-member">
                   <button
                     type="button"
@@ -281,7 +285,7 @@
                     data-toggle="modal"
                     data-target="#staticBackdrop"
                   >
-                    Leave xtra
+                    Leave Xtra
                   </button>
                 </div>
               </div>
@@ -320,13 +324,17 @@
           <div class="presence-list">
             <div class="container">
               <div class="row p-5 d-flex justify-content-center">
-                <div class="col-12">
-                  <h4 class="text-center text-light font-weight-bold">
+                <div class="col-13">
+                  <h4 class="text-center text-light font-weight-bold" style="margin-top: -1.8vw;">
                     Presence Member List
                   </h4>
 
                   <span class="badge">Jevent Natthannael</span>
                   <span class="badge">Jordan Cornelius</span>
+                  <span class="badge">Nathaniel Calvin</span>
+                  <span class="badge">Steven Felizion</span>
+                  <span class="badge">Michael Apen</span>
+                  <span class="badge">Harris Wahyudi</span>
                   <span class="badge">Nathaniel Calvin</span>
                   <span class="badge">Steven Felizion</span>
                   <span class="badge">Michael Apen</span>
@@ -365,7 +373,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <h4 class="font-weight-bold">
+            <h4 class="font-weight-bold" style="margin-top: -2vw;">
               You Will <span class="text-danger">Leave</span> From This Xtra.
             </h4>
             <h4 class="font-weight-bold">Do You Want To Continue?</h4>
@@ -381,7 +389,7 @@
       </div>
     </div>
 
-    <!-- modal add scadul -->
+    <!-- modal add schedule -->
     <div
       class="modal fade"
       id="add"
@@ -392,7 +400,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content" style="background-color: #1b2f45">
+        <div class="modal-content" style="background-color: #1b2f45; border-radius: 2vw; padding: 1.8vw;">
           <div class="modal-header" style="border: none">
             <button
               type="button"
@@ -416,7 +424,7 @@
               <div class="col-lg-6 col-sm-6 col-md-6">
                 <form class="form_add">
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label"
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size: 1.5vw;"
                       >Xtra:</label
                     >
                     <div class="col-sm-10">
@@ -428,7 +436,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label"
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size: 1.5vw;"
                       >Activity:</label
                     >
                     <div class="col-sm-10">
@@ -440,7 +448,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label"
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size: 1.5vw;"
                       >Schedule:</label
                     >
                     <div class="col-sm-10">
@@ -452,7 +460,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label"
+                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size: 1.5vw;"
                       >Location:</label
                     >
                     <div class="col-sm-10">
