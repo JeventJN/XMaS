@@ -91,7 +91,7 @@
         </div>
 
         <br /><br /><br />
-        <!-- membuat navs di botstrap  -->
+        <!-- membuat navs di bootstrap  -->
         <ul
           class="nav nav-tabs"
           id="myTab"
