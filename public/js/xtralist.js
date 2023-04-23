@@ -28,3 +28,8 @@ for(var checkbox of checkboxes) {
         }
     })
 }
+
+function eventsubmits(){
+    const search = document.getElementById('search')
+    return true;
+}

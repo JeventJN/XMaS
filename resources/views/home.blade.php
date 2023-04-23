@@ -32,8 +32,47 @@
                     <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
                         <div class="upcomingxtra">
                             <div class="logo">
-                                <img class="photo" src="Assets/RunningBg.jpeg" alt="">
-                                <img class="logoxtra absolute" src="Assets/RunningLogo.png" alt="">
+                                <div class="photo">
+                                    {{-- Pass Xtra BG Here --}}
+                                    <img src="Assets/RunningBg.jpeg" alt="">
+                                </div>
+                                <div class="logoxtra">
+                                    {{-- Pass Xtra Logo Here--}}
+                                    <img src="Assets/RunningLogo.png" alt="">
+                                </div>
+                            </div>
+                            <div class="title text-[1.5vw]">
+                                {{-- Pass Xtra Name Here --}}
+                                Dance
+                            </div>
+                            <div class="content text-white text-[1.5vw]">
+                                <h3>
+                                    {{-- Pass Xtra Location Here --}}
+                                    RTB
+                                </h3>
+                                <h3>
+                                    {{-- Pass Xtra Schedule Here --}}
+                                    Rabu, 12/3/2023
+                                </h3>
+                                <h3>
+                                    {{-- Pass Xtra Contact Here --}}
+                                    082175932808
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {{-- Bawah ini boleh hapus --}}
+                <a href="">
+                    <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                        <div class="upcomingxtra">
+                            <div class="logo">
+                                <div class="photo">
+                                    <img src="Assets/RunningBg.jpeg" alt="">
+                                </div>
+                                <div class="logoxtra">
+                                    <img src="Assets/RunningLogo.png" alt="">
+                                </div>
                             </div>
                             <div class="title text-[1.5vw]">Running</div>
                             <div class="content text-white text-[1.5vw]">
@@ -44,22 +83,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="">
-                    <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
-                        <div class="upcomingxtra">
-                            <div class="logo">
-                                <img class="photo" src="Assets/RunningBg.jpeg" alt="">
-                                <img class="logoxtra absolute" src="Assets/RunningLogo.png" alt="">
-                            </div>
-                            <div class="title text-[1.5vw]">Dance</div>
-                            <div class="content text-white text-[1.5vw]">
-                                <h3>RTB</h3>
-                                <h3>Rabu, 12/3/2023</h3>
-                                <h3>082175932808</h3>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                {{-- Hapus sampai sini --}}
             </div>
         </div>
     </div>
@@ -67,13 +91,13 @@
     {{-- Banner Options --}}
 
     {{-- Banner Home Non-User --}}
-    <div class="h-fit w-[screen]">
+    <div class="h-fit w-screen">
         <a href="">
             <div class="registernow absolute ml-[14vw] mt-[10.5vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw]">
                 JOIN NOW!!!
             </div>
         </a>
-        <img src="Assets/SignUpNowBG.png" alt="">
+        <img class="min-w-[100%]" src="Assets/SignUpNowBG.png" alt="">
     </div>
 
     {{-- Banner Home User --}}
@@ -94,16 +118,23 @@
         <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-black flex text-[1.75vw] items-center justify-center">
             Extracurriculars
         </div>
-        <a href="">
-            <h1 class="text-[#56B8E6] mr-[0.7vw] viewall font-nunito">View All</h1>
-        </a>
+        <h1 class="text-[#56B8E6] viewall font-nunito">
+            <a href="">
+                View All
+            </a>
+        </h1>
         <div class="h-[30vw] w-[screen] flex items-center">
             <div class="featured-carousel owl-carousel">
                 <a href="">
                     <div class="xtrahover h-[25vw] flex items-center justify-center font-noto text-[2vw]">
                         <div class="xtra">
-                            <img class="rounded-[50%] p-[2vw]" src="Assets/RunningLogo.png" alt="">
-                            <h3>Running</h3>
+                            <div class="xtralogo">
+                                <img src="Assets/RunningLogo.png" alt="">
+                            </div>
+                            <h3 class="mt-[1vw]">
+                                {{-- Pass Xtra Name Here --}}
+                                Running
+                            </h3>
                         </div>
                     </div>
                 </a>
