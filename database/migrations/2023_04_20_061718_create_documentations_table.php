@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('kdDocumentation');
             $table->unsignedInteger('kdExtracurricular');
             $table->string('photo');
-            $table->timestamps();
+            // $table->timestamps();
             $table->foreign('kdExtracurricular')
                 ->references('kdExtracurricular')->on('extracurriculars')->cascadeOnDelete()->cascadeOnUpdate();
     });

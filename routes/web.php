@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\logInController;
+use App\Http\Controllers\signUpController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +23,13 @@ Route::get('/signup', function () {
     return view('Register/signup');
 });
 
+Route::post('/signup', [signUpController::class, 'store']);
+
 Route::get(('/login'), function(){
     return view('Register/login');
 });
+
+Route::post('/login', [logInController::class, 'masuk']);
 
 Route::get(('/footer'), function(){
     return view('footer');

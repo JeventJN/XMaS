@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('states', function (Blueprint $table) {
             $table->increments('kdState');
             $table->string('currState');
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

@@ -33,7 +33,8 @@
         </div>
         <div class="flex flex-row">
             <img class="mt-[3vw] w-[35vw]" src="Assets/LogoXMaSBlack.png" alt="">
-            <form action="/home" id="loginvalid" method="POST" autocomplete="off" onsubmit="return eventsubmits(this);">
+            <form action="/login" id="loginvalid" method="POST" autocomplete="off" onsubmit="return eventsubmits(this);">
+                @csrf
                 <div class="relative ml-[-3.5vw] logincontainer mt-[4vw] rounded-[1.5vw]">
                     <div class="loginform mt-[5vw]">
                         <div class="fieldbox flex items-center">

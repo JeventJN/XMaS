@@ -1,18 +1,18 @@
 function eventsubmits(){
-    const username = document.getElementById('username')
-    const nip = document.getElementById('nip')
+    const name = document.getElementById('name')
+    const nip = document.getElementById('NIP')
     const phone = document.getElementById('phone')
     const password = document.getElementById('password')
     const password1 = document.getElementById('password1')
     const form = document.getElementById('signupvalid')
 
-    if(username.value.length < 6){
-        alert("Username can't be less than 6 characters");
+    if(name.value.length < 6){
+        alert("Name can't be less than 6 characters");
         return false;
     }
 
-    if(username.value.length > 25){
-        alert("Username must be less than 25 characters");
+    if(name.value.length > 25){
+        alert("Name must be less than 25 characters");
         return false;
     }
 
