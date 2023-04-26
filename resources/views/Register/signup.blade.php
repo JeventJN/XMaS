@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/Register/signup.css">
-    <script src="js/Register/signup.js"></script>
+    {{-- <script src="js/Register/signup.js"></script> --}}
     <title>Sign Up</title>
     @vite('resources/css/app.css')
 
@@ -51,14 +51,14 @@
                         <div class="textfield mt-[5vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/username.png" alt="">
                             <div class="flex flex-col">
-                                <input type="name" id="name" name="name" placeholder="Enter your name here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required value="{{ old('name')}}">
+                                <input type="name" id="name" name="name" placeholder="Enter your name here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white " required value="{{ old('name')}}">
                                 <img class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
                         <div class="textfield mt-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/nip.png" alt="">
                             <div>
-                                <input type="tel" id="NIP" name="NIP" placeholder="Enter your NIP here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required pattern="[0-9]+" value="{{ old('NIP')}}">
+                                <input type="tel" id="NIP" name="NIP" placeholder="Enter your NIP here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white @error('NIP') is-invalid @enderror" required pattern="[0-9]+" value="{{ old('NIP')}}">
                                 <img class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
@@ -76,14 +76,14 @@
                         <div class="textfield mb-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/call.png" alt="">
                             <div>
-                                <input type="tel" id="phone" name="phoneNumber" placeholder="Enter your phone number here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required pattern="[0-9]+" value="{{ old('phoneNumber')}}">
+                                <input type="tel" id="phone" name="phoneNumber" placeholder="Enter your phone number here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white " required pattern="[0-9]+" value="{{ old('phoneNumber')}}">
                                 <img class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
                         <div class="textfield mb-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]"  src="Assets/password.png" alt="">
                             <div>
-                                <input type="password" id="password" name="password" placeholder="Enter your password here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required>
+                                <input type="password" id="password" name="password" placeholder="Enter your password here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white " required>
                                 <img  class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
@@ -94,6 +94,11 @@
                                 <img  class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
+                        @error('NIP')
+                        <div class="flex ml-[1vw] text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-bold">
+                            NIP is already registered
+                        </div>
+                        @enderror
                     </div>
                     <div class="boxfield2">
                         <p class="text-white font-nunito text-[1.2vw] mt-[5vw]">Upload your photo</p>
