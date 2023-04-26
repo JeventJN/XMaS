@@ -25,12 +25,11 @@
 
 .upcomingxtra .logo{
     display: flex;
-    align-items: center;
-    position: relative;
+    flex-direction: column;
     height: 8.75vw;
 }
 
-.upcomingxtra .photo{
+.upcomingxtra .photo img{
     position: absolute;
     width: 15vw;
     height: 4.375vw;
@@ -38,10 +37,13 @@
     margin-bottom: 4.375vw;
 }
 
-.upcomingxtra .logoxtra{
-    padding: 4vw;
+.upcomingxtra .logoxtra img{
+    position: absolute;
+    margin-top: 0.75vw;
+    margin-left: 3.75vw;
+    width: 7.5vw;
+    height: 7.5vw;
     border-radius: 50%;
-
 }
 
 .upcomingxtra .title{
@@ -72,7 +74,7 @@
     height: 20vw;
     background-color: white;
     border-color: black;
-    border-width: 0.25vw;
+    border-width: 0.2vw;
     margin-left: 2vw;
     border-radius: 2vw;
     display: flex;
@@ -84,11 +86,22 @@
     transform: scale(1.1);
 }
 
+.xtralogo img{
+    margin-top: 3vw;
+    min-width: 10vw;
+    min-height: 10vw;
+    max-width: 10vw;
+    max-height: 10vw;
+    border-radius: 50%;
+}
+
 .viewall{
+    position: absolute;
     font-size: 1.5vw;
     color: #0079FF;
     text-decoration: underline;
-    text-align: right;
+    margin-top: 2vw;
+    margin-left: 92vw;
 }
 
 .viewall:hover{

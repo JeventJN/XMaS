@@ -48,6 +48,12 @@
     height: 15vw;
 }
 
+.xtrabox img{
+    border-radius: 50%;
+    width: 12vw;
+    height: 12vw;
+}
+
 .modal{
     display: none;
     position: fixed;
@@ -64,4 +70,8 @@
 .svg{
     height: 3vw;
     width: 3vw;
+}
+
+.no-outline:focus {
+    outline: none;
 }

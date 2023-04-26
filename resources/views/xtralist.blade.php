@@ -63,23 +63,30 @@
     <div class="bigcontainer">
         <div class="container mt-[9vw] w-[87vw]">
             <div class="headercontainer flex justify-start items-center mb-[3vw] ml-[5vw]">
-                <p class="text-[2.2vw] font-semibold ml-[1vw]">Xtra List</p>
+                <p class="text-[1.7vw] font-semibold ml-[1vw]">Xtra List</p>
                 <button class="svg ml-[39vw] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg"  id="showmodal" viewBox="0 0 24 24"><path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"/></svg>
                 </button>
-                <div class="bg-neutral-100 ml-[1vw] w-[25.5vw] h-[4vw] rounded-[1vw] shadow flex items-center justify-end">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="svg mr-[1vw]" viewBox="0 0 24 24"><path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.612 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3l-1.4 1.4ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z"/></svg>
-                </div>
+                <form action="/xtralistNU" method="POST" onsubmit="return eventsubmits(this);">
+                    <div class="bg-neutral-100 ml-[1vw] w-[25.5vw] h-[4vw] rounded-[1vw] shadow flex items-center justify-end">
+                        <div class="flex items-center justify-center w-[19vw] h-[3.5vw] mr-[1vw] font-nunito text-[1.5vw]">
+                            <input class="bg-neutral-100 h-[3.5vw] w-[19vw] no-outline" autocomplete="off" type="text" name="search">
+                        </div>
+                        <button type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg mr-[1vw]" viewBox="0 0 24 24"><path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.612 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3l-1.4 1.4ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z"/></svg>
+                        </button>
+                    </div>
+                </form>
             </div>
             <div class="rowcontainer">
                 <div class="xtraboxcontainer flex justify-center items-center">
                     <div class="xtrabox flex justify-center items-center">
                         {{-- Disisni silahkan masukan phpnya --}}
-                        <img class="rounded-[50%] h-[12vw] w-[12vw]" src="Assets/RunningLogo.png" alt="">
+                        <img src="Assets/RunningLogo.png" alt="">
                     </div>
                     <div class="xtrabox flex flex-col items-start justify-center font-nunito">
                         {{-- Disisni silahkan masukan phpnya --}}
-                        <div class="text-[2.2vw] underline font-extrabold mb-[1vw]">Running</div>
+                        <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
@@ -88,10 +95,10 @@
                 {{-- Tampilan ke bawwah ini cuma prototype aja, waktu nge loop data php per xtraboxcontianer, hapus aja codingngan dibawah --}}
                 <div class="xtraboxcontainer flex justify-center items-center">
                     <div class="xtrabox flex justify-center items-center">
-                        <img class="rounded-[50%] h-[12vw] w-[12vw]" src="Assets/RunningLogo.png" alt="">
+                        <img src="Assets/RunningLogo.png" alt="">
                     </div>
                     <div class="xtrabox flex flex-col items-start justify-center font-nunito">
-                        <div class="text-[2.2vw] underline font-extrabold mb-[1vw]">Running</div>
+                        <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
@@ -99,10 +106,10 @@
                 </div>
                 <div class="xtraboxcontainer flex justify-center items-center">
                     <div class="xtrabox flex justify-center items-center">
-                        <img class="rounded-[50%] h-[12vw] w-[12vw]" src="Assets/RunningLogo.png" alt="">
+                        <img src="Assets/RunningLogo.png" alt="">
                     </div>
                     <div class="xtrabox flex flex-col items-start justify-center font-nunito">
-                        <div class="text-[2.2vw] underline font-extrabold mb-[1vw]">Running</div>
+                        <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
@@ -110,10 +117,10 @@
                 </div>
                 <div class="xtraboxcontainer flex justify-center items-center">
                     <div class="xtrabox flex justify-center items-center">
-                        <img class="rounded-[50%] h-[12vw] w-[12vw]" src="Assets/RunningLogo.png" alt="">
+                        <img src="Assets/RunningLogo.png" alt="">
                     </div>
                     <div class="xtrabox flex flex-col items-start justify-center font-nunito">
-                        <div class="text-[2.2vw] underline font-extrabold mb-[1vw]">Running</div>
+                        <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
                         <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
