@@ -44,20 +44,21 @@
 
         <div class="flex flex-row">
             <img class="mt-[3vw] w-[35vw]" src="Assets/LogoXMaSBlack.png" alt="">
-            <form action="/login" id="signupvalid" method="POST" autocomplete="off" onsubmit="return eventsubmits(this)">
+            <form action="/signup" id="signupvalid" method="POST" autocomplete="off" onsubmit="return eventsubmits(this)">
+                @csrf
                 <div class="absolute signupcontainer mt-[2vw] ml-[-5vw] z-30">
                     <div class="boxfield text-[1.2vw]">
                         <div class="textfield mt-[5vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/username.png" alt="">
                             <div class="flex flex-col">
-                                <input type="name" id="username" name="username" placeholder="Enter your name here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required>
+                                <input type="name" id="name" name="name" placeholder="Enter your name here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required value="{{ old('name')}}">
                                 <img class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
                         <div class="textfield mt-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/nip.png" alt="">
                             <div>
-                                <input type="tel" id="nip" name="nip" placeholder="Enter your NIP here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required pattern="[0-9]+">
+                                <input type="tel" id="NIP" name="NIP" placeholder="Enter your NIP here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required pattern="[0-9]+" value="{{ old('NIP')}}">
                                 <img class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
@@ -75,7 +76,7 @@
                         <div class="textfield mb-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/call.png" alt="">
                             <div>
-                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required pattern="[0-9]+">
+                                <input type="tel" id="phone" name="phoneNumber" placeholder="Enter your phone number here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required pattern="[0-9]+" value="{{ old('phoneNumber')}}">
                                 <img class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
@@ -99,6 +100,8 @@
                         {{-- Input Gambar --}}
                         <div class="upload">
                             <img class="h-[26vw]" src="Assets/UploadPhoto.png" alt="">
+                            {{-- Coy ini data dummy --}}
+                            <input type="name" id="photo" name="photo" value="{{ 'PHOTO DUMMY' }}" style="display: none;">
                             {{-- <input type="read" id="image" name="imageprofile" style="width: 15vw; height: 26vw;"> --}}
                         </div>
                         {{-- Masih Diusahakan --}}
