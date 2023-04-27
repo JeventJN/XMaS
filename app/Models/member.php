@@ -9,6 +9,9 @@ class member extends Model
 {
     use HasFactory;
 
+    // protected $fillable = [''];
+    protected $guarded = ['kdMember'];
+
     public function userXmas(){
         return $this->belongsTo(userXmas::class, 'NIP');
     }

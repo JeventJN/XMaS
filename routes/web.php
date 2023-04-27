@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\logInController;
 use App\Http\Controllers\signUpController;
+use App\Http\Controllers\xtralistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,7 @@ Route::get(('/footer'), function(){
     return view('footer');
 });
 
-Route::get(('/xtralistNU'), function(){
-    return view('xtralist');
-});
+Route::get(('/xtralistNU'), [xtralistController::class, 'index']);
+
+// halaman xtra satuan
+Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtralistController::class, 'show']);

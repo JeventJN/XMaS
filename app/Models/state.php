@@ -9,6 +9,9 @@ class state extends Model
 {
     use HasFactory;
 
+    // protected $fillable = [''];
+    protected $guarded = ['kdState'];
+
     public function members(){
         return $this->hasMany(member::class, 'kdMember');
     }

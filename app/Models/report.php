@@ -9,6 +9,9 @@ class report extends Model
 {
     use HasFactory;
 
+    // protected $fillable = [''];
+    protected $guarded = ['kdReport'];
+
     public function state(){
         return $this->belongsTo(state::class, 'kdState');
     }

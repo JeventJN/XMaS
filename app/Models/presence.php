@@ -9,6 +9,9 @@ class presence extends Model
 {
     use HasFactory;
 
+    // protected $fillable = [''];
+    protected $guarded = ['kdPresence'];
+
     public function members(){
         return $this->belongsTo(member::class, 'kdMember');
     }

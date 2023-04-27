@@ -9,6 +9,9 @@ class schedule extends Model
 {
     use HasFactory;
 
+    // protected $fillable = [''];
+    protected $guarded = ['kdSchedule'];
+
     public function xtras(){
         return $this->belongsTo(extracurricular::class, 'kdExtracurricular');
     }
