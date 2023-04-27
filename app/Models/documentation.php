@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class documentation extends Model
 {
     use HasFactory;
+
+    public function xtras(){
+        return $this->belongsTo(extracurricular::class, 'kdExtracurricular');
+    }
 }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('logo');
             $table->text('description');
             $table->string('category');
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

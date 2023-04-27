@@ -21,7 +21,7 @@ return new class extends Migration
             $table->time('timeEnd');
             $table->string('location');
             $table->text('explanation');
-            // $table->timestamps();
+            $table->timestamps();
             $table->foreign('kdExtracurricular')
                 ->references('kdExtracurricular')->on('extracurriculars')->cascadeOnDelete()->cascadeOnUpdate();
         });

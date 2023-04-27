@@ -20,7 +20,7 @@ return new class extends Migration
             $table->time('time');
             $table->text('message');
             $table->string('photo');
-            // $table->timestamps();
+            $table->timestamps();
             $table->foreign('kdMember')
                 ->references('kdMember')->on('members')->cascadeOnDelete()->cascadeOnUpdate();
         });
