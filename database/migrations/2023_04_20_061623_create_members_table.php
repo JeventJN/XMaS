@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedInteger('kdExtracurricular');
             $table->unsignedInteger('kdState');
             $table->text('reason');
-            // $table->timestamps();
+            $table->timestamps();
             $table->foreign('NIP')
                 ->references('NIP')->on('user_xmas')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('kdExtracurricular')

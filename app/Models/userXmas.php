@@ -19,4 +19,8 @@ class userXmas extends Model
     ];
 
     // protected $guarded = ['photo'];
+
+    public function members(){
+        return $this->hasMany(Member::class, 'kdMember');
+    }
 }
