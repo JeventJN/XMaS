@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/Register/signup.css">
-    {{-- <script src="js/Register/signup.js"></script> --}}
+    <script src="js/Register/signup.js"></script>
     <title>Sign Up</title>
     @vite('resources/css/app.css')
 
@@ -44,7 +44,7 @@
 
         <div class="flex flex-row">
             <img class="mt-[3vw] w-[35vw]" src="Assets/LogoXMaSBlack.png" alt="">
-            <form action="/signup" id="signupvalid" method="POST" autocomplete="off" onsubmit="return eventsubmits(this)">
+            <form action="/signup" id="signupvalid" method="POST" autocomplete="off" onsubmit="return eventsubmits(this)" enctype="multipart/form-data">
                 @csrf
                 <div class="absolute signupcontainer mt-[2vw] ml-[-5vw] z-30">
                     <div class="boxfield text-[1.2vw]">
@@ -100,13 +100,16 @@
                         </div>
                         @enderror
                     </div>
+
                     <div class="boxfield2">
                         <p class="text-white font-nunito text-[1.2vw] mt-[5vw]">Upload your photo</p>
                         {{-- Input Gambar --}}
-                        <div class="upload">
-                            <img class="h-[26vw]" src="Assets/UploadPhoto.png" alt="">
+                        <div class="upload" >
+                            <img class="h-[26vw]" id="photoContainer" src="Assets/UploadPhoto.png" alt="">
+                            <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0" type="file" name="photo" id="photo" oninput="photoContainer.src='Assets/PhotoUploaded.png'" required>
+
                             {{-- Coy ini data dummy --}}
-                            <input type="name" id="photo" name="photo" value="{{ 'PHOTO DUMMY' }}" style="display: none;">
+                            {{-- <input type="name" id="photo" name="photo" value="{{ 'PHOTO DUMMY' }}" style="display: none;"> --}}
                             {{-- <input type="read" id="image" name="imageprofile" style="width: 15vw; height: 26vw;"> --}}
                         </div>
                         {{-- Masih Diusahakan --}}
