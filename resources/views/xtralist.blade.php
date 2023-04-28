@@ -23,33 +23,33 @@
                 <label class="text-[2vw]" for="">Categories</label>
                 <div class="flex items-center">
                     <input type="checkbox" id="Physique" name="Physique" value="Physique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                    <label class="ml-[1vw] text-[2vw]" for="">Physique</label>
+                    <label class="ml-[1vw] text-[2vw]" for="Physique">Physique</label>
                 </div>
                 <div class="flex items-center">
                     <input type="checkbox" id="NonPhysique" name="NonPhysique" value="NonPhysique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                    <label class="ml-[1vw] text-[2vw]" for="">Non-Physique</label>
+                    <label class="ml-[1vw] text-[2vw]" for="NonPhysique">Non-Physique</label>
                 </div>
                 <label class="mt-[1vw] text-[2vw]" for="">Days</label>
                 <div class="flex flex-wrap w-[25vw]">
                     <div class="flex items-center">
                         <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="">Mon</label>
+                        <label class="ml-[1vw] text-[2vw]" for="Mon">Mon</label>
                     </div>
                     <div class="flex items-center ml-[3vw]">
                         <input type="checkbox" id="Tue" name="Tue" value="Tue" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="">Tue</label>
+                        <label class="ml-[1vw] text-[2vw]" for="Tue">Tue</label>
                     </div>
                     <div class="flex items-center ml-[3vw]">
                         <input type="checkbox" id="Wed" name="Wed" value="Wed" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="">Wed</label>
+                        <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
                     </div>
                     <div class="flex items-center">
                         <input type="checkbox" id="Thurs" name="Thurs" value="Thurs" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="">Thurs</label>
+                        <label class="ml-[1vw] text-[2vw]" for="Thurs">Thurs</label>
                     </div>
                     <div class="flex items-center ml-[3vw]">
                         <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="">Fri</label>
+                        <label class="ml-[1vw] text-[2vw]" for="Fri">Fri</label>
                     </div>
                 </div>
             </div>
@@ -79,54 +79,24 @@
                 </form>
             </div>
             <div class="rowcontainer">
-                <div class="xtraboxcontainer flex justify-center items-center">
-                    <div class="xtrabox flex justify-center items-center">
-                        {{-- Disisni silahkan masukan phpnya --}}
-                        <img src="Assets/RunningLogo.png" alt="">
+                @foreach ($xtras as $xtra)
+                    <a href="">
+                        <div class="xtraboxcontainer flex justify-center items-center">
+                            <div class="xtrabox flex justify-center items-center">
+                                {{-- Disisni silahkan masukan phpnya --}}
+                                {{-- <img src="{{ $xtra->logo }}" alt="Logo {{ $xtra->name }}"> --}}
+                                <img src="Assets/{{ $xtra->logo }}" alt="Logo {{ $xtra->name }}">
+                            </div>
+                            <div class="xtrabox flex flex-col items-start justify-center font-nunito">
+                                {{-- Disisni silahkan masukan phpnya --}}
+                                <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
+                                {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->members->userXmas->name }}Jevent</div> --}}
+                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date_format($xtra->schedules->date, 'D'), date_format($xtra->schedules->timestart, 'H.i') - date_format($xtra->schedules->timeend, 'H.i') }}Wed, 17.00 - 19.00</div>
+                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
+                            </div>
+                        </a>
                     </div>
-                    <div class="xtrabox flex flex-col items-start justify-center font-nunito">
-                        {{-- Disisni silahkan masukan phpnya --}}
-                        <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
-                    </div>
-                </div>
-                {{-- Tampilan ke bawwah ini cuma prototype aja, waktu nge loop data php per xtraboxcontianer, hapus aja codingngan dibawah --}}
-                <div class="xtraboxcontainer flex justify-center items-center">
-                    <div class="xtrabox flex justify-center items-center">
-                        <img src="Assets/RunningLogo.png" alt="">
-                    </div>
-                    <div class="xtrabox flex flex-col items-start justify-center font-nunito">
-                        <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
-                    </div>
-                </div>
-                <div class="xtraboxcontainer flex justify-center items-center">
-                    <div class="xtrabox flex justify-center items-center">
-                        <img src="Assets/RunningLogo.png" alt="">
-                    </div>
-                    <div class="xtrabox flex flex-col items-start justify-center font-nunito">
-                        <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
-                    </div>
-                </div>
-                <div class="xtraboxcontainer flex justify-center items-center">
-                    <div class="xtrabox flex justify-center items-center">
-                        <img src="Assets/RunningLogo.png" alt="">
-                    </div>
-                    <div class="xtrabox flex flex-col items-start justify-center font-nunito">
-                        <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
-                    </div>
-                </div>
-                {{-- Hapus sampai sini --}}
+                @endforeach
             </div>
         </div>
     </div>
