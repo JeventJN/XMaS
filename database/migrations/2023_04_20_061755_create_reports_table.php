@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('explanation');
             $table->string('photo');
-            // $table->timestamps();
+            $table->timestamps();
             $table->foreign('kdSchedule')
                 ->references('kdSchedule')->on('schedules')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('kdState')

@@ -18,5 +18,4 @@ class userXmas extends Model
         'photo'
     ];
 
-    // protected $guarded = ['photo'];
 }

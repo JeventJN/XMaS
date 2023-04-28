@@ -6,6 +6,7 @@ function eventsubmits(){
     const password1 = document.getElementById('password1')
     const form = document.getElementById('signupvalid')
 
+
     if(name.value.length < 6){
         alert("Name can't be less than 6 characters");
         return false;
