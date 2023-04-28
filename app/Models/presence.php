@@ -13,10 +13,10 @@ class presence extends Model
     protected $guarded = ['kdPresence'];
 
     public function members(){
-        return $this->belongsTo(member::class, 'kdMember');
+        return $this->belongsTo(member::class, 'kdMember', 'kdMember');
     }
 
     public function schedules(){
-        return $this->belongsTo(schedule::class, 'kdSchedule');
+        return $this->belongsTo(schedule::class, 'kdSchedule', 'kdSchedule');
     }
 }

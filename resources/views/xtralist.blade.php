@@ -80,21 +80,29 @@
             </div>
             <div class="rowcontainer">
                 @foreach ($xtras as $xtra)
-                    <a href="">
+                    {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
                         <div class="xtraboxcontainer flex justify-center items-center">
                             <div class="xtrabox flex justify-center items-center">
-                                {{-- Disisni silahkan masukan phpnya --}}
-                                {{-- <img src="{{ $xtra->logo }}" alt="Logo {{ $xtra->name }}"> --}}
-                                <img src="Assets/{{ $xtra->logo }}" alt="Logo {{ $xtra->name }}">
+                                {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
+                                <img src="/Assets/{{ $xtra->logo }}" alt="{{ $xtra->name }}">
                             </div>
                             <div class="xtrabox flex flex-col items-start justify-center font-nunito">
-                                {{-- Disisni silahkan masukan phpnya --}}
                                 <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
-                                {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->members->userXmas->name }}Jevent</div> --}}
-                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date_format($xtra->schedules->date, 'D'), date_format($xtra->schedules->timestart, 'H.i') - date_format($xtra->schedules->timeend, 'H.i') }}Wed, 17.00 - 19.00</div>
-                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB </div>
+                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ optional(optional($xtra->leader)->userXmas)->name }}</div>
+                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ',' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . '-' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
+                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ ($xtra->latest_schedule ? $xtra->latest_schedule->location : null) ?? 'No Schedule Yet' }}</div>
+
+                                {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
+                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->leader?->userXmas?->name }}</div>
+                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ',' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . '-' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
+                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ ($xtra->latest_schedule ? $xtra->latest_schedule->location : null) ?? 'No Schedule Yet' }}</div> --}}
+
+                                {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div> --}}
+                                {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div> --}}
+                                {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB</div> --}}
                             </div>
-                        </a>
+                        {{-- </a> --}}
                     </div>
                 @endforeach
             </div>

@@ -13,6 +13,6 @@ class documentation extends Model
     protected $guarded = ['kdDocumentation'];
 
     public function xtras(){
-        return $this->belongsTo(extracurricular::class, 'kdExtracurricular');
+        return $this->belongsTo(extracurricular::class, 'kdExtracurricular', 'kdExtracurricular');
     }
 }

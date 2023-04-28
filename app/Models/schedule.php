@@ -13,14 +13,14 @@ class schedule extends Model
     protected $guarded = ['kdSchedule'];
 
     public function xtras(){
-        return $this->belongsTo(extracurricular::class, 'kdExtracurricular');
+        return $this->belongsTo(extracurricular::class, 'kdExtracurricular', 'kdExtracurricular');
     }
 
     public function presences(){
-        return $this->hasMany(presence::class, 'kdPresence');
+        return $this->hasMany(presence::class, 'kdSchedule', 'kdSchedule');
     }
 
     public function reports(){
-        return $this->hasMany(report::class, 'kdReport');
+        return $this->hasMany(report::class, 'kdSchedule', 'kdSchedule');
     }
 }

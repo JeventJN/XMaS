@@ -11,6 +11,14 @@ class xtralistController extends Controller
         return view('xtralist', [
             'xtras' => extracurricular::all()
         ]);
+        // return view('xtralist', [
+        //     'xtras' => extracurricular::with('schedules',
+        //                 ['members' => function ($query){
+        //                     $query->when(function($query){
+        //                         $query->where('kdState', 2);
+        //                     });
+        //                 }])->get()
+        // ]);
     }
 
     public function show(Extracurricular $xtra){
