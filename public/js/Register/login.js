@@ -3,8 +3,19 @@ function eventsubmits(){
     const pass = document.getElementById('pass')
     const form = document.getElementById('loginvalid')
 
+    if(nipuser.value.length < 1){
+        alert("NIP must be filled.");
+        return false;
+    }
+
     if(nipuser.value.length != 4){
-        alert("NIP must be 4 numbers");
+        alert("NIP must be 4 numbers.");
+        return false;
+    }
+
+    if(pass.value.length < 1)
+    {
+        alert("Password must be filled.")
         return false;
     }
 

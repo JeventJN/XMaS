@@ -104,10 +104,10 @@
 .back{
     fill: none;
     stroke: currentColor;
-    stroke-width: 2vw;
+    stroke-width: 20px;
 }
 
 .back:hover{
     stroke: #D3F1FF;
-    stroke-width: 3.5vw;
+    stroke-width: 20px;
 }

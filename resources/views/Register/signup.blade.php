@@ -51,46 +51,46 @@
                         <div class="textfield mt-[5vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/username.png" alt="">
                             <div class="flex flex-col">
-                                <input type="name" id="name" name="name" placeholder="Enter your name here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white " required value="{{ old('name')}}">
+                                <input type="name" id="name" name="name" placeholder="Enter your name here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white " value="{{ old('name')}}">
                                 <img class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
                         <div class="textfield mt-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/nip.png" alt="">
                             <div>
-                                <input type="tel" id="NIP" name="NIP" placeholder="Enter your NIP here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white @error('NIP') is-invalid @enderror" required pattern="[0-9]+" value="{{ old('NIP')}}">
+                                <input type="tel" id="NIP" name="NIP" placeholder="Enter your NIP here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white @error('NIP') is-invalid @enderror" pattern="[0-9]+" value="{{ old('NIP')}}">
                                 <img class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
                         <div class="radiobutton text-white ml-[5vw] text-[1.5vw] font-nunito">
                             <label class="text-[1.3vw]" for="PPTI">Program</label>
                             <div class="flex items-center">
-                                <input type="radio" id="program" name="program" value="PPTI" class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]" required>
+                                <input type="radio" id="program" name="program" value="PPTI" required class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
                                 <label class="ml-[0.8vw] text-[1.2vw]" for="PPTI">PPTI</label>
                             </div>
                             <div class="flex items-center">
-                                <input type="radio" id="program" name="program" value="PPBP" class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]" required>
+                                <input type="radio" id="program" name="program" value="PPBP" required class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
                                 <label class="ml-[0.8vw] text-[1.2vw]" for="PPTI">PPBP</label>
                             </div>
                         </div>
                         <div class="textfield mb-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]" src="Assets/call.png" alt="">
                             <div>
-                                <input type="tel" id="phone" name="phoneNumber" placeholder="Enter your phone number here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white " required pattern="[0-9]+" value="{{ old('phoneNumber')}}">
+                                <input type="tel" id="phone" name="phoneNumber" placeholder="Enter your phone number here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white " pattern="[0-9]+" value="{{ old('phoneNumber')}}">
                                 <img class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
                         <div class="textfield mb-[2vw] flex items-center">
                             <img class="h-[3vw] w-[3vw]"  src="Assets/password.png" alt="">
                             <div>
-                                <input type="password" id="password" name="password" placeholder="Enter your password here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white " required>
+                                <input type="password" id="password" name="password" placeholder="Enter your password here" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white ">
                                 <img  class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
                         <div class="textfield flex items-center">
                             <img class="h-[3vw] w-[3vw]"  src="Assets/password.png" alt="">
                             <div>
-                                <input type="password" id="password1" name="password1" placeholder="Confirm your password" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white" required>
+                                <input type="password" id="password1" name="password1" placeholder="Confirm your password" class="no-outline bg-[#1B2F45] w-[32vw] ml-[0.5vw] text-white">
                                 <img  class="min-w-[45vw] ml-[-6.2vw]" src="Assets/Line.png" alt="">
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                         {{-- Input Gambar --}}
                         <div class="upload" >
                             <img class="h-[26vw]" id="photoContainer" src="Assets/UploadPhoto.png" alt="">
-                            <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0" type="file" name="photo" id="photo" oninput="photoContainer.src='Assets/PhotoUploaded.png'" required>
+                            <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0 hover:cursor-pointer" type="file" name="photo" id="photo" oninput="photoContainer.src='Assets/PhotoUploaded.png'" required>
 
                             {{-- Coy ini data dummy --}}
                             {{-- <input type="name" id="photo" name="photo" value="{{ 'PHOTO DUMMY' }}" style="display: none;"> --}}
@@ -114,7 +114,7 @@
                         </div>
                         {{-- Masih Diusahakan --}}
                         <div class="buttonsignup mt-[0.5vw]">
-                            <input type="checkbox" class="w-[1vw] h-[1vw] underline italic ml-[-3vw]" required>
+                            <input type="checkbox" id="checkbox" class="w-[1vw] h-[1vw] underline italic ml-[-3vw]">
                             <p class="text-white text-[0.8vw] ml-[0.5vw]">I agree on term and condition</p>
                         </div>
                         <button type="submit">

@@ -40,3 +40,7 @@ Route::get(('/xtralistNU'), [xtralistController::class, 'index']);
 
 // halaman xtra satuan
 Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtralistController::class, 'show']);
+
+Route::get('/reportform', function () {
+    return view('Ketua/reportform');
+});
