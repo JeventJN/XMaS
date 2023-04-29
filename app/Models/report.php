@@ -13,10 +13,10 @@ class report extends Model
     protected $guarded = ['kdReport'];
 
     public function state(){
-        return $this->belongsTo(state::class, 'kdState');
+        return $this->belongsTo(state::class, 'kdState', 'kdState');
     }
 
     public function schedules(){
-        return $this->belongsTo(schedule::class, 'kdSchedule');
+        return $this->belongsTo(schedule::class, 'kdSchedule', 'kdSchedule');
     }
 }

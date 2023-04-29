@@ -13,6 +13,6 @@ class chat extends Model
     protected $guarded = ['kdChat'];
 
     public function members(){
-        return $this->belongsTo(member::class, 'kdMember');
+        return $this->belongsTo(member::class, 'kdMember', 'kdMember');
     }
 }

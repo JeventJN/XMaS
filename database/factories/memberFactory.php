@@ -20,7 +20,7 @@ class memberFactory extends Factory
         return [
             'nip' =>  userXmas::pluck('nip')->random(),
             'kdExtracurricular' =>  mt_rand(1,5),
-            'kdState' => mt_rand(1,2),
+            'kdState' => 1,
             'Reason' => collect(fake()->paragraphs(mt_rand(0,2)))->map(fn($p) => "<p>$p</p>")->implode('')
         ];
     }

@@ -12,18 +12,30 @@ class extracurricular extends Model
     protected $guarded = ['kdExtracurricular'];
     protected $with = [
         'members',
-        'schedules'
+        'schedules',
+        'latest_schedule',
+        'leader'
     ];
 
     public function members(){
-        return $this->hasMany(member::class, 'kdMember');
+        return $this->hasMany(member::class, 'kdExtracurricular', 'kdExtracurricular');
+    }
+
+    public function leader(){
+        return $this->hasOne(member::class, 'kdExtracurricular', 'kdExtracurricular')->where('kdState', '=', 2);
+        // return $this->hasOneThrough(userXmas::class, member::class, 'kdExtracurricular', 'NIP', 'kdExtracurricular', 'kdMember')->where('kdState', '=', 2);
     }
 
     public function documentations(){
-        return $this->hasOne(documentation::class, 'kdDocumentation');
+        return $this->hasMany(documentation::class, 'kdExtracurricular', 'kdExtracurricular');
     }
 
     public function schedules(){
-        return $this->hasMany(schedule::class, 'kdSchedule');
+        return $this->hasMany(schedule::class, 'kdExtracurricular', 'kdExtracurricular')->orderBy('date', 'DESC');
+    }
+
+    public function latest_schedule(){
+        return $this->hasOne(schedule::class, 'kdExtracurricular', 'kdExtracurricular')->latest('date');
+        // return $this->schedules()->one()->latestOfMany();
     }
 }

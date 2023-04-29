@@ -13,10 +13,10 @@ class state extends Model
     protected $guarded = ['kdState'];
 
     public function members(){
-        return $this->hasMany(member::class, 'kdMember');
+        return $this->hasMany(member::class, 'kdState', 'kdState');
     }
 
     public function reports(){
-        return $this->hasMany(report::class, 'kdReport');
+        return $this->hasMany(report::class, 'kdState', 'kdState');
     }
 }
