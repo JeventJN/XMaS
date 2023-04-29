@@ -4,9 +4,6 @@ function eventsubmits(){
     const phone = document.getElementById('phone')
     const password = document.getElementById('password')
     const password1 = document.getElementById('password1')
-    const program = document.getElementById('program')
-    const checkbox = document.getElementById('checkbox')
-    const photo = document.getElementById('photo')
     const form = document.getElementById('signupvalid')
 
     if(name.value.length < 1){
@@ -31,6 +28,12 @@ function eventsubmits(){
 
     if(nip.value.length != 4){
         alert("NIP must be 4 numbers.");
+        return false;
+    }
+
+    if (form.program.value != 'PPTI' && form.program.value != 'PPBP')
+    {
+        alert ("Please select one program");
         return false;
     }
 
@@ -63,20 +66,14 @@ function eventsubmits(){
         return false;
     }
 
-    if(!form.checkbox.checked) {
-        alert("Please check on term and condition.");
-        return false;
-    }
-
-    if (form.program.value != 'PPTI' && form.program.value != 'PPBP')
-    {
-        alert ("Please select one program");
-        return false;
-    }
-
     if (form.photo.value == '')
     {
         alert ("Please choose photo to be uploaded.");
+        return false;
+    }
+
+    if(!form.checkbox.checked) {
+        alert("Please check on term and condition.");
         return false;
     }
 

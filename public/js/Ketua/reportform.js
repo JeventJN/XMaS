@@ -1,4 +1,14 @@
-function eventsubmits(){
+var modal = document.getElementById('modalpopup');
+var showmodal = document.getElementById('showmodal');
+var hidemodal = document.getElementById('hidemodal');
+var hidemodalno = document.getElementById('hidemodalno');
+var window = document.getElementById('window');
+
+showmodal.addEventListener('click', openModal);
+hidemodal.addEventListener('click', closeModal);
+hidemodalno.addEventListener('click', closeModal);
+
+function openModal(){
     const xtraname = document.getElementById('xtraname')
     const leadername = document.getElementById('leadername')
     const reporttitle = document.getElementById('reporttitle')
@@ -31,6 +41,12 @@ function eventsubmits(){
         return false;
     }
 
+    if (reportdate.value == '')
+    {
+        alert ("Please choose Report's Date.");
+        return false;
+    }
+
     if(reporttitle.value.length < 1){
         alert("Report Title Name must be filled.");
         return false;
@@ -57,12 +73,11 @@ function eventsubmits(){
         return false;
     }
 
-    if (reportdate.value == '')
-    {
-        alert ("Please choose Report's Date.");
-        return false;
-    }
-
-    return true;
+    return modal.style.display="block";
 }
+
+    function closeModal(){
+    modal.style.display="none";
+}
+
 

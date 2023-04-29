@@ -6,13 +6,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/Ketua/reportform.css">
-  <script src="js/Ketua/reportform.js"></script>
   <title>Report Form</title>
   @vite('resources/css/app.css')
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden flex flex-col">
     <div class="h-[5.2vw] bg-[#1B2F45] flex items-center justify-center">
         <div class="absolute mr-[95vw]">
+            {{-- Balik ke profile ketua --}}
             <a href="">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-[3vw] h-[3vw]" width="40" height="40" viewBox="0 0 24 24"><path fill="white" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20v-2z"/></svg>
             </a>
@@ -21,8 +21,31 @@
             Extracurricular Report Form
         </div>
     </div>
-    <form action="" id="reportform" method="POST" autocomplete="off" onsubmit="return eventsubmits(this);">
-        <div class="flex w-screen h-[33vw] justify-center items-center mt-[4vw]">
+    <form class="absolute" action="" id="reportform" method="POST" autocomplete="off" onsubmit="return eventsubmits(this);">
+        {{-- Modal Submit --}}
+        <div class="modal" id="modalpopup">
+            <div class=" flex justify-around items-center flex-col">
+                <div class="w-[36vw] flex justify-end">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodal" class="w-[2vw] h-[2vw] mt-[1vw] cursor-pointer" viewBox="0 0 256 256"><path fill="black" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                </div>
+                <div class="w-[36vw] font-semibold text-[1.5vw] mb-[2vw]">
+                    This action will <mark class="bg-white text-[#FF0000]">send</mark> the report.
+                    <br/>
+                    Do you want to continue?
+                </div>
+                <div class="w-[36vw] h-[2.5vw] flex justify-end text-[1.2vw] mb-[1vw]">
+                    <button type="submit">
+                        <div class="w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] flex justify-center items-center mr-[1vw] text-white hover:bg-[#145003] hover:cursor-pointer">
+                            Yes
+                        </div>
+                    </button>
+                    <div id="hidemodalno" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer">
+                        No
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex w-screen h-[33vw] justify-center items-center mt-[9vw] ">
             <div class="w-fit flex">
                 <div class="flex flex-col items-center justify-between w-[25.5vw] h-[33vw] mr-[6vw]">
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
@@ -70,7 +93,7 @@
                 </div>
                 <div class="flex flex-col w-[25.5vw] h-[33vw] ml-[6vw]">
                     <div class="text-[1.8vw] ">Documentation</div>
-                    <div class="h-[31.2vw] bg-[#395474] outline-dotted flex">
+                    <div class="h-[31.2vw] bg-[#395474] outline-dotted outline-[0.1vw] flex">
                         <img class="h-[31.2vw] w-[25.5vw]" id="photoContainer" src="Assets/UploadPhotoForm.png" alt="">
                         <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='Assets/UploadedPhotoForm.png'">
                     </div>
@@ -78,12 +101,11 @@
             </div>
         </div>
         <div class="flex justify-center w-screen h-fit">
-            <button type="submit">
-                <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white text-[1.5vw] hover:bg-black">
-                    Submit
-                </div>
-            </button>
+            <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white text-[1.5vw] hover:bg-black hover:cursor-pointer" id="showmodal">
+                Submit
+            </div>
         </div>
+        <script src="js/Ketua/reportform.js"></script>
     </form>
 </body>
 </html>
