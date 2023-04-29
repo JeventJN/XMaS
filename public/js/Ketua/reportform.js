@@ -2,7 +2,8 @@ function eventsubmits(){
     const xtraname = document.getElementById('xtraname')
     const leadername = document.getElementById('leadername')
     const reporttitle = document.getElementById('reporttitle')
-    const reportdesc = document.getElementById('reportdisc')
+    const reportdesc = document.getElementById('reportdesc')
+    const photo = document.getElementById('photo')
     const reportdate = document.getElementById('reportdate')
 
     if(xtraname.value.length < 1){
@@ -47,6 +48,18 @@ function eventsubmits(){
 
     if(reportdesc.value.length > 180){
         alert("Report's Description must be least than 30 characters.");
+        return false;
+    }
+
+    if (photo.value == '')
+    {
+        alert ("Please choose photo to be uploaded.");
+        return false;
+    }
+
+    if (reportdate.value == '')
+    {
+        alert ("Please choose Report's Date.");
         return false;
     }
 

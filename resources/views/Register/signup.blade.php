@@ -65,11 +65,11 @@
                         <div class="radiobutton text-white ml-[5vw] text-[1.5vw] font-nunito">
                             <label class="text-[1.3vw]" for="PPTI">Program</label>
                             <div class="flex items-center">
-                                <input type="radio" id="program" name="program" value="PPTI" required class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
+                                <input type="radio" id="program" name="program" value="PPTI" class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
                                 <label class="ml-[0.8vw] text-[1.2vw]" for="PPTI">PPTI</label>
                             </div>
                             <div class="flex items-center">
-                                <input type="radio" id="program" name="program" value="PPBP" required class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
+                                <input type="radio" id="program" name="program" value="PPBP" class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
                                 <label class="ml-[0.8vw] text-[1.2vw]" for="PPTI">PPBP</label>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                         {{-- Input Gambar --}}
                         <div class="upload" >
                             <img class="h-[26vw]" id="photoContainer" src="Assets/UploadPhoto.png" alt="">
-                            <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0 hover:cursor-pointer" type="file" name="photo" id="photo" oninput="photoContainer.src='Assets/PhotoUploaded.png'" required>
+                            <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0 hover:cursor-pointer" type="file" name="photo" id="photo" oninput="photoContainer.src='Assets/PhotoUploaded.png'">
 
                             {{-- Coy ini data dummy --}}
                             {{-- <input type="name" id="photo" name="photo" value="{{ 'PHOTO DUMMY' }}" style="display: none;"> --}}
@@ -117,11 +117,11 @@
                             <input type="checkbox" id="checkbox" class="w-[1vw] h-[1vw] underline italic ml-[-3vw]">
                             <p class="text-white text-[0.8vw] ml-[0.5vw]">I agree on term and condition</p>
                         </div>
-                        <button type="submit">
-                            <div class="buttonsignup mt-[2vw] text-[1.1vw] ">
+                        <div class="buttonsignup mt-[2vw] text-[1.1vw] ">
+                            <button type="submit">
                                 <div class="signup1 text-white rounded-[0.4vw]">Sign Up</div>
+                            </button>
                             </div>
-                        </button>
                         <p class="text-[0.95vw] text-white ml-[0.3vw] mt-[0.5vw]">Already have an account? <a class="loginnav" href="/login">Log In</a></p>
                     </div>
                 </div>

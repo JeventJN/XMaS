@@ -68,6 +68,18 @@ function eventsubmits(){
         return false;
     }
 
+    if (form.program.value != 'PPTI' && form.program.value != 'PPBP')
+    {
+        alert ("Please select one program");
+        return false;
+    }
+
+    if (form.photo.value == '')
+    {
+        alert ("Please choose photo to be uploaded.");
+        return false;
+    }
+
     return true;
 }
 

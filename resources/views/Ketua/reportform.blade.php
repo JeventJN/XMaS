@@ -46,8 +46,7 @@
                             <div class="">Report Date</div>
                         </div>
                         <div class="flex justify-start items-end w-[23vw]">
-                            <input type="date" name="reportdate" id="reportdate" class="text-[1.5vw] text-white focus:outline-none bg-[#395474] fill-white underline border-b-[0.1vw] w-[23vw] mb-[1vw] cursor-text fill-white" required>
-                            {{-- <svg xmlns="http://www.w3.org/2000/svg" class="h-[5vw] w-[3vw]" viewBox="0 0 24 24"><path fill="white" d="M12 14q-.425 0-.713-.288T11 13q0-.425.288-.713T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14Zm-4 0q-.425 0-.713-.288T7 13q0-.425.288-.713T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14Zm8 0q-.425 0-.713-.288T15 13q0-.425.288-.713T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14Zm-4 4q-.425 0-.713-.288T11 17q0-.425.288-.713T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18Zm-4 0q-.425 0-.713-.288T7 17q0-.425.288-.713T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18Zm8 0q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18ZM5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V2h2v2h8V2h2v2h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10Z"/></svg> --}}
+                            <input type="date" name="reportdate" id="reportdate" class="text-[1.5vw] text-white focus:outline-none bg-[#395474] fill-white underline border-b-[0.1vw] w-[23vw] mb-[1vw] cursor-text fill-white">
                         </div>
                     </div>
                 </div>
@@ -65,7 +64,7 @@
                             <div class="">Reports's Description</div>
                         </div>
                         <div class=" w-[23vw] h-[13vw] mb-[1vw]">
-                            <textarea name="reportdesc" id="reportdesc" placeholder="Report's Description...                          " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-normal underline"></textarea>
+                            <textarea name="reportdesc" id="reportdesc" style="resize:none;" placeholder="Report's Description...                          " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-normal underline"></textarea>
                         </div>
                     </div>
                 </div>
@@ -73,14 +72,14 @@
                     <div class="text-[1.8vw] ">Documentation</div>
                     <div class="h-[31.2vw] bg-[#395474] outline-dotted flex">
                         <img class="h-[31.2vw] w-[25.5vw]" id="photoContainer" src="Assets/UploadPhotoForm.png" alt="">
-                        <input type="file" required class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='Assets/UploadedPhotoForm.png'">
+                        <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='Assets/UploadedPhotoForm.png'">
                     </div>
                 </div>
             </div>
         </div>
         <div class="flex justify-center w-screen h-fit">
             <button type="submit">
-                <div class=" flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white text-[1.5vw] hover:bg-black">
+                <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white text-[1.5vw] hover:bg-black">
                     Submit
                 </div>
             </button>
