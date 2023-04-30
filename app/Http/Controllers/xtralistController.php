@@ -9,7 +9,7 @@ class xtralistController extends Controller
 {
     public function index(){
         return view('xtralist', [
-            'xtras' => extracurricular::all()
+            'xtras' => extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique']))->get()
         ]);
         // return view('xtralist', [
         //     'xtras' => extracurricular::with('schedules',

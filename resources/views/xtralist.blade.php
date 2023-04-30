@@ -17,10 +17,19 @@
     {{-- @include('Admin.navbarA') --}}
     {{-- modal pop up --}}
     <div id="modalpopup" class="modal">
-        <form action="/xtralistNU" id="modal" method="POST">
+        <form action="/xtralistNU" id="modal" method="GET">
+            @if (request('search'))
+                    <input type="hidden" name="search" value={{ request('search') }}>
+            @endif
+            @if (request('Physique'))
+                    <input type="hidden" name="Physique" value={{ request('Physique') }}>
+            @endif
+            @if (request('NonPhysique'))
+                <input type="hidden" name="NonPhysique" value={{ request('NonPhysique') }}>
+            @endif
             <svg xmlns="http://www.w3.org/2000/svg" id="hidemodal" class="mt-[1vw] ml-[43vw] svg cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
             <div class="flex flex-col ml-[4vw]">
-                <label class="text-[2vw]" for="">Categories</label>
+                <p class="text-[2vw]">Categories</p>
                 <div class="flex items-center">
                     <input type="checkbox" id="Physique" name="Physique" value="Physique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                     <label class="ml-[1vw] text-[2vw]" for="Physique">Physique</label>
@@ -29,7 +38,7 @@
                     <input type="checkbox" id="NonPhysique" name="NonPhysique" value="NonPhysique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                     <label class="ml-[1vw] text-[2vw]" for="NonPhysique">Non-Physique</label>
                 </div>
-                <label class="mt-[1vw] text-[2vw]" for="">Days</label>
+                <p class="mt-[1vw] text-[2vw]">Days</p>
                 <div class="flex flex-wrap w-[25vw]">
                     <div class="flex items-center">
                         <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
@@ -67,10 +76,11 @@
                 <button class="svg ml-[39vw] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg"  id="showmodal" viewBox="0 0 24 24"><path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"/></svg>
                 </button>
-                <form action="/xtralistNU" method="POST" onsubmit="return eventsubmits(this);">
+                {{-- <form action="/xtralistNU" method="POST" onsubmit="return eventsubmits(this);"> --}}
+                <form action="/xtralistNU" method="GET">
                     <div class="bg-neutral-100 ml-[1vw] w-[25.5vw] h-[4vw] rounded-[1vw] shadow flex items-center justify-end">
                         <div class="flex items-center justify-center w-[19vw] h-[3.5vw] mr-[1vw] font-nunito text-[1.5vw]">
-                            <input class="bg-neutral-100 h-[3.5vw] w-[19vw] no-outline" autocomplete="off" type="text" name="search">
+                            <input class="bg-neutral-100 h-[3.5vw] w-[19vw] no-outline" autocomplete="off" type="text" name="search" placeholder="Search..." value="{{ request('search') }}">
                         </div>
                         <button type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" class="svg mr-[1vw]" viewBox="0 0 24 24"><path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.612 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3l-1.4 1.4ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z"/></svg>
@@ -79,32 +89,43 @@
                 </form>
             </div>
             <div class="rowcontainer">
-                @foreach ($xtras as $xtra)
-                    {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
-                        <div class="xtraboxcontainer flex justify-center items-center">
-                            <div class="xtrabox flex justify-center items-center">
-                                {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                <img src="/Assets/{{ $xtra->logo }}" alt="{{ $xtra->name }}">
-                            </div>
-                            <div class="xtrabox flex flex-col items-start justify-center font-nunito">
-                                <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
-                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ optional(optional($xtra->leader)->userXmas)->name }}</div>
-                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ',' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . '-' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
-                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ ($xtra->latest_schedule ? $xtra->latest_schedule->location : null) ?? 'No Schedule Yet' }}</div>
+                @if ($xtras->count())
+                    @foreach ($xtras as $xtra)
+                        {{-- @dd($xtra->latest_schedule) --}}
+                        {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
+                            <div class="xtraboxcontainer flex justify-center items-center">
+                                <div class="xtrabox flex justify-center items-center">
+                                    {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
+                                    <img src="/Assets/{{ $xtra->logo }}" alt="{{ $xtra->name }}">
+                                </div>
+                                <div class="xtrabox flex flex-col items-start justify-center font-nunito">
+                                    <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
+                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ optional(optional($xtra->leader)->userXmas)->name }}</div>
+                                    @if ($xtra->leader === NULL)
+                                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
+                                    @endif
+                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
+                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule?->location }}</div>
+                                    @if ($xtra->latest_schedule === NULL)
+                                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
+                                    @endif
 
-                                {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
-                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->leader?->userXmas?->name }}</div>
-                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ',' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . '-' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
-                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ ($xtra->latest_schedule ? $xtra->latest_schedule->location : null) ?? 'No Schedule Yet' }}</div> --}}
+                                    {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
+                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->leader?->userXmas?->name }}</div>
+                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ',' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . '-' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
+                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ ($xtra->latest_schedule ? $xtra->latest_schedule->location : null) ?? 'No Schedule Yet' }}</div> --}}
 
-                                {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div> --}}
-                                {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div> --}}
-                                {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB</div> --}}
-                            </div>
-                        {{-- </a> --}}
-                    </div>
-                @endforeach
+                                    {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div> --}}
+                                    {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div> --}}
+                                    {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB</div> --}}
+                                </div>
+                            {{-- </a> --}}
+                        </div>
+                    @endforeach
+                @else
+                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw]">No Extracurricular.</p>
+                @endif
             </div>
         </div>
     </div>
