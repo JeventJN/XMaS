@@ -36,6 +36,10 @@ Route::get(('/footer'), function(){
     return view('footer');
 });
 
+Route::get(('/xtrareg'), function(){
+    return view('User.xtrareg');
+});
+
 Route::get(('/xtralistNU'), [xtralistController::class, 'index']);
 
 // halaman xtra satuan
