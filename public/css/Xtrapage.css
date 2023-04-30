@@ -85,7 +85,7 @@ body {
   background-color: #d9d9d9;
   font-size: 22px;
   font-weight: bold;
-  border: blue 1px solid;
+  /* border: blue 1px solid; */
 }
 
 .button-elips {
@@ -102,6 +102,59 @@ body {
   padding-top: 2.6vw;
   /* border: red solid; */
 }
+
+/* ================================================================ */
+.JudulXtra
+{
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 0.52vw 3.125vw;
+    padding-top: 0.74vw;
+    padding-bottom: 0.74vw;
+    padding-left: 13vw;
+    padding-right: 7vw;
+    width: 30vw;
+    border-radius: 0vw 1.3vw 1.3vw 0vw;
+    background-color: #1B2F45;
+    font-size: 30px;
+    font-weight: 900;
+    /* visibility: hidden; */
+}
+
+.ScheduleXtra
+{
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 0.52vw 3.125vw;
+  padding-top: 0.75vw;
+  padding-bottom: 0.75vw;
+  padding-left: 18vw;
+  padding-right: 1vw;
+  width: 45vw;
+  border-radius: 0vw 1.3vw 1.3vw 0vw;
+  background-color: #1B2F45;
+  font-size: 30px;
+  font-weight: 900;
+  /* visibility: hidden; */
+}
+
+.LeaderXtra
+{
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 0.52vw 3.125vw;
+  padding-top: 0.74vw;
+  padding-bottom: 0.74vw;
+  padding-left: 18vw;
+  padding-right: 1vw;
+  width: 45vw;
+  border-radius: 0vw 1.3vw 1.3vw 0vw;
+  background-color: #1B2F45;
+  font-size: 30px;
+  font-weight: 900;
+  /* visibility: hidden; */
+}
+/* ================================================================ */
 
 .button-make-advance a { /*Make Attendace dan Add Schedule*/
   background-color: #395474;
@@ -389,7 +442,7 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
 .form_add #btn-confirm:hover {
   background-color: #56B8E6;
 }
-/* footoer */
+/* footer */
 
 /* mengatur footer agar mempunyai space atas, padding atas dan mengatur warna background */
 footer {
