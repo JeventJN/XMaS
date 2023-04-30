@@ -35,7 +35,7 @@ body {
 
 /* mengatur position relative supaya di bawah satu dimensi box-jumboron */
 .jumbotron {
-  background-image: url("../assets/image_jumbo.png");
+  background-image: url("../../Assets/Xtrapage assets/image_jumbo.png");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -61,6 +61,7 @@ body {
 .box-jumbotron .bca,
 .elips {
   width: 100%;
+  border-radius: 50%;
 }
 
 /* ========================= */
@@ -84,9 +85,7 @@ body {
   background-color: #d9d9d9;
   font-size: 22px;
   font-weight: bold;
-  /* border: blue 1px solid; */
-
-
+  border: blue 1px solid;
 }
 
 .button-elips {
@@ -222,9 +221,9 @@ main #contact .card {
   /* border: red solid; */
 }
 
-/* main #contact .card ::-webkit-scrollbar {
+main #contact .card ::-webkit-scrollbar {
   display: none;
-} */
+}
 
 main #contact .card .badge {
   margin-top: 0.52vw;
@@ -303,6 +302,7 @@ main .presence-list { /*kotak Presence Member List*/
   color: white;
   border-top-right-radius: 1.04vw;
   border: none;
+  /* border: red solid; */
 }
 
 main .presence .dropdown { /*dropdown choose date*/
@@ -342,19 +342,25 @@ main .presence .badge { /*isi presence list*/
   padding: 1.04vw;
   color: black;
   background-color: #e5e5e5;
-  width: 50vw;
+  width: 45vw;
   /* border: red solid; */
 }
 
 main .presence-list { /*Presence List Member*/
   overflow-y: scroll;
+  border-top-right-radius: 3vw;
   border-bottom-left-radius: 3vw;
+  border-bottom-right-radius: 3vw;
   height: 25vw;
   padding-left: 1.8vw;
   padding-right: 1.8vw;
-  padding-bottom: 2vw;
+  /* padding-bottom: 2vw; */
   margin-bottom: 5vw;
   /* border: red solid; */
+}
+
+main .presence-list::-webkit-scrollbar { /*Presence List Member*/
+  display: none;
 }
 
 /* mengatur warna inputan dan radius */
