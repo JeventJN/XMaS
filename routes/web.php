@@ -48,3 +48,11 @@ Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtralistController::class, '
 Route::get('/reportform', function () {
     return view('Ketua/reportform');
 });
+
+Route::get(('/xtrapageketua'), function (){
+    return view('Ketua/xtrapageketua');
+});
+
+Route::get(('/absensiketua'), function (){
+    return view('Ketua/absensiketua');
+});

@@ -17,6 +17,30 @@ class extracurricular extends Model
         'leader'
     ];
 
+    public function scopeFilter($query, array $filters){
+        $query->when($filters['search'] ?? false, fn($query, $search) =>
+            $query->where(fn($query) =>
+                $query->where('name', 'like', '%' . $search . '%')
+            // )->orwhereHas('latest_schedule', fn($query) =>
+            //     $query->where('location', 'like', '%' . $search . '%')
+                    // ->orWhere('date', 'like', '%' . $search . '%')
+                    // ->orWhere('timeStart', 'like', '%' . $search . '%')
+                    // ->orWhere('timeEnd', 'like', '%' . $search . '%')
+            )->orwhereHas('leader', fn($query) =>
+                $query->whereHas('userXmas', fn($query) =>
+                    $query->where('name', 'like', '%' . $search . '%')
+            ))
+        );
+
+        $query->when($filters['Physique'] ?? false, fn($query) =>
+            $query->where('category', 'like', 'Physique')
+        );
+
+        $query->when($filters['NonPhysique'] ?? false, fn($query) =>
+            $query->where('category', 'like', 'Non-Physique')
+        );
+    }
+
     public function members(){
         return $this->hasMany(member::class, 'kdExtracurricular', 'kdExtracurricular');
     }

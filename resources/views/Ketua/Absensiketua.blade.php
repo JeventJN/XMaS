@@ -17,7 +17,7 @@
     />
 
     <!-- memanggil css di dalam folder css -->
-    <link rel="stylesheet" href="../../../public/css/Xtrapage.css" />
+    <link rel="stylesheet" href="css/Xtrapage.css" />
     <link rel="stylesheet" href="css/responsive.css" />
 
     <!-- memanggil swiper js  -->
@@ -53,11 +53,11 @@
       <div class="row">
         <div class="col-lg-8 col-sm-6 col-md-6">
           <div class="btn_close">
-            <a href="Xtrapageketua.html" style="text-decoration: none"
+            <a href="xtrapageketua" style="text-decoration: none"
               ><i class="fa-sharp fa-solid fa-arrow-left"></i
             ></a>
           </div>
-          <img src="../../../public/Assets/Xtrapage assets/persentasi.png" alt="" />
+          <img src="Assets/Xtrapage assets/persentasi.png" alt="" />
         </div>
         <div class="col-lg-4 col-sm-6 col-md-6">
           <div class="blank">
