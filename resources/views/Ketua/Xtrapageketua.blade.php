@@ -48,7 +48,7 @@
 
     <!-- navbar -->
 
-    <!-- jumbotron search di botstrap  -->
+    <!-- jumbotron search di bootstrap  -->
 
     <div class="jumbotron jumbotron-fluid">
       <div class="box-jumbotron">
@@ -57,85 +57,67 @@
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-right ">
 
-              <div class="cursor-default" onmouseover ="hover()" onmouseout="out()">
-                <div class="button-elips" id="afterHover">
-                  <a href="#" class="JudulXtra"
-                  style="text-decoration: none;
-                  color: #FFFFFF;
-                  padding: 0.52vw 3.125vw;
-                  padding-top: 0.74vw;
-                  padding-bottom: 0.74vw;
-                  padding-left: 13vw;
-                  padding-right: 7vw;
-                  width: 30vw;
-                  border-radius: 0vw 1.3vw 1.3vw 0vw;
-                  background-color: #1B2F45;
-                  font-size: 30px;
-                  font-weight: 900;">Running</a>
-                  <a href="" class="ScheduleXtra"
-                  style="text-decoration: none;
-                  color: #FFFFFF;
-                  padding: 0.52vw 3.125vw;
-                  padding-top: 0.75vw;
-                  padding-bottom: 0.75vw;
-                  padding-left: 18vw;
-                  padding-right: 1vw;
-                  width: 45vw;
-                  border-radius: 0vw 1.3vw 1.3vw 0vw;
-                  background-color: #1B2F45;
-                  font-size: 30px;
-                  font-weight: 900;">Wed (17.00-19.00)</a>
-                  <a href="" class="LeaderXtra"
-                  style="text-decoration: none;
-                  color: #FFFFFF;
-                  padding: 0.52vw 3.125vw;
-                  padding-top: 0.74vw;
-                  padding-bottom: 0.74vw;
-                  padding-left: 18vw;
-                  padding-right: 1vw;
-                  width: 45vw;
-                  border-radius: 0vw 1.3vw 1.3vw 0vw;
-                  background-color: #1B2F45;
-                  font-size: 30px;
-                  font-weight: 900;">Jevent Natthannael</a>
-                </div>
-                <div class="button-elips" id="beforeHover">
-                  <a href="#" class="JudulXtra">Xtra</a>
-                  <a href="" class="ScheduleXtra">Schedule</a>
-                  <a href="" class="LeaderXtra">Leader</a>
-                </div>
-              </div>
+                    <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
+                    <div class="button-elips" onmouseover ="hover()" onmouseout="out()">
+                      <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
+                      <a class="buttons" href="" data-value="Wed(17.00 - 19.00)" data-text="Schedule">Schedule</a>
+                      <a class="buttons" href="" data-value="Jevent Natthannael" data-text="Leader">Leader</a>
+                    </div>
+                  </div>
 
-            {{-- JS untuk hover Xtra Schedule Leader --}}
-              <script>
-                function hover() {
-                    var x = document.getElementById("beforeHover");
-                    var y = document.getElementById('afterHover');
+                {{-- JS untuk hover Xtra Schedule Leader --}}
+                <script>
+                  const buttons = document.querySelectorAll('.buttons');
 
-                    if(y.style.display=="block") {
-                        y.style.display="none";
-                        x.style.display="block";
-                    }
-                    else{
-                        y.style.display="block";
-                        x.style.display="none";
-                    }
-                }
-                function out() {
-                    var x = document.getElementById("beforeHover");
-                    var y = document.getElementById('afterHover ');
+                  buttons.forEach((button) => {
 
-                    if(x.style.display=="block") {
-                        x.style.display="none";
-                        y.style.display="block";
-                    }
-                    else{
-                        x.style.display="block";
-                        y.style.display="none";
-                    }
-                }
-            </script>
-            
+                      button.addEventListener('mouseover', (e) => {
+
+                          const value = e.target.getAttribute('data-value');
+
+                          e.target.innerHTML = value;
+                          e.target.style.backgroundColor = '#1B2F45';
+                          e.target.style.color = 'white';
+                          e.target.style.fontSize = '25px';
+                        //   e.target.style.width = '40vw';
+
+                        if (value == 'Running') {
+                            e.target.classList.add('JudulXtra');
+                        } else if (value == 'Wed(17.00 - 19.00)') {
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 17.5vw';
+                            e.target.style.width = '38vw';
+                            e.target.classList.add('ScheduleXtra');
+                        } else if (value == 'Jevent Natthannael') {
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.style.width = '40vw';
+                            e.target.classList.add('LeaderXtra');
+                        }
+
+                      });
+                      button.addEventListener('mouseout', (e) => {
+                          const text = e.target.getAttribute('data-text');
+
+                          e.target.innerHTML = text;
+                          e.target.style.backgroundColor = '#d9d9d9';
+                          e.target.style.color = '#1B2F45';
+                          e.target.style.fontSize = '22px';
+                        //   e.target.style.width = '25.5vw';
+
+                          if (text == 'Xtra') {
+                            e.target.classList.remove('JudulXtra');
+                          } else if (text == 'Schedule') {
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.style.width = '29.2vw';
+                            e.target.classList.remove('ScheduleXtra');
+                          } else if (text == 'Leader') {
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.classList.remove('LeaderXtra');
+                            e.target.style.width = '27.6vw';
+                          }
+                      });
+                  });
+
+                </script>
             {{-- JS untuk hover Xtra Schedule Leader --}}
 
               <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
