@@ -17,7 +17,7 @@
     />
 
     <!-- memanggil css di dalam folder css -->
-    <link rel="stylesheet" href="../../../public/css/Xtrapage.css" />
+    <link rel="stylesheet" href="css/Xtrapage.css" />
 
     <!-- memanggil swiper js  -->
     <link
@@ -48,7 +48,7 @@
 
     <!-- navbar -->
 
-    <!-- jumbotron search di botstrap  -->
+    <!-- jumbotron search di bootstrap  -->
 
     <div class="jumbotron jumbotron-fluid">
       <div class="box-jumbotron">
@@ -56,13 +56,73 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-right ">
-              <div class="button-elips">
-                <a href="#" class="JudulXtra">Xtra Running</a>
-                <a href="" class="ScheduleXtra">Wed (17.00-19.00)</a>
-                <a href="" class="LeaderXtra">Jevent Natthannael</a>
-              </div>
-              <div class="elips">
-                <img src="../../../public/Assets/Xtrapage assets/Ellipse 45.png" alt="" class="elips" style="margin-left: -4vw; width: 20.8vw;"/> <!--ganti margin-left-->
+
+                    <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
+                    <div class="button-elips" onmouseover ="hover()" onmouseout="out()">
+                      <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
+                      <a class="buttons" href="" data-value="Wed(17.00 - 19.00)" data-text="Schedule">Schedule</a>
+                      <a class="buttons" href="" data-value="Jevent Natthannael" data-text="Leader">Leader</a>
+                    </div>
+                  </div>
+
+                {{-- JS untuk hover Xtra Schedule Leader --}}
+                <script>
+                  const buttons = document.querySelectorAll('.buttons');
+
+                  buttons.forEach((button) => {
+
+                      button.addEventListener('mouseover', (e) => {
+
+                          const value = e.target.getAttribute('data-value');
+
+                          e.target.innerHTML = value;
+                          e.target.style.backgroundColor = '#1B2F45';
+                          e.target.style.color = 'white';
+                          e.target.style.fontSize = '25px';
+                        //   e.target.style.width = '40vw';
+
+                        if (value == 'Running') {
+                            e.target.classList.add('JudulXtra');
+                        } else if (value == 'Wed(17.00 - 19.00)') {
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 17.5vw';
+                            e.target.style.width = '38vw';
+                            e.target.classList.add('ScheduleXtra');
+                        } else if (value == 'Jevent Natthannael') {
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.style.width = '40vw';
+                            e.target.classList.add('LeaderXtra');
+                        }
+
+                      });
+                      button.addEventListener('mouseout', (e) => {
+                          const text = e.target.getAttribute('data-text');
+
+                          e.target.innerHTML = text;
+                          e.target.style.backgroundColor = '#d9d9d9';
+                          e.target.style.color = '#1B2F45';
+                          e.target.style.fontSize = '22px';
+                        //   e.target.style.width = '25.5vw';
+
+                          if (text == 'Xtra') {
+                            e.target.classList.remove('JudulXtra');
+                          } else if (text == 'Schedule') {
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.style.width = '29.2vw';
+                            e.target.classList.remove('ScheduleXtra');
+                          } else if (text == 'Leader') {
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.classList.remove('LeaderXtra');
+                            e.target.style.width = '27.6vw';
+                          }
+                      });
+                  });
+
+                </script>
+            {{-- JS untuk hover Xtra Schedule Leader --}}
+
+              <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
+                <!--ganti margin-left-->
+                <img src="Assets/Xtrapage assets/Ellipse 45.png" alt="" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
               </div>
             </div>
 
@@ -72,7 +132,7 @@
               data-aos="fade-left"
             >
               <center>
-                <img src="../../../public/Assets/Xtrapage assets/bca.png" alt="" class="bca" style="width: 32vw; margin-left: 4.5vw;"/>
+                <img src="Assets/Xtrapage assets/bca.png" alt="" class="bca" style="width: 32vw; margin-left: 4.5vw;"/>
               </center>
             </div>
           </div>
@@ -84,7 +144,7 @@
       <br /><br />
       <div class="container">
         <div class="button-make-advance float-right" data-aos="fade-down">
-          <a href="absensiketua.html" class="btn">Make Attendance</a>
+          <a href="absensiketua" class="btn">Make Attendance</a>
           <a type="button" class="btn" data-toggle="modal" data-target="#add">
             Add Schedule
           </a>
@@ -152,6 +212,7 @@
                   class="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
+                  name="descriptiontextarea"
                 ></textarea>
               </div>
 
@@ -161,6 +222,7 @@
                   class="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
+                  name="activitytextarea"
                 ></textarea>
               </div>
             </form>
@@ -176,7 +238,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
+                      src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -185,7 +247,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="../../../public/Assets/Xtrapage assets/foto/2.png"
+                      src="Assets/Xtrapage assets/foto/2.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -194,7 +256,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="../../../public/Assets/Xtrapage assets/foto/3.png"
+                      src="Assets/Xtrapage assets/foto/3.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -203,7 +265,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
+                      src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -212,7 +274,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
+                      src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -221,7 +283,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
+                      src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -230,7 +292,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
+                      src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -239,7 +301,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 18rem">
                     <img
-                      src="../../../public/Assets/Xtrapage assets/foto/1.png"
+                      src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
                       alt="..."
                     />
@@ -277,7 +339,7 @@
 
               <br />
               <div class="col-lg-6 col-sm-6 col-md-6">
-                <img src="../../../public/Assets/Xtrapage assets/stop.png" alt="" class="gambarstop"/>
+                <img src="Assets/Xtrapage assets/stop.png" alt="" class="gambarstop"/>
                 <div class="btn-member">
                   <button
                     type="button"
@@ -294,11 +356,11 @@
         </div>
       </div>
 
-      <!-- prece mmeber list -->
+      <!-- presence member list -->
 
       <div class="presence" data-aos="fade-down">
         <div class="container">
-          <h5 class="float-right font-weight-bold">Presence Member : 10</h5>
+          <h5 class="float-right font-weight-bold" style="padding-top: 1.8vw;">Presence Member : 10</h5>
           <div class="dropdown">
             <a
               class="btn dropdown-toggle"
@@ -312,20 +374,20 @@
               Choose date
             </a>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <form class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item" href="#">March 12, 2023</a>
               <a class="dropdown-item" href="#">March 12, 2023</a>
               <a class="dropdown-item" href="#">March 12, 2023</a>
               <a class="dropdown-item" href="#">March 12, 2023</a>
               <a class="dropdown-item" href="#">March 12, 2023</a>
-            </div>
+            </form>
           </div>
 
           <div class="presence-list">
             <div class="container">
               <div class="row p-5 d-flex justify-content-center">
                 <div class="col-13">
-                  <h4 class="text-center text-light font-weight-bold" style="margin-top: -1.8vw;">
+                  <h4 class="text-center text-light font-weight-bold" style="margin-top: -1.8vw; position: fixed; width: 45vw; height: 4.5vw; margin-top: -3.75vw; padding-top: 1.8vw; background-color: #1b2f45;">
                     Presence Member List
                   </h4>
 
@@ -340,6 +402,7 @@
                   <span class="badge">Michael Apen</span>
                   <span class="badge">Harris Wahyudi</span>
                 </div>
+                <div style="position: fixed; margin-top: 18.25vw; width: 46vw; height: 3vw; background-color: #1b2f45;"></div>
               </div>
             </div>
           </div>
@@ -418,7 +481,7 @@
                   type="date"
                   class="form-control"
                   id="inputEmail3"
-                  style="background-color: #d9d9d9"
+                  style="background-color: #d9d9d9;"
                 />
               </div>
               <div class="col-lg-6 col-sm-6 col-md-6">

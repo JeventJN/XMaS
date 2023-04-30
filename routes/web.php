@@ -36,6 +36,10 @@ Route::get(('/footer'), function(){
     return view('footer');
 });
 
+Route::get(('/xtrareg'), function(){
+    return view('User.xtrareg');
+});
+
 Route::get(('/xtralistNU'), [xtralistController::class, 'index']);
 
 // halaman xtra satuan
@@ -43,4 +47,12 @@ Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtralistController::class, '
 
 Route::get('/reportform', function () {
     return view('Ketua/reportform');
+});
+
+Route::get(('/xtrapageketua'), function (){
+    return view('Ketua/xtrapageketua');
+});
+
+Route::get(('/absensiketua'), function (){
+    return view('Ketua/absensiketua');
 });

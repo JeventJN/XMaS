@@ -35,7 +35,7 @@ body {
 
 /* mengatur position relative supaya di bawah satu dimensi box-jumboron */
 .jumbotron {
-  background-image: url("../assets/image_jumbo.png");
+  background-image: url("../../Assets/Xtrapage assets/image_jumbo.png");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -61,6 +61,7 @@ body {
 .box-jumbotron .bca,
 .elips {
   width: 100%;
+  border-radius: 50%;
 }
 
 /* ========================= */
@@ -85,8 +86,6 @@ body {
   font-size: 22px;
   font-weight: bold;
   /* border: blue 1px solid; */
-
-
 }
 
 .button-elips {
@@ -103,6 +102,59 @@ body {
   padding-top: 2.6vw;
   /* border: red solid; */
 }
+
+/* ================================================================ */
+.JudulXtra
+{
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 0.52vw 3.125vw;
+    padding-top: 0.74vw;
+    padding-bottom: 0.74vw;
+    padding-left: 13vw;
+    padding-right: 7vw;
+    width: 30vw;
+    border-radius: 0vw 1.3vw 1.3vw 0vw;
+    background-color: #1B2F45;
+    font-size: 30px;
+    font-weight: 900;
+    /* visibility: hidden; */
+}
+
+.ScheduleXtra
+{
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 0.52vw 3.125vw;
+  padding-top: 0.75vw;
+  padding-bottom: 0.75vw;
+  padding-left: 18vw;
+  padding-right: 1vw;
+  width: 45vw;
+  border-radius: 0vw 1.3vw 1.3vw 0vw;
+  background-color: #1B2F45;
+  font-size: 30px;
+  font-weight: 900;
+  /* visibility: hidden; */
+}
+
+.LeaderXtra
+{
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 0.52vw 3.125vw;
+  padding-top: 0.74vw;
+  padding-bottom: 0.74vw;
+  padding-left: 18vw;
+  padding-right: 1vw;
+  width: 45vw;
+  border-radius: 0vw 1.3vw 1.3vw 0vw;
+  background-color: #1B2F45;
+  font-size: 30px;
+  font-weight: 900;
+  /* visibility: hidden; */
+}
+/* ================================================================ */
 
 .button-make-advance a { /*Make Attendace dan Add Schedule*/
   background-color: #395474;
@@ -222,9 +274,9 @@ main #contact .card {
   /* border: red solid; */
 }
 
-/* main #contact .card ::-webkit-scrollbar {
+main #contact .card ::-webkit-scrollbar {
   display: none;
-} */
+}
 
 main #contact .card .badge {
   margin-top: 0.52vw;
@@ -303,6 +355,7 @@ main .presence-list { /*kotak Presence Member List*/
   color: white;
   border-top-right-radius: 1.04vw;
   border: none;
+  /* border: red solid; */
 }
 
 main .presence .dropdown { /*dropdown choose date*/
@@ -342,19 +395,25 @@ main .presence .badge { /*isi presence list*/
   padding: 1.04vw;
   color: black;
   background-color: #e5e5e5;
-  width: 50vw;
+  width: 45vw;
   /* border: red solid; */
 }
 
 main .presence-list { /*Presence List Member*/
   overflow-y: scroll;
+  border-top-right-radius: 3vw;
   border-bottom-left-radius: 3vw;
+  border-bottom-right-radius: 3vw;
   height: 25vw;
   padding-left: 1.8vw;
   padding-right: 1.8vw;
-  padding-bottom: 2vw;
+  /* padding-bottom: 2vw; */
   margin-bottom: 5vw;
   /* border: red solid; */
+}
+
+main .presence-list::-webkit-scrollbar { /*Presence List Member*/
+  display: none;
 }
 
 /* mengatur warna inputan dan radius */
@@ -383,7 +442,7 @@ main .presence-list { /*Presence List Member*/
 .form_add #btn-confirm:hover {
   background-color: #56B8E6;
 }
-/* footoer */
+/* footer */
 
 /* mengatur footer agar mempunyai space atas, padding atas dan mengatur warna background */
 footer {

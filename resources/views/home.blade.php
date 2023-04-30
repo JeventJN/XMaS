@@ -16,8 +16,8 @@
 <body class="overflow-x-hidden">
     {{-- Navbar Options --}}
     @include('Non-User.navbarNU')
-    {{-- @include('User.navbarU') --}}
-    {{-- @include('Admin.navbarA') --}}
+    {{-- @include('User.navbarUser') --}}
+    {{-- @include('Admin.navbarAdmin') --}}
     {{-- Header --}}
     @include('header')
 
