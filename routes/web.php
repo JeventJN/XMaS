@@ -19,18 +19,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', function () {
     return view('home');
 });
+// Route::get('/home', [signUpController::class, 'home']);
+Route::redirect('/', '/home');
 
-Route::get('/signup', function () {
-    return view('Register/signup');
-});
 
+Route::get('/signup', [signUpController::class, 'index'])->middleware('guest');
 Route::post('/signup', [signUpController::class, 'store']);
 
-Route::get(('/login'), function(){
-    return view('Register/login');
-});
 
+Route::get('/login', [logInController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [logInController::class, 'masuk']);
+Route::post('/logout', [logInController::class, 'keluar']);
+
 
 Route::get(('/footer'), function(){
     return view('footer');

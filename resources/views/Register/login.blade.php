@@ -35,18 +35,22 @@
             <img class="mt-[3vw] w-[35vw]" src="Assets/LogoXMaSBlack.png" alt="">
             <form action="/login" id="loginvalid" method="POST" autocomplete="off" onsubmit="return eventsubmits(this);">
                 @csrf
+                @if (session() -> has('loginError'))
+                    <p>Gagal</p>
+
+                @endif
                 <div class="relative ml-[-3.5vw] logincontainer mt-[4vw] rounded-[1.5vw]">
                     <div class="loginform mt-[5vw]">
                         <div class="fieldbox flex items-center">
                             <img class="ml-[0.5vw] scale-[0.8] h-[2.8vw]" src="Assets/nip.png" alt="">
                             <div class="flex flex-col">
-                                <input type="tel" id="nipuser" name="nipuser" placeholder="Enter your NIP here" class="no-outline bg-[#1B2F45] w-[31vw] text-white text-[1.3vw] ml-[1vw] border-b-[0.1vw]" pattern="[0-9]+">
+                                <input type="tel" id="NIP" name="NIP" placeholder="Enter your NIP here" class="no-outline bg-[#1B2F45] w-[31vw] text-white text-[1.3vw] ml-[1vw] border-b-[0.1vw]" pattern="[0-9]+" value="{{ old('NIP')}}">
                             </div>
                         </div>
                         <div class="fieldbox flex items-center">
                             <img class="ml-[0.5vw] scale-[0.8] h-[2.8vw]" src="Assets/password.png" alt="">
                             <div class="flex flex-col">
-                                <input type="password" id="pass" name="pass" placeholder="Enter your password here" class="no-outline bg-[#1B2F45] w-[31vw] text-white text-[1.3vw] ml-[1vw] border-b-[0.1vw]">
+                                <input type="password" id="pass" name="password" placeholder="Enter your password here" class="no-outline bg-[#1B2F45] w-[31vw] text-white text-[1.3vw] ml-[1vw] border-b-[0.1vw]">
                             </div>
                         </div>
                     </div>
