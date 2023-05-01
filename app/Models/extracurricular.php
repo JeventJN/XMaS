@@ -32,13 +32,15 @@ class extracurricular extends Model
             ))
         );
 
-        $query->when($filters['Physique'] ?? false, fn($query) =>
-            $query->where('category', 'like', 'Physique')
-        );
+        if((isset($filters['Physique']) && isset($filters['NonPhysique'])) === false){
+            $query->when($filters['Physique'] ?? false, fn($query) =>
+                $query->where('category', 'like', 'Physique')
+            );
 
-        $query->when($filters['NonPhysique'] ?? false, fn($query) =>
-            $query->where('category', 'like', 'Non-Physique')
-        );
+            $query->when($filters['NonPhysique'] ?? false, fn($query) =>
+                $query->where('category', 'like', 'Non-Physique')
+            );
+        }
     }
 
     public function members(){
