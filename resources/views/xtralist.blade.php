@@ -92,11 +92,11 @@
                 @if ($xtras->count())
                     @foreach ($xtras as $xtra)
                         {{-- @dd($xtra->latest_schedule) --}}
-                        {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
+                        <a href="/xtralist/{{ $xtra->kdExtracurricular }}">
                             <div class="xtraboxcontainer flex justify-center items-center">
                                 <div class="xtrabox flex justify-center items-center">
                                     {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                    <img src="/Assets/{{ $xtra->logo }}" alt="{{ $xtra->name }}">
+                                    <img src="/Assets/{{ $xtra->name }}" alt="{{ $xtra->name }}">
                                 </div>
                                 <div class="xtrabox flex flex-col items-start justify-center font-nunito">
                                     <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
@@ -120,8 +120,8 @@
                                     {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
                                     <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB</div> --}}
                                 </div>
-                            {{-- </a> --}}
-                        </div>
+                            </div>
+                        </a>
                     @endforeach
                 @else
                     <p class="text-center text-[1.7vw] font-semibold mb-[3vw]">No Extracurricular.</p>
