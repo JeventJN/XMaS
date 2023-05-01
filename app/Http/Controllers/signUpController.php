@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 
 use App\Models\userXmas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class signUpController extends Controller
 {
+    public function index()
+    {
+        return view('Register/signup');
+    }
 
     public function store(Request $request){
 
@@ -21,9 +26,16 @@ class signUpController extends Controller
         ]);
 
         $data['photo'] = $request->file('photo')->store('database-assets');
+        $data['password'] = Hash::make($data['password']);
 
         userXmas::create($data);
 
         return redirect('/login');
+    }
+
+    public function home()
+    {
+        return view('home');
+
     }
 }

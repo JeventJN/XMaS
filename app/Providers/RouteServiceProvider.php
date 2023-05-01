@@ -36,6 +36,14 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        Route::get('/', function () {
+            return redirect()->route('home');
+        });
+
+        Route::get(self::HOME, function () {
+            return view('home');
+        })->name('home')->middleware('web')->middleware('preload');
     }
 
     /**

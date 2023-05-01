@@ -15,9 +15,35 @@
 </head>
 <body class="overflow-x-hidden">
     {{-- Navbar Options --}}
-    @include('Non-User.navbarNU')
-    {{-- @include('User.navbarUser') --}}
-    {{-- @include('Admin.navbarAdmin') --}}
+
+    {{-- @php
+        dd(Auth::check());
+    @endphp --}}
+
+    {{-- @if(request()->query('auth'))
+        <p>User terautentikasi</p>
+    @else
+        <p>User tidak terautentikasi</p>
+    @endif --}}
+
+
+    {{-- @if(session()->get('auth'))
+        <p>User terautentikasi</p>
+    @else
+        <p>User tidak terautentikasi</p>
+    @endif --}}
+
+
+    @guest
+        @include('Non-User.navbarNU')
+    @endguest
+
+    @auth
+        @include('User.navbarUser')
+        welkam, {{auth()->user()->name}}
+    @endauth
+
+    {{-- @include('Admin.navbarAdmin')
     {{-- Header --}}
     @include('header')
 
@@ -28,8 +54,12 @@
         </div>
         <div class="h-[30vw] w-[screen] flex items-center">
             <div class="featured-carousel owl-carousel">
+                {{-- {{ $extracurricular -> name}} --}}
+                @foreach ($data as $d)
+                    <p>{{$d -> name}}</p>
+                @endforeach
                 <a href="">
-                    <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                    <div class="upcomingxtrahover h-[25vw] flex items-center font-noto bg-red-300">
                         <div class="upcomingxtra">
                             <div class="logo">
                                 <div class="photo">
