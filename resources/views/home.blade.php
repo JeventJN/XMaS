@@ -27,11 +27,11 @@
     @endif --}}
 
 
-    {{-- @if(session()->get('auth'))
+    @if(session()->get('auth'))
         <p>User terautentikasi</p>
     @else
         <p>User tidak terautentikasi</p>
-    @endif --}}
+    @endif
 
 
     @guest
@@ -55,9 +55,9 @@
         <div class="h-[30vw] w-[screen] flex items-center">
             <div class="featured-carousel owl-carousel">
                 {{-- {{ $extracurricular -> name}} --}}
-                @foreach ($data as $d)
+                {{-- @foreach ($data as $d)
                     <p>{{$d -> name}}</p>
-                @endforeach
+                @endforeach --}}
                 <a href="">
                     <div class="upcomingxtrahover h-[25vw] flex items-center font-noto bg-red-300">
                         <div class="upcomingxtra">
