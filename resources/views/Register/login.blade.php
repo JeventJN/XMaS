@@ -56,7 +56,7 @@
                     </div>
                     <div class="mt-[6vw] buttonlogin ml-[11vw] font-nunito text-[1.3vw]">
                         <button type="submit">
-                                <div class="login1 text-white rounded-[0.4vw]">Log In</div>
+                                <div class="login1 text-white rounded-[0.4vw] ml-[10.5vw]">Log In</div>
                         </button>
                     </div>
                     <p class="text-[0.95vw] text-white ml-[22vw] mt-[0.5vw]">Don't have an account? <a class="signnav" href="/signup">Sign Up</a></p>

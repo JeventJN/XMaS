@@ -22,9 +22,9 @@ class logInController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            // dd(Auth::check());
-
-            return redirect()->intended('/home')->with('auth', Auth::check());
+            dd(Auth::check());
+            return redirect()->intended('/home');
+            // return redirect()->intended('/home')->with('auth', Auth::check());
             // return redirect('/home')->with('auth', Auth::check());
             // return redirect('/home?auth='.Auth::check());
 
