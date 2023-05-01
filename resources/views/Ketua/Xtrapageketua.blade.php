@@ -83,13 +83,19 @@
 
                         if (value == 'Running') {
                             e.target.classList.add('JudulXtra');
+                            e.target.style.width = '30vw';
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 17.5vw';
+                            e.target.style.marginBottom = '-0.41vw';
                         } else if (value == 'Wed(17.00 - 19.00)') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 17.5vw';
                             e.target.style.width = '38vw';
+                            e.target.style.marginTop = '-0.25vw';
+                            e.target.style.marginBottom = '-0.265vw';
                             e.target.classList.add('ScheduleXtra');
                         } else if (value == 'Jevent Natthannael') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
                             e.target.style.width = '40vw';
+                            e.target.style.marginTop = '-0.44vw';
                             e.target.classList.add('LeaderXtra');
                         }
 
@@ -104,15 +110,21 @@
                         //   e.target.style.width = '25.5vw';
 
                           if (text == 'Xtra') {
+                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.style.marginBottom = '-0.08vw';
+                            e.target.style.width = '25.2vw';
                             e.target.classList.remove('JudulXtra');
                           } else if (text == 'Schedule') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
                             e.target.style.width = '29.2vw';
+                            e.target.style.marginTop = '-0.08vw';
+                            e.target.style.marginBottom = '-0.08vw';
                             e.target.classList.remove('ScheduleXtra');
                           } else if (text == 'Leader') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
-                            e.target.classList.remove('LeaderXtra');
                             e.target.style.width = '27.6vw';
+                            e.target.style.marginTop = '-0.08vw';
+                            e.target.classList.remove('LeaderXtra');
                           }
                       });
                   });

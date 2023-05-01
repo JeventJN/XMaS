@@ -98,7 +98,7 @@ body {
   position: absolute;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   padding-top: 2.6vw;
   /* border: red solid; */
 }
