@@ -46,7 +46,7 @@
                         <input type="checkbox" id="Wed" name="Wed" value="Wed" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center ml-[3vw]">
                         <input type="checkbox" id="Thurs" name="Thurs" value="Thurs" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Thurs">Thurs</label>
                     </div>
