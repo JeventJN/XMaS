@@ -16,6 +16,7 @@
     {{-- Cuma buat space dari navbar --}}
     <div class="w-screen h-[5.25vw]"></div>
     {{--  --}}
+
     <div class="w-screen flex h-[41.7vw]">
         <div class="absolute ml-[56vw] h-[5vw] w-[40vw] flex items-center justify-start font-nunito text-[5vw] mt-[3vw] text-black font-black">Xtra&nbsp<mark class="text-white bg-transparent">&nbspRegistration</mark></div>
         <div class="w-[66%] h-[41.7vw] flex items-center">
@@ -24,7 +25,17 @@
         <div class="w-[34%] bg-[#7599C1] h-[41.7vw]"></div>
         <div class="absolute ml-[24vw] w-[61vw] h-[24vw] bg-[#395474] mt-[11vw] rounded-[1vw] flex flex-col items-center justify-center">
             <div class="w-[51vw] h-[18vw]">
-                <div class="w-[25vw] h-[3vw] bg-blue-500"></div>
+                <div class="mt-[1vw] w-[25vw] h-fit bg-blue-500">
+                    <select id="" class="bg-gray-50 border border-gray-300 border-[0.1vw] text-gray-900 text-sm focus:border-blue-500 block w-full p-[0.2vw] dark:text-white">
+                        <option selected>Choose one of your extracurricular</option>
+                        {{-- Masukin Data Foreach Date di bawah ini --}}
+                        <option value="Jevent">Jevent</option>
+                        <option value="Cecil">Cecil</option>
+                        <option value="Kwan">Kwan</option>
+                        <option value="Rico">Rico</option>
+                        {{-- Sampai Sini --}}
+                    </select>
+                </div>
                 <div class="text-white text-[2vw] mt-[3vw]">
                     What’s the reason you want to join this Xtra?
                 </div>
@@ -32,7 +43,7 @@
                     <div class="w-[31vw] border-b-[0.2vw] mb-[0.5vw]"></div>
                 </div>
                 <div class="flex justify-end mt-[3vw]">
-                    <div class="w-[12vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white flex justify-center items-center hover:bg-black hover:cursor-pointer">Register</div>
+                    <div class="w-[12vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white flex justify-center items-center hover:bg-black hover:cursor-pointer text-[1.5vw]">Register</div>
                 </div>
             </div>
         </div>

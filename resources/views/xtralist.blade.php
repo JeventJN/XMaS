@@ -33,7 +33,7 @@
                     <label class="ml-[1vw] text-[2vw]" for="NonPhysique">Non-Physique</label>
                 </div>
                 <p class="mt-[1vw] text-[2vw]">Days</p>
-                <div class="flex flex-wrap w-[25vw]">
+                <div class="flex flex-wrap w-[40vw]">
                     <div class="flex items-center">
                         <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Mon">Mon</label>
@@ -46,13 +46,21 @@
                         <input type="checkbox" id="Wed" name="Wed" value="Wed" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center ml-[3vw]">
                         <input type="checkbox" id="Thurs" name="Thurs" value="Thurs" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Thurs">Thurs</label>
                     </div>
-                    <div class="flex items-center ml-[3vw]">
+                    <div class="flex items-center ml-[0.65vw]">
                         <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Fri">Fri</label>
+                    </div>
+                    <div class="flex items-center ml-[5.7vw]">
+                        <input type="checkbox" id="Sat" name="Sat" value="Sat" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
+                        <label class="ml-[1vw] text-[2vw]" for="Sat">Sat</label>
+                    </div>
+                    <div class="flex items-center ml-[4.2vw]">
+                        <input type="checkbox" id="Sun" name="Sun" value="Sun" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
+                        <label class="ml-[1vw] text-[2vw]" for="Sun">Sun</label>
                     </div>
                 </div>
             </div>

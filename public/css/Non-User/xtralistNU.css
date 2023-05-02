@@ -75,3 +75,21 @@
 .no-outline:focus {
     outline: none;
 }
+
+input[type='checkbox']
+{
+    width: 2vw;
+    height: 2vw;
+    -webkit-border-radius: 0.2vw;
+    -moz-border-radius: 0.2vw;
+    border-radius: 0.2vw;
+}
+
+input[type='checkbox']:checked
+{
+    width: 2vw;
+    height: 2vw;
+    -webkit-border-radius: 0.2vw;
+    -moz-border-radius: 0.2vw;
+    border-radius: 0.2vw;
+}
