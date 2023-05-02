@@ -47,8 +47,8 @@
                         <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
                     </div>
                     <div class="flex items-center">
-                        <input type="checkbox" id="Thurs" name="Thurs" value="Thurs" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="Thurs">Thurs</label>
+                        <input type="checkbox" id="Thu" name="Thu" value="Thu" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
+                        <label class="ml-[1vw] text-[2vw]" for="Thu">Thu</label>
                     </div>
                     <div class="flex items-center ml-[3vw]">
                         <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
@@ -96,7 +96,7 @@
                             <div class="xtraboxcontainer flex justify-center items-center">
                                 <div class="xtrabox flex justify-center items-center">
                                     {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                    <img src="/Assets/{{ $xtra->name }}" alt="{{ $xtra->name }}">
+                                    <img src="/Assets/{{ $xtra->logo }}" alt="{{ $xtra->name }}">
                                 </div>
                                 <div class="xtrabox flex flex-col items-start justify-center font-nunito">
                                     <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
