@@ -18,8 +18,6 @@ class userXmas extends Model
         'photo'
     ];
 
-    // protected $guarded = ['photo'];
-
     public function members(){
         return $this->hasMany(Member::class, 'NIP', 'NIP');
     }

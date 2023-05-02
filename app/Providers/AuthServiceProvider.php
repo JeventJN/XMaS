@@ -4,6 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -23,8 +24,17 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
+        // $this->registerPolicies();
+
 
         //
+
+        Gate::policy(User::class, UserPolicy::class);
+
+        Gate::define('viewWebSudoForm', function ($user) {
+            return $user->is_admin;
+        });
+
+
     }
 }
