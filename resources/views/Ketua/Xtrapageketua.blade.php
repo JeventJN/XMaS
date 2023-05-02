@@ -45,7 +45,7 @@
     <!-- kalau ingin membuat navbar kita bisa buka web yang namanya botstrap.com lalu cari namanya navbar  -->
 
     <!-- navbar -->
-
+    @include('Non-User.navbarNU')
     <!-- navbar -->
 
     <!-- jumbotron search di bootstrap  -->
@@ -56,7 +56,6 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-right ">
-
                     <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
                     <div class="button-elips" onmouseover ="hover()" onmouseout="out()">
                       <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
@@ -143,9 +142,7 @@
               id="bca"
               data-aos="fade-left"
             >
-              <center>
                 <img src="Assets/Xtrapage assets/bca.png" alt="" class="bca" style="width: 32vw; margin-left: 4.5vw;"/>
-              </center>
             </div>
           </div>
         </div>
@@ -155,7 +152,7 @@
     <main>
       <br /><br />
       <div class="container">
-        <div class="button-make-advance float-right" data-aos="fade-down">
+        <div class="button-make-advance float-right">
           <a href="absensiketua" class="btn">Make Attendance</a>
           <a type="button" class="btn" data-toggle="modal" data-target="#add">
             Add Schedule
@@ -168,7 +165,7 @@
           class="nav nav-tabs"
           id="myTab"
           role="tablist"
-          data-aos="fade-right"
+          {{-- data-aos="fade-right" --}}
         >
           <li class="nav-item">
             <a
@@ -210,7 +207,7 @@
             >
           </li>
         </ul>
-        <div class="tab-content" id="myTabContent" data-aos="fade-down">
+        <div class="tab-content" id="myTabContent">
           <div
             class="tab-pane fade show active"
             id="home"
@@ -248,7 +245,7 @@
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <div class="card" style="width: 18rem">
+                  <div class="card" style="width: 19vw">
                     <img
                       src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
@@ -257,7 +254,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="card" style="width: 18rem">
+                  <div class="card" style="width: 19vw">
                     <img
                       src="Assets/Xtrapage assets/foto/2.png"
                       class="card-img-top"
@@ -266,7 +263,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="card" style="width: 18rem">
+                  <div class="card" style="width: 19vw">
                     <img
                       src="Assets/Xtrapage assets/foto/3.png"
                       class="card-img-top"
@@ -275,7 +272,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="card" style="width: 18rem">
+                  <div class="card" style="width: 19vw">
                     <img
                       src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
@@ -284,7 +281,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="card" style="width: 18rem">
+                  <div class="card" style="width: 19vw">
                     <img
                       src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
@@ -293,7 +290,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="card" style="width: 18rem">
+                  <div class="card" style="width: 19vw">
                     <img
                       src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
@@ -302,7 +299,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="card" style="width: 18rem">
+                  <div class="card" style="width: 19vw">
                     <img
                       src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
@@ -311,7 +308,7 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="card" style="width: 18rem">
+                  <div class="card" style="width: 19vw">
                     <img
                       src="Assets/Xtrapage assets/foto/1.png"
                       class="card-img-top"
@@ -331,22 +328,36 @@
             role="tabpanel"
             aria-labelledby="contact-tab"
           >
-          <h5 class="font-weight-bold">Member : 14</h5>
+
+          <h5 class="font-weight-bold" style="padding-left: 1vw;">Member : 14</h5>
+
             <div class="row" id="member">
               <br />
               <div class="col-lg-6 col-sm-6 col-md-6">
-                <div class="card">
-                  <h4 class="text-center text-dark font-weight-bold">
-                    Member List
-                  </h4>
 
-                  <span class="badge">Jevent Natthannael</span>
-                  <span class="badge">Jordan Cornelius</span>
-                  <span class="badge">Jevent Natthannael</span>
-                  <span class="badge">Jevent Natthannael</span>
-                  <span class="badge">Michael Apen</span>
-                  <span class="badge">Harris Wahyudi</span>
+                <div class="luarcard">
+
+                    <h4 class="text-center text-dark font-weight-bold" style="font-size: 1.5vw; margin-top: 1vw; margin-bottom: 0.8vw">
+                        Member List
+                    </h4>
+
+                    <div class="card">
+
+                    <span class="badge">Jevent Natthannael</span>
+                    <span class="badge">Jordan Cornelius</span>
+                    <span class="badge">Jevent Natthannael</span>
+                    <span class="badge">Jevent Natthannael</span>
+                    <span class="badge">Michael Apen</span>
+                    <span class="badge">Harris Wahyudi</span>
+                    <span class="badge">Jevent Natthannael</span>
+                    <span class="badge">Michael Apen</span>
+                    <span class="badge">Harris Wahyudi</span>
+                    <span class="badge">Jevent Natthannael</span>
+                    <span class="badge">Michael Apen</span>
+                    <span class="badge">Harris Wahyudi</span>
+                    </div>
                 </div>
+
               </div>
 
               <br />
@@ -370,9 +381,9 @@
 
       <!-- presence member list -->
 
-      <div class="presence" data-aos="fade-down">
+      <div class="presence">
         <div class="container">
-          <h5 class="float-right font-weight-bold" style="padding-top: 1.8vw;">Presence Member : 10</h5>
+          <h5 class="float-right font-weight-bold" style="padding-top: 1.8vw; padding-right: 2vw;">Presence Member : 10</h5>
           <div class="dropdown">
             <a
               class="btn dropdown-toggle"
@@ -394,30 +405,31 @@
               <a class="dropdown-item" href="#">March 12, 2023</a>
             </form>
           </div>
-
-          <div class="presence-list">
-            <div class="container">
-              <div class="row p-5 d-flex justify-content-center">
-                <div class="col-13">
-                  <h4 class="text-center text-light font-weight-bold" style="margin-top: -1.8vw; position: fixed; width: 45vw; height: 4.5vw; margin-top: -3.75vw; padding-top: 1.8vw; background-color: #1b2f45;">
+            <div class="luarPML">
+                <h4 class="text-center font-weight-bold" style="color: white; font-size: 1.5vw; background-color: #1b2f45; margin-top: 0.5vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
                     Presence Member List
-                  </h4>
+                </h4>
+                <div class="presence-list">
+                    <div class="container">
+                    <div class="row p-5 d-flex justify-content-center" style="margin-top: -3vw;">
 
-                  <span class="badge">Jevent Natthannael</span>
-                  <span class="badge">Jordan Cornelius</span>
-                  <span class="badge">Nathaniel Calvin</span>
-                  <span class="badge">Steven Felizion</span>
-                  <span class="badge">Michael Apen</span>
-                  <span class="badge">Harris Wahyudi</span>
-                  <span class="badge">Nathaniel Calvin</span>
-                  <span class="badge">Steven Felizion</span>
-                  <span class="badge">Michael Apen</span>
-                  <span class="badge">Harris Wahyudi</span>
+                        <div class="kotakisiPME">
+
+                        <span class="badge">Jevent Natthannael</span>
+                        <span class="badge">Jordan Cornelius</span>
+                        <span class="badge">Nathaniel Calvin</span>
+                        <span class="badge">Steven Felizion</span>
+                        <span class="badge">Michael Apen</span>
+                        <span class="badge">Harris Wahyudi</span>
+                        <span class="badge">Nathaniel Calvin</span>
+                        <span class="badge">Steven Felizion</span>
+                        <span class="badge">Michael Apen</span>
+                        <span class="badge">Harris Wahyudi</span>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <div style="position: fixed; margin-top: 18.25vw; width: 46vw; height: 3vw; background-color: #1b2f45;"></div>
-              </div>
             </div>
-          </div>
         </div>
       </div>
     </main>
@@ -559,7 +571,7 @@
     </div>
 
     <!-- footer -->
-
+    @include('../footer')
     <!-- </footer> -->
 
     <script
@@ -575,7 +587,7 @@
 
     <script>
       var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
+        slidesPerView: 3.5,
         spaceBetween: 30,
         // navigation: {
         //   nextEl: ".swiper-button-next",
