@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class xtralistController extends Controller
 {
     public function index(){
+        // dd(extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'mon']))->get());
         return view('xtralist', [
-            'xtras' => extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique']))->get()
+            'xtras' => extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon']))->get()
         ]);
         // return view('xtralist', [
         //     'xtras' => extracurricular::with('schedules',

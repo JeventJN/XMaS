@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,7 +23,7 @@ class extracurricular extends Model
             $query->where(fn($query) =>
                 $query->where('name', 'like', '%' . $search . '%')
             // )->orwhereHas('latest_schedule', fn($query) =>
-            //     $query->where('location', 'like', '%' . $search . '%')
+                // $query->where('location', 'like', '%' . $search . '%')->first()
                     // ->orWhere('date', 'like', '%' . $search . '%')
                     // ->orWhere('timeStart', 'like', '%' . $search . '%')
                     // ->orWhere('timeEnd', 'like', '%' . $search . '%')
@@ -40,6 +41,17 @@ class extracurricular extends Model
             $query->when($filters['NonPhysique'] ?? false, fn($query) =>
                 $query->where('category', 'like', 'Non-Physique')
             );
+        }
+
+        $query->when($filters['Mon'] ?? false, fn($query) =>
+            $query->whereHas('latest_schedule', fn($query) =>
+                // $query->pluck('date')->ismonday()->first()
+                // $query->whereDay('date', '=', 'mon')->latest()->limit(1)
+                // $query->whereRaw(("DATE_FORMAT(`date`, '%a') = 'mon'"))->orderBy('date', 'DESC');
+                $query->firstWhere(DB::raw("DATE_FORMAT(`date`, '%a') = 'mon'"))->orderBy('date', 'DESC')
+            )
+        );
+        if((isset($filters['Mon']) && isset($filters['Tue']) && isset($filters['Wed']) && isset($filters['Thu']) && isset($filters['Fri']) && isset($filters['Sat']) && isset($filters['Sun'])) === false){
         }
     }
 
@@ -61,7 +73,7 @@ class extracurricular extends Model
     }
 
     public function latest_schedule(){
-        return $this->hasOne(schedule::class, 'kdExtracurricular', 'kdExtracurricular')->latest('date');
+        return $this->hasOne(schedule::class, 'kdExtracurricular', 'kdExtracurricular')->latest('date')->latest('timeStart');
         // return $this->schedules()->one()->latestOfMany();
     }
 }

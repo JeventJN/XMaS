@@ -13,33 +13,13 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
-/* mengatur navbar   */
-/* .navbar {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.78vw;
-  line-height: 1.56vw;
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-.navbar .logo {
-  width: 5.73vw;
-}
-
-.navbar .user {
-  width: 1.56vw;
-} */
-
 /* mengatur position relative supaya di bawah satu dimensi box-jumboron */
 .jumbotron {
   background-image: url("../../Assets/Xtrapage assets/image_jumbo.png");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  height: 52vw;
+  height: 49.7vw;
 }
 
 /* Mengatur box-jumbotron, menggunakan position absolut supaya objek di atas jumbotron 1 dimensi */
@@ -251,17 +231,36 @@ input {
   background-color: #d9d9d9;
   border-radius: 1.04vw;
   padding: 1.04vw;
+  /* border: red solid; */
 }
+
 
 main .card {
-  border: none;
-  background-color: transparent;
+    border: none;
+    background-color: transparent;
+    /* border: red solid; */
 }
 
-/* member */
+/* Member */
 
-main #contact .card {
-  padding: 1.8vw;
+.luarcard{
+    width: 40vw;
+    height: 27vw;
+    margin-top: 0.3vw;
+    background-color: #d9d9d9;
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+    border-top-right-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* border: yellow solid; */
+}
+
+main #contact .card { /*Kotak Member List*/
+  /* padding: 1.8vw; */
   padding-left: 4vw;
   padding-right: 3.5vw;
   background-color: #d9d9d9;
@@ -269,38 +268,59 @@ main #contact .card {
   border-bottom-left-radius: 2vw;
   border-top-right-radius: 2vw;
   border-bottom-right-radius: 2vw;
-  overflow: auto;
-  height: 38vw;
-  /* border: red solid; */
-}
-
-main #contact .card ::-webkit-scrollbar {
-  display: none;
-}
-
-main #contact .card .badge {
-  margin-top: 0.52vw;
-  font-size: 1.5vw;
-  border-radius: 1.5625vw;
-  padding: 1.04vw;
-  background-color: #395474;
-}
-
-main #contact img { /*gambar stop*/
-  width: 100%;
-  position: relative;
+  height: 19.3vw;
+  width: 40vw;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.4vw;
+  /* border: purple solid; */
 }
 
-.gambarstop{
+.main #contact .card::-webkit-scrollbar {
+    display: none !important;
+    width: 0;
+  }
+
+main #contact .card .badge { /*isi Member List*/
+  margin-top: 0.52vw;
+  font-size: 1.5vw;
+  font-weight: 500;
+
+  border-radius: 1.5625vw;
+  /* padding: 1.04vw; */
+  background-color: #395474;
+  width: 31vw;
+  /* border: red solid; */
+}
+
+main #contact .card .badge ::-webkit-scrollbar{
+    display: none;
+}
+
+main #contact img { /*gambar stop*/
+  width: 25vw;
+  height: 30vw;
+  position: relative;
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 6.05vw;
+  /* border: purple solid; */
+}
+
+/* .gambarstop{
   width: auto;
-  height: 37vw;
+  height: 32vw;
   justify-content: center;
-}
+  border: yellow solid;
+} */
 
-main #contact .btn-member {
+main #contact .btn-member { /*Kotak dari Button Leave Xtra*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,13 +329,17 @@ main #contact .btn-member {
   left: 0;
   right: 0;
   bottom: 0;
+  /* padding-left: 20vw; */
+  /* border: red solid; */
 }
 
-main #contact .btn-member button { /*button leave xtra*/
-  padding: 1.04vw 7.81vw;
+main #contact .btn-member button { /*Button Leave Xtra*/
+  /* padding: 1.04vw 7.81vw; */
+  width: 25vw;
+  height: 7vw;
   border: 0;
   background-color: #d9d9d9;
-  font-size: 2.5vw;
+  font-size: 2.2vw;
   font-weight: 800;
   border-radius: 1.56vw;
   /* border: red solid; */
@@ -346,6 +370,7 @@ main #contact .modal {
 main .presence {
   margin: 0;
   margin-top: 100px;
+  /* border: red solid; */
 }
 
 main .presence-list { /*kotak Presence Member List*/
@@ -355,7 +380,60 @@ main .presence-list { /*kotak Presence Member List*/
   color: white;
   border-top-right-radius: 1.04vw;
   border: none;
+  /* border: cyan solid; */
+}
+
+.kotakisiPME{ /*untuk atur GAP isi PME*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+    gap: 1vw;
+    /* border: purple solid; */
+}
+
+.luarPML{
+    background-color: #1b2f45;
+    display: flex;
+    flex-direction: column;
+    height: 25.5vw;
+    border-top-right-radius: 3vw;
+    border-bottom-left-radius: 3vw;
+    border-bottom-right-radius: 3vw;
+    margin-bottom: 2.5vw;
+    /* border: yellow solid; */
+}
+
+main .presence .badge { /*isi presence list*/
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* margin-top: 0.5vw; */
+  font-size: 1.5vw;
+  border-radius: 1.15vw;
+  padding: 0.5vw;
+  color: black;
+  background-color: #e5e5e5;
+  width: 36vw;
   /* border: red solid; */
+}
+
+main .presence-list { /*Presence Member List buat atur height*/
+  overflow-y: scroll;
+  border-top-right-radius: 3vw;
+  border-bottom-left-radius: 3vw;
+  border-bottom-right-radius: 3vw;
+  height: 25vw;
+  padding-left: 1.8vw;
+  padding-right: 1.8vw;
+  margin-bottom: 0vw;
+  height: 21.5vw;
+  /* border: cyan solid; */
+}
+
+main .presence-list::-webkit-scrollbar { /*Presence List Member*/
+  display: none;
 }
 
 main .presence .dropdown { /*dropdown choose date*/
@@ -385,37 +463,6 @@ main .presence .dropdown-menu a {
   border-bottom: 1px solid black;
 }
 
-main .presence .badge { /*isi presence list*/
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 1.3vw;
-  font-size: 1.5vw;
-  border-radius: 1.5625vw;
-  padding: 1.04vw;
-  color: black;
-  background-color: #e5e5e5;
-  width: 45vw;
-  /* border: red solid; */
-}
-
-main .presence-list { /*Presence List Member*/
-  overflow-y: scroll;
-  border-top-right-radius: 3vw;
-  border-bottom-left-radius: 3vw;
-  border-bottom-right-radius: 3vw;
-  height: 25vw;
-  padding-left: 1.8vw;
-  padding-right: 1.8vw;
-  /* padding-bottom: 2vw; */
-  margin-bottom: 5vw;
-  /* border: red solid; */
-}
-
-main .presence-list::-webkit-scrollbar { /*Presence List Member*/
-  display: none;
-}
-
 /* mengatur warna inputan dan radius */
 .form_add input {
   background-color: #d9d9d9;
@@ -441,23 +488,6 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
 /* membuat animasi ketika cursor di atas objek  */
 .form_add #btn-confirm:hover {
   background-color: #56B8E6;
-}
-/* footer */
-
-/* mengatur footer agar mempunyai space atas, padding atas dan mengatur warna background */
-footer {
-  margin-top: 5.2vw;
-  padding-top: 1.5625vw;
-  padding-bottom: 1.5625vw;
-  background-color: #364657;
-}
-
-/* untuk mencakum supaya css nya kena, dengan menambahkan koma (,) */
-footer ul li,
-footer p,
-footer i,
-footer h4 {
-  color: white;
 }
 
 /* bagian persentasi.html */
