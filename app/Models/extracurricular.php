@@ -53,7 +53,11 @@ class extracurricular extends Model
             //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%')
             //                         )
 
-            )->orWhereIn('kdExtracurricular', fn($query) =>
+            // SELECT `schedules`.`kdExtracurricular`, `schedules`.`location`,`schedules`.`kdschedule` as `kd`, `date`
+            // FROM `schedules`
+            // INNER JOIN (SELECT `schedules`.`kdExtracurricular`, MAX(`schedules`.`DATE`) AS `data`, DATE_FORMAT(MAX(`schedules`.`date`), '%a') FROM `schedules` GROUP BY `schedules`.`kdExtracurricular`  ) AS `a` ON `schedules`.`kdExtracurricular` = `a`.`kdExtracurricular` AND `schedules`.`date` = `a`.`data`
+            ->orWhere(fn($query) =>
+                $query->orWhereIn('kdExtracurricular', fn($query) =>
                 // $query->select('kdExtracurricular')
                 //     ->from('schedules')
                 //     ->whereIn('kdschedule', fn($query) =>
@@ -64,20 +68,21 @@ class extracurricular extends Model
                             ->where(DB::raw("`recent_sched`.`recent_date`"),  '=', DB::raw("`schedules`.`date`"))
                             ->where(fn($query) =>
                                         $query->where('location', 'like', '%'.$search.'%')
-                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%a')"), 'like', '%'.$search.'%')
+                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%W')"), 'like', '%'.$search.'%')
                                             ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
                                             ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%'))
+                        ))
 
                 // ->orwhereHas('latest_schedule', fn($query) =>
                 // $query->where('location', 'like', '%' . $search . '%')->first()
                     // ->orWhere('date', 'like', '%' . $search . '%')
                     // ->orWhere('timeStart', 'like', '%' . $search . '%')
                     // ->orWhere('timeEnd', 'like', '%' . $search . '%')
-            )->orwhereHas('leader', fn($query) =>
+            ->orwhereHas('leader', fn($query) =>
                 $query->whereHas('userXmas', fn($query) =>
                     $query->where('name', 'like', '%' . $search . '%')
             ))
-        );
+        ));
 
         if((isset($filters['Physique']) && isset($filters['NonPhysique'])) === false){
             $query->when($filters['Physique'] ?? false, fn($query) =>
