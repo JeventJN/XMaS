@@ -51,25 +51,31 @@ class extracurricular extends Model
         //     JOIN `extracurriculars` ON `extracurriculars`.`kdExtracurricular` = `schedules`.`kdExtracurricular`
         //     GROUP BY `extracurriculars`.kdextracurricular DESC) AS `sched_max`
         // WHERE `date_max` = 'mon';
-        $data_sched = DB::table("extracurriculars")->select("*", DB::raw("(SELECT  *, DATE_FORMAT(MAX(`schedules`.`date`), '%a') AS `date_max`
-                                                            FROM  `schedules`
-                                                            JOIN `extracurriculars` ON `extracurriculars`.`kdExtracurricular` = `schedules`.`kdExtracurricular`
-                                                            GROUP BY `extracurriculars`.kdextracurricular DESC) AS `sched_max`"));
-        // $query->when($filters['Mon'] ?? false, fn($query) =>
-        //     $query->whereExists($data_sched)->where('date_max', '=', 'mon')
-        //     // $query->whereExists(fn($query) =>
-        //     //     // $query->pluck('date')->ismonday()->first()
-        //     //     // $query->whereDay('date', '=', 'mon')->latest()->limit(1)
-        //     //     // $query->whereRaw(("DATE_FORMAT(`date`, '%a') = 'mon'"))->orderBy('date', 'DESC')
-        //     //     // $query->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
-        //     //     //     ->firstWhere(("'DATE_FORMAT(`schedules.date`, '%a')'"),  '=',  "'mon'")->orderBy('date', 'DESC')
-        //     //     // $query->where('date_max', '=', 'mon'))
-        //     //     $query->select("*", DB::raw("(SELECT  *, DATE_FORMAT(MAX(`schedules`.`date`), '%a') AS `date_max`
-        //     //     FROM  `schedules`
-        //     //     JOIN `extracurriculars` ON `extracurriculars`.`kdExtracurricular` = `schedules`.`kdExtracurricular`
-        //     //     GROUP BY `extracurriculars`.kdextracurricular DESC) AS `sched_max`"))->where('date_max', '=', 'mon')
-        //     // )
-        // );
+        // $data_sched = DB::table("extracurriculars")->select("*", DB::raw("(SELECT  *, DATE_FORMAT(MAX(`schedules`.`date`), '%a') AS `date_max`
+        //                                                     FROM  `schedules`
+        //                                                     JOIN `extracurriculars` ON `extracurriculars`.`kdExtracurricular` = `schedules`.`kdExtracurricular`
+        //                                                     GROUP BY `extracurriculars`.kdextracurricular DESC) AS `sched_max`"))
+        //                                         ->where('date_max', '=', 'mon');
+        $query->when($filters['Mon'] ?? false, fn($query) =>
+            // $query->where('kdExtracurricular', '=',$data_sched['kdExtracurricular'])
+            $query->whereExists('kdExtracurricular', fn($query) =>
+                // $query->pluck('date')->ismonday()->first()
+                // $query->whereDay('date', '=', 'mon')->latest()->limit(1)
+                // $query->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')->whereRaw(("DATE_FORMAT(max(`date`), '%a') = 'mon'"))->groupBy('extracurriculars.kdExtracurricular')->orderBy('date', 'DESC')
+                // $query->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+                //     ->firstWhere(("'DATE_FORMAT(`schedules.date`, '%a')'"),  '=',  "'mon'")->orderBy('date', 'DESC')
+                // $query->where('date_max', '=', 'mon'))
+                $query->from(fn($query) =>
+                    // $query->selectRaw("*, DATE_FORMAT(MAX(`date`), '%a') AS `date_max`")
+                        $query->select(DB::raw(" `extracurriculars`.kdextracurricular,`extracurriculars`.name, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+                            ->from('schedules')
+                            ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+                            ->groupBy('extracurriculars.kdExtracurricular')
+                )->whereRaw("`date_max` = 'mon'")->reorder('kdExtracurricular')
+                // $query->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+                // ->max('date')->whereRaw(("DATE_FORMAT(`date`, '%a') = 'mon'"))
+            )
+        );
         if((isset($filters['Mon']) && isset($filters['Tue']) && isset($filters['Wed']) && isset($filters['Thu']) && isset($filters['Fri']) && isset($filters['Sat']) && isset($filters['Sun'])) === false){
         }
     }
