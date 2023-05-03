@@ -23,7 +23,37 @@ class extracurricular extends Model
         $query->when($filters['search'] ?? false, fn($query, $search) =>
             $query->where(fn($query) =>
                 $query->where('name', 'like', '%' . $search . '%')
-            // )->orwhereHas('latest_schedule', fn($query) =>
+            // )->orWhereIn('kdExtracurricular', fn($query) =>
+            //             $query->select('kdExtracurricular')
+            //                 ->from(fn($query) =>
+            //                         $query->select(DB::raw("'extracurriculars.kdExtracurricular' as `kd`, MAX(`schedules`.`DATE`)"))
+            //                             ->from('schedules')
+            //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+            //                             ->groupBy('extracurriculars.kdExtracurricular')
+            //                             , 'recent_sched')
+            //                 )->where(fn($query) =>
+            //                             $query->where('location', 'like', '%'.$search.'%')
+            //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%a')"), 'like', '%'.$search.'%')
+            //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
+            //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%')
+                                    // )
+            )->orWhereIn('kdExtracurricular', fn($query) =>
+                $query->select('kdExtracurricular')
+                    ->from('schedules')
+                    ->whereIn('kdschedule', fn($query) =>
+                        $query->select('kd')
+                            ->from(fn($query) =>
+                                    $query->select(DB::raw("`schedules`.`kdschedule` as `kd`, MAX(`schedules`.`DATE`)"))
+                                        ->from('schedules')
+                                        ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+                                        ->groupBy('extracurriculars.kdExtracurricular'), 'recent_sched')
+                            )->where(fn($query) =>
+                                        $query->where('location', 'like', '%'.$search.'%')
+                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%a')"), 'like', '%'.$search.'%')
+                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
+                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%')
+                                    )
+                // ->orwhereHas('latest_schedule', fn($query) =>
                 // $query->where('location', 'like', '%' . $search . '%')->first()
                     // ->orWhere('date', 'like', '%' . $search . '%')
                     // ->orWhere('timeStart', 'like', '%' . $search . '%')
@@ -99,7 +129,7 @@ class extracurricular extends Model
         //                             ->from('schedules')
         //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
         //                             ->groupBy('extracurriculars.kdExtracurricular')
-        //                 )->where('date_max', 'IN', 'Mon')->reorder('kdExtracurricular')
+        //                 )->where('date_max', '=', 'Mon')->reorder('kdExtracurricular')
         //         )
         //     );
         //     $query->when($filters['Tue'] ?? false, fn($query) =>
@@ -191,7 +221,7 @@ class extracurricular extends Model
     }
 
     public function latest_schedule(){
-        return $this->hasOne(schedule::class, 'kdExtracurricular', 'kdExtracurricular')->latest('date')->latest('timeStart');
+        return $this->hasOne(schedule::class, 'kdExtracurricular', 'kdExtracurricular')->latest('date');
         // return $this->schedules()->one()->latestOfMany();
     }
 }
