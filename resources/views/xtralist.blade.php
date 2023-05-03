@@ -47,8 +47,8 @@
                         <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
                     </div>
                     <div class="flex items-center ml-[3vw]">
-                        <input type="checkbox" id="Thurs" name="Thurs" value="Thurs" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="Thurs">Thurs</label>
+                        <input type="checkbox" id="Thu" name="Thu" value="Thu" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
+                        <label class="ml-[1vw] text-[2vw]" for="Thu">Thu</label>
                     </div>
                     <div class="flex items-center ml-[0.65vw]">
                         <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
