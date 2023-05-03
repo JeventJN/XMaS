@@ -33,32 +33,32 @@
                     <label class="ml-[1vw] text-[2vw]" for="NonPhysique">Non-Physique</label>
                 </div>
                 <p class="mt-[1vw] text-[2vw]">Days</p>
-                <div class="flex flex-wrap w-[40vw]">
-                    <div class="flex items-center">
+                <div class="flex flex-wrap w-[32vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw]">
                         <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Mon">Mon</label>
                     </div>
-                    <div class="flex items-center ml-[3vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw]">
                         <input type="checkbox" id="Tue" name="Tue" value="Tue" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Tue">Tue</label>
                     </div>
-                    <div class="flex items-center ml-[3vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw]">
                         <input type="checkbox" id="Wed" name="Wed" value="Wed" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
                     </div>
-                    <div class="flex items-center ml-[3vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw]">
                         <input type="checkbox" id="Thu" name="Thu" value="Thu" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Thu">Thu</label>
                     </div>
-                    <div class="flex items-center ml-[0.65vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw] ml-[0.7vw]">
                         <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Fri">Fri</label>
                     </div>
-                    <div class="flex items-center ml-[5.7vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw]">
                         <input type="checkbox" id="Sat" name="Sat" value="Sat" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Sat">Sat</label>
                     </div>
-                    <div class="flex items-center ml-[4.2vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw]">
                         <input type="checkbox" id="Sun" name="Sun" value="Sun" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Sun">Sun</label>
                     </div>
