@@ -56,28 +56,121 @@ class extracurricular extends Model
         //                                                     JOIN `extracurriculars` ON `extracurriculars`.`kdExtracurricular` = `schedules`.`kdExtracurricular`
         //                                                     GROUP BY `extracurriculars`.kdextracurricular DESC) AS `sched_max`"))
         //                                         ->where('date_max', '=', 'mon');
-        $query->when($filters['Mon'] ?? false, fn($query) =>
-            // $query->where('kdExtracurricular', '=',$data_sched['kdExtracurricular'])
-            $query->whereExists('kdExtracurricular', fn($query) =>
-                // $query->pluck('date')->ismonday()->first()
-                // $query->whereDay('date', '=', 'mon')->latest()->limit(1)
-                // $query->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')->whereRaw(("DATE_FORMAT(max(`date`), '%a') = 'mon'"))->groupBy('extracurriculars.kdExtracurricular')->orderBy('date', 'DESC')
-                // $query->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
-                //     ->firstWhere(("'DATE_FORMAT(`schedules.date`, '%a')'"),  '=',  "'mon'")->orderBy('date', 'DESC')
-                // $query->where('date_max', '=', 'mon'))
-                $query->from(fn($query) =>
-                    // $query->selectRaw("*, DATE_FORMAT(MAX(`date`), '%a') AS `date_max`")
-                        $query->select(DB::raw(" `extracurriculars`.kdextracurricular,`extracurriculars`.name, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
-                            ->from('schedules')
-                            ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
-                            ->groupBy('extracurriculars.kdExtracurricular')
-                )->whereRaw("`date_max` = 'mon'")->reorder('kdExtracurricular')
-                // $query->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
-                // ->max('date')->whereRaw(("DATE_FORMAT(`date`, '%a') = 'mon'"))
-            )
-        );
-        if((isset($filters['Mon']) && isset($filters['Tue']) && isset($filters['Wed']) && isset($filters['Thu']) && isset($filters['Fri']) && isset($filters['Sat']) && isset($filters['Sun'])) === false){
+        $day = [];
+        if((isset($filters['Mon']) || isset($filters['Tue']) || isset($filters['Wed']) || isset($filters['Thu']) || isset($filters['Fri']) || isset($filters['Sat']) || isset($filters['Sun'])) === true){
+            if(isset($filters['Mon']) === true){
+                $day[] = ['Mon'];
+            }
+            if(isset($filters['Tue']) === true){
+                $day[] = ['Tue'];
+            }
+            if(isset($filters['Wed']) === true){
+                $day[] = ['Wed'];
+            }
+            if(isset($filters['Thu']) === true){
+                $day[] = ['Thu'];
+            }
+            if(isset($filters['Fri']) === true){
+                $day[] = ['Fri'];
+            }
+            if(isset($filters['Sat']) === true){
+                $day[] = ['Sat'];
+            }
+            if(isset($filters['Sun']) === true){
+                $day[] = ['Sun'];
+            }
+            $query->whereIn('kdExtracurricular', fn($query) =>
+                $query->select('kdExtracurricular')
+                    ->from(fn($query) =>
+                            $query->select(DB::raw(" `extracurriculars`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+                                ->from('schedules')
+                                ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+                                ->groupBy('extracurriculars.kdExtracurricular')
+                    )->whereIn('date_max', $day)->reorder('kdExtracurricular')
+            );
         }
+
+        // if((isset($filters['Mon']) && isset($filters['Tue']) && isset($filters['Wed']) && isset($filters['Thu']) && isset($filters['Fri']) && isset($filters['Sat']) && isset($filters['Sun'])) === false){
+        //     $query->when($filters['Mon'] ?? false, fn($query) =>
+        //         $query->whereIn('kdExtracurricular', fn($query) =>
+        //             $query->select('kdExtracurricular')
+        //                 ->from(fn($query) =>
+        //                         $query->select(DB::raw(" `extracurriculars`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+        //                             ->from('schedules')
+        //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+        //                             ->groupBy('extracurriculars.kdExtracurricular')
+        //                 )->where('date_max', 'IN', 'Mon')->reorder('kdExtracurricular')
+        //         )
+        //     );
+        //     $query->when($filters['Tue'] ?? false, fn($query) =>
+        //         $query->whereIn('kdExtracurricular', fn($query) =>
+        //             $query->select('kdExtracurricular')
+        //                 ->from(fn($query) =>
+        //                         $query->select(DB::raw(" `extracurriculars`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+        //                             ->from('schedules')
+        //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+        //                             ->groupBy('extracurriculars.kdExtracurricular')
+        //                 )->whereRaw("`date_max` = 'Tue'")->reorder('kdExtracurricular')
+        //         )
+        //     );
+        //     $query->when($filters['Wed'] ?? false, fn($query) =>
+        //         $query->whereIn('kdExtracurricular', fn($query) =>
+        //             $query->select('kdExtracurricular')
+        //                 ->from(fn($query) =>
+        //                         $query->select(DB::raw(" `extracurriculars`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+        //                             ->from('schedules')
+        //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+        //                             ->groupBy('extracurriculars.kdExtracurricular')
+        //                 )->whereRaw("`date_max` = 'Wed'")->reorder('kdExtracurricular')
+        //         )
+        //     );
+        //     $query->when($filters['Thu'] ?? false, fn($query) =>
+        //         $query->whereIn('kdExtracurricular', fn($query) =>
+        //             $query->select('kdExtracurricular')
+        //                 ->from(fn($query) =>
+        //                         $query->select(DB::raw(" `extracurriculars`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+        //                             ->from('schedules')
+        //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+        //                             ->groupBy('extracurriculars.kdExtracurricular')
+        //                 )->whereRaw("`date_max` = 'Thu'")->reorder('kdExtracurricular')
+        //         )
+        //     );
+        //     $query->when($filters['Fri'] ?? false, fn($query) =>
+        //         $query->whereIn('kdExtracurricular', fn($query) =>
+        //             $query->select('kdExtracurricular')
+        //                 ->from(fn($query) =>
+        //                         $query->select(DB::raw(" `extracurriculars`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+        //                             ->from('schedules')
+        //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+        //                             ->groupBy('extracurriculars.kdExtracurricular')
+        //                 )->whereRaw("`date_max` = 'Fri'")->reorder('kdExtracurricular')
+        //         )
+        //     );
+        //     $query->when($filters['Sat'] ?? false, fn($query) =>
+        //         $query->whereIn('kdExtracurricular', fn($query) =>
+        //             $query->select('kdExtracurricular')
+        //                 ->from(fn($query) =>
+        //                         $query->select(DB::raw(" `extracurriculars`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+        //                             ->from('schedules')
+        //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+        //                             ->groupBy('extracurriculars.kdExtracurricular')
+        //                 )->whereRaw("`date_max` = 'Sat'")->reorder('kdExtracurricular')
+        //         )
+        //     );
+        //     $query->when($filters['Sun'] ?? false, fn($query) =>
+        //         $query->whereIn('kdExtracurricular', fn($query) =>
+        //             $query->select('kdExtracurricular')
+        //                 ->from(fn($query) =>
+        //                         $query->select(DB::raw(" `extracurriculars`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+        //                             ->from('schedules')
+        //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+        //                             ->groupBy('extracurriculars.kdExtracurricular')
+        //                 )->whereRaw("`date_max` = 'Sun'")->reorder('kdExtracurricular')
+        //         )
+        //     );
+        // } elseif((isset($filters['Mon']) && isset($filters['Tue']) && isset($filters['Wed']) && isset($filters['Thu']) && isset($filters['Fri']) && isset($filters['Sat']) && isset($filters['Sun'])) === false){
+
+        // }
     }
 
     public function members(){

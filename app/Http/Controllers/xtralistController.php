@@ -16,7 +16,7 @@ class xtralistController extends Controller
         // dd($data_sched);
         // dd(extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'mon']))->get());
         return view('xtralist', [
-            'xtras' => extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon']))->get()
+            'xtras' => extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get()
         ]);
         // return view('xtralist', [
         //     'xtras' => extracurricular::with('schedules',

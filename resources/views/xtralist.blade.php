@@ -25,41 +25,41 @@
             <div class="flex flex-col ml-[4vw]">
                 <p class="text-[2vw]">Categories</p>
                 <div class="flex items-center">
-                    <input type="checkbox" id="Physique" name="Physique" value="Physique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
+                    <input type="checkbox" id="Physique" name="Physique" value="Physique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('Physique') === NULL) ? '' : 'checked' }} >
                     <label class="ml-[1vw] text-[2vw]" for="Physique">Physique</label>
                 </div>
                 <div class="flex items-center">
-                    <input type="checkbox" id="NonPhysique" name="NonPhysique" value="NonPhysique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
+                    <input type="checkbox" id="NonPhysique" name="NonPhysique" value="NonPhysique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('NonPhysique') === NULL) ? '' : 'checked' }} >
                     <label class="ml-[1vw] text-[2vw]" for="NonPhysique">Non-Physique</label>
                 </div>
                 <p class="mt-[1vw] text-[2vw]">Days</p>
                 <div class="flex flex-wrap w-[32vw]">
                     <div class="flex items-center w-[8vw] h-[3vw]">
-                        <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
+                        <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('Mon') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Mon">Mon</label>
                     </div>
                     <div class="flex items-center w-[8vw] h-[3vw]">
-                        <input type="checkbox" id="Tue" name="Tue" value="Tue" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
+                        <input type="checkbox" id="Tue" name="Tue" value="Tue" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Tue') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Tue">Tue</label>
                     </div>
                     <div class="flex items-center w-[8vw] h-[3vw]">
-                        <input type="checkbox" id="Wed" name="Wed" value="Wed" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
+                        <input type="checkbox" id="Wed" name="Wed" value="Wed" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Wed') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
                     </div>
                     <div class="flex items-center w-[8vw] h-[3vw]">
-                        <input type="checkbox" id="Thu" name="Thu" value="Thu" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
+                        <input type="checkbox" id="Thu" name="Thu" value="Thu" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Thu') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Thu">Thu</label>
                     </div>
                     <div class="flex items-center w-[8vw] h-[3vw] ml-[0.7vw]">
-                        <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
+                        <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer" {{ (request('Fri') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Fri">Fri</label>
                     </div>
                     <div class="flex items-center w-[8vw] h-[3vw]">
-                        <input type="checkbox" id="Sat" name="Sat" value="Sat" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
+                        <input type="checkbox" id="Sat" name="Sat" value="Sat" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer" {{ (request('Sat') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Sat">Sat</label>
                     </div>
                     <div class="flex items-center w-[8vw] h-[3vw]">
-                        <input type="checkbox" id="Sun" name="Sun" value="Sun" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
+                        <input type="checkbox" id="Sun" name="Sun" value="Sun" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer" {{ (request('Sun') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Sun">Sun</label>
                     </div>
                 </div>
@@ -85,6 +85,30 @@
                     @endif
                     @if (request('NonPhysique'))
                         <input type="hidden" name="NonPhysique" value={{ request('NonPhysique') }}>
+                    @endif
+                    @if (request('Physique'))
+                            <input type="hidden" name="Physique" value={{ request('Physique') }}>
+                    @endif
+                    @if (request('Mon'))
+                        <input type="hidden" name="Mon" value={{ request('Mon') }}>
+                    @endif
+                    @if (request('Tue'))
+                            <input type="hidden" name="Tue" value={{ request('Tue') }}>
+                    @endif
+                    @if (request('Wed'))
+                        <input type="hidden" name="Wed" value={{ request('Wed') }}>
+                    @endif
+                    @if (request('Thu'))
+                            <input type="hidden" name="Thu" value={{ request('Thu') }}>
+                    @endif
+                    @if (request('Fri'))
+                        <input type="hidden" name="Fri" value={{ request('Fri') }}>
+                    @endif
+                    @if (request('Sat'))
+                        <input type="hidden" name="Sat" value={{ request('Sat') }}>
+                    @endif
+                    @if (request('Sun'))
+                        <input type="hidden" name="Sun" value={{ request('Sun') }}>
                     @endif
                     <div class="bg-neutral-100 ml-[1vw] w-[25.5vw] h-[4vw] rounded-[1vw] shadow flex items-center justify-end">
                         <div class="flex items-center justify-center w-[19vw] h-[3.5vw] mr-[1vw] font-nunito text-[1.5vw]">
