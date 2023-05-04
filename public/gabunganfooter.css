@@ -64,6 +64,11 @@
   /* akhir dari style 1 */
 
   /* style 2 */
+
+#bigFooter{
+    display: none;
+}
+
 #footerB {
     font-size: 1.1vw;
     background: #364657;
@@ -125,7 +130,7 @@
 }
 
 #footerB .tengah .isi .isitengah{
-    border: rgb(255, 255, 255) solid 1px;
+    border: rgb(255, 255, 255) solid 0.1vw;
 }
 
 #footerB .tengah .isi .isikanan{
