@@ -34,8 +34,8 @@
 </head>
 
 <body>
-    <button class="cursor-default" onclick ="hover()">
-        <div id="min">
+    <button class="cursor-default" onmouseover ="hover()" onmouseout="out()">
+        <div id="smallFooter">
             <footer id="footerA">
                 <div class="footer-flex">
                     <div class="copyright">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </footer>
-        <div id="max">
+        <div id="bigFooter">
             <footer id="footerB">
                 <div class="footer-flex">
                     <div class="copyright">
@@ -84,11 +84,26 @@
                     Need Help?
                 </div>
                 <div class="contact">
-                    <i data-feather="smartphone" class="antara"></i>+62-82175932808<br>
+                    {{-- <i data-feather="smartphone" class="antara"></i>+62-82175932808<br>
                     <i data-feather="mail" class="antara"></i>jeventjn@gmail.com<br>
                     <i data-feather="instagram" class="antara"></i>XtracurricularMaS<br>
                     <i data-feather="phone" class="antara"></i>+1 234 567 890<br>
-                    <i data-feather="home" class="antara"></i>Sentul City, Jl. Pakuan No.3, Sumur Batu, Babakan Madang, Bogor Regency, West Java 16810<br>
+                    <i data-feather="home" class="antara"></i>Sentul City, Jl. Pakuan No.3, Sumur Batu, Babakan Madang, Bogor Regency, West Java 16810<br> --}}
+                    <div class="contact-icon">
+                        <object data="Assets/Footer assets/smartphone.svg" class="antara"></object>
+                        <object data="Assets/Footer assets/mail.svg" class="antara"></object>
+                        <object data="Assets/Footer assets/instagram.svg" class="antara"></object>
+                        <object data="Assets/Footer assets/phone.svg" class="antara"></object>
+                        <object data="Assets/Footer assets/home.svg" class="antara"></object>
+                    </div>
+
+                    <div class="contact-data">
+                        <div class="datasmartphone">+62-82175932808</div>
+                        <div class="datamail">jeventjn@gmail.com</div>
+                        <div class="datainstagram">XtracurricularMaS</div>
+                        <div class="dataphone">+1 234 567 890</div>
+                        <div class="datahome">Sentul City, Jl. Pakuan No.3, Sumur Batu, Babakan Madang, Bogor Regency, West Java 16810</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,10 +111,23 @@
 
     <script>
         function hover() {
-            var x = document.getElementById("min");
-            var y = document.getElementById('max');
+            var x = document.getElementById("smallFooter");
+            var y = document.getElementById('bigFooter');
 
-            if(x.style.display==="block") {
+            if(y.style.display=="block") {
+                y.style.display="none";
+                x.style.display="block";
+            }
+            else{
+                y.style.display="block";
+                x.style.display="none";
+            }
+        }
+        function out() {
+            var x = document.getElementById("smallFooter");
+            var y = document.getElementById('bigFooter');
+
+            if(x.style.display=="block") {
                 x.style.display="none";
                 y.style.display="block";
             }
