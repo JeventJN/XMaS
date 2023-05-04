@@ -2,89 +2,109 @@
 
 /* memanggil class di html  */
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-  /* height: 10000000px; */
-  font-family: "Anton", sans-serif;
-  font-family: "Nunito", sans-serif;
-}
+    font-family: "Anton", sans-serif;
+    font-family: "Nunito", sans-serif;
+    overflow-x: hidden;
+    }
 
 /* mengatur position relative supaya di bawah satu dimensi box-jumboron */
 .jumbotron {
-  background-image: url("../../Assets/Xtrapage assets/image_jumbo.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  height: 49.7vw;
+    background-image: url("../../Assets/Xtrapage assets/image_jumbo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 49.7vw;
 }
 
 /* Mengatur box-jumbotron, menggunakan position absolut supaya objek di atas jumbotron 1 dimensi */
 .box-jumbotron {
-  padding: 1.56vw;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 24vw;
-  background-color: rgba(161, 169, 178, 0.8);
+    padding-top: 1.56vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 24vw;
+    background-color: rgba(161, 169, 178, 0.8);
+}
+
+.containerlogo .row{ /*BOX LOGO*/
+    height: 21vw;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    padding-left: 5vw;
+    /* border: red solid */
+}
+
+.containerlogo .row div{
+    flex: 1;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 /* mengatur jumbotron bagian logo BCA */
-.box-jumbotron #bca {
-  display: flex;
-  align-items: center;
+.box-jumbotron #bca { /*BOX BCA*/
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 21.8vw;
+    /* border: yellow solid; */
 }
 
 .box-jumbotron .bca,
 .elips {
-  width: 100%;
-  border-radius: 50%;
-}
+    width: 100%;
+    border-radius: 50%;
+    /* border: cyan solid; */
+    }
 
 /* ========================= */
 
 /* ======================== */
 
 .box-jumbotron .elips {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
+    /* border: purple solid; */
 }
 
 .button-elips a { /*Extra Schedule Leader*/
-  text-decoration: none;
-  color: black;
-  padding: 0.52vw 3.125vw;
-  padding-top: 1.2vw;
-  padding-bottom: 1.2vw;
-  padding-left: 17vw;
-  padding-right: 5vw;
-  border-radius: 0vw 1.3vw 1.3vw 0vw;
-  background-color: #d9d9d9;
-  font-size: 22px;
-  font-weight: bold;
-  /* border: blue 1px solid; */
+    text-decoration: none;
+    color: black;
+    padding: 0.52vw 3.125vw;
+    padding-top: 1.2vw;
+    padding-bottom: 1.2vw;
+    padding-left: 17vw;
+    padding-right: 5vw;
+    border-radius: 0vw 1.3vw 1.3vw 0vw;
+    background-color: #d9d9d9;
+    font-size: 1.7vw;
+    font-weight: bold;
+    /* border: blue 1px solid; */
 }
 
 .button-elips {
-  z-index: 2;
-  justify-content: space-around;
-  gap: 0.45vw;
-  top: 1.04vw;
-  height: 70%;
-  left: 2vw;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding-top: 2.6vw;
-  /* border: red solid; */
+    z-index: 2;
+    justify-content: space-around;
+    gap: 0.45vw;
+    top: 1.04vw;
+    height: 70%;
+    left: 2vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-top: 2.6vw;
+    /* border: green solid; */
 }
 
 /* ================================================================ */
-.JudulXtra
+/* .JudulXtra
 {
     text-decoration: none;
     color: #FFFFFF;
@@ -98,142 +118,145 @@ body {
     background-color: #1B2F45;
     font-size: 30px;
     font-weight: 900;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 .ScheduleXtra
 {
-  text-decoration: none;
-  color: #FFFFFF;
-  padding: 0.52vw 3.125vw;
-  padding-top: 0.75vw;
-  padding-bottom: 0.75vw;
-  padding-left: 18vw;
-  padding-right: 1vw;
-  width: 45vw;
-  border-radius: 0vw 1.3vw 1.3vw 0vw;
-  background-color: #1B2F45;
-  font-size: 30px;
-  font-weight: 900;
-  /* visibility: hidden; */
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 0.52vw 3.125vw;
+    padding-top: 0.75vw;
+    padding-bottom: 0.75vw;
+    padding-left: 18vw;
+    padding-right: 1vw;
+    width: 45vw;
+    border-radius: 0vw 1.3vw 1.3vw 0vw;
+    background-color: #1B2F45;
+    font-size: 30px;
+    font-weight: 900;
+    visibility: hidden;
 }
 
 .LeaderXtra
 {
-  text-decoration: none;
-  color: #FFFFFF;
-  padding: 0.52vw 3.125vw;
-  padding-top: 0.74vw;
-  padding-bottom: 0.74vw;
-  padding-left: 18vw;
-  padding-right: 1vw;
-  width: 45vw;
-  border-radius: 0vw 1.3vw 1.3vw 0vw;
-  background-color: #1B2F45;
-  font-size: 30px;
-  font-weight: 900;
-  /* visibility: hidden; */
-}
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 0.52vw 3.125vw;
+    padding-top: 0.74vw;
+    padding-bottom: 0.74vw;
+    padding-left: 18vw;
+    padding-right: 1vw;
+    width: 45vw;
+    border-radius: 0vw 1.3vw 1.3vw 0vw;
+    background-color: #1B2F45;
+    font-size: 30px;
+    font-weight: 900;
+    visibility: hidden;
+} */
 /* ================================================================ */
 
 .button-make-advance a { /*Make Attendace dan Add Schedule*/
-  background-color: #395474;
-  color: white;
-  border-radius: 1.8vw;
-  padding-top: 1.4vw;
-  padding-bottom: 1.4vw;
-  padding-left: 1.4vw;
-  padding-right: 1.4vw;
-  margin-top: -2.6vw;
-  margin-left: 1.5vw;
-  font-size: 1.6vw;
+    background-color: #395474;
+    color: white;
+    border-radius: 1.8vw;
+    padding-top: 1.4vw;
+    padding-bottom: 1.4vw;
+    padding-left: 1.4vw;
+    padding-right: 1.4vw;
+    margin-top: -2.6vw;
+    margin-left: 1.5vw;
+    font-size: 1.6vw;
 }
 
 .button-make-advance a:hover { /*Make Attendace dan Add Schedule*/
-  background-color: #1B2F45;
-  color: white;
-}
-
-main .nav {
-  border: none;
+    background-color: #1B2F45;
+    color: white;
 }
 
 /* untuk Description, Documentation, dan Member */
+main .nav {
+
+    border: none;
+}
+
 main .nav-item { /*non-active*/
-  background-color: #395474;
-  color: white;
-  border-top-left-radius: 1.8vw;
-  border-top-right-radius: 1.8vw;
-  border: none;
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
-  font-size: 1.45vw;
-  height: 4.2vw;
+    background-color: #395474;
+    color: white;
+    border-top-left-radius: 1.8vw;
+    border-top-right-radius: 1.8vw;
+    border: none;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    font-size: 1.45vw;
+    height: 4.4vw;
 }
 
 main .nav-item:hover { /*non-active*/
-  background-color: #C1D5ED;
-  color:  #395474;
+    background-color: #C1D5ED;
+    color:  #395474;
 }
 
 main .nav-item a {
-  color: white;
+    color: white;
 }
 
 main .nav-item a:hover {
-  color: #395474;
-  border: none;
-}
-
-main .tab-content { /*kotak*/
-  border-bottom-left-radius: 3vw;
-  border-top-right-radius: 3vw;
-  border-bottom-right-radius: 3vw;
-  background-color: #1b2f45;
-  /* border: red solid; */
-
-}
-
-main .tab-content .tab-pane {
-  padding-top: 3.8vw;
-  padding-left: 5.1vw;
-  padding-right: 5.1vw;
-  padding-bottom: 5.1vw;
-  color: white;
-  /* border: red solid; */
+    color: #395474;
+    border: none;
 }
 
 .nav-link.active {
-  background-color: red;
+    background-color: red;
 }
 
 .nav-item .nav-link.active { /*active*/
-  background-color: #1b2f45;
-  color: white;
-  border-top-left-radius: 1.8vw;
-  border-top-right-radius: 1.8vw;
-  border: none;
-  height: 4vw;
-  padding-left: 3.5vw;
-  padding-right: 3.5vw;
-  font-size: 1.45vw;
-  margin-left: -3.5vw;
-  margin-right: -3.5vw;
-  padding-bottom: 5vw;
-
-  /* border: rgb(255, 0, 157) solid; */
+    background-color: #1b2f45;
+    color: white;
+    border-top-left-radius: 1.8vw;
+    border-top-right-radius: 1.8vw;
+    border: none;
+    height: 6vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    font-size: 1.45vw;
+    margin-left: -3.5vw;
+    margin-right: -3.5vw;
+    /* padding-bottom: 5vw; */
+    margin-bottom: 10vw;
+    /* border: yellow solid; */
 }
+
+main .tab-content { /*kotak dari 3 segment*/
+    border-bottom-left-radius: 3vw;
+    border-top-right-radius: 3vw;
+    border-bottom-right-radius: 3vw;
+    background-color: #1b2f45;
+    width: 100%;
+    /* border: red solid; */
+}
+main .tab-content .tab-pane { /*kotak dari 3 segment*/
+    padding-top: 3.8vw;
+    padding-left: 5.1vw;
+    padding-right: 5.1vw;
+    padding-bottom: 5.1vw;
+    color: white;
+    width: 100%;
+    /* border: cyan solid; */
+}
+
 
 /* untuk Description, Documentation, dan Member */
 
 main .form-group textarea,
 input {
-  background-color: #d9d9d9;
-  border-radius: 1.04vw;
-  padding: 1.04vw;
-  /* border: red solid; */
+    background-color: #d9d9d9;
+    border-radius: 1.04vw;
+    padding: 1.04vw;
+    height: 10vw;
+    /* width: 76.57vw; */
+    /* border: red solid; */
 }
-
 
 main .card {
     border: none;
@@ -260,24 +283,23 @@ main .card {
 }
 
 main #contact .card { /*Kotak Member List*/
-  /* padding: 1.8vw; */
-  padding-left: 4vw;
-  padding-right: 3.5vw;
-  background-color: #d9d9d9;
-  border-top-left-radius: 2vw;
-  border-bottom-left-radius: 2vw;
-  border-top-right-radius: 2vw;
-  border-bottom-right-radius: 2vw;
-  height: 19.3vw;
-  width: 40vw;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4vw;
-  /* border: purple solid; */
+    padding-left: 4vw;
+    padding-right: 3.5vw;
+    background-color: #d9d9d9;
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+    border-top-right-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    height: 19.3vw;
+    width: 40vw;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4vw;
+    /* border: purple solid; */
 }
 
 .main #contact .card::-webkit-scrollbar {
@@ -286,15 +308,14 @@ main #contact .card { /*Kotak Member List*/
   }
 
 main #contact .card .badge { /*isi Member List*/
-  margin-top: 0.52vw;
-  font-size: 1.5vw;
-  font-weight: 500;
+    margin-top: 0.52vw;
+    font-size: 1.5vw;
+    font-weight: 500;
 
-  border-radius: 1.5625vw;
-  /* padding: 1.04vw; */
-  background-color: #395474;
-  width: 31vw;
-  /* border: red solid; */
+    border-radius: 1.5625vw;
+    background-color: #395474;
+    width: 31vw;
+    /* border: red solid; */
 }
 
 main #contact .card .badge ::-webkit-scrollbar{
@@ -302,85 +323,81 @@ main #contact .card .badge ::-webkit-scrollbar{
 }
 
 main #contact img { /*gambar stop*/
-  width: 25vw;
-  height: 30vw;
-  position: relative;
-  /* position: absolute; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 6.05vw;
-  /* border: purple solid; */
+    width: 25vw;
+    height: 30vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 8.8vw;
+    /* border: purple solid; */
 }
 
-/* .gambarstop{
-  width: auto;
-  height: 32vw;
-  justify-content: center;
-  border: yellow solid;
-} */
 
 main #contact .btn-member { /*Kotak dari Button Leave Xtra*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* padding-left: 20vw; */
-  /* border: red solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 25vw;
+    margin-left: 10vw;
+    /* border: red solid; */
 }
 
 main #contact .btn-member button { /*Button Leave Xtra*/
-  /* padding: 1.04vw 7.81vw; */
-  width: 25vw;
-  height: 7vw;
-  border: 0;
-  background-color: #d9d9d9;
-  font-size: 2.2vw;
-  font-weight: 800;
-  border-radius: 1.56vw;
-  /* border: red solid; */
+    width: 25vw;
+    height: 7vw;
+    border: 0;
+    background-color: #d9d9d9;
+    font-size: 2.2vw;
+    font-weight: 800;
+    border-radius: 1.56vw;
+    /* border: red solid; */
 }
 
 main #contact .btn-member button:hover {
-  background-color: rgb(2, 133, 209);
-  /* color: wheat; */
+    background-color: rgb(2, 133, 209);
+    /* color: wheat; */
 }
 
 main #contact .modal {
-  border-radius: 1.04vw;
-  border: 0.3125 solid black;
+    border-radius: 1.04vw;
+    border: 0.3125 solid black;
 }
 
 /* mengatur tombol di modal  */
 .btn-yes-or-close {
-  margin-top: 1.04vw;
+    margin-top: 1.04vw;
 }
 .btn-yes-or-close a {
-  padding: 0.36vw 2.6vw;
+    padding: 0.36vw 2.6vw;
 }
 
 .btn-yes-or-close button {
-  padding: 0.36vw 2.6vw;
+    padding: 0.36vw 2.6vw;
 }
 
 main .presence {
-  margin: 0;
-  margin-top: 100px;
-  /* border: red solid; */
+    margin: 0;
+    margin-top: 100px;
+    /* border: red solid; */
 }
 
 main .presence-list { /*kotak Presence Member List*/
-  width: 100%;
-  height: 20.833vw;
-  background-color: #1b2f45;
-  color: white;
-  border-top-right-radius: 1.04vw;
-  border: none;
-  /* border: cyan solid; */
+    width: 100%;
+    height: 20.833vw;
+    background-color: #1b2f45;
+    color: white;
+    border-top-right-radius: 1.04vw;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: cyan solid; */
 }
 
 .kotakisiPME{ /*untuk atur GAP isi PME*/
@@ -388,7 +405,7 @@ main .presence-list { /*kotak Presence Member List*/
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60vw;
+    width: 72vw;
     gap: 1vw;
     /* border: purple solid; */
 }
@@ -398,6 +415,7 @@ main .presence-list { /*kotak Presence Member List*/
     display: flex;
     flex-direction: column;
     height: 25.5vw;
+    width: 100%;
     border-top-right-radius: 3vw;
     border-bottom-left-radius: 3vw;
     border-bottom-right-radius: 3vw;
@@ -406,138 +424,177 @@ main .presence-list { /*kotak Presence Member List*/
 }
 
 main .presence .badge { /*isi presence list*/
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  /* margin-top: 0.5vw; */
-  font-size: 1.5vw;
-  border-radius: 1.15vw;
-  padding: 0.5vw;
-  color: black;
-  background-color: #e5e5e5;
-  width: 36vw;
-  /* border: red solid; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5vw;
+    border-radius: 1.15vw;
+    padding: 0.5vw;
+    color: black;
+    background-color: #e5e5e5;
+    width: 36vw;
+    /* border: red solid; */
 }
 
 main .presence-list { /*Presence Member List buat atur height*/
-  overflow-y: scroll;
-  border-top-right-radius: 3vw;
-  border-bottom-left-radius: 3vw;
-  border-bottom-right-radius: 3vw;
-  height: 25vw;
-  padding-left: 1.8vw;
-  padding-right: 1.8vw;
-  margin-bottom: 0vw;
-  height: 21.5vw;
-  /* border: cyan solid; */
+    overflow-y: scroll;
+    border-top-right-radius: 3vw;
+    border-bottom-left-radius: 3vw;
+    border-bottom-right-radius: 3vw;
+    height: 25vw;
+    padding-left: 1.8vw;
+    padding-right: 1.8vw;
+    margin-bottom: 0vw;
+    height: 20.8vw;
+    /* border: cyan solid; */
 }
 
 main .presence-list::-webkit-scrollbar { /*Presence List Member*/
-  display: none;
+    display: none;
 }
 
-main .presence .dropdown { /*dropdown choose date*/
-  border-top-left-radius: 1.8vw;
-  border-top-right-radius: 1.8vw;
-  padding: 0.52vw 0.52vw;
-  padding-left: 1.7vw;
-  width: 15vw;
-  /* border: red solid; */
+/*===============================================================*/
 
-  background-color: #1b2f45;
+.dropbtn {
+    background-color: #1b2f45;
+    color: white;
+    padding: 0.833vw;
+    font-size: 1.45vw;
+    border: none;
+    cursor: pointer;
+    border-top-left-radius: 1.8vw;
+    border-top-right-radius: 1.8vw;
+    width: 15vw;
+    height: 4.5vw;
+    /* border: red solid; */
 }
 
-main .presence .dropdown a { /*tulisan choose date*/
-  font-size: 1.45vw;
-  padding-top: 1vw;
-  color: white;
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #1b2f45;
 }
 
-main .presence .dropdown-menu {
-  width: 15.625vw;
+.dropdown {
+    position: relative;
+    display: inline-block;
+    /* border: yellow solid; */
 }
 
-main .presence .dropdown-menu a {
-  font-weight: bold;
-  color: black !important;
-  border-bottom: 1px solid black;
+.dropdown-content {
+    width: 12vw;
+    height: 16.5vw;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 18vw;
+    overflow: auto;
+    box-shadow: 0vw 0.417vw 0.833vw 0vw rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow-y: scroll;
+    /* border: cyan solid; */
 }
+
+.dropdown-content::-webkit-scrollbar{
+    display: none;
+}
+
+.dropdown-content a {
+    font-weight: bold;
+    font-size: 1.3vw;
+    height: 3.5vw;
+    border: 1px solid black;
+    color: black;
+    padding: 0.625vw 0.833vw;
+    text-decoration: none;
+    display: block;
+    /* border: green solid; */
+}
+
+  .dropdown a:hover {background-color: #ddd;}
+
+  .show {display: block;}
+
+/*===============================================================*/
 
 /* mengatur warna inputan dan radius */
 .form_add input {
-  background-color: #d9d9d9;
-  border-radius: 1.04vw;
-  padding: 1.04vw;
+    background-color: #d9d9d9;
+    border-radius: 1.04vw;
+    padding: 1.04vw;
+    height: 3.3vw;
+    width: 32vw;
+    /* border: cyan solid; */
 }
 
 .form_add label {
-  color: white;
+    color: white;
+    width: 15vw;
+    /* border: cyan solid; */
 }
 
 /* mengatur tombol konfirmasi */
 .form_add #btn-confirm {
-  padding: 0.52vw 2.083vw;
-  font-weight: bold;
-  font-size: 1.7vw;
-  background-color: #d9d9d9;
-  border-radius: 1vw;
-  margin-top: 1vw;
-  margin-left: 6vw;
+    padding: 0.52vw 2.083vw;
+    font-weight: bold;
+    font-size: 1.7vw;
+    background-color: #d9d9d9;
+    border-radius: 1vw;
+    margin-top: 1vw;
+    margin-left: 6vw;
 }
 
 /* membuat animasi ketika cursor di atas objek  */
 .form_add #btn-confirm:hover {
-  background-color: #56B8E6;
+    background-color: #56B8E6;
 }
 
 /* bagian persentasi.html */
 
 section {
-  margin: 0;
+     margin: 0;
 }
 section .row {
-  height: 100vh;
+     height: 100vh;
 }
 
 section img {
-  width: 100%;
-  height: 100vh;
-  position: relative;
+    width: 100%;
+    height: 100vh;
+    position: relative;
 }
 
 section .btn_close a {
-  color: black;
-  width: 1.5625vw;
-  height: 1.5625vw;
-  border-radius: 100%;
-  border: 2px solid black;
-  top: 1.04vw;
-  left: 5.2vw;
-  font-size: 1.04vw;
-  z-index: 999;
-  position: absolute;
+    color: black;
+    width: 1.5625vw;
+    height: 1.5625vw;
+    border-radius: 100%;
+    border: 2px solid black;
+    top: 1.04vw;
+    left: 5.2vw;
+    font-size: 1.04vw;
+    z-index: 999;
+    position: absolute;
 }
 
 section .fa-sharp {
-  margin-top: 0.1vw;
-  display: flex;
-  align-items: center;
-  align-items: center;
-  justify-content: center;
+    margin-top: 0.1vw;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
 }
 
 section .btn_close:hover {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 section .blank {
-  padding: 1.04vw;
-  width: 100vh;
-  height: 100vh;
-  background-color: #000000;
+    padding: 1.04vw;
+    width: 100vh;
+    height: 100vh;
+    background-color: #000000;
 }
 
 section p {
-  color: white;
+    color: white;
 }
