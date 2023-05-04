@@ -176,8 +176,9 @@ body {
 
 /* untuk Description, Documentation, dan Member */
 main .nav {
-
+    width: 94.4vw;
     border: none;
+    /* border: red solid; */
 }
 
 main .nav-item { /*non-active*/
@@ -186,19 +187,31 @@ main .nav-item { /*non-active*/
     border-top-left-radius: 1.8vw;
     border-top-right-radius: 1.8vw;
     border: none;
-    padding-left: 3.5vw;
-    padding-right: 3.5vw;
+    /* padding-left: 3.5vw; */
+    /* padding-right: 3.5vw; */
     font-size: 1.45vw;
     height: 4.4vw;
+    width: 18vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: yellow solid; */
 }
 
 main .nav-item:hover { /*non-active*/
     background-color: #C1D5ED;
-    color:  #395474;
+    /* color:  #395474; */
+    /* border: green solid; */
 }
 
 main .nav-item a {
-    color: white;
+    color: rgb(255, 255, 255);
+    width: 18vw;
+    text-align: center;
+    justify-content: center;
+    /* border: orange solid; */
+    /* margin-left: 5vw; */
 }
 
 main .nav-item a:hover {
@@ -212,19 +225,22 @@ main .nav-item a:hover {
 
 .nav-item .nav-link.active { /*active*/
     background-color: #1b2f45;
-    color: white;
+    color: rgb(255, 255, 255);
     border-top-left-radius: 1.8vw;
     border-top-right-radius: 1.8vw;
     border: none;
-    height: 6vw;
-    padding-left: 3.5vw;
-    padding-right: 3.5vw;
+    height: 5.5vw;
+    position: absolute;
+    width: 18vw;
+    text-align: center;
+    /* padding-left: 3.5vw;
+    padding-right: 3.5vw; */
     font-size: 1.45vw;
     margin-left: -3.5vw;
     margin-right: -3.5vw;
-    /* padding-bottom: 5vw; */
-    margin-bottom: 10vw;
-    /* border: yellow solid; */
+    padding-top: 1.4vw !important;
+    margin-bottom: 1vw;
+    /* border: cyan solid; */
 }
 
 main .tab-content { /*kotak dari 3 segment*/

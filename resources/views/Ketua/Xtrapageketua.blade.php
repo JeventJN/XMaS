@@ -147,7 +147,7 @@
         </div>
       </div>
     </div>
-
+{{-- <div class="bawahjumbotron" style=" height: 93.2vw; width: 99.2vw; border: cyan solid"> --}}
     <div class="SpJumbotronMain" style="height: 5.5vw;"> </div>
 
     <main style="height: auto;">
@@ -177,7 +177,7 @@
               role="tab"
               aria-controls="home"
               aria-selected="true"
-              style="padding-top: 1vw;"
+              style="padding-top: 1vw; width: 18vw"
               >Description</a
             >
           </li>
@@ -190,7 +190,7 @@
               role="tab"
               aria-controls="profile"
               aria-selected="false"
-              style="padding-top: 1vw;"
+              style="padding-top: 1vw; width: 18vw"
               >Documentation</a
             >
           </li>
@@ -203,7 +203,7 @@
               role="tab"
               aria-controls="contact"
               aria-selected="false"
-              style="padding-top: 1vw;"
+              style="padding-top: 1vw; width: 18vw"
               >Member</a
             >
           </li>
@@ -385,7 +385,7 @@
       {{-- <div class="Sp3SeOML" style="height: -50vw; margin-top: 2.9vw; margin-bottom: -4vw; border: purple solid;"> </div> --}}
       <!-- presence member list -->
 
-      <div class="presence">
+      <div class="presence" style="margin-top: 3vw;">
         <div class="containerbawah" style="margin-left: 2.2vw; margin-right: 2.2vw;">
           <div class="float-right font-weight-bold" style="font-size: 1.4vw; padding-top: 1.8vw; padding-right: 2vw;">Presence Member : <span class="numpresence">10</span> </div>
           <div class="dropdown">
@@ -586,6 +586,7 @@
         </div>
       </div>
     </div>
+{{-- </div> --}}
 
     <!-- footer -->
     @include('../footer')
