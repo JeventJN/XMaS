@@ -16,10 +16,10 @@
       crossorigin="anonymous"
     />
 
-    <!-- memanggil css di dalam folder css -->
+    <!-- memanggil CSS di dalam folder CSS -->
     <link rel="stylesheet" href="css/Xtrapage.css" />
 
-    <!-- memanggil swiper js  -->
+    <!-- memanggil swiper JS  -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
@@ -35,7 +35,7 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- memanggil aos  -->
+    <!-- memanggil AOS  -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -50,12 +50,12 @@
 
     <!-- jumbotron search di bootstrap  -->
 
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important">
       <div class="box-jumbotron">
         <!-- membuat baris dan kolom di bootstrap : row untuk membuat baris col untuk collom -->
-        <div class="container">
+        <div class="containerlogo">
           <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6" data-aos="fade-right ">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="flex: 1;" >
                     <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
                     <div class="button-elips" onmouseover ="hover()" onmouseout="out()">
                       <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
@@ -77,24 +77,24 @@
                           e.target.innerHTML = value;
                           e.target.style.backgroundColor = '#1B2F45';
                           e.target.style.color = 'white';
-                          e.target.style.fontSize = '25px';
+                          e.target.style.fontSize = '2vw';
                         //   e.target.style.width = '40vw';
 
                         if (value == 'Running') {
                             e.target.classList.add('JudulXtra');
                             e.target.style.width = '30vw';
                             e.target.style.padding = '1.3vw 1vw 1.3vw 17.5vw';
-                            e.target.style.marginBottom = '-0.41vw';
+                            e.target.style.marginBottom = '-0.5vw';
                         } else if (value == 'Wed(17.00 - 19.00)') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 17.5vw';
                             e.target.style.width = '38vw';
-                            e.target.style.marginTop = '-0.25vw';
-                            e.target.style.marginBottom = '-0.265vw';
+                            e.target.style.marginTop = '-0.28vw';
+                            e.target.style.marginBottom = '-0.3vw';
                             e.target.classList.add('ScheduleXtra');
                         } else if (value == 'Jevent Natthannael') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
                             e.target.style.width = '40vw';
-                            e.target.style.marginTop = '-0.44vw';
+                            e.target.style.marginTop = '-0.58vw';
                             e.target.classList.add('LeaderXtra');
                         }
 
@@ -105,7 +105,7 @@
                           e.target.innerHTML = text;
                           e.target.style.backgroundColor = '#d9d9d9';
                           e.target.style.color = '#1B2F45';
-                          e.target.style.fontSize = '22px';
+                          e.target.style.fontSize = '1.7vw';
                         //   e.target.style.width = '25.5vw';
 
                           if (text == 'Xtra') {
@@ -138,20 +138,21 @@
             </div>
 
             <div
-              class="col-lg-6 col-md-6 col-sm-6"
+              class="col-lg-6 col-md-6 col-sm-6 col-6"
               id="bca"
-              data-aos="fade-left"
             >
-                <img src="Assets/Xtrapage assets/bca.png" alt="" class="bca" style="width: 32vw; margin-left: 4.5vw;"/>
+                <img src="Assets/Xtrapage assets/bca.png" alt="" class="bca" style="width: 30vw; margin-left: 2.5vw;"/>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <main>
-      <br /><br />
-      <div class="container">
+    <div class="SpJumbotronMain" style="height: 5.5vw;"> </div>
+
+    <main style="height: auto;">
+      <div class="containertengah" style="height: auto; margin-left: 2.2vw; margin-right: 2.2vw; margin-bottom: 0vw !important;">
+
         <div class="button-make-advance float-right">
           <a href="absensiketua" class="btn">Make Attendance</a>
           <a type="button" class="btn" data-toggle="modal" data-target="#add">
@@ -159,13 +160,13 @@
           </a>
         </div>
 
-        <br /><br /><br />
-        <!-- membuat navs di bootstrap  -->
+        <div class="spasi" style="height: 8vw"></div>
+        <!-- membuat navs di bootstrap -->
+        {{-- Pilihan Sections --}}
         <ul
           class="nav nav-tabs"
           id="myTab"
           role="tablist"
-          {{-- data-aos="fade-right" --}}
         >
           <li class="nav-item">
             <a
@@ -207,6 +208,8 @@
             >
           </li>
         </ul>
+        {{-- Pilihan Sections --}}
+
         <div class="tab-content" id="myTabContent">
           <div
             class="tab-pane fade show active"
@@ -329,11 +332,11 @@
             aria-labelledby="contact-tab"
           >
 
-          <h5 class="font-weight-bold" style="padding-left: 1vw;">Member : 14</h5>
+          <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span class="nummember">14</span></div>
 
             <div class="row" id="member">
               <br />
-              <div class="col-lg-6 col-sm-6 col-md-6">
+              <div class="col-lg-6 col-sm-6 col-md-6 col-6">
 
                 <div class="luarcard">
 
@@ -361,7 +364,7 @@
               </div>
 
               <br />
-              <div class="col-lg-6 col-sm-6 col-md-6">
+              <div class="col-lg-6 col-sm-6 col-md-6 col-6">
                 <img src="Assets/Xtrapage assets/stop.png" alt="" class="gambarstop"/>
                 <div class="btn-member">
                   <button
@@ -379,13 +382,25 @@
         </div>
       </div>
 
+      {{-- <div class="Sp3SeOML" style="height: -50vw; margin-top: 2.9vw; margin-bottom: -4vw; border: purple solid;"> </div> --}}
       <!-- presence member list -->
 
       <div class="presence">
-        <div class="container">
-          <h5 class="float-right font-weight-bold" style="padding-top: 1.8vw; padding-right: 2vw;">Presence Member : 10</h5>
+        <div class="containerbawah" style="margin-left: 2.2vw; margin-right: 2.2vw;">
+          <div class="float-right font-weight-bold" style="font-size: 1.4vw; padding-top: 1.8vw; padding-right: 2vw;">Presence Member : <span class="numpresence">10</span> </div>
           <div class="dropdown">
-            <a
+            <button onclick="myFunction()" class="dropbtn">Choose date<span> <img src="Assets/Xtrapage assets/chevron-down.svg" alt="" class="bca" style="width: 0.5vw;"/> </span></button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">March 12, 2023</a>
+              <a href="#">March 12, 2023</a>
+              <a href="#">March 12, 2023</a>
+              <a href="#">March 12, 2023</a>
+              <a href="#">March 12, 2023</a>
+              <a href="#">March 12, 2023</a>
+              <a href="#">March 12, 2023</a>
+              <a href="#">March 12, 2023</a>
+            </div>
+            {{-- <a
               class="btn dropdown-toggle"
               href="#"
               role="button"
@@ -395,41 +410,43 @@
               aria-expanded="false"
             >
               Choose date
-            </a>
+            </a> --}}
 
-            <form class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">March 12, 2023</a>
-              <a class="dropdown-item" href="#">March 12, 2023</a>
-              <a class="dropdown-item" href="#">March 12, 2023</a>
-              <a class="dropdown-item" href="#">March 12, 2023</a>
-              <a class="dropdown-item" href="#">March 12, 2023</a>
-            </form>
+            {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="position: absolute; padding-top:0vw !important; height: 16.5vw; width: fixed !important; border: red solid;">
+
+               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
+               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
+               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
+               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
+               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
+               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
+               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
+               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
+
+            </ul> --}}
           </div>
-            <div class="luarPML">
-                <h4 class="text-center font-weight-bold" style="color: white; font-size: 1.5vw; background-color: #1b2f45; margin-top: 0.5vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
-                    Presence Member List
-                </h4>
-                <div class="presence-list">
-                    <div class="container">
-                    <div class="row p-5 d-flex justify-content-center" style="margin-top: -3vw;">
 
-                        <div class="kotakisiPME">
+          <div class="luarPML">
+              <h4 class="text-center font-weight-bold" style="color: white; font-size: 1.5vw; background-color: #1b2f45; margin-top: 0.5vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
+                  Presence Member List
+              </h4>
+              <div class="presence-list">
 
-                        <span class="badge">Jevent Natthannael</span>
-                        <span class="badge">Jordan Cornelius</span>
-                        <span class="badge">Nathaniel Calvin</span>
-                        <span class="badge">Steven Felizion</span>
-                        <span class="badge">Michael Apen</span>
-                        <span class="badge">Harris Wahyudi</span>
-                        <span class="badge">Nathaniel Calvin</span>
-                        <span class="badge">Steven Felizion</span>
-                        <span class="badge">Michael Apen</span>
-                        <span class="badge">Harris Wahyudi</span>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
+                      <div class="kotakisiPME">
+                      <span class="badge">Jevent Natthannael</span>
+                      <span class="badge">Jordan Cornelius</span>
+                      <span class="badge">Nathaniel Calvin</span>
+                      <span class="badge">Steven Felizion</span>
+                      <span class="badge">Michael Apen</span>
+                      <span class="badge">Harris Wahyudi</span>
+                      <span class="badge">Nathaniel Calvin</span>
+                      <span class="badge">Steven Felizion</span>
+                      <span class="badge">Michael Apen</span>
+                      <span class="badge">Harris Wahyudi</span>
+                      </div>
+
+              </div>
+          </div>
         </div>
       </div>
     </main>
@@ -609,5 +626,27 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     -->
-  </body>
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+    </script>
+
+</body>
 </html>
