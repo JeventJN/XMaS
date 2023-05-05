@@ -5,24 +5,28 @@
     box-sizing: border-box;
   }
 
-  #footerA {
+#footerA {
     font-size: 1.1vw;
     background: #364657;
 
     padding-top: 0.3vw;
     padding-bottom: 0.5vw;
     color: #fff;
+/*     height: 9vw; */
+    height: auto;
+    width: 100vw;
+    position: absolute;
     /* border: red solid; */
-  }
+}
 
-  .footer-flex{
+.footer-flex{
     position: relative;
     display: flex;
     justify-content: space-around;
 
-  }
+}
 
-  #footerA .copyright {
+#footerA .copyright {
     flex: 2;
     display: flex;
     align-items:end;
@@ -30,9 +34,9 @@
     font-weight: lighter;
     text-align: right;
     padding-left: 1vw;
-  }
+}
 
-  #footerA .credits {
+#footerA .credits {
     flex: 4;
     font-size: 2.8vw;
     text-align: center;
@@ -41,9 +45,9 @@
     font-family: 'Nunito', sans-serif;
     font-weight: Bold;
     /* border: solid 1px; */
-  }
+}
 
-  #footerA .learnabout {
+#footerA .learnabout {
     flex: 2;
     display: flex;
     align-items: center;
@@ -52,15 +56,20 @@
     font-size: 1.5vw;
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
-  }
+}
 
-  .text{
+.text{
     margin-right: 5vw;
-  }
+}
   /* akhir dari style 1 */
 
   /* style 2 */
-  #footerB {
+
+#bigFooter{
+    display: none;
+}
+
+#footerB {
     font-size: 1.1vw;
     background: #364657;
 
@@ -69,17 +78,20 @@
     /* padding-left: 0.3vw; */
     padding-right: 0.4vw;
     color: #fff;
+    height: auto;
     width: 100vw;
-  }
+    position: absolute;
+    /* border: green solid; */
+}
 
-  .footer-flex{
+.footer-flex{
     position: relative;
     display: flex;
     justify-content: space-around;
 
-  }
+}
 
-  #footerB .copyright {
+#footerB .copyright {
     flex: 2;
     display: flex;
     align-items:end;
@@ -87,27 +99,27 @@
     font-weight: lighter;
     text-align: right;
     padding-left:1vw;
-  }
+}
 
-  #footerB .tengah {
+#footerB .tengah {
     flex: 4;
     display: flex;
     flex-direction: column;
-  }
+}
 
-  #footerB .tengah .judul{
+#footerB .tengah .judul{
     text-align: center;
     font-size: 2.4vw;
     font-family: 'Nunito', sans-serif;
     font-weight: Bold;
-  }
+}
 
-  #footerB .tengah .isi{
+#footerB .tengah .isi{
     display: flex;
     flex-direction: row;
-  }
+}
 
-  #footerB .tengah .isi .isikiri{
+#footerB .tengah .isi .isikiri{
     text-align: right;
     flex: 1;
     font-size: 1.1vw;
@@ -115,13 +127,13 @@
     line-height: 1.8vw;
     font-family: 'Nunito', sans-serif;
     font-weight: Bold;
-  }
+}
 
-  #footerB .tengah .isi .isitengah{
-    border: rgb(255, 255, 255) solid 1px;
-  }
+#footerB .tengah .isi .isitengah{
+    border: rgb(255, 255, 255) solid 0.1vw;
+}
 
-  #footerB .tengah .isi .isikanan{
+#footerB .tengah .isi .isikanan{
     text-align: left;
     flex: 1;
     font-size: 1.1vw;
@@ -129,37 +141,88 @@
     line-height: 1.8vw;
     font-family: 'Nunito', sans-serif;
     font-weight: Bold;
-  }
+}
 
-  #footerB .kanan {
+#footerB .kanan {
     flex: 2;
     display: flex;
     flex-direction: column;
-  }
+}
 
-  #footerB .kanan .needhelp{
+#footerB .kanan .needhelp{
     text-align: left;
-    padding-left: 1.5vw;
+    padding-left: 3vw;
     font-size: 1.4vw;
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
-  }
+    /* border: yellow solid; */
+}
 
-  #footerB .kanan .contact{
-    text-align: left;
-    font-size: 1.25vw;
-    padding-left: 1.5vw;
-    line-height: 1.8vw;
-    font-family: 'Nunito', sans-serif;
-  }
-
-  .linktext {
+.linktext {
     text-decoration: none !important;
     color: rgb(255, 255, 255);
-  }
+    /* border: cyan solid; */
+}
 
-  .antara{
-    margin-right: 1vw;
-  }
+#footerB .kanan .contact{
+    display: flex;
+    flex-direction: row;
+    /* border: orange solid; */
+}
+
+#footerB .kanan .contact .contact-icon{
+    flex: 0.1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8vw;
+    padding-top: 0.3vw;
+    margin-left: 3vw;
+    /* border: green solid; */
+}
+
+#footerB .kanan .contact .contact-data{
+    flex: 1;
+    padding-left: 0.5vw;
+    padding-top: 0.2vw;
+    font-family: 'Nunito', sans-serif;
+    text-align: left;
+    font-size: 0.95vw;
+    line-height: 2vw;
+    display: flex;
+    flex-direction: column;
+    margin-right: 0.8vw;
+    gap: 0.6vw;
+    /* border: purple solid; */
+}
+
+.antara{
+    /* margin-right: 1vw; */
+    width: 1.8vw;
+    height: 1.8vw;
+    /* border: red solid; */
+}
+
+/* #footerB .kanan .contact .contact-data .datasmartphone{
+
+}
+
+#footerB .kanan .contact .contact-data .datamail{
+    margin-top: 0.35vw;
+
+}
+
+#footerB .kanan .contact .contact-data .datainstagram{
+    margin-top: 0.35vw;
+}
+
+#footerB .kanan .contact .contact-data .dataphone{
+    margin-top: 0.35vw;
+}
+
+#footerB .kanan .contact .contact-data .datahome{
+    margin-top: 0.35vw;
+    line-height: 2vw;
+} */
 
   /* akhir dari style 2 */

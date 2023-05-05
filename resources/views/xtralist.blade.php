@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/Non-User/xtralistNU.css">
-  <title>Xtra List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/Non-User/xtralistNU.css">
+    <title>Xtra List</title>
   @vite('resources/css/app.css')
 </head>
 <body class="overflow-x-hidden">
@@ -24,7 +24,7 @@
             @endif
             <svg xmlns="http://www.w3.org/2000/svg" id="hidemodal" class="mt-[1.5vw] ml-[43vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
             <div class="flex flex-col ml-[4vw]">
-                <p class="text-[2vw]">Categories</p>
+                <p class="text-[2vw] font-semibold">Categories</p>
                 <div class="flex items-center">
                     <input type="checkbox" id="Physique" name="Physique" value="Physique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('Physique') === NULL) ? '' : 'checked' }} >
                     <label class="ml-[1vw] text-[2vw]" for="Physique">Physique</label>
@@ -33,22 +33,21 @@
                     <input type="checkbox" id="NonPhysique" name="NonPhysique" value="NonPhysique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('NonPhysique') === NULL) ? '' : 'checked' }} >
                     <label class="ml-[1vw] text-[2vw]" for="NonPhysique">Non-Physique</label>
                 </div>
-                <p class="mt-[1vw] text-[2vw]">Days</p>
-
-                <div class="flex flex-wrap w-[32vw]">
+                <p class="mt-[1vw] text-[2vw] font-semibold">Days</p>
+                <div class="flex flex-wrap w-[40vw]">
                     <div class="flex items-center w-[8vw] h-[3vw]">
                         <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('Mon') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Mon">Mon</label>
                     </div>
-                    <div class="flex items-center w-[8vw] h-[3vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
                         <input type="checkbox" id="Tue" name="Tue" value="Tue" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Tue') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Tue">Tue</label>
                     </div>
-                    <div class="flex items-center w-[8vw] h-[3vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
                         <input type="checkbox" id="Wed" name="Wed" value="Wed" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Wed') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
                     </div>
-                    <div class="flex items-center w-[8vw] h-[3vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
                         <input type="checkbox" id="Thu" name="Thu" value="Thu" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Thu') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Thu">Thu</label>
                     </div>
@@ -56,39 +55,12 @@
                         <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer" {{ (request('Fri') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Fri">Fri</label>
                     </div>
-                    <div class="flex items-center w-[8vw] h-[3vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
                         <input type="checkbox" id="Sat" name="Sat" value="Sat" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer" {{ (request('Sat') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="Sat">Sat</label>
                     </div>
-                    <div class="flex items-center w-[8vw] h-[3vw]">
+                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
                         <input type="checkbox" id="Sun" name="Sun" value="Sun" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer" {{ (request('Sun') === NULL) ? '' : 'checked' }}>
-                <div class="flex flex-wrap w-[40vw]">
-                    <div class="flex items-center w-[10vw] h-[3vw]">
-                        <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="Mon">Mon</label>
-                    </div>
-                    <div class="flex items-center w-[10vw] h-[3vw]">
-                        <input type="checkbox" id="Tue" name="Tue" value="Tue" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="Tue">Tue</label>
-                    </div>
-                    <div class="flex items-center w-[10vw] h-[3vw]">
-                        <input type="checkbox" id="Wed" name="Wed" value="Wed" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
-                    </div>
-                    <div class="flex items-center w-[10vw] h-[3vw]">
-                        <input type="checkbox" id="Thu" name="Thu" value="Thu" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="Thu">Thu</label>
-                    </div>
-                    <div class="flex items-center w-[10vw] h-[3vw] ml-[0.7vw]">
-                        <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="Fri">Fri</label>
-                    </div>
-                    <div class="flex items-center w-[10vw] h-[3vw]">
-                        <input type="checkbox" id="Sat" name="Sat" value="Sat" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
-                        <label class="ml-[1vw] text-[2vw]" for="Sat">Sat</label>
-                    </div>
-                    <div class="flex items-center w-[10vw] h-[3vw]">
-                        <input type="checkbox" id="Sun" name="Sun" value="Sun" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer">
                         <label class="ml-[1vw] text-[2vw]" for="Sun">Sun</label>
                     </div>
                 </div>
@@ -102,8 +74,8 @@
     </div>
     <div class="bigcontainer">
         <div class="container mt-[9vw] w-[87vw]">
-            <div class="headercontainer flex justify-start items-center ml-[5vw]">
-                <p class="text-[2vw] font-bold ml-[1vw]">Xtra List</p>
+            <div class="headercontainer flex justify-start items-center mt-[1.5vw] ml-[5vw]">
+                <p class="text-[2vw] font-semibold ml-[1vw]">Xtra List</p>
                 <button class="svg ml-[39vw] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg"  id="showmodal" viewBox="0 0 24 24"><path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"/></svg>
                 </button>
@@ -154,22 +126,22 @@
                     @foreach ($xtras as $xtra)
                         {{-- @dd($xtra->latest_schedule) --}}
                         <a href="/xtralist/{{ $xtra->kdExtracurricular }}">
-                            <div class="xtraboxcontainer flex justify-center items-center leading-3">
+                            <div class="xtraboxcontainer flex justify-center items-center">
                                 <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
                                     {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
                                     <img src="/Assets/{{ $xtra->logo }}" alt="{{ $xtra->name }}">
                                 </div>
-                                <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito">
+                                <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                     <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ $xtra->name }}</div>
-                                    <div class="leading-normal text-[1.65vw] font-semibold">
-                                        <div>{{ optional(optional($xtra->leader)->userXmas)->name }}</div>
+                                    <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ optional(optional($xtra->leader)->userXmas)->name }}</div>
                                         @if ($xtra->leader === NULL)
-                                            <div>No Leader Yet</div>
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
                                         @endif
-                                        <div>{{ date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
-                                        <div>{{ $xtra->latest_schedule?->location }}</div>
+                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
+                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule?->location }}</div>
                                         @if ($xtra->latest_schedule === NULL)
-                                            <div>No Schedule Yet</div>
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
                                         @endif
                                     </div>
 
@@ -187,7 +159,7 @@
                         </a>
                     @endforeach
                 @else
-                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                    <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
                 @endif
             </div>
         </div>
