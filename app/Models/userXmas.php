@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class userXmas extends Model
 {
     use HasFactory;
-
+    
     protected $fillable = [
         'name',
         'NIP',

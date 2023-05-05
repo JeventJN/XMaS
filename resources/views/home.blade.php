@@ -27,11 +27,11 @@
     @endif --}}
 
 
-    @if(session()->get('auth'))
+    {{-- @if(session()->get('auth'))
         <p>User terautentikasi</p>
     @else
         <p>User tidak terautentikasi</p>
-    @endif
+    @endif --}}
 
 
     @guest
