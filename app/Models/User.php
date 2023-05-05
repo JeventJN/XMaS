@@ -43,5 +43,6 @@ class User extends Authenticatable
     ];
 
     protected $table = 'user_xmas';
+    protected $primaryKey = 'NIP';
 
 }
