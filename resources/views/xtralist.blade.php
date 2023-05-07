@@ -13,8 +13,15 @@
 </head>
 <body class="overflow-x-hidden">
     {{-- Navbar Options --}}
-    @include('Non-User.navbarNU')
-    {{-- @include('User.navbarU') --}}
+
+    @guest
+        @include('Non-User.navbarNU')
+    @endguest
+
+    @auth
+        @include('User.navbarUser')
+    @endauth
+    
     {{-- @include('Admin.navbarA') --}}
     {{-- modal pop up --}}
     <div id="modalpopup" class="modal">

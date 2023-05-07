@@ -31,7 +31,7 @@ Route::post('/signup', [signUpController::class, 'store']);
 
 Route::get('/login', [logInController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [logInController::class, 'masuk']);
-Route::post('/logout', [logInController::class, 'keluar']);
+Route::get('/logout', [logInController::class, 'keluar']);
 
 
 Route::get(('/footer'), function(){
