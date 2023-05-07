@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="carousel/css/owl.carousel.min.css">
   <link rel="stylesheet" href="carousel/css/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
@@ -49,52 +49,55 @@
 
     {{-- Upcoming Extracurricular Segment --}}
     <div class="segment">
-        <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-black flex text-[1.75vw] items-center justify-center">
+        <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
             Upcoming Extracurriculars
         </div>
         <div class="h-[30vw] w-[screen] flex items-center">
             <div class="featured-carousel owl-carousel">
                 @if ($xtras->count())
-                    @foreach ($xtras as $xtr)
-                    <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
-                        <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
-                            <div class="upcomingxtra">
-                                <div class="logo">
-                                    <div class="photo">
-                                        {{-- Pass Xtra BG Here --}}
-                                        <img src="Assets/RunningBg.jpeg" alt="">
+                    @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
+                        <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
+                            <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                                <div class="upcomingxtra">
+                                    <div class="logo">
+                                        <div class="photo">
+                                            {{-- Pass Xtra BG Here --}}
+                                            <img src="Assets/RunningBg.jpeg" alt="">
+                                        </div>
+                                        <div class="logoxtra">
+                                            <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
+                                        </div>
                                     </div>
-                                    <div class="logoxtra">
-                                        {{-- Pass Xtra Logo Here--}}
-                                        {{-- <img src="Assets/RunningLogo.png" alt=""> --}}
-                                        <img src="Assets/{{ $xtr->logo }}" alt="">
-
+                                    <div class="title text-[1.5vw] font-nunito font-semibold">
+                                        {{ $xtr->name }}
                                     </div>
-                                </div>
-                                <div class="title text-[1.5vw] font-nunito font-semibold">
-                                    {{-- Pass Xtra Name Here --}}
-                                    {{ $xtr->name }}
-                                </div>
-                                <div class="content text-white text-[1.5vw]">
-                                    <h3>
-                                        {{-- Pass Xtra Location Here --}}
-                                        {{$xtr->latest_schedule?->location}}
+                                    <div class="content text-white text-[1.5vw]">
+                                        <h3>
+                                            @if ($xtr->latest_schedule?->location === NULL)
+                                                <p>No location</p>
+                                            @else
+                                                {{$xtr->latest_schedule?->location}}
+                                            @endif
+                                        </h3>
+                                        <h3>
+                                            @if ($xtr->latest_schedule?->date === NULL)
+                                                <p>No schedule</p>
+                                            @else
+                                                {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . '/' . date('m', strtotime($xtr->latest_schedule?->date)) . '/' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
+                                            @endif
+                                        </h3>
+                                        <h3>
+                                            @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
+                                                <p>No phone number</p>
+                                            @else
+                                                {{'+' . $xtr->leader?->userXmas?->phoneNumber}}
+                                            @endif
 
-                                        {{-- {{ optional(optional($xtr->schedules)->schedule)->location }} --}}
-                                    </h3>
-                                    <h3>
-                                        {{-- Pass Xtra Schedule Here --}}
-                                        {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . '/' . date('m', strtotime($xtr->latest_schedule?->date)) . '/' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
-                                    </h3>
-                                    <h3>
-                                        {{-- Pass Xtra Contact Here --}}
-                                        {{'+' . $xtr->leader?->userXmas?->phoneNumber}}
-
-                                    </h3>
+                                        </h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
                     @endforeach
                 @else
                     <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
@@ -135,7 +138,7 @@
 
     {{-- Extracurricular Segment --}}
     <div class="segment">
-        <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-black flex text-[1.75vw] items-center justify-center">
+        <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
             Extracurriculars
         </div>
         <h1 class="text-[#56B8E6] viewall font-nunito">
@@ -154,7 +157,6 @@
                                         <img src="Assets/{{$xtr->logo}}" alt="">
                                     </div>
                                     <h3 class="mt-[1vw]">
-                                        {{-- Pass Xtra Name Here --}}
                                         {{$xtr->name}}
                                     </h3>
                                 </div>
