@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\logInController;
 use App\Http\Controllers\signUpController;
 use App\Http\Controllers\xtralistController;
@@ -17,10 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
-});
-// Route::get('/home', [signUpController::class, 'home']);
+// Route::get('/home', function () {
+//     return view('home');
+// });
+// Route::get('/home', [homeController::class, 'index']);
+Route::get('/home', [homeController::class, 'showXtraSchedule']);
 Route::redirect('/', '/home');
 
 

@@ -217,9 +217,9 @@
             role="tabpanel"
             aria-labelledby="home-tab"
           >
-            <form action="">
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw;">Description :</label>
+            <form action="" class="KotakForm">
+              <div class="form-group" id="KotakDesc">
+                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
@@ -228,8 +228,8 @@
                 ></textarea>
               </div>
 
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw;">Activity :</label>
+              <div class="form-group" id="KotakAct">
+                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
@@ -239,6 +239,7 @@
               </div>
             </form>
           </div>
+
           <div
             class="tab-pane fade"
             id="profile"
@@ -386,8 +387,9 @@
       <!-- presence member list -->
 
       <div class="presence" style="margin-top: 3vw;">
-        <div class="containerbawah" style="margin-left: 2.2vw; margin-right: 2.2vw;">
-          <div class="float-right font-weight-bold" style="font-size: 1.4vw; padding-top: 1.8vw; padding-right: 2vw;">Presence Member : <span class="numpresence">10</span> </div>
+        <div class="containerbawah">
+          <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">10</span> </div>
+          {{-- <div class="float-right font-weight-bold" style="font-size: 1.4vw">Presence Member : <span class="numpresence">10</span> </div> --}}
           <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn">Choose date<span> <img src="Assets/Xtrapage assets/chevron-down.svg" alt="" class="bca" style="width: 0.5vw;"/> </span></button>
             <div id="myDropdown" class="dropdown-content">
@@ -400,30 +402,6 @@
               <a href="#">March 12, 2023</a>
               <a href="#">March 12, 2023</a>
             </div>
-            {{-- <a
-              class="btn dropdown-toggle"
-              href="#"
-              role="button"
-              id="dropdownMenuLink"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Choose date
-            </a> --}}
-
-            {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="position: absolute; padding-top:0vw !important; height: 16.5vw; width: fixed !important; border: red solid;">
-
-               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
-               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
-               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
-               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
-               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
-               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
-               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
-               <li><a class="dropdown-item" href="#" style="border: yellow solid">March 12, 2023</a></li>
-
-            </ul> --}}
           </div>
 
           <div class="luarPML">
