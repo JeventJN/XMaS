@@ -3,6 +3,7 @@
 use App\Http\Controllers\logInController;
 use App\Http\Controllers\signUpController;
 use App\Http\Controllers\xtralistController;
+use App\Http\Controllers\cameraController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,3 +57,9 @@ Route::get(('/xtrapageketua'), function (){
 Route::get(('/absensiketua'), function (){
     return view('Ketua/absensiketua');
 });
+
+Route::get(('/contoh'), function (){
+    return view(('/contoh'));
+});
+
+Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
