@@ -32,7 +32,7 @@
                         <select id="" class="bg-gray-50 border border-gray-300 border-[0.1vw] text-gray-900 text-sm focus:border-blue-500 block w-full p-[0.2vw] focus:text-black">
                             {{-- <option selected>Choose one of your extracurricular</option> --}}
                             @foreach ($xtras as $xtr)
-                                <option value="{{ $xtr->name }}">{{$xtr->name}}</option>
+                                <option value="{{ $xtr->kdExtracurricular }}">{{$xtr->name}}</option>
                             @endforeach
                         </select>
                     </form>

@@ -42,6 +42,7 @@ Route::get(('/footer'), function(){
 
 
 Route::get(('/xtrareg'), [xtraregController::class, 'xtra'])->middleware('auth');
+Route::post(('/xtrareg'), [xtraregController::class, 'newMember'])->middleware('auth');
 
 
 Route::get(('/xtralistNU'), [xtralistController::class, 'index']);
