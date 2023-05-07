@@ -5,6 +5,7 @@ use App\Http\Controllers\logInController;
 use App\Http\Controllers\signUpController;
 use App\Http\Controllers\xtralistController;
 use App\Http\Controllers\cameraController;
+use App\Http\Controllers\xtraregController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,33 +33,38 @@ Route::post('/signup', [signUpController::class, 'store']);
 
 Route::get('/login', [logInController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [logInController::class, 'masuk']);
-Route::get('/logout', [logInController::class, 'keluar']);
+Route::post('/logout', [logInController::class, 'keluar'])->middleware('auth');
 
 
 Route::get(('/footer'), function(){
     return view('footer');
 });
 
-Route::get(('/xtrareg'), function(){
-    return view('User.xtrareg');
-});
+
+Route::get(('/xtrareg'), [xtraregController::class, 'xtra'])->middleware('auth');
+
 
 Route::get(('/xtralistNU'), [xtralistController::class, 'index']);
 
+
 // halaman xtra satuan
 Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtralistController::class, 'show']);
+
 
 Route::get('/reportform', function () {
     return view('Ketua/reportform');
 });
 
+
 Route::get(('/xtrapageketua'), function (){
     return view('Ketua/xtrapageketua');
 });
 
+
 Route::get(('/absensiketua'), function (){
     return view('Ketua/absensiketua');
 });
+
 
 Route::get(('/contoh'), function (){
     return view(('/contoh'));
