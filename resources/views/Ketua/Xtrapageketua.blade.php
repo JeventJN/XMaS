@@ -17,7 +17,7 @@
     />
 
     <!-- memanggil CSS di dalam folder CSS -->
-    <link rel="stylesheet" href="{{ asset('/css/Xtrapage.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/Xtrapage.css') }}" />
 
     <!-- memanggil swiper JS  -->
     <link
@@ -41,6 +41,7 @@
 
     <title></title>
   </head>
+
   <body>
     <!-- kalau ingin membuat navbar kita bisa buka web yang namanya botstrap.com lalu cari namanya navbar  -->
 
@@ -48,13 +49,13 @@
     @include('Non-User.navbarNU')
     <!-- navbar -->
 
-    <!-- jumbotron search di bootstrap  -->
-
+    <!-- jumbotron (foto besar) -->
     <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important">
       <div class="box-jumbotron">
-        <!-- membuat baris dan kolom di bootstrap : row untuk membuat baris col untuk collom -->
+        {{-- containerlogo itu container dari logo ekskul (Strava), hover (Xtra, Schedule, Leader), logo BCA --}}
         <div class="containerlogo">
           <div class="row">
+            {{-- component hover (Xtra, Schedule, dan Leader) sebelah logo --}}
             <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="flex: 1;" >
                     <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
                     <div class="button-elips" onmouseover ="hover()" onmouseout="out()">
@@ -110,7 +111,8 @@
 
                           if (text == 'Xtra') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
-                            e.target.style.marginBottom = '-0.08vw';
+                            // e.target.style.marginBottom = '-0.08vw';
+                            e.target.style.marginBottom = '0vw';
                             e.target.style.width = '25.2vw';
                             e.target.classList.remove('JudulXtra');
                           } else if (text == 'Schedule') {
@@ -122,7 +124,8 @@
                           } else if (text == 'Leader') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
                             e.target.style.width = '27.6vw';
-                            e.target.style.marginTop = '-0.08vw';
+                            // e.target.style.marginTop = '-0.08vw';
+                            e.target.style.marginTop = '0vw';
                             e.target.classList.remove('LeaderXtra');
                           }
                       });
@@ -131,37 +134,38 @@
                 </script>
             {{-- JS untuk hover Xtra Schedule Leader --}}
 
-              <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
-                <!--ganti margin-left-->
-                <img src="Assets/Xtrapage assets/Ellipse 45.png" alt="" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
-              </div>
+                {{-- elips untuk batas luar dari gambar logo ekskul --}}
+                <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
+                    <img src="{{ asset('Assets/Xtrapage assets/Ellipse 45.png') }}" alt="" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
+                </div>
             </div>
 
-            <div
-              class="col-lg-6 col-md-6 col-sm-6 col-6"
-              id="bca"
-            >
-                <img src="Assets/Xtrapage assets/bca.png" alt="" class="bca" style="width: 30vw; margin-left: 2.5vw;"/>
+            {{-- untuk logo BCA --}}
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6" id="bca">
+                <img src="{{ asset('Assets/Xtrapage assets/bca.png') }}" alt="" class="bca" style="width: 30vw; margin-left: 2.5vw;"/>
             </div>
           </div>
         </div>
       </div>
     </div>
-{{-- <div class="bawahjumbotron" style=" height: 93.2vw; width: 99.2vw; border: cyan solid"> --}}
+
+    {{-- div untuk spasi aja --}}
     <div class="SpJumbotronMain" style="height: 5.5vw;"> </div>
 
-    <main style="height: auto;">
-      <div class="containertengah" style="height: auto; margin-left: 2.2vw; margin-right: 2.2vw; margin-bottom: 0vw !important;">
+    <main in style="height: auto;">
+        {{-- buat container di bagian tengah (Make Attendance, Add Schedule, Kotak 3 segment) --}}
+      <div class="containertengah">
 
         <div class="button-make-advance float-right">
-          <a href="absensiketua" class="btn">Make Attendance</a>
+          <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
           <a type="button" class="btn" data-toggle="modal" data-target="#add">
             Add Schedule
           </a>
         </div>
 
+        {{-- hanya buat spasi --}}
         <div class="spasi" style="height: 8vw"></div>
-        <!-- membuat navs di bootstrap -->
+
         {{-- Pilihan Sections --}}
         <ul
           class="nav nav-tabs"
@@ -211,12 +215,8 @@
         {{-- Pilihan Sections --}}
 
         <div class="tab-content" id="myTabContent">
-          <div
-            class="tab-pane fade show active"
-            id="home"
-            role="tabpanel"
-            aria-labelledby="home-tab"
-          >
+        {{-- Segment Description --}}
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <form action="" class="KotakForm">
               <div class="form-group" id="KotakDesc">
                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
@@ -239,19 +239,16 @@
               </div>
             </form>
           </div>
+          {{-- Segment Description --}}
 
-          <div
-            class="tab-pane fade"
-            id="profile"
-            role="tabpanel"
-            aria-labelledby="profile-tab"
-          >
+          {{-- Segment Documentation --}}
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -260,7 +257,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/2.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/2.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -269,7 +266,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/3.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/3.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -278,7 +275,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -287,7 +284,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -296,7 +293,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -305,7 +302,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -314,39 +311,28 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
                   </div>
                 </div>
               </div>
-              <!-- <div class="swiper-pagination"></div> -->
-              <!-- <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div> -->
             </div>
           </div>
-          <div
-            class="tab-pane fade"
-            id="contact"
-            role="tabpanel"
-            aria-labelledby="contact-tab"
-          >
+          {{-- Segment Documentation --}}
 
-          <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span class="nummember">14</span></div>
-
+          {{-- Segment Member --}}
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span class="nummember">14</span></div>
             <div class="row" id="member">
               <br />
               <div class="col-lg-6 col-sm-6 col-md-6 col-6">
-
                 <div class="luarcard">
-
                     <h4 class="text-center text-dark font-weight-bold" style="font-size: 1.5vw; margin-top: 1vw; margin-bottom: 0.8vw">
                         Member List
                     </h4>
-
                     <div class="card">
-
                     <span class="badge">Jevent Natthannael</span>
                     <span class="badge">Jordan Cornelius</span>
                     <span class="badge">Jevent Natthannael</span>
@@ -361,12 +347,10 @@
                     <span class="badge">Harris Wahyudi</span>
                     </div>
                 </div>
-
               </div>
-
               <br />
               <div class="col-lg-6 col-sm-6 col-md-6 col-6">
-                <img src="Assets/Xtrapage assets/stop.png" alt="" class="gambarstop"/>
+                <img src="{{ asset('Assets/Xtrapage assets/stop.png') }}" alt="" class="gambarstop"/>
                 <div class="btn-member">
                   <button
                     type="button"
@@ -380,18 +364,16 @@
               </div>
             </div>
           </div>
+          {{-- Segment Member --}}
         </div>
       </div>
 
-      {{-- <div class="Sp3SeOML" style="height: -50vw; margin-top: 2.9vw; margin-bottom: -4vw; border: purple solid;"> </div> --}}
-      <!-- presence member list -->
-
       <div class="presence" style="margin-top: 3vw;">
+        {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
         <div class="containerbawah">
           <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">10</span> </div>
-          {{-- <div class="float-right font-weight-bold" style="font-size: 1.4vw">Presence Member : <span class="numpresence">10</span> </div> --}}
           <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Choose date<span> <img src="Assets/Xtrapage assets/chevron-down.svg" alt="" class="bca" style="width: 0.5vw;"/> </span></button>
+            <button onclick="myFunction()" class="dropbtn">Choose date<img src="{{ asset('Assets/Xtrapage assets/chevron-down.png') }}" alt="" style="margin-left: 0.5vw; width: 2vw;"/></button>
             <div id="myDropdown" class="dropdown-content">
               <a href="#">March 12, 2023</a>
               <a href="#">March 12, 2023</a>
@@ -426,6 +408,7 @@
               </div>
           </div>
         </div>
+        {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
       </div>
     </main>
 
