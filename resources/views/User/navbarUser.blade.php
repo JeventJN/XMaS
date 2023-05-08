@@ -10,7 +10,7 @@
 <body>
     <div class="z-50 fixed w-screen h-[5.25vw] bg-[#1B2F45] flex items-center opacity-80">
         <div class="content w-[48%]">
-            <img class="w-[10vw] h-[5vw] ml-[1vw]" src="Assets/LogoXMaS.png" alt="">
+            <img class="w-[10vw] h-[5vw] ml-[1vw]" src="{{asset('Assets/LogoXMaS.png')}}" alt="">
         </div>
         <div class="content w-[70%] font-nunito text-[1.5vw] text-white flex justify-between items-center mr-[3vw]">
             <a class="w-[8vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/home">
@@ -26,7 +26,7 @@
                 MyClub
             </a>
             <a class="w-[5vw] h-[5vw] flex items-center justify-center rounded-[50%] bg-red-500" href="/">
-                <img class="w-[5vw] h-[5vw]" src="Assets/UserDP.png" alt="">
+                <img class="w-[5vw] h-[5vw]" src="{{asset('Assets/UserDP.png')}}" alt="">
             </a>
         </div>
     </div>

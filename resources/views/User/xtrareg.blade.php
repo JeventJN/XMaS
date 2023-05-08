@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/Register/login.css">
-    <script src="js/Register/login.js"></script>
+    <link rel="stylesheet" href="{{asset('css/Register/login.css')}}">
+    <script src="{{asset('js/Register/login.js')}}"></script>
     <title>Xtra Registration</title>
     @vite('resources/css/app.css')
 </head>
@@ -21,7 +21,7 @@
     <div class="w-screen flex h-[41.7vw]">
         <div class="absolute ml-[56vw] h-[5vw] w-[40vw] flex items-center justify-start font-nunito text-[5vw] mt-[3vw] text-black font-bold">Xtra&nbsp<mark class="text-white bg-transparent">Registration</mark></div>
         <div class="w-[66%] h-[41.7vw] flex items-center">
-            <img class="w-[45vw] h-[45vw] mr-[10] mb-[4vw]" src="Assets/LogoXMaSGray.png" alt="">
+            <img class="w-[45vw] h-[45vw] mr-[10] mb-[4vw]" src="{{asset('Assets/LogoXMaSGray.png')}}" alt="">
         </div>
         <div class="w-[34%] bg-[#7599C1] h-[41.7vw]"></div>
         <div class="absolute ml-[24vw] w-[61vw] h-[24vw] bg-[#395474] mt-[11vw] rounded-[1vw] flex flex-col items-center justify-center">

@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="carousel/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="carousel/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="{{asset('carousel/css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{asset('carousel/css/owl.theme.default.min.css')}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
-  <link rel="stylesheet" href="carousel/css/style.css">
-  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="{{asset('carousel/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('css/home.css')}}">
   <title>User Home</title>
   @vite('resources/css/app.css')
 </head>
@@ -63,7 +63,7 @@
                                         <div class="logo">
                                             <div class="photo">
                                                 {{-- Pass Xtra BG Here --}}
-                                                <img src="Assets/RunningBg.jpeg" alt="">
+                                                <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
                                             </div>
                                             <div class="logoxtra">
                                                 <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
@@ -119,13 +119,13 @@
                     JOIN NOW!!!
                 </div>
             </a>
-            <img class="min-w-[100%]" src="Assets/SignUpNowBG.png" alt="">
+            <img class="min-w-[100%]" src="{{asset('Assets/SignUpNowBG.png')}}" alt="">
         </div>
     @endguest
 
     {{-- Banner Home User --}}
     @auth
-        <img src="Assets/UserBanner.png" alt="">
+        <img src="{{asset('Assets/UserBanner.png')}}" alt="">
     @endauth
 
     {{-- Banner Admin --}}
@@ -135,7 +135,7 @@
                 CHECK REPORT
             </div>
         </a>
-        <img src="Assets/BannerAdmin.png" alt="">
+        <img src="{{asset('Assets/BannerAdmin.png')}}" alt="">
     </div> --}}
 
     {{-- Extracurricular Segment --}}
