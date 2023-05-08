@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, minimum-scale=1.0, user-scalable=0">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/Ketua/reportform.css">
+  <link rel="stylesheet" href="{{asset('css/Ketua/reportform.css')}}">
   <title>Report Form</title>
   @vite('resources/css/app.css')
 </head>
@@ -94,8 +94,8 @@
                 <div class="flex flex-col w-[25.5vw] h-[33vw] ml-[6vw]">
                     <div class="text-[1.8vw] ">Documentation</div>
                     <div class="h-[31.2vw] bg-[#395474] outline-dotted outline-[0.1vw] flex">
-                        <img class="h-[31.2vw] w-[25.5vw]" id="photoContainer" src="Assets/UploadPhotoForm.png" alt="">
-                        <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='Assets/UploadedPhotoForm.png'">
+                        <img class="h-[31.2vw] w-[25.5vw]" id="photoContainer" src="{{asset('Assets/UploadPhotoForm.png')}}" alt="">
+                        <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/UploadedPhotoForm.png')}}'">
                     </div>
                 </div>
             </div>

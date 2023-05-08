@@ -17,7 +17,7 @@
     />
 
     <!-- memanggil CSS di dalam folder CSS -->
-    <link rel="stylesheet" href="css/Xtrapage.css" />
+    <link rel="stylesheet" href="{{ asset('/css/Xtrapage.css') }}" />
 
     <!-- memanggil swiper JS  -->
     <link
