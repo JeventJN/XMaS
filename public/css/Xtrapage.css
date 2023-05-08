@@ -53,14 +53,14 @@ body {
     display: flex;
     align-items: center;
     height: 21.8vw;
-    /* border: yellow solid; */
+    /* border: cyan solid; */
 }
 
 .box-jumbotron .bca,
 .elips {
     width: 100%;
     border-radius: 50%;
-    /* border: cyan solid; */
+    /* border: yellow solid; */
     }
 
 /* ========================= */
