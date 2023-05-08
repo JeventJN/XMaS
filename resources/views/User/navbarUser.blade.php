@@ -26,7 +26,7 @@
                 MyClub
             </a>
             <a class="w-[5vw] h-[5vw] flex items-center justify-center rounded-[50%] bg-red-500" href="/">
-                <img src="Assets/UserDP.png" alt="">
+                <img class="w-[5vw] h-[5vw]" src="Assets/UserDP.png" alt="">
             </a>
         </div>
     </div>
