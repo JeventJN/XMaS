@@ -12,9 +12,4 @@ class homeController extends Controller
     {
         return view('home', ['xtras' => extracurricular::latest()->get()]);
     }
-
-    public function navProfile()
-    {
-        return view('User.navbarUser', ['users'  => userXmas::latest()->get()]);
-    }
 }
