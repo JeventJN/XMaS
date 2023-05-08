@@ -43,7 +43,6 @@
   </head>
 
   <body>
-    <!-- kalau ingin membuat navbar kita bisa buka web yang namanya botstrap.com lalu cari namanya navbar  -->
 
     <!-- navbar -->
     @include('Non-User.navbarNU')
@@ -373,7 +372,7 @@
         <div class="containerbawah">
           <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">10</span> </div>
           <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Choose date<img src="{{ asset('Assets/Xtrapage assets/chevron-down.png') }}" alt="" style="margin-left: 0.5vw; width: 2vw;"/></button>
+            <button onclick="myFunction()" class="dropbtn">Choose date<img src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}" alt="" style="margin-left: 0.5vw; width: 2vw;"/></button>
             <div id="myDropdown" class="dropdown-content">
               <a href="#">March 12, 2023</a>
               <a href="#">March 12, 2023</a>

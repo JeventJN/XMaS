@@ -62,8 +62,8 @@
         <div class="col-lg-4 col-sm-6 col-md-6">
           <div class="blank">
             <p>
-              12:01 - Jevent Natthannael <br />
-              12:05 - Vanessa Kwandinata <br />
+              12:01 - Jevent Natthannael <br/>
+              12:05 - Vanessa Kwandinata <br/>
               13:00 - William Suryadharma
             </p>
           </div>
