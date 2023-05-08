@@ -229,7 +229,7 @@ main .nav-item a:hover {
     border-top-left-radius: 1.8vw;
     border-top-right-radius: 1.8vw;
     border: none;
-    height: 5.5vw;
+    height: 5.75vw;
     position: absolute;
     width: 18vw;
     text-align: center;
@@ -443,7 +443,7 @@ main .presence {
     margin-top: 5vw;
     margin-left: 2.2vw;
     margin-right: 2.2vw;
-    border: purple solid;
+    /* border: purple solid; */
 }
 
 .TulisanPresenceMember{
@@ -554,6 +554,9 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
     border-top-right-radius: 1.8vw;
     width: 15vw;
     height: 4.5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     /* border: red solid; */
 }
 

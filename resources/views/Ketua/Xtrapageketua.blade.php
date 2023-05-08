@@ -17,7 +17,7 @@
     />
 
     <!-- memanggil CSS di dalam folder CSS -->
-    <link rel="stylesheet" href="css/Xtrapage.css" />
+    <link rel="stylesheet" href="{{ asset('css/Xtrapage.css') }}" />
 
     <!-- memanggil swiper JS  -->
     <link
@@ -49,7 +49,6 @@
     <!-- navbar -->
 
     <!-- jumbotron search di bootstrap  -->
-
     <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important">
       <div class="box-jumbotron">
         <!-- membuat baris dan kolom di bootstrap : row untuk membuat baris col untuk collom -->
@@ -110,7 +109,8 @@
 
                           if (text == 'Xtra') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
-                            e.target.style.marginBottom = '-0.08vw';
+                            // e.target.style.marginBottom = '-0.08vw';
+                            e.target.style.marginBottom = '0vw';
                             e.target.style.width = '25.2vw';
                             e.target.classList.remove('JudulXtra');
                           } else if (text == 'Schedule') {
@@ -122,7 +122,8 @@
                           } else if (text == 'Leader') {
                             e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
                             e.target.style.width = '27.6vw';
-                            e.target.style.marginTop = '-0.08vw';
+                            // e.target.style.marginTop = '-0.08vw';
+                            e.target.style.marginTop = '0vw';
                             e.target.classList.remove('LeaderXtra');
                           }
                       });
@@ -133,7 +134,7 @@
 
               <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
                 <!--ganti margin-left-->
-                <img src="Assets/Xtrapage assets/Ellipse 45.png" alt="" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
+                <img src="{{ asset('Assets/Xtrapage assets/Ellipse 45.png') }}" alt="" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
               </div>
             </div>
 
@@ -141,7 +142,7 @@
               class="col-lg-6 col-md-6 col-sm-6 col-6"
               id="bca"
             >
-                <img src="Assets/Xtrapage assets/bca.png" alt="" class="bca" style="width: 30vw; margin-left: 2.5vw;"/>
+                <img src="{{ asset('Assets/Xtrapage assets/bca.png') }}" alt="" class="bca" style="width: 30vw; margin-left: 2.5vw;"/>
             </div>
           </div>
         </div>
@@ -154,7 +155,7 @@
       <div class="containertengah" style="height: auto; margin-left: 2.2vw; margin-right: 2.2vw; margin-bottom: 0vw !important;">
 
         <div class="button-make-advance float-right">
-          <a href="absensiketua" class="btn">Make Attendance</a>
+          <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
           <a type="button" class="btn" data-toggle="modal" data-target="#add">
             Add Schedule
           </a>
@@ -251,7 +252,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -260,7 +261,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/2.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/2.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -269,7 +270,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/3.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/3.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -278,7 +279,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -287,7 +288,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -296,7 +297,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -305,7 +306,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -314,7 +315,7 @@
                 <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
-                      src="Assets/Xtrapage assets/foto/1.png"
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
                       class="card-img-top"
                       alt="..."
                     />
@@ -366,7 +367,7 @@
 
               <br />
               <div class="col-lg-6 col-sm-6 col-md-6 col-6">
-                <img src="Assets/Xtrapage assets/stop.png" alt="" class="gambarstop"/>
+                <img src="{{ asset('Assets/Xtrapage assets/stop.png') }}" alt="" class="gambarstop"/>
                 <div class="btn-member">
                   <button
                     type="button"
@@ -391,7 +392,7 @@
           <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">10</span> </div>
           {{-- <div class="float-right font-weight-bold" style="font-size: 1.4vw">Presence Member : <span class="numpresence">10</span> </div> --}}
           <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Choose date<span> <img src="Assets/Xtrapage assets/chevron-down.svg" alt="" class="bca" style="width: 0.5vw;"/> </span></button>
+            <button onclick="myFunction()" class="dropbtn">Choose date<img src="{{ asset('Assets/Xtrapage assets/chevron-down.png') }}" alt="" style="margin-left: 0.5vw; width: 2vw;"/></button>
             <div id="myDropdown" class="dropdown-content">
               <a href="#">March 12, 2023</a>
               <a href="#">March 12, 2023</a>
