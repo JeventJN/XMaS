@@ -29,6 +29,6 @@ class xtralistController extends Controller
     }
 
     public function show(Extracurricular $xtra){
-        return view('xtrapage', ['xtra' => $xtra]);
+        return view('/Ketua/Xtrapageketua', ['xtra' => $xtra]);
     }
 }
