@@ -17,7 +17,6 @@
     {{-- Cuma buat space dari navbar --}}
     <div class="w-screen h-[5.25vw]"></div>
     {{--  --}}
-
     <div class="w-screen flex h-[41.7vw]">
         <div class="absolute ml-[56vw] h-[5vw] w-[40vw] flex items-center justify-start font-nunito text-[5vw] mt-[3vw] text-black font-bold">Xtra&nbsp<mark class="text-white bg-transparent">Registration</mark></div>
         <div class="w-[66%] h-[41.7vw] flex items-center">
@@ -29,8 +28,8 @@
                 <div class="mt-[1vw] w-[25vw] bg-blue-500">
                     <form id="xtrareg" action="/xtrareg" method="POST">
                         @csrf
-                        <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[3vw] p-[0.2vw] focus:text-black text-[2vw]" required>
-                            <option class="text-[1.5vw] w-[31vw] h-[5vw]" selected>Choose one of your extracurricular</option>
+                        <select required name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[3vw] p-[0.2vw] focus:text-black text-[2vw]">
+                            <option class="text-[1.5vw] w-[31vw] h-[5vw] hidden" disabled selected>Choose one of your extracurricular</option>
                             @foreach ($xtras as $xtr)
                                 <option class="text-[1.5vw] w-[31vw] h-[5vw]" value="{{ $xtr->kdExtracurricular }}">{{$xtr->name}}</option>
                             @endforeach

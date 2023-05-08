@@ -21,7 +21,11 @@
     @auth
         @include('User.navbarUser')
     @endauth
+    <div class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+        <div class="w-[68%] h-[5vw] bg-red-500">
 
+        </div>
+    </div>
     {{-- @include('Admin.navbarA') --}}
     {{-- modal pop up --}}
     <div id="modalpopup" class="modal">
@@ -173,7 +177,7 @@
     </div>
     <div class="h-[4vw]"></div>
     <p id="valueList"></p>
-    <script src="js/xtralist.js"></script>
+    <script src="{{asset('js/xtralist.js')}}"></script>
     {{-- Footer --}}
     {{-- @include('footer') --}}
 </body>
