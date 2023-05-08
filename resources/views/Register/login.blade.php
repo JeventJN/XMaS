@@ -16,6 +16,26 @@
 </head>
 
 <body>
+    @if (session()->has('loginError'))
+        <div id="modalpopupLI" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+            <div class="w-[67vw] h-[5vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                <div class="w-[66vw] h-[4vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                    Login Failed!
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLI" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                </div>
+            </div>
+        </div>
+        <script>
+            var modal1 = document.getElementById('modalpopupLI');
+            var hidemodal1 = document.getElementById('hidemodalLI');
+
+            hidemodal1.addEventListener('click', closePopup1);
+
+            function closePopup1(){
+                modal1.style.display="none";
+            }
+        </script>
+    @endif
     <div class="bg-cover" style="background-image: url('Assets/LogIn.png')">
         <div class="topcontainer flex items-center">
             <a href="/home">
@@ -46,16 +66,13 @@
             <form action="/login" id="loginvalid" method="POST" autocomplete="off"
                 onsubmit="return eventsubmits(this);">
                 @csrf
-                @if (session()->has('loginError'))
-                    <p>Gagal</p>
-                @endif
                 <div class="relative ml-[-3.5vw] logincontainer mt-[4vw] rounded-[1.5vw]">
                     <div class="loginform mt-[5vw]">
                         <div class="fieldbox flex items-center">
                             <img class="ml-[0.5vw] scale-[0.8] h-[2.8vw]" src="{{ asset('Assets/nip.png') }}"
                                 alt="">
                             <div class="flex flex-col">
-                                <input type="tel" id="NIP" name="NIP" placeholder="Enter your NIP here"
+                                <input type="tel" id="nipuser" name="NIP" placeholder="Enter your NIP here"
                                     class="no-outline bg-[#1B2F45] w-[31vw] text-white text-[1.3vw] ml-[1vw] border-b-[0.1vw]"
                                     pattern="[0-9]+" value="{{ old('NIP') }}">
                             </div>
