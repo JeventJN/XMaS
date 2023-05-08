@@ -56,7 +56,7 @@
             <div class="featured-carousel owl-carousel">
                 @if ($xtras->count())
                     @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
-                        @if ($xtr->latest_schedule?->date >= now())
+                        @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
                             <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
                                 <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
                                     <div class="upcomingxtra">
@@ -84,14 +84,14 @@
                                                 @if ($xtr->latest_schedule?->date === NULL)
                                                     <p>No schedule</p>
                                                 @else
-                                                    {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . '/' . date('m', strtotime($xtr->latest_schedule?->date)) . '/' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
+                                                    {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('m', strtotime($xtr->latest_schedule?->date)) . '/' . date('d', strtotime($xtr->latest_schedule?->date)) . '/' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
                                                 @endif
                                             </h3>
                                             <h3>
                                                 @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
                                                     <p>No phone number</p>
                                                 @else
-                                                    {{'+' . $xtr->leader?->userXmas?->phoneNumber}}
+                                                    {{str_replace("62", "0", $xtr->leader?->userXmas?->phoneNumber)}}
                                                 @endif
 
                                             </h3>
