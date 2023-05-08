@@ -105,7 +105,7 @@
                 Submit
             </div>
         </div>
-        <script src="js/Ketua/reportform.js"></script>
+        <script src="{{asset('js/Ketua/reportform.js')}}"></script>
     </form>
 </body>
 </html>
