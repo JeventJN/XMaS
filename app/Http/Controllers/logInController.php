@@ -22,7 +22,7 @@ class logInController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect()->intended('/home');
+            return redirect()->intended('/home')->with('loginSuccess', 'Successfully logged in');
 
         }
 
@@ -38,6 +38,6 @@ class logInController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->intended('/home')->with('logoutSuccess', 'Successfully logged out');
     }
 }

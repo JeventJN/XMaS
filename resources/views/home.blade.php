@@ -36,49 +36,53 @@
 
     @guest
         @include('Non-User.navbarNU')
-        {{-- Ini pop-up kalau log-out {href=profile} (Ini saya hidden dulu, bukan saya comment ya) --}}
-        <div id="modalpopupLO" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-            <div class="w-[67vw] h-[5vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-                <div class="w-[66vw] h-[4vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
-                    Successfully logged out
-                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLO" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+            @if (session()->has('logoutSuccess'))
+                {{-- Ini pop-up kalau log-out {href=profile} (Ini saya hidden dulu, bukan saya comment ya) --}}
+                <div id="modalpopupLO" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+                    <div class="w-[67vw] h-[5vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                        <div class="w-[66vw] h-[4vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                            Successfully logged out
+                            <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLO" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <script>
-            var modal2 = document.getElementById('modalpopupLO');
-            var hidemodal2 = document.getElementById('hidemodalLO');
+                <script>
+                    var modal2 = document.getElementById('modalpopupLO');
+                    var hidemodal2 = document.getElementById('hidemodalLO');
 
-            hidemodal2.addEventListener('click', closePopup2);
+                    hidemodal2.addEventListener('click', closePopup2);
 
-            function closePopup2(){
-                modal2.style.display="none";
-            }
-        </script>
+                    function closePopup2(){
+                        modal2.style.display="none";
+                    }
+                </script>
+            @endif
     @endguest
 
     @auth
         @include('User/navbarUser')
         {{-- welkam, {{auth()->user()->name}} --}}
-            {{-- Ini pop-up kalau log-in berhasil {href=login} (Ini saya hidden dulu, bukan saya comment ya) --}}
-        <div id="modalpopupLI" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-            <div class="w-[67vw] h-[5vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-                <div class="w-[66vw] h-[4vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
-                    Successfully logged in
-                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLI" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+        {{-- Ini pop-up kalau log-in berhasil {href=login} (Ini saya hidden dulu, bukan saya comment ya) --}}
+            @if (session()->has('loginSuccess'))
+                <div id="modalpopupLI" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+                    <div class="w-[67vw] h-[5vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                        <div class="w-[66vw] h-[4vw] bg-red-500 flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                            Successfully logged in
+                            <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLI" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <script>
-            var modal1 = document.getElementById('modalpopupLI');
-            var hidemodal1 = document.getElementById('hidemodalLI');
+                <script>
+                    var modal1 = document.getElementById('modalpopupLI');
+                    var hidemodal1 = document.getElementById('hidemodalLI');
 
-            hidemodal1.addEventListener('click', closePopup1);
+                    hidemodal1.addEventListener('click', closePopup1);
 
-            function closePopup1(){
-                modal1.style.display="none";
-            }
-        </script>
+                    function closePopup1(){
+                        modal1.style.display="none";
+                    }
+                </script>
+            @endif
     @endauth
 
     {{-- ini script js, nanti kalau udah bisa delete account, tinggal ambil aja codingan dibawah ini --}}
