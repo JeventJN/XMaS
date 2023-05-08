@@ -56,48 +56,50 @@
             <div class="featured-carousel owl-carousel">
                 @if ($xtras->count())
                     @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
-                        <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
-                            <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
-                                <div class="upcomingxtra">
-                                    <div class="logo">
-                                        <div class="photo">
-                                            {{-- Pass Xtra BG Here --}}
-                                            <img src="Assets/RunningBg.jpeg" alt="">
+                        @if ($xtr->latest_schedule?->date >= now())
+                            <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
+                                <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                                    <div class="upcomingxtra">
+                                        <div class="logo">
+                                            <div class="photo">
+                                                {{-- Pass Xtra BG Here --}}
+                                                <img src="Assets/RunningBg.jpeg" alt="">
+                                            </div>
+                                            <div class="logoxtra">
+                                                <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
+                                            </div>
                                         </div>
-                                        <div class="logoxtra">
-                                            <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
+                                        <div class="title text-[1.5vw] font-nunito font-semibold">
+                                            {{ $xtr->name }}
                                         </div>
-                                    </div>
-                                    <div class="title text-[1.5vw] font-nunito font-semibold">
-                                        {{ $xtr->name }}
-                                    </div>
-                                    <div class="content text-white text-[1.5vw]">
-                                        <h3>
-                                            @if ($xtr->latest_schedule?->location === NULL)
-                                                <p>No location</p>
-                                            @else
-                                                {{$xtr->latest_schedule?->location}}
-                                            @endif
-                                        </h3>
-                                        <h3>
-                                            @if ($xtr->latest_schedule?->date === NULL)
-                                                <p>No schedule</p>
-                                            @else
-                                                {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . '/' . date('m', strtotime($xtr->latest_schedule?->date)) . '/' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
-                                            @endif
-                                        </h3>
-                                        <h3>
-                                            @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
-                                                <p>No phone number</p>
-                                            @else
-                                                {{'+' . $xtr->leader?->userXmas?->phoneNumber}}
-                                            @endif
+                                        <div class="content text-white text-[1.5vw]">
+                                            <h3>
+                                                @if ($xtr->latest_schedule?->location === NULL)
+                                                    <p>No location</p>
+                                                @else
+                                                    {{$xtr->latest_schedule?->location}}
+                                                @endif
+                                            </h3>
+                                            <h3>
+                                                @if ($xtr->latest_schedule?->date === NULL)
+                                                    <p>No schedule</p>
+                                                @else
+                                                    {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . '/' . date('m', strtotime($xtr->latest_schedule?->date)) . '/' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
+                                                @endif
+                                            </h3>
+                                            <h3>
+                                                @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
+                                                    <p>No phone number</p>
+                                                @else
+                                                    {{'+' . $xtr->leader?->userXmas?->phoneNumber}}
+                                                @endif
 
-                                        </h3>
+                                            </h3>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        @endif
                     @endforeach
                 @else
                     <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
