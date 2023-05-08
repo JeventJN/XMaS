@@ -26,25 +26,27 @@
         <div class="w-[34%] bg-[#7599C1] h-[41.7vw]"></div>
         <div class="absolute ml-[24vw] w-[61vw] h-[24vw] bg-[#395474] mt-[11vw] rounded-[1vw] flex flex-col items-center justify-center">
             <div class="w-[51vw] h-[18vw]">
-                <div class="mt-[1vw] w-[25vw] bg-blue-500">
+                <div class="mt-[1vw] w-[25vw] rounded-[0.3vw]">
                     <form id="xtrareg" action="/xtrareg" method="POST">
                         @csrf
-                        <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[3vw] p-[0.2vw] focus:text-black text-[2vw]" required>
-                            <option class="text-[1.5vw] w-[31vw] h-[5vw]" selected>Choose one of your extracurricular</option>
+                        <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] rounded-[0.3vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[2.5vw] p-[0.2vw] focus:text-black text-[2vw]" required>
+                            {{-- <option class="text-[1.5vw] w-[31vw] h-[5vw]" selected>Choose one of your extracurricular</option> --}}
                             @foreach ($xtras as $xtr)
-                                <option class="text-[1.5vw] w-[31vw] h-[5vw]" value="{{ $xtr->kdExtracurricular }}">{{$xtr->name}}</option>
+                                <div>
+                                    <option class="text-[1.1vw] w-[31vw] h-[5vw] cursor-pointer hover:bg-black hover:text-blue-500" style="background-color: #ffffff" value="{{ $xtr->kdExtracurricular }}">{{$xtr->name}}</option>
+                                </div>
                             @endforeach
                         </select>
                     </form>
                 </div>
                 <form id="xtrareg" action="/xtrareg" method="POST">
                     @csrf
-                    <div class="text-white text-[2vw] mt-[3vw]">
+                    <div class="text-white text-[2vw] mt-[3vw] font-nunito">
                         What’s the reason you want to join this Xtra?
                     </div>
                     <div class="w-[35vw] h-[3vw] bg-[#1B2F45] rounded-[1vw] flex justify-center items-end mt-[1vw]">
                         <div class="w-[31vw] border-b-[0.2vw] mb-[0.5vw] flex items-center">
-                            <input type="text" name="reason" class="w-[100%] h-[1.8vw] bg-[#1B2F45] outline-none text-white text-[1.5vw]" placeholder="Type your reason here...">
+                            <input type="text" name="reason" class="w-[100%] h-[1.8vw] bg-[#1B2F45] outline-none text-white text-[1.5vw]">
                         </div>
                     </div>
                     <button class="flex w-[100%] justify-end mt-[3vw]">

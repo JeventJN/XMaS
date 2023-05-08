@@ -23,7 +23,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('home');
 // });
 // Route::get('/home', [homeController::class, 'index']);
-Route::get('/home', [homeController::class, 'showXtraSchedule']);
+Route::get('/home', [homeController::class, 'showXtraSchedule'], [homeController::class, 'navProfile']);
+// Route::get('/User/navbarUser', [homeController::class, 'navProfile']);
 Route::redirect('/', '/home');
 
 
