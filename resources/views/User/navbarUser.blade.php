@@ -35,9 +35,6 @@
                 @if (Auth::check() && Auth::user()->photo)
                     <img class="w-[5vw] h-[5vw]" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{asset('Assets/UserDP.png')}}">
                 @endif
-                {{-- @if (auth()->user()->NIP === $users->NIP)
-                    <img class="w-[5vw] h-[5vw]" src="{{asset('storage/' . $users->photo)}}" alt="{{asset('Assets/UserDP.png')}}">
-                @endif --}}
             </a>
         </div>
     </div>
