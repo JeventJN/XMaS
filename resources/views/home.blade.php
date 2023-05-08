@@ -39,7 +39,7 @@
     @endguest
 
     @auth
-        @include('User.navbarUser')
+        @include('User/navbarUser')
         {{-- welkam, {{auth()->user()->name}} --}}
     @endauth
 

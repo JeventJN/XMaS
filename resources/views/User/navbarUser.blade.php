@@ -26,7 +26,9 @@
                 MyClub
             </a>
             <a class="w-[5vw] h-[5vw] flex items-center justify-center rounded-[50%] bg-red-500" href="/">
-                <img class="w-[5vw] h-[5vw]" src="{{asset('Assets/UserDP.png')}}" alt="">
+                @if (auth()->user()->NIP === $users->NIP)
+                    <img class="w-[5vw] h-[5vw]" src="{{asset('storage/' . $users->photo)}}" alt="{{asset('Assets/UserDP.png')}}">
+                @endif
             </a>
         </div>
     </div>
