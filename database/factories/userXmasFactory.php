@@ -22,7 +22,7 @@ class userXmasFactory extends Factory
             'name' => fake()->name(),
             'program' => fake()->randomElement(['PPTI', 'PPBP']),
             'phoneNumber' => str_replace('+', '62', fake()->unique()->e164PhoneNumber()),
-            'password' => bcrypt('1234'),
+            'password' => bcrypt('123456'),
             'photo' => 'https://source.unsplash.com/500x500?human'
         ];
     }
