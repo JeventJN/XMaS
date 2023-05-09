@@ -183,17 +183,21 @@
     @guest
         <div class="h-fit w-screen">
             <a href="/signup">
-                <div class="registernow absolute ml-[14vw] mt-[10.5vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw]">
+                <div class="registernow absolute ml-[8.75vw] h-[7.3vw] mt-[7.7vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 opacity-0" onmouseover="signup.src='{{asset('Assets/SignUpNowHover.png')}}'" onmouseout="signup.src='{{asset('Assets/SignUpNow.png')}}'">
                     JOIN NOW!!!
                 </div>
             </a>
-            <img class="min-w-[100%]" src="{{asset('Assets/SignUpNowBG.png')}}" alt="">
-        </div>
-    @endguest
+            <div class="flex">
+                <img class="min-w-[100%]" src="{{asset('Assets/SignUpNowBG.png')}}" alt="">
+                    <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="signup" src="{{asset('Assets/SignUpNow.png')}}" alt="">
+                </div>
+                {{-- <img class="min-w-[100%]" src="{{asset('Assets/SignUpNowHover.png')}}" alt=""> --}}
+            </div>
+        @endguest
 
-    {{-- Banner Home User --}}
-    @auth
-        <img src="{{asset('Assets/UserBanner.png')}}" alt="">
+        {{-- Banner Home User --}}
+        @auth
+            <img src="{{asset('Assets/UserBanner.png')}}" alt="">
     @endauth
 
     {{-- Banner Admin --}}
