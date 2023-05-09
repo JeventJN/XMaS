@@ -38,8 +38,8 @@
                             <div class="xtraboxcontainer flex justify-center items-center">
                                 <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
                                     {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                    {{-- <img src="{{ asset('/Assets/$xtra->logo') }}" alt="{{ $xtra->name }}"> --}}
-                                    <img src="Assets/RunningLogo.png" alt="">
+                                    {{-- <img src="{{ asset('/{{asset('Assets/$xtra->logo') }}" alt="{{ $xtra->name }}"> --}}
+                                    <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
                                 </div>
                                 <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                     {{-- <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ $xtra->name }}</div>
@@ -73,7 +73,7 @@
                             <div class="flex flex-col">
                                 <div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                        <img src="Assets/RunningLogo.png" alt="">
+                                        <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
                                     </div>
                                     <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                         <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
@@ -84,17 +84,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="absolute w-[10vw] h-[2.5vw] flex justify-end mt-[18vw] ml-[24vw]">
-                                    <div class="w-[2.5vw] h-[2.5vw]">
+                                <div class="absolute w-fit h-fit flex justify-end mt-[18vw] ml-[29vw]">
+                                    <div class="w-fit h-fit">
                                         {{-- TEMBAK LINK EDIT (KE EXTRAPAGE VRERSI EDIT) --}}
                                         <a href="">
-                                            <img class="w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="Assets/edit.png" alt="">
+                                            <img class="w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/edit.png')}}" alt="">
                                         </a>
                                     </div>
                                     <div class="w-[2.5vw] h-[2.5vw]">
                                         {{-- TEMBAHKCHAT --}}
                                         <a href="">
-                                            <img class="ml-[1.5vw] w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="Assets/chat.png" alt="">
+                                            <img class="ml-[1.5vw] w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/chat.png')}}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                             <div class="flex flex-col">
                                 <div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                        <img src="Assets/RunningLogo.png" alt="">
+                                        <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
                                     </div>
                                     <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                         <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
@@ -116,12 +116,45 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="absolute w-[10vw] h-[2.5vw] flex justify-end mt-[18vw] ml-[24vw]">
+                                <div class="absolute w-fit h-fit flex justify-end mt-[18vw] ml-[33vw]">
                                     <div class="w-[2.5vw] h-[2.5vw]">
                                         {{-- TEMBAK LINK CHAT DISINI --}}
                                         <a href="">
-                                            <img class="ml-[1.5vw] w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="Assets/chat.png" alt="">
+                                            <img class=" w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/chat.png')}}" alt="">
                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {{-- ADMIN HAPUS XTRA --}}
+                        <a href="/xtralist">
+                            <div class="flex flex-col">
+                                <div class="xtraboxcontainer flex justify-center items-center">
+                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                        <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
+                                    </div>
+                                    <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                        <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
+                                        <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="absolute w-fit h-fit flex justify-end mt-[17vw] ml-[33vw]">
+                                    <div class="w-[2.5vw] h-[2.5vw]">
+                                        <img class="w-[2.5vw] h-[3vw] hover:scale-[1.1]" src="{{asset('Assets/delete.png')}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {{-- ADMIN ADD XTRA --}}
+                        <a href="/xtralist">
+                            <div class="flex flex-col">
+                                <div class="xtraboxcontainer flex justify-center items-center">
+                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                        <img src="{{asset('Assets/add.png')}}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +164,7 @@
                             <div class="flex flex-col">
                                 <div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                        <img src="Assets/RunningLogo.png" alt="">
+                                        <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
                                     </div>
                                     <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                         <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
@@ -142,10 +175,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="absolute w-[10vw] h-[2.5vw] flex justify-end mt-[18vw] ml-[24vw]">
+                                <div class="absolute w-fit h-fit flex justify-end mt-[18vw] ml-[33vw]">
                                     <div class="w-[2.5vw] h-[2.5vw]">
+                                        {{-- TEMBAK LINK CHAT DISINI --}}
                                         <a href="">
-                                            <img class="ml-[1.5vw] w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="Assets/chat.png" alt="">
+                                            <img class=" w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/chat.png')}}" alt="">
                                         </a>
                                     </div>
                                 </div>

@@ -244,11 +244,11 @@
                     <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                 @endif
             </div>
-            <script src="carousel/js/jquery.min.js"></script>
-            <script src="carousel/js/popper.js"></script>
-            <script src="carousel/js/bootstrap.min.js"></script>
-            <script src="carousel/js/owl.carousel.min.js"></script>
-            <script src="carousel/js/main.js"></script>
+            <script src="{{asset('carousel/js/jquery.min.js')}}"></script>
+            <script src="{{asset('carousel/js/popper.js')}}"></script>
+            <script src="{{asset('carousel/js/bootstrap.min.js')}}"></script>
+            <script src="{{asset('carousel/js/owl.carousel.min.js')}}"></script>
+            <script src="{{asset('carousel/js/main.js')}}"></script>
         </div>
     </div>
     @include('footer')
