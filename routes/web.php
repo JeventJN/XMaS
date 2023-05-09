@@ -67,4 +67,8 @@ Route::get(('/contoh'), function (){
     return view(('/contoh'));
 });
 
+Route::get(('/myclub'), function (){
+    return view(('/User.myclub'));
+});
+
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');

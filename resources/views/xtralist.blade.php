@@ -21,11 +21,6 @@
     @auth
         @include('User.navbarUser')
     @endauth
-    <div class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-        <div class="w-[68%] h-[5vw] bg-red-500">
-
-        </div>
-    </div>
     {{-- @include('Admin.navbarA') --}}
     {{-- modal pop up --}}
     <div id="modalpopup" class="modal">
@@ -86,7 +81,7 @@
     <div class="bigcontainer">
         <div class="container mt-[9vw] w-[87vw]">
             <div class="headercontainer flex justify-start items-center mt-[1.5vw] ml-[5vw]">
-                <p class="text-[2vw] font-semibold ml-[1vw]">Xtra List</p>
+                <p class="text-[2vw] font-bold font-nunito ml-[1vw]">Xtra List</p>
                 <button class="svg ml-[39vw] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg"  id="showmodal" viewBox="0 0 24 24"><path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"/></svg>
                 </button>
