@@ -140,12 +140,12 @@
                             <div class="xtraboxcontainer flex justify-center items-center">
                                 <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
                                     {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                    <img src="/Assets/{{ $xtra->logo }}" alt="{{ $xtra->name }}">
+                                    <img src="{{ asset('/Assets/$xtra->logo') }}" alt="{{ $xtra->name }}">
                                 </div>
                                 <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                     <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ $xtra->name }}</div>
                                     <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ optional(optional($xtra->leader)->userXmas)->name }}</div>
+                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) }}</div>
                                         @if ($xtra->leader === NULL)
                                             <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
                                         @endif
