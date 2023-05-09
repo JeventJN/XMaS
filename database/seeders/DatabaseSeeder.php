@@ -91,7 +91,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Kwandi',
             'program'=>'PPTI',
             'phoneNumber'=>'62812780192',
-            'password'=> bcrypt('1234'),
+            'password'=> bcrypt('123456'),
             'photo'=>'1.png'
         ]);
 
@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Jepeng',
             'program'=>'PPTI',
             'phoneNumber'=>'62812780193',
-            'password'=> bcrypt('1234'),
+            'password'=> bcrypt('123456'),
             'photo'=>'1.png'
         ]);
 
@@ -109,7 +109,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Rico',
             'program'=>'PPTI',
             'phoneNumber'=>'62812780194',
-            'password'=> bcrypt('1234'),
+            'password'=> bcrypt('123456'),
             'photo'=>'1.png'
         ]);
 
@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Cecil',
             'program'=>'PPTI',
             'phoneNumber'=>'62812780195',
-            'password'=> bcrypt('1234'),
+            'password'=> bcrypt('123456'),
             'photo'=>'1.png'
         ]);
 
@@ -127,7 +127,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Budi',
             'program'=>'PPTI',
             'phoneNumber'=>'6281278019',
-            'password'=> bcrypt('1234'),
+            'password'=> bcrypt('123456'),
             'photo'=>'1.png'
         ]);
 
