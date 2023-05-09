@@ -24,41 +24,66 @@
     {{-- @include('Admin.navbarA') --}}
 
     {{-- modal pop up xtralist Admin--}}
-    {{-- <div id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw]">
-        <form action="/xtralistNU" id="modal" method="GET" autocomplete="off" onsubmit="return eventsubmits(this)">
-            <div class="flex flex-col jutify-center items-center">
-                <div class="flex w-[85%] items-center justify-between mt-[1vw] font-semibold">
-                    <div class="text-[2vw]">
-                        Create New Xtra
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalA" class="w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+    {{-- <form action="/xtralistNU" id="modal" method="GET" autocomplete="off">
+        <div class="fixed modal z-50 h-[15vw] w-[40vw] ml-[29.5vw] mb-[20vw] mt-[0vw]" id="popupA">
+            <div class=" flex justify-around items-center flex-col">
+                <div class="w-[36vw] flex justify-end">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalno1" class="w-[2vw] h-[2vw] mt-[1vw] cursor-pointer" viewBox="0 0 256 256"><path fill="black" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
                 </div>
-                <div class="flex w-[85%] flex-col items-start justify-center mt-[1vw]">
-                    <div class="text-[1.8vw]">
-                        Xtra Name
-                    </div>
-                    <div class="w-[25vw] h-[5vw] border border-[0.3vw] rounded-[1.2vw] shadow-inner flex items-center">
-                        <input type="text" id="xtraname" name="xtraname" placeholder="Xtra name..." class="outline-none text-[1.8vw] m-[0.5vw] ">
-                    </div>
-                    <div class="text-[1.8vw] mt-[1vw]">
-                        Categories
-                    </div>
-                    <div class="flex text-[1.8vw] items-center mt-[1vw]">
-                        <input type="radio" id="category" name="category" value="Physique" class="w-[2vw] h-[2vw]">
-                        <label class="ml-[1.5vw]">Physique</label>
-                    </div>
-                    <div class="flex text-[1.8vw] items-center">
-                        <input type="radio" id="category" name="category" value="Non-Physique" class="w-[2vw] h-[2vw]">
-                        <label class="ml-[1.5vw]">Non-Physique</label>
+                <div class="w-[36vw] font-semibold text-[1.5vw] mb-[2vw]">
+                    This action will <mark class="bg-white text-[#FF0000]">send</mark> the report.
+                    <br/>
+                    Do you want to continue?
+                </div>
+                <div class="w-[36vw] h-[2.5vw] flex justify-end text-[1.2vw] mb-[1vw]">
+                    <button type="submit">
+                        <div class="w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] flex justify-center items-center mr-[1vw] text-white hover:bg-[#145003] hover:cursor-pointer">
+                            Yes
+                        </div>
+                    </button>
+                    <div id="hidemodalno2" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer">
+                        No
                     </div>
                 </div>
-                <button type="submit" class="text-[1.8vw] absolute mt-[21vw] ml-[32vw]">Create</button>
             </div>
-        </form> --}}
-    {{-- </div> --}}
+        </div>
+    </form> --}}
+    {{-- <div id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw]">
+        <div class="flex flex-col jutify-center items-center">
+            <div class="flex w-[85%] items-center justify-between mt-[1vw] font-semibold">
+                <div class="text-[2vw]">
+                    Create New Xtra
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalA" class="w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+            </div>
+            <div class="flex w-[85%] flex-col items-start justify-center mt-[1vw]">
+                <div class="text-[1.8vw]">
+                    Xtra Name
+                </div>
+                <div class="w-[25vw] h-[5vw] border border-[0.3vw] rounded-[1.2vw] shadow-inner flex items-center">
+                    <input type="text" id="xtraname" name="xtraname" placeholder="Xtra name..." class="outline-none text-[1.8vw] m-[0.5vw] ">
+                </div>
+                <div class="text-[1.8vw] mt-[1vw]">
+                    Categories
+                </div>
+                <div class="flex text-[1.8vw] items-center mt-[1vw]">
+                    <input type="radio" id="category" name="category" value="Physique" class="w-[2vw] h-[2vw]">
+                    <label class="ml-[1.5vw]">Physique</label>
+                </div>
+                <div class="flex text-[1.8vw] items-center">
+                    <input type="radio" id="category" name="category" value="Non-Physique" class="w-[2vw] h-[2vw]">
+                    <label class="ml-[1.5vw]">Non-Physique</label>
+                </div>
+            </div>
+            <div id="showmodalA1" class="text-[1.8vw] absolute mt-[21vw] ml-[32vw] hover:cursor-pointer">Create</div>
+        </div>
+    </div> --}}
 
     {{-- modal pop up xtralist user--}}
+    {{-- jangan dikomen --}}
     <div id="modalpopup" class="modal">
+    {{-- jangan dikomen --}}
+
         <form action="/xtralistNU" id="modal" method="GET">
             @if (request('search'))
                     <input type="hidden" name="search" value={{ request('search') }}>
@@ -112,15 +137,24 @@
                 </button>
             </div>
         </form>
+
+    {{-- jangan dikomen --}}
     </div>
+    {{-- jangan dikomen --}}
+
+    {{-- jangan dikomen --}}
     <div class="bigcontainer">
         <div class="container mt-[9vw] w-[87vw]">
             <div class="headercontainer flex justify-start items-center mt-[1.5vw] ml-[5vw]">
+    {{-- jangan dikomen --}}
+
                 <p class="text-[2vw] font-bold font-nunito ml-[1vw]">Xtra List</p>
                 <button class="svg ml-[39vw] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg"  id="showmodal" viewBox="0 0 24 24"><path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"/></svg>
                 </button>
+
                 {{-- search --}}
+
                 <form action="/xtralistNU" method="GET">
                     @if (request('Physique'))
                             <input type="hidden" name="Physique" value={{ request('Physique') }}>
@@ -218,14 +252,16 @@
                             </div>
                             <div class="absolute w-fit h-fit flex justify-end mt-[17vw] ml-[33vw]">
                                 <div class="w-[2.5vw] h-[2.5vw]"> --}}
+
                                     {{-- Delete disini --}}
+
                                     {{-- <img class="w-[2.5vw] h-[3vw] hover:scale-[1.1]" src="{{asset('Assets/delete.png')}}" alt="">
                                 </div>
                             </div>
                         </div>
                     </a> --}}
                      {{-- ADMIN HAPUS XTRA ----------------------------------------------------------------------------------------------------}}
-                     
+
                     @else
                     <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
                     @endif

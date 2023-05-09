@@ -21,7 +21,7 @@
             Extracurricular Report Form
         </div>
     </div>
-    <form class="absolute" action="" id="reportform" method="POST" autocomplete="off" onsubmit="return eventsubmits(this);">
+    <form class="absolute" action="" id="reportform" method="POST" autocomplete="off">
         {{-- Modal Submit --}}
         <div class="modal" id="modalpopup">
             <div class=" flex justify-around items-center flex-col">
