@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'DPP',
             'phoneNumber'=>'62812780191',
             'password'=> bcrypt('12.345'),
-            'photo'=>'1.png'
+            'photo'=>'userDP.png'
         ]);
 
         // STATE
