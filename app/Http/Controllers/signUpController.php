@@ -28,8 +28,6 @@ class signUpController extends Controller
             $data['photo'] = $request->file('photo')->store('database-assets');
         }
 
-        // $data['photo'] = $request->file('photo')->store('database-assets');
-
         $data['password'] = Hash::make($data['password']);
 
         userXmas::create($data);
