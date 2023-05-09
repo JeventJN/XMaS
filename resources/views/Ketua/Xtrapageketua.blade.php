@@ -81,23 +81,24 @@
                           e.target.style.backgroundColor = '#1B2F45';
                           e.target.style.color = 'white';
                           e.target.style.fontSize = '2vw';
-                        //   e.target.style.width = '40vw';
+                          e.target.style.width = '40vw';
+                          e.target.style.height = '5vw';
 
                         if (value == 'Running') {
                             e.target.classList.add('JudulXtra');
                             e.target.style.width = '30vw';
-                            e.target.style.padding = '1.3vw 1vw 1.3vw 17.5vw';
-                            e.target.style.marginBottom = '-0.5vw';
+                            e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
+                            // e.target.style.marginBottom = '-0.2vw';
                         } else if (value == 'Wed(17.00 - 19.00)') {
-                            e.target.style.padding = '1.3vw 1vw 1.3vw 17.5vw';
+                            e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
                             e.target.style.width = '38vw';
-                            e.target.style.marginTop = '-0.28vw';
-                            e.target.style.marginBottom = '-0.3vw';
+                            // e.target.style.marginTop = '-0.28vw';
+                            // e.target.style.marginBottom = '-0.3vw';
                             e.target.classList.add('ScheduleXtra');
                         } else if (value == 'Jevent Natthannael') {
-                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.style.padding = '1.3vw 1vw 3.5vw 18vw';
                             e.target.style.width = '40vw';
-                            e.target.style.marginTop = '-0.58vw';
+                            // e.target.style.marginTop = '-0.58vw';
                             e.target.classList.add('LeaderXtra');
                         }
 
@@ -112,22 +113,22 @@
                         //   e.target.style.width = '25.5vw';
 
                           if (text == 'Xtra') {
-                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
                             // e.target.style.marginBottom = '-0.08vw';
-                            e.target.style.marginBottom = '0vw';
+                            // e.target.style.marginBottom = '0vw';
                             e.target.style.width = '25.2vw';
                             e.target.classList.remove('JudulXtra');
                           } else if (text == 'Schedule') {
-                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
                             e.target.style.width = '29.2vw';
                             e.target.style.marginTop = '-0.08vw';
                             e.target.style.marginBottom = '-0.08vw';
                             e.target.classList.remove('ScheduleXtra');
                           } else if (text == 'Leader') {
-                            e.target.style.padding = '1.3vw 1vw 1.3vw 18vw';
+                            e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
                             e.target.style.width = '27.6vw';
                             // e.target.style.marginTop = '-0.08vw';
-                            e.target.style.marginTop = '0vw';
+                            // e.target.style.marginTop = '0vw';
                             e.target.classList.remove('LeaderXtra');
                           }
                       });
@@ -356,20 +357,29 @@
                     </div>
                 </div>
               </div>
-              <br />
-              <div class="col-lg-6 col-sm-6 col-md-6 col-6">
+
+              {{-- <div class="col-lg-6 col-sm-6 col-md-6 col-6">
                 <img src="{{ asset('Assets/Xtrapage assets/stop.png') }}" alt="" class="gambarstop"/>
                 <div class="btn-member">
-                  <button
-                    type="button"
-                    class="btn"
-                    data-toggle="modal"
-                    data-target="#staticBackdrop"
-                  >
+                  <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
                     Leave Xtra
                   </button>
                 </div>
+              </div> --}}
+
+              <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important; border: green solid">
+                <div class="containergambarbutton">
+                    <div class="btn-member">
+                        <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
+                            JOIN NOW!!!
+                        </button>
+                    </div>
+
+                    <img src="{{ asset('Assets/Xtrapage assets/GambarJoin.png') }}" alt="" class="gambarstop"/>
+
+                </div>
               </div>
+
             </div>
           </div>
           {{-- Segment Member --}}
