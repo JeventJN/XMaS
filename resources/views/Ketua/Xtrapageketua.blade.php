@@ -58,9 +58,12 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="flex: 1;" >
                     <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
                     <div class="button-elips" onmouseover ="hover()" onmouseout="out()">
-                      <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
+                        <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
+                        <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ date('D', strtotime($xtra->latest_schedule?->date)) . '(' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')'}}" data-text="Schedule">Schedule</a>
+                        <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
+                      {{-- <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
                       <a class="buttons" href="" data-value="Wed(17.00 - 19.00)" data-text="Schedule">Schedule</a>
-                      <a class="buttons" href="" data-value="Jevent Natthannael" data-text="Leader">Leader</a>
+                      <a class="buttons" href="" data-value="Jevent Natthannael" data-text="Leader">Leader</a> --}}
                     </div>
                   </div>
 
@@ -135,7 +138,7 @@
 
                 {{-- elips untuk batas luar dari gambar logo ekskul --}}
                 <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
-                    <img src="{{ asset('Assets/Xtrapage assets/Ellipse 45.png') }}" alt="" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
+                    <img src="{{ asset('Assets/Xtrapage assets/$xtra->logo') }}" alt="" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
                 </div>
             </div>
 
@@ -323,7 +326,7 @@
 
           {{-- Segment Member --}}
           <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span class="nummember">14</span></div>
+            <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span class="nummember">{{ ($xtra->members)->count() }}</span></div>
             <div class="row" id="member">
               <br />
               <div class="col-lg-6 col-sm-6 col-md-6 col-6">
@@ -332,18 +335,24 @@
                         Member List
                     </h4>
                     <div class="card">
-                    <span class="badge">Jevent Natthannael</span>
-                    <span class="badge">Jordan Cornelius</span>
-                    <span class="badge">Jevent Natthannael</span>
-                    <span class="badge">Jevent Natthannael</span>
-                    <span class="badge">Michael Apen</span>
-                    <span class="badge">Harris Wahyudi</span>
-                    <span class="badge">Jevent Natthannael</span>
-                    <span class="badge">Michael Apen</span>
-                    <span class="badge">Harris Wahyudi</span>
-                    <span class="badge">Jevent Natthannael</span>
-                    <span class="badge">Michael Apen</span>
-                    <span class="badge">Harris Wahyudi</span>
+                        @if (($xtra->members)->count())
+                            @foreach ($xtra->members as $member)
+                                <span class="badge">{{ $member?->userXmas?->name }}</span>
+                                {{-- <span class="badge">Jordan Cornelius</span>
+                                <span class="badge">Jevent Natthannael</span>
+                                <span class="badge">Jevent Natthannael</span>
+                                <span class="badge">Michael Apen</span>
+                                <span class="badge">Harris Wahyudi</span>
+                                <span class="badge">Jevent Natthannael</span>
+                                <span class="badge">Michael Apen</span>
+                                <span class="badge">Harris Wahyudi</span>
+                                <span class="badge">Jevent Natthannael</span>
+                                <span class="badge">Michael Apen</span>
+                                <span class="badge">Harris Wahyudi</span> --}}
+                            @endforeach
+                        @else
+                                <span class="badge">No Member.</span>
+                        @endif
                     </div>
                 </div>
               </div>
