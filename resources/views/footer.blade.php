@@ -16,7 +16,8 @@
   <script src="https://unpkg.com/feather-icons"></script>
 
   <!-- Template Main CSS File Footer -->
-  <link href="gabunganfooter.css" rel="stylesheet">
+  <link href="{{ asset('gabunganfooter.css') }}" rel="stylesheet">
+
   <style>
     #min{
         display: flex;
