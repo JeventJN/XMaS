@@ -91,7 +91,7 @@
                 </form>
             </div>
         </div>
-        <script src="{{asset('js/xtrareg.js')}}"></script>
+        <script src="{{asset('js/User/xtrareg.js')}}"></script>
     </div>
 </body>
 </html>
