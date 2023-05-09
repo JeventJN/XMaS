@@ -28,13 +28,13 @@
                 <div class="mt-[1vw] w-[25vw] rounded-[0.3vw]">
                     <form id="xtrareg" action="/xtrareg" method="POST">
                         @csrf
-                        <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] rounded-[0.3vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[2.5vw] p-[0.2vw] focus:text-black text-[2vw]" required>
+                        {{-- <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] rounded-[0.3vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[2.5vw] p-[0.2vw] focus:text-black text-[2vw]" required> --}}
                             {{-- <option class="text-[1.5vw] w-[31vw] h-[5vw]" selected>Choose one of your extracurricular</option> --}}
                         <select required name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[3vw] p-[0.2vw] focus:text-black text-[2vw]">
                             <option class="text-[1.5vw] w-[31vw] h-[5vw] hidden" disabled selected>Choose one of your extracurricular</option>
                             @foreach ($xtras as $xtr)
                                 <div>
-                                    <option class="text-[1.1vw] w-[31vw] h-[5vw] cursor-pointer hover:bg-black hover:text-blue-500" style="background-color: #ffffff" value="{{ $xtr->kdExtracurricular }}">{{$xtr->name}}</option>
+                                    <option class="" style="background-color: #ffffff" value="{{ $xtr->kdExtracurricular }}">{{$xtr->name}}</option>
                                 </div>
                             @endforeach
                         </select>

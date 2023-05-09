@@ -103,16 +103,11 @@
 
                     <div class="boxfield2">
                         <p class="text-white font-nunito text-[1.2vw] mt-[5vw]">Upload your photo</p>
-                        {{-- Input Gambar --}}
                         <div class="upload" >
                             <img class="h-[26vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto.png')}}" alt="">
                             <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0 hover:cursor-pointer" type="file" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded.png')}}'">
 
-                            {{-- Coy ini data dummy --}}
-                            {{-- <input type="name" id="photo" name="photo" value="{{ 'PHOTO DUMMY' }}" style="display: none;"> --}}
-                            {{-- <input type="read" id="image" name="imageprofile" style="width: 15vw; height: 26vw;"> --}}
                         </div>
-                        {{-- Masih Diusahakan --}}
                         <div class="buttonsignup mt-[0.5vw]">
                             <input type="checkbox" id="checkbox" class="w-[1vw] h-[1vw] underline italic ml-[-3vw]">
                             <p class="text-white text-[0.8vw] ml-[0.5vw]">I agree on term and condition</p>

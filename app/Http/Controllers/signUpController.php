@@ -22,10 +22,12 @@ class signUpController extends Controller
             'program' => 'required',
             'phoneNumber' => 'required|min:11|max:13',
             'password' => 'required|min:6',
-            'photo' => 'required|image'
+            'photo' => 'image'
         ]);
+        if ($request->file('photo')) {
+            $data['photo'] = $request->file('photo')->store('database-assets');
+        }
 
-        $data['photo'] = $request->file('photo')->store('database-assets');
         $data['password'] = Hash::make($data['password']);
 
         userXmas::create($data);
