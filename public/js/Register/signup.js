@@ -66,11 +66,11 @@ function eventsubmits(){
         return false;
     }
 
-    if (form.photo.value == '')
-    {
-        alert ("Please choose photo to be uploaded.");
-        return false;
-    }
+    // if (form.photo.value == '')
+    // {
+    //     alert ("Please choose photo to be uploaded.");
+    //     return false;
+    // }
 
     if(!form.checkbox.checked) {
         alert("Please check on term and condition.");
