@@ -87,7 +87,7 @@
                             <div class="">Reports's Description</div>
                         </div>
                         <div class=" w-[23vw] h-[13vw] mb-[1vw]">
-                            <textarea name="reportdesc" id="reportdesc" style="resize:none;" placeholder="Report's Description...                          " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-normal underline"></textarea>
+                            <textarea name="reportdesc" id="reportdesc" style="resize:none;" placeholder="Report's Description...                         _                                                        _                                                        _                                                         _                                                        " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-normal underline scrollbar-hide"></textarea>
                         </div>
                     </div>
                 </div>

@@ -184,30 +184,33 @@
         <div class="h-fit w-screen">
             <a href="/signup">
                 <div class="registernow absolute ml-[9.8vw] h-[7.3vw] mt-[8.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="signup.src='{{asset('Assets/SignUpNowHover.png')}}'" onmouseout="signup.src='{{asset('Assets/SignUpNow.png')}}'">
-                    JOIN NOW!!!
+                    DUMMY!!
                 </div>
             </a>
             <div class="flex">
                 <img class="min-w-[100%]" src="{{asset('Assets/SignUpNowBG.png')}}" alt="">
-                    <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="signup" src="{{asset('Assets/SignUpNow.png')}}" alt="">
-                </div>
-                {{-- <img class="min-w-[100%]" src="{{asset('Assets/SignUpNowHover.png')}}" alt=""> --}}
+                <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="signup" src="{{asset('Assets/SignUpNow.png')}}" alt="">
             </div>
-        @endguest
+        </div>
+    @endguest
 
         {{-- Banner Home User --}}
-        @auth
-            <img src="{{asset('Assets/UserBanner.png')}}" alt="">
+    @auth
+        <img src="{{asset('Assets/UserBanner.png')}}" alt="">
     @endauth
 
     {{-- Banner Admin --}}
-    {{-- <div class="h-fit w-[screen]">
-        <a href="">
-            <div class="checkreport absolute ml-[11.5vw] mt-[8.75vw] flex flex-col justify-center items-center font-nunito font-bold text-[2vw]">
-                CHECK REPORT
+    {{-- <div class="h-fit w-screen">
+        TEMBAK KE Report List (HAPUS KOMEN INI KALAU UDAH)
+        <a href="/">
+            <div class="registernow absolute ml-[10.8vw] h-[5.4vw] mt-[7.3vw] w-[18.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 opacity-0 rounded-[1vw]" onmouseover="report.src='{{asset('Assets/CheckReportHover.png')}}'" onmouseout="report.src='{{asset('Assets/CheckReport.png')}}'">
+                DUMMY!!!
             </div>
         </a>
-        <img src="{{asset('Assets/BannerAdmin.png')}}" alt="">
+        <div class="flex">
+            <img class="min-w-[100%]" src="{{asset('Assets/CheckReportBG.png')}}" alt="">
+            <img class="absolute ml-[-3.5vw] w-[33vw] mt-[5vw]" id="report" src="{{asset('Assets/CheckReport.png')}}" alt="">
+        </div>
     </div> --}}
 
     {{-- Extracurricular Segment --}}
