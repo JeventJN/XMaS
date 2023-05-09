@@ -183,7 +183,7 @@
     @guest
         <div class="h-fit w-screen">
             <a href="/signup">
-                <div class="registernow absolute ml-[8.75vw] h-[7.3vw] mt-[7.7vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 opacity-0" onmouseover="signup.src='{{asset('Assets/SignUpNowHover.png')}}'" onmouseout="signup.src='{{asset('Assets/SignUpNow.png')}}'">
+                <div class="registernow absolute ml-[9.8vw] h-[7.3vw] mt-[8.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="signup.src='{{asset('Assets/SignUpNowHover.png')}}'" onmouseout="signup.src='{{asset('Assets/SignUpNow.png')}}'">
                     JOIN NOW!!!
                 </div>
             </a>
