@@ -68,3 +68,7 @@ Route::get(('/contoh'), function (){
 });
 
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
+
+Route::get('profile', function (){
+    return view('user/profile');
+});
