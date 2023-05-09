@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('program');
             $table->string('phoneNumber');
             $table->string('password');
-            $table->string('photo');
+            $table->string('photo')->default('userDP.png');
             $table->timestamps();
         });
     }
