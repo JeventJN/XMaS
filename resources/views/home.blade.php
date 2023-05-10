@@ -33,7 +33,8 @@
         <p>User tidak terautentikasi</p>
     @endif --}}
 
-
+    {{-- {{Auth::userXmas()->NIP}} --}}
+    {{Auth::User()->NIP}}
     @guest
         @include('Non-User.navbarNU')
             @if (session()->has('logoutSuccess'))
@@ -110,7 +111,9 @@
 
     {{-- BATAS BAWAH SCRIPTT --}}
 
-    {{-- @include('Admin.navbarAdmin')
+    @can('admin')
+        @include('Admin.navbarAdmin')
+    @endcan
     {{-- Header --}}
     @include('header')
 
