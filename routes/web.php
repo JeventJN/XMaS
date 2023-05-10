@@ -67,9 +67,7 @@ Route::get(('/contoh'), function (){
     return view(('/contoh'));
 });
 
-Route::get(('/myclub'), function (){
-    return view(('/User.myclub'));
-});
+Route::get(('/myclub'), [xtralistController::class, 'myclub']);
 
 Route::get(('/reportlist'), function (){
     return view(('/Admin.reportlist'));
