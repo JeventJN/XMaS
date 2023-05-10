@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('css/Non-User/xtralistNU.css')}}">
-    <title>Xtra List</title>
+    <title>Report List</title>
   @vite('resources/css/app.css')
 </head>
 <body class="overflow-x-hidden">
@@ -29,7 +29,7 @@
     <div id="modalpopup" class="modal">
     {{-- jangan dikomen --}}
 
-        {{-- <form action="/xtralistNU" id="modal" method="GET">
+        <form action="/xtralistNU" id="modal" method="GET">
             @if (request('search'))
                     <input type="hidden" name="search" value={{ request('search') }}>
             @endif
@@ -81,7 +81,7 @@
                     Apply
                 </button>
             </div>
-        </form> --}}
+        </form>
 
     {{-- jangan dikomen --}}
     </div>
@@ -93,8 +93,8 @@
             <div class="headercontainer flex justify-start items-center mt-[1.5vw] ml-[5vw]">
     {{-- jangan dikomen --}}
 
-                <p class="text-[2vw] font-bold font-nunito ml-[1vw]">Xtra List</p>
-                <button class="svg ml-[39vw] cursor-pointer">
+                <p class="text-[2vw] font-bold font-nunito ml-[1vw]">Report List</p>
+                <button class="svg ml-[36.5vw] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg"  id="showmodal" viewBox="0 0 24 24"><path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"/></svg>
                 </button>
 
@@ -181,10 +181,63 @@
                     <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
                     @endif --}}
 
-                <div id="showmodalA"class="flex flex-col">
+                <div class="flex flex-col">
                     <div class="xtraboxcontainer flex justify-center items-center">
                         <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                            <img src="{{asset('Assets/add.png')}}" alt="">
+                            <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
+                        </div>
+                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
+                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="xtraboxcontainer flex justify-center items-center">
+                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                            <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
+                        </div>
+                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
+                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="xtraboxcontainer flex justify-center items-center">
+                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                            <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
+                        </div>
+                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
+                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="xtraboxcontainer flex justify-center items-center">
+                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                            <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
+                        </div>
+                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
+                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -193,12 +246,8 @@
     </div>
     <div class="h-[4vw]"></div>
     <p id="valueList"></p>
-    {{-- ini js buat admin --}}
-    {{-- <script src="{{asset('js/Admin/xtralistA.js')}}"></script> --}}
-
-    {{-- kalau mau tex admin, comment dulu js dibawah ini}} --}}
     <script src="{{asset('js/xtralist.js')}}"></script>
     {{-- Footer --}}
-    {{-- @include('footer') --}}
+    @include('footer')
 </body>
 </html>
