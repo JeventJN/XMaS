@@ -21,7 +21,7 @@
             Extracurricular Report Form
         </div>
     </div>
-    <form class="absolute" action="" id="reportform" method="POST" autocomplete="off" onsubmit="return eventsubmits(this);">
+    <form class="absolute" action="" id="reportform" method="POST" autocomplete="off">
         {{-- Modal Submit --}}
         <div class="modal" id="modalpopup">
             <div class=" flex justify-around items-center flex-col">
@@ -87,7 +87,7 @@
                             <div class="">Reports's Description</div>
                         </div>
                         <div class=" w-[23vw] h-[13vw] mb-[1vw]">
-                            <textarea name="reportdesc" id="reportdesc" style="resize:none;" placeholder="Report's Description...                          " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-normal underline"></textarea>
+                            <textarea name="reportdesc" id="reportdesc" style="resize:none;" placeholder="Report's Description...                         _                                                        _                                                        _                                                         _                                                        " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-normal underline scrollbar-hide"></textarea>
                         </div>
                     </div>
                 </div>
@@ -100,11 +100,25 @@
                 </div>
             </div>
         </div>
+        {{-- Ini untuk submit report --}}
         <div class="flex justify-center w-screen h-fit">
             <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white text-[1.5vw] hover:bg-black hover:cursor-pointer" id="showmodal">
                 Submit
             </div>
         </div>
+
+        {{-- Ini untuk Admin (Acc/Dec) --}}
+        {{-- <div class="flex justify-center w-screen h-fit">
+            <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer">
+                Accept
+            </div>
+            <div class="flex items-center justify-center w-[3.5vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white text-[1.3vw] hover:bg-black hover:cursor-pointer opacity-0">
+                Submit
+            </div>
+            <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white">
+                Deny
+            </div>
+        </div> --}}
         <script src="{{asset('js/Ketua/reportform.js')}}"></script>
     </form>
 </body>

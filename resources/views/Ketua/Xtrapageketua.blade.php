@@ -223,22 +223,46 @@
             <form action="" class="KotakForm">
               <div class="form-group" id="KotakDesc">
                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
-                <textarea
+
+                {{-- ini buat bisa edit isi Desc --}}
+                {{-- <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
                   name="descriptiontextarea"
-                ></textarea>
+                  style="height: 15vw; border-radius: 2.5vw"
+                ></textarea> --}}
+                {{-- ini buat bisa edit isi Desc --}}
+
+                <div
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  name="descriptiontextarea"
+                  style="height: 15vw; border-radius: 2.5vw"
+                ></div>
               </div>
 
               <div class="form-group" id="KotakAct">
                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
-                <textarea
+
+                {{-- ini buat bisa edit isi Activity--}}
+                {{-- <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    name="activitytextarea"
+                    style="height: 9vw; border-radius: 2.5vw;"
+                    ></textarea> --}}
+                {{-- ini buat bisa edit isi Activity --}}
+
+                <div
                   class="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
                   name="activitytextarea"
-                ></textarea>
+                  style="height: 9vw; border-radius: 2.5vw;"
+                ></div>
               </div>
             </form>
           </div>
@@ -358,7 +382,8 @@
                 </div>
               </div>
 
-              {{-- <div class="col-lg-6 col-sm-6 col-md-6 col-6">
+              {{-- Untuk Leave Xtra --}}
+              {{-- <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
                 <img src="{{ asset('Assets/Xtrapage assets/stop.png') }}" alt="" class="gambarstop"/>
                 <div class="btn-member">
                   <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
@@ -366,17 +391,19 @@
                   </button>
                 </div>
               </div> --}}
+              {{-- Untuk Leave Xtra --}}
 
-              <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important; border: green solid">
-                <div class="containergambarbutton">
-                    <div class="btn-member">
-                        <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop">
-                            JOIN NOW!!!
-                        </button>
-                    </div>
-
-                    <img src="{{ asset('Assets/Xtrapage assets/GambarJoin.png') }}" alt="" class="gambarstop"/>
-
+              <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                <div class="gambarhover">
+                        <a href="/xtrareg">
+                            <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="join.src='{{asset('Assets/Xtrapage assets/GambarJoinHover.png')}}'" onmouseout="join.src='{{asset('Assets/Xtrapage assets/GambarJoin.png')}}'">
+                                JOIN NOW!!!
+                            </div>
+                        </a>
+                        <div class="flex">
+                            {{-- <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt=""> --}}
+                            <img class="gambarjoin" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                        </div>
                 </div>
               </div>
 

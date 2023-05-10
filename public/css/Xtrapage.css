@@ -313,7 +313,7 @@ input {
     background-color: #d9d9d9;
     border-radius: 1.04vw;
     padding: 1.04vw;
-    height: 10vw;
+    /* height: 10vw; */
     /* width: 76.57vw; */
     /* border: red solid; */
 }
@@ -339,7 +339,7 @@ main .card {
     flex-direction: column;
     align-items: center;
 
-    border: yellow solid;
+    /* border: yellow solid; */
 }
 
 main #contact .card { /*Kotak Member List*/
@@ -387,31 +387,16 @@ main #contact .card .badge ::-webkit-scrollbar{
     /* border: cyan solid; */
 }
 
+/* Untuk Leave Xtra */
 main #contact img { /*gambar stop*/
-    /* width: 25vw;
+    width: 25vw;
     height: 30vw;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 8.8vw;
-    border: purple solid; */
-}
-
-main #contact img { /*gambar join*/
-    width: 33vw;
-    height: 23vw;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3vw;
-    margin-left: 2.3vw;
-    border: purple solid;
-}
-
-main #contact img:hover { /*gambar join*/
-    display: none;
+    margin-left: 10vw;
+    /* border: purple solid; */
 }
 
 main #contact .btn-member { /*Kotak dari Button Leave Xtra*/
@@ -425,7 +410,7 @@ main #contact .btn-member { /*Kotak dari Button Leave Xtra*/
     bottom: 0;
     width: 25vw;
     margin-left: 10vw;
-    border: red solid;
+    /* border: red solid; */
 }
 
 main #contact .btn-member button { /*Button Leave Xtra*/
@@ -436,13 +421,14 @@ main #contact .btn-member button { /*Button Leave Xtra*/
     font-size: 2.2vw;
     font-weight: 800;
     border-radius: 1.56vw;
-    border: green solid;
+    /* border: green solid; */
 }
 
 main #contact .btn-member button:hover {
     background-color: rgb(2, 133, 209);
     /* color: wheat; */
 }
+/* Untuk Leave Xtra */
 
 main #contact .modal {
     border-radius: 1.04vw;
