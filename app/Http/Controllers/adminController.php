@@ -15,6 +15,8 @@ class adminController extends Controller
     public function index()
     {
         //
+        // $this->authorize('admin');
+        // return view('home');
     }
 
     /**
