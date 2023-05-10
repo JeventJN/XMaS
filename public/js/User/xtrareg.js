@@ -2,7 +2,7 @@ function eventsubmits(){
     const xtrachs = document.getElementById('xtrachs')
     const reason = document.getElementById('reason')
 
-    if(!xtrachs.checked){
+    if(xtrachs.value.length < 1){
         alert("Choose one xtra");
         return false;
     }

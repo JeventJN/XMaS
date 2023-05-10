@@ -71,6 +71,10 @@ Route::get(('/myclub'), function (){
     return view(('/User.myclub'));
 });
 
+Route::get(('/reportlist'), function (){
+    return view(('/Admin.reportlist'));
+});
+
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
 
 Route::get('profile', function (){
