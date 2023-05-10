@@ -20,7 +20,7 @@
 
     @auth
         @include('User.navbarUser')
-@endauth
+    @endauth
     {{-- @include('Admin.navbarA') --}}
     {{-- modal pop up --}}
     <div class="bigcontainer">
