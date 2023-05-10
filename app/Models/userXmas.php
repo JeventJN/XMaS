@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class userXmas extends Model
 {
     use HasFactory;
-    
+    protected $table = 'user_xmas';
+    protected $primaryKey = 'NIP';
     protected $fillable = [
         'name',
         'NIP',

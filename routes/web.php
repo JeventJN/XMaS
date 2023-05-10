@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [homeController::class, 'showXtraSchedule']);
+Route::get('/home', [homeController::class, 'showXtraSchedule'], [adminController::class, 'index']);
+// Route::resource('/home', adminController::class);
 Route::redirect('/', '/home');
 
 
