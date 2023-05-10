@@ -18,7 +18,7 @@ class documentationFactory extends Factory
     {
         return [
             'kdExtracurricular' => mt_rand(1,5),
-            'Photo' => 'https://source.unsplash.com/500x500?extracurricular'
+            'Photo' => fake()->randomElement(['1.png', '2.png', '3.png'])
         ];
     }
 }

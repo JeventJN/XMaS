@@ -139,7 +139,7 @@
 
                 {{-- elips untuk batas luar dari gambar logo ekskul --}}
                 <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
-                    <img src="{{ asset('Assets/Xtrapage assets/$xtra->logo') }}" alt="" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
+                    <img src="{{ asset('Assets/$xtra->logo') }}" alt="{{ $xtra->name }}" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
                 </div>
             </div>
 
@@ -160,7 +160,7 @@
       <div class="containertengah">
 
         <div class="button-make-advance float-right">
-          <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
+          <a href="absensiketua" class="btn">Make Attendance</a>
           <a type="button" class="btn" data-toggle="modal" data-target="#add">
             Add Schedule
           </a>
@@ -240,7 +240,7 @@
                   rows="3"
                   name="descriptiontextarea"
                   style="height: 15vw; border-radius: 2.5vw"
-                ></div>
+                >{!! $xtra->description !!}{!! $xtra->description !!}</div>
               </div>
 
               <div class="form-group" id="KotakAct">
@@ -262,7 +262,7 @@
                   rows="3"
                   name="activitytextarea"
                   style="height: 9vw; border-radius: 2.5vw;"
-                ></div>
+                >{!! $xtra->latest_schedule?->activity !!}</div>
               </div>
             </form>
           </div>
@@ -272,16 +272,18 @@
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="card" style="width: 19vw">
-                    <img
-                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                  </div>
-                </div>
-                <div class="swiper-slide">
+                @foreach ($xtra->documentations as $doc)
+                    <div class="swiper-slide">
+                        <div class="card" style="width: 19vw">
+                            <img
+                            src="{{ asset('Assets/Xtrapage assets/foto/$doc->photo') }}"
+                            class="card-img-top"
+                            alt="..."
+                            />
+                        </div>
+                    </div>
+                @endforeach
+                {{-- <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
                       src="{{ asset('Assets/Xtrapage assets/foto/2.png') }}"
@@ -343,7 +345,7 @@
                       alt="..."
                     />
                   </div>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
@@ -393,19 +395,37 @@
               </div> --}}
               {{-- Untuk Leave Xtra --}}
 
-              <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                <div class="gambarhover">
-                        <a href="/xtrareg">
-                            <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="join.src='{{asset('Assets/Xtrapage assets/GambarJoinHover.png')}}'" onmouseout="join.src='{{asset('Assets/Xtrapage assets/GambarJoin.png')}}'">
-                                JOIN NOW!!!
+              @auth
+                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                    <div class="gambarhover">
+                            <a href="/xtrareg">
+                                <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="join.src='{{asset('Assets/Xtrapage assets/GambarJoinHover.png')}}'" onmouseout="join.src='{{asset('Assets/Xtrapage assets/GambarJoin.png')}}'">
+                                    JOIN NOW!!!
+                                </div>
+                            </a>
+                            <div class="flex">
+                                {{-- <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt=""> --}}
+                                <img class="gambarjoin" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
                             </div>
-                        </a>
-                        <div class="flex">
-                            {{-- <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt=""> --}}
-                            <img class="gambarjoin" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
-                        </div>
+                    </div>
                 </div>
-              </div>
+              @endauth
+
+              @guest
+                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                    <div class="gambarhover">
+                            <a href="/xtrareg">
+                                <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="join.src='{{asset('Assets/Xtrapage assets/GambarJoinHover.png')}}'" onmouseout="join.src='{{asset('Assets/Xtrapage assets/GambarJoin.png')}}'">
+                                    JOIN NOW!!!
+                                </div>
+                            </a>
+                            <div class="flex">
+                                {{-- <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt=""> --}}
+                                <img class="gambarjoin" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                            </div>
+                    </div>
+                </div>
+              @endguest
 
             </div>
           </div>
