@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('kdMember');
-            $table->char('NIP');
+            $table->string('NIP');
             $table->unsignedInteger('kdExtracurricular');
             $table->unsignedInteger('kdState');
             $table->text('reason');
@@ -38,4 +38,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('members');
     }
+    
 };
