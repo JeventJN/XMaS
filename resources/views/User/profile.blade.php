@@ -36,19 +36,40 @@
                 </div>
                 <div class="spasi"></div>
                 <div class="boxtombol">
-                    <button type="button" class="request">Request Leader Access</button>
+
+                    {{-- ini untuk member --}}
+                    <button type="button" class="request" data-toggle="modal" data-target="request">Request Leader Access</button>
+                    {{-- ini untuk member --}}
+
+                    {{-- ini untuk leader --}}
+                    {{-- <button type="button" class="request">Extracurricular Report</button> --}}
+                    {{-- ini untuk leader --}}
+
                     <button type="button" class="logout">Logout</button>
+
                 </div>
             </div>
         </div>
 
         <div class="boxstatus">
             <div class="boxstatus1">
-                <div class="boxstatus2">
-                    <div class="boxstatus3">
+
+                {{-- ini untuk member --}}
+                {{-- <div class="boxstatus2member">
+                    <div class="boxstatus3member">
                         Member
                     </div>
+                </div> --}}
+                {{-- ini untuk member --}}
+
+                {{-- ini untuk leader --}}
+                <div class="boxstatus2leader">
+                    <div class="boxstatus3leader">
+                        Leader
+                    </div>
                 </div>
+                {{-- ini untuk leader --}}
+
             </div>
         </div>
 
