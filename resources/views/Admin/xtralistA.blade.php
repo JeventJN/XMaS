@@ -12,19 +12,67 @@
   @vite('resources/css/app.css')
 </head>
 <body class="overflow-x-hidden">
-    {{-- Navbar Options --}}
 
-    @guest
-        @include('Non-User.navbarNU')
-    @endguest
+    @include('Admin.navbarA')
 
-    @auth
-        @include('User.navbarUser')
-    @endauth
+    {{-- modal pop up xtralist Admin--}}
+    <form action="/xtralistNU" id="modal" method="GET" autocomplete="off">
+        <div class="fixed modal z-50 h-[15vw] w-[40vw] ml-[29.5vw] mb-[20vw] mt-[0vw]" id="popupA">
+            <div class=" flex justify-around items-center flex-col">
+                <div class="w-[36vw] flex justify-end">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalno1" class="w-[2vw] h-[2vw] mt-[1vw] cursor-pointer" viewBox="0 0 256 256"><path fill="black" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                </div>
+                <div class="w-[36vw] font-semibold text-[1.5vw] mb-[2vw]">
+                    This action will <mark class="bg-white text-[#FF0000]">send</mark> the report.
+                    <br/>
+                    Do you want to continue?
+                </div>
+                <div class="w-[36vw] h-[2.5vw] flex justify-end text-[1.2vw] mb-[1vw]">
+                    <button type="submit">
+                        <div class="w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] flex justify-center items-center mr-[1vw] text-white hover:bg-[#145003] hover:cursor-pointer">
+                            Yes
+                        </div>
+                    </button>
+                    <div id="hidemodalno2" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer">
+                        No
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw]">
+        <div class="flex flex-col jutify-center items-center">
+            <div class="flex w-[85%] items-center justify-between mt-[1vw] font-semibold">
+                <div class="text-[2vw]">
+                    Create New Xtra
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalA" class="w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+            </div>
+            <div class="flex w-[85%] flex-col items-start justify-center mt-[1vw]">
+                <div class="text-[1.8vw]">
+                    Xtra Name
+                </div>
+                <div class="w-[25vw] h-[5vw] border border-[0.3vw] rounded-[1.2vw] shadow-inner flex items-center">
+                    <input type="text" id="xtraname" name="xtraname" placeholder="Xtra name..." class="outline-none text-[1.8vw] m-[0.5vw] ">
+                </div>
+                <div class="text-[1.8vw] mt-[1vw]">
+                    Categories
+                </div>
+                <div class="flex text-[1.8vw] items-center mt-[1vw]">
+                    <input type="radio" id="category" name="category" value="Physique" class="w-[2vw] h-[2vw]">
+                    <label class="ml-[1.5vw]">Physique</label>
+                </div>
+                <div class="flex text-[1.8vw] items-center">
+                    <input type="radio" id="category" name="category" value="Non-Physique" class="w-[2vw] h-[2vw]">
+                    <label class="ml-[1.5vw]">Non-Physique</label>
+                </div>
+            </div>
+            <div id="showmodalA1" class="text-[1.8vw] absolute mt-[21vw] ml-[32vw] hover:cursor-pointer">Create</div>
+        </div>
+    </div>
 
     {{-- modal pop up xtralist user--}}
     <div id="modalpopup" class="modal">
-
         <form action="/xtralistNU" id="modal" method="GET">
             @if (request('search'))
                     <input type="hidden" name="search" value={{ request('search') }}>
@@ -132,14 +180,21 @@
                 </form>
             </div>
             <div class="rowcontainer">
-                @if ($xtras->count())
-                    @foreach ($xtras as $xtra)
+                <div id="showmodalA"class="flex flex-col">
+                    <div class="xtraboxcontainer flex justify-center items-center">
+                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                            <img src="{{asset('Assets/add.png')}}" alt="">
+                        </div>
+                    </div>
+                </div>
+                {{-- @if ($xtras->count())
+                    @foreach ($xtras as $xtra) --}}
                         {{-- @dd($xtra->latest_schedule) --}}
-                        <a href="/xtralist/{{ $xtra->kdExtracurricular }}">
+                        {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}">
                             <div class="xtraboxcontainer flex justify-center items-center">
-                                <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                <div class="mr-[0.5vw] xtrabox flex justify-center items-center"> --}}
                                     {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                    <img src="{{ asset('/Assets/$xtra->logo') }}" alt="{{ $xtra->name }}">
+                                    {{-- <img src="{{ asset('/Assets/$xtra->logo') }}" alt="{{ $xtra->name }}">
                                 </div>
                                 <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                     <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ $xtra->name }}</div>
@@ -153,7 +208,7 @@
                                         @if ($xtra->latest_schedule === NULL)
                                             <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
                                         @endif
-                                    </div>
+                                    </div> --}}
 
                                     {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
                                     <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->leader?->userXmas?->name }}</div>
@@ -164,20 +219,49 @@
                                     {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div> --}}
                                     {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
                                     <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB</div> --}}
-                                </div>
+                                {{-- </div>
                             </div>
                         </a>
-                    @endforeach
-                @else
+                    @endforeach --}}
+
+                    {{-- ADMIN HAPUS XTRA ----------------------------------------------------------------------------------------------------}}
+                    <a href="/xtralist">
+                        <div class="flex flex-col">
+                            <div class="xtraboxcontainer flex justify-center items-center">
+                                <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                    <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
+                                </div>
+                                <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                    <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
+                                    <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
+                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute w-fit h-fit flex justify-end mt-[17vw] ml-[33vw]">
+                                <div class="w-[2.5vw] h-[2.5vw]">
+
+                                    {{-- Delete disini --}}
+
+                                    <img class="w-[2.5vw] h-[3vw] hover:scale-[1.1]" src="{{asset('Assets/delete.png')}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                {{-- @else
                 <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>
     <div class="h-[4vw]"></div>
     <p id="valueList"></p>
-    <script src="{{asset('js/xtralist.js')}}"></script>
+    {{-- ini js buat admin --}}
+    <script src="{{asset('js/Admin/xtralistA.js')}}"></script>
+
     {{-- Footer --}}
-    @include('footer')
+    {{-- @include('footer') --}}
 </body>
 </html>

@@ -85,3 +85,8 @@ Route::get('profile', function (){
 Route::get('approval', function (){
     return view('Admin.approval');
 });
+
+Route::get('xtralistA', function (){
+    return view('Admin.xtralistA');
+});
+
