@@ -34,7 +34,10 @@
     @endif --}}
 
     {{-- {{Auth::userXmas()->NIP}} --}}
-    {{Auth::User()->NIP}}
+
+    {{-- {{Auth::User()}} --}}
+    {{-- {{gettype(Auth::User()->NIP)}} --}}
+    {{-- {{sprintf("%04d", Auth::User()->NIP)}} --}}
     @guest
         @include('Non-User.navbarNU')
             @if (session()->has('logoutSuccess'))
@@ -60,31 +63,41 @@
             @endif
     @endguest
 
-    @auth
-        @include('User/navbarUser')
-        {{-- welkam, {{auth()->user()->name}} --}}
-        {{-- Ini pop-up kalau log-in berhasil {href=login} (Ini saya hidden dulu, bukan saya comment ya) --}}
-            @if (session()->has('loginSuccess'))
-                <div id="modalpopupLI" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-                    <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-                        <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
-                            Successfully logged in
-                            <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLI" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+    {{-- {{Auth::User()->hasRole('admin')}} --}}
+
+
+    @if (Auth::User()->NIP != "0000")
+        @auth
+            @include('User/navbarUser')
+            {{-- welkam, {{auth()->user()->name}} --}}
+            {{-- Ini pop-up kalau log-in berhasil {href=login} (Ini saya hidden dulu, bukan saya comment ya) --}}
+                @if (session()->has('loginSuccess'))
+                    <div id="modalpopupLI" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+                        <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                            <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                                Successfully logged in
+                                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLI" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <script>
-                    var modal1 = document.getElementById('modalpopupLI');
-                    var hidemodal1 = document.getElementById('hidemodalLI');
+                    <script>
+                        var modal1 = document.getElementById('modalpopupLI');
+                        var hidemodal1 = document.getElementById('hidemodalLI');
 
-                    hidemodal1.addEventListener('click', closePopup1);
+                        hidemodal1.addEventListener('click', closePopup1);
 
-                    function closePopup1(){
-                        modal1.style.display="none";
-                    }
-                </script>
-            @endif
-    @endauth
+                        function closePopup1(){
+                            modal1.style.display="none";
+                        }
+                    </script>
+                @endif
+        @endauth
+    @else
+        @can('admin')
+            @include('Admin.navbarA')
+        @endcan
+    @endif
+
 
     {{-- ini script js, nanti kalau udah bisa delete account, tinggal ambil aja codingan dibawah ini --}}
 
@@ -111,9 +124,7 @@
 
     {{-- BATAS BAWAH SCRIPTT --}}
 
-    @can('admin')
-        @include('Admin.navbarAdmin')
-    @endcan
+
     {{-- Header --}}
     @include('header')
 

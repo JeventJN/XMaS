@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('user_xmas', function (Blueprint $table) {
-            $table->char('NIP')->primary();
+            $table->string('NIP')->primary();
             $table->string('name');
             $table->string('program');
             $table->string('phoneNumber');
