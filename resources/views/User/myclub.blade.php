@@ -77,6 +77,9 @@
                                 </div>
                             </div>
                         </a>
+                        {{ optional(optional($xtra->leader)->userXmas)->name }}
+                        {{-- {{ $xtra->leader?->NIP . '...' . $nip }} --}}
+                        @if($xtra->leader?->NIP == $nip)
                         {{-- INI TEMPLATE KALAU KETUA (ADA EDITNYA) --}}
                         <a href="/xtralist">
                             <div class="flex flex-col">
@@ -109,6 +112,7 @@
                                 </div>
                             </div>
                         </a>
+                        @endif
                         {{-- INI TEMPLATE KALAU CUMA ANGGOTA ESKUL --}}
                         <a href="/xtralist">
                             <div class="flex flex-col">
