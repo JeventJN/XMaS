@@ -202,21 +202,24 @@
             <div class="featured-carousel owl-carousel">
                 <section class="w-[18vw] h-[20vw] ml-[10vw] group flex items-center ml-[3vw] visible mb-[5vw]">
                         <div class="w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
+                            {{-- input Xtra Logo di sini --}}
                             <button class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50 mb-[6vw]">
                                 <img class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50" src="Assets/RunningLogo.png" alt="">
                             </button>
                             <button class="mail1 w-[18vw] z-40">
-                                <img class="w-[18vw]" src="Assets/report1.png">
+                                <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
                             </button>
                         </div>
                         <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="">
                             <aside>
                                 <button class="absolute mail2 w-[18vw] mb-[4.3vw] z-40 mr-[10vw]">
-                                    <img src="Assets/report2.png" alt="">
+                                    <img src="{{asset('Assets/report2.png')}}" alt="">
                                 </button>
+                                {{-- input TITLE REPORT di sini --}}
                                 <button class="titleMail w-[18vw] absolute text-[1vw] z-50 mt-[5.5vw]">
                                     <p >cawdadawadddawd</p>
                                 </button>
+                                {{-- input Xtra Logo di sini --}}
                                 <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] absolute ml-[15vw] mt-[2vw] z-50">
                                     <img class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/RunningLogo.png" alt="">
                                 </button>
