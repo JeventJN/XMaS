@@ -244,4 +244,8 @@ class extracurricular extends Model
         return $this->hasOne(schedule::class, 'kdExtracurricular', 'kdExtracurricular')->latest('date');
         // return $this->schedules()->one()->latestOfMany();
     }
+
+    public function in_member($NIP){
+        return $this->hasMany(member::class, 'kdExtracurricular', 'kdExtracurricular')->where('NIP', $NIP);
+    }
 }

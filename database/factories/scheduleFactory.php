@@ -22,7 +22,7 @@ class scheduleFactory extends Factory
             'TimeStart' => fake()->time(),
             'TimeEnd' => fake()->time(),
             'Location' => fake()->randomElement(['Dorm', 'BLI', 'lapangan']),
-            'Explanation' => collect(fake()->paragraphs(mt_rand(2,8)))->map(fn($p) => "<p>$p</p>")->implode('')
+            'Activity' => collect(fake()->paragraphs(mt_rand(2,8)))->map(fn($p) => "<p>$p</p>")->implode('')
         ];
     }
 }
