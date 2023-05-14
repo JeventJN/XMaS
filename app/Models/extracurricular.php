@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class extracurricular extends Model
@@ -245,7 +246,12 @@ class extracurricular extends Model
         // return $this->schedules()->one()->latestOfMany();
     }
 
-    public function in_member($NIP){
-        return $this->hasMany(member::class, 'kdExtracurricular', 'kdExtracurricular')->where('NIP', $NIP);
+    public function scopeuserclub($query){
+        $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
+        $query->whereIn('kdExtracurricular', fn($query) =>
+            $query->select('kdExtracurricular')
+                ->from('members')
+                ->where('NIP', '=', $NIP)
+        );
     }
 }
