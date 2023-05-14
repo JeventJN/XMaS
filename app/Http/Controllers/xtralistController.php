@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\extracurricular;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class xtralistController extends Controller
 {
@@ -30,5 +31,13 @@ class xtralistController extends Controller
 
     public function show(Extracurricular $xtra){
         return view('/Ketua/Xtrapageketua', ['xtra' => $xtra]);
+    }
+
+    public function myclub(){
+        $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
+        // var_dump($NIP);
+        // die;
+        // dd(extracurricular::all()->in_member($NIP)->get());
+        return view('/User.myclub', ['xtra' => extracurricular::all(), 'nip' => $NIP]);
     }
 }
