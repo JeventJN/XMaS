@@ -66,9 +66,14 @@
     {{-- {{Auth::User()->hasRole('admin')}} --}}
 
 
-    @if (Auth::User()->NIP != "0000")
-        @auth
+    @auth
+        @if (Auth::User()->NIP != 0)
             @include('User/navbarUser')
+        @else
+            @can('admin')
+                @include('Admin.navbarA')
+            @endcan
+        @endif
             {{-- welkam, {{auth()->user()->name}} --}}
             {{-- Ini pop-up kalau log-in berhasil {href=login} (Ini saya hidden dulu, bukan saya comment ya) --}}
                 @if (session()->has('loginSuccess'))
@@ -92,11 +97,9 @@
                     </script>
                 @endif
         @endauth
-    @else
-        @can('admin')
-            @include('Admin.navbarA')
-        @endcan
-    @endif
+    {{-- @else --}}
+
+    {{-- @endif --}}
 
 
     {{-- ini script js, nanti kalau udah bisa delete account, tinggal ambil aja codingan dibawah ini --}}
