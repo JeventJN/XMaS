@@ -28,7 +28,7 @@
                 </a>
             </div>
             <div class="flex justify-end w-screen">
-                <p class="font-nunito text-white font-bold text-[5.5vw] mr-[1.5vw] mt-[3vw]">Sign Up</p>
+                <p class="font-nunito text-white font-bold text-[5vw] mr-[1.5vw] mt-[3vw]">Sign Up</p>
             </div>
         </div>
 

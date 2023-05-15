@@ -13,7 +13,7 @@
   <title>User Home</title>
   @vite('resources/css/app.css')
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden scrollbar-hide">
     {{-- Navbar Options --}}
 
     {{-- @php
@@ -196,7 +196,7 @@
     {{-- INI BUAT ADMIN --}}
     <div class="segmentA">
         <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
-            Upcoming Extracurriculars
+            Newest Reports
         </div>
         <div class="h-[30vw] w-[screen] flex items-center">
             <div class="featured-carousel owl-carousel">
@@ -234,7 +234,7 @@
     {{-- Banner Options --}}
 
     {{-- Banner Home Non-User --}}
-    @guest
+    {{-- @guest
         <div class="h-fit w-screen">
             <a href="/signup">
                 <div class="registernow absolute ml-[9.8vw] h-[7.3vw] mt-[8.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="signup.src='{{asset('Assets/SignUpNowHover.png')}}'" onmouseout="signup.src='{{asset('Assets/SignUpNow.png')}}'">
@@ -246,7 +246,7 @@
                 <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="signup" src="{{asset('Assets/SignUpNow.png')}}" alt="">
             </div>
         </div>
-    @endguest
+    @endguest --}}
 
         {{-- Banner Home User --}}
     @auth
@@ -254,8 +254,8 @@
     @endauth
 
     {{-- Banner Admin --}}
-    {{-- <div class="h-fit w-screen">
-        TEMBAK KE Report List (HAPUS KOMEN INI KALAU UDAH)
+    <div class="h-fit w-screen">
+        {{-- TEMBAK KE Report List (HAPUS KOMEN INI KALAU UDAH) --}}
         <a href="/">
             <div class="registernow absolute ml-[10.8vw] h-[5.4vw] mt-[7.3vw] w-[18.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 opacity-0 rounded-[1vw]" onmouseover="report.src='{{asset('Assets/CheckReportHover.png')}}'" onmouseout="report.src='{{asset('Assets/CheckReport.png')}}'">
                 DUMMY!!!
@@ -265,7 +265,7 @@
             <img class="min-w-[100%]" src="{{asset('Assets/CheckReportBG.png')}}" alt="">
             <img class="absolute ml-[-3.5vw] w-[33vw] mt-[5vw]" id="report" src="{{asset('Assets/CheckReport.png')}}" alt="">
         </div>
-    </div> --}}
+    </div>
 
     {{-- Extracurricular Segment --}}
     <div class="segment">

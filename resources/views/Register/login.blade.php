@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="flex justify-end w-screen">
-                <p class="font-nunito font-black text-white text-[5.5vw] mr-[3.5vw] font-bold">Log In</p>
+                <p class="font-nunito font-black text-white text-[5vw] mr-[3.5vw] font-bold">Log In</p>
             </div>
         </div>
         <div class="flex flex-row">

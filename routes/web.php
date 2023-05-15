@@ -88,3 +88,7 @@ Route::get('xtralistA', function (){
     return view('Admin.xtralistA');
 });
 
+Route::get('chat', function (){
+    return view('chat');
+});
+
