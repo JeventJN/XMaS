@@ -245,7 +245,17 @@ class extracurricular extends Model
         // return $this->schedules()->one()->latestOfMany();
     }
 
-    public function in_member($NIP){
-        return $this->hasMany(member::class, 'kdExtracurricular', 'kdExtracurricular')->where('NIP', $NIP);
+    public function scopeuserclub($query, $NIP){
+        // $query->whereIn('kdExtracurricular', fn($query) =>
+        //     $query->select('kdExtracurricular')
+        //         ->from('members')
+        //         ->where('NIP', '=', $NIP)
+        // );
+
+        $query->JOIN('members', fn($join) =>
+                        $join->on(DB::raw("`extracurriculars`.`kdExtracurricular`"), '=', DB::raw("`members`.`kdExtracurricular`"))
+                    )
+            ->where('NIP', '=', $NIP)
+            ->reorder('kdState', 'desc');
     }
 }

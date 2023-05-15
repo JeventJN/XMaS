@@ -35,9 +35,7 @@ class xtralistController extends Controller
 
     public function myclub(){
         $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
-        // var_dump($NIP);
-        // die;
-        // dd(extracurricular::all()->in_member($NIP)->get());
-        return view('/User.myclub', ['xtra' => extracurricular::all(), 'nip' => $NIP]);
+        // dd(extracurricular::latest()->userclub()->get());1
+        return view('/User.myclub', ['xtras' => extracurricular::latest()->userclub($NIP)->get(), 'nip' => $NIP]);
     }
 }
