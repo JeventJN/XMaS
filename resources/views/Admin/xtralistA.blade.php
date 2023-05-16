@@ -53,7 +53,7 @@
                     Xtra Name
                 </div>
                 <div class="w-[25vw] h-[5vw] border border-[0.3vw] rounded-[1.2vw] shadow-inner flex items-center">
-                    <input type="text" id="xtraname" name="xtraname" placeholder="Xtra name..." class="outline-none text-[1.8vw] m-[0.5vw] ">
+                    <input type="text" id="xtraname" name="xtraname" placeholder="Xtra name..." class="outline-none text-[1.8vw] m-[0.5vw]" autocomplete="off">
                 </div>
                 <div class="text-[1.8vw] mt-[1vw]">
                     Categories

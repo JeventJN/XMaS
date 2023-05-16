@@ -13,7 +13,7 @@
   <title>User Home</title>
   @vite('resources/css/app.css')
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden scrollbar-hide">
     {{-- Navbar Options --}}
 
     {{-- @php
@@ -132,23 +132,23 @@
     @include('header')
 
 
-    {{-- Upcoming Extracurricular Segment --}}
-    <div class="segment">
+    {{-- Upcoming Extracurricular Segment (BUAT NU dan U)--}}
+    {{-- <div class="segment">
         <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
             Upcoming Extracurriculars
         </div>
         <div class="h-[30vw] w-[screen] flex items-center">
-            <div class="featured-carousel owl-carousel">
-                @if ($xtras->count())
+            <div class="featured-carousel owl-carousel"> --}}
+                {{-- @if ($xtras->count())
                     @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
                         @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
                             <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
                                 <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
                                     <div class="upcomingxtra">
                                         <div class="logo">
-                                            <div class="photo">
+                                            <div class="photo"> --}}
                                                 {{-- Pass Xtra BG Here --}}
-                                                <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
+                                                {{-- <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
                                             </div>
                                             <div class="logoxtra">
                                                 <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
@@ -188,8 +188,45 @@
                     @endforeach
                 @else
                     <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
-                @endif
+                @endif --}}
+            {{-- </div>
+        </div>
+    </div> --}}
 
+    {{-- INI BUAT ADMIN --}}
+    <div class="segmentA">
+        <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
+            Newest Reports
+        </div>
+        <div class="h-[30vw] w-[screen] flex items-center">
+            <div class="featured-carousel owl-carousel">
+                <section class="w-[18vw] h-[20vw] ml-[10vw] group flex items-center ml-[3vw] visible mb-[5vw]">
+                        <div class="w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
+                            {{-- input Xtra Logo di sini --}}
+                            <button class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50 mb-[6vw]">
+                                <img class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50" src="Assets/RunningLogo.png" alt="">
+                            </button>
+                            <button class="mail1 w-[18vw] z-40">
+                                <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
+                            </button>
+                        </div>
+                        <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="">
+                            <aside>
+                                <button class="absolute mail2 w-[18vw] mb-[4.3vw] z-40 mr-[10vw]">
+                                    <img src="{{asset('Assets/report2.png')}}" alt="">
+                                </button>
+                                {{-- input TITLE REPORT di sini --}}
+                                <button class="titleMail w-[18vw] absolute text-[1vw] z-50 mt-[5.5vw]">
+                                    <p >cawdadawadddawd</p>
+                                </button>
+                                {{-- input Xtra Logo di sini --}}
+                                <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] absolute ml-[15vw] mt-[2vw] z-50">
+                                    <img class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/RunningLogo.png" alt="">
+                                </button>
+                            </aside>
+                        </a>
+                </section>
+                {{-- Untuk Admin Report --}}
             </div>
         </div>
     </div>
@@ -197,7 +234,7 @@
     {{-- Banner Options --}}
 
     {{-- Banner Home Non-User --}}
-    @guest
+    {{-- @guest
         <div class="h-fit w-screen">
             <a href="/signup">
                 <div class="registernow absolute ml-[9.8vw] h-[7.3vw] mt-[8.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="signup.src='{{asset('Assets/SignUpNowHover.png')}}'" onmouseout="signup.src='{{asset('Assets/SignUpNow.png')}}'">
@@ -209,16 +246,16 @@
                 <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="signup" src="{{asset('Assets/SignUpNow.png')}}" alt="">
             </div>
         </div>
-    @endguest
+    @endguest --}}
 
         {{-- Banner Home User --}}
     @auth
-        <img src="{{asset('Assets/UserBanner.png')}}" alt="">
+        <img class="min-w-[100%]" src="{{asset('Assets/UserBanner.png')}}" alt="">
     @endauth
 
     {{-- Banner Admin --}}
-    {{-- <div class="h-fit w-screen">
-        TEMBAK KE Report List (HAPUS KOMEN INI KALAU UDAH)
+    <div class="h-fit w-screen">
+        {{-- TEMBAK KE Report List (HAPUS KOMEN INI KALAU UDAH) --}}
         <a href="/">
             <div class="registernow absolute ml-[10.8vw] h-[5.4vw] mt-[7.3vw] w-[18.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 opacity-0 rounded-[1vw]" onmouseover="report.src='{{asset('Assets/CheckReportHover.png')}}'" onmouseout="report.src='{{asset('Assets/CheckReport.png')}}'">
                 DUMMY!!!
@@ -228,7 +265,7 @@
             <img class="min-w-[100%]" src="{{asset('Assets/CheckReportBG.png')}}" alt="">
             <img class="absolute ml-[-3.5vw] w-[33vw] mt-[5vw]" id="report" src="{{asset('Assets/CheckReport.png')}}" alt="">
         </div>
-    </div> --}}
+    </div>
 
     {{-- Extracurricular Segment --}}
     <div class="segment">
