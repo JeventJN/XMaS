@@ -195,9 +195,14 @@
 
     {{-- INI BUAT ADMIN --}}
     <div class="segmentA">
-        <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
+        <div id="segmentTitleA" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
             Newest Reports
         </div>
+        <h1 class="text-[#56B8E6] viewall font-nunito z-50">
+            <a href="/reportlist">
+                view all
+            </a>
+        </h1>
         <div class="h-[30vw] w-[screen] flex items-center">
             <div class="featured-carousel owl-carousel">
                 <section class="w-[18vw] h-[20vw] ml-[10vw] group flex items-center ml-[3vw] visible mb-[5vw]">
@@ -210,7 +215,7 @@
                                 <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
                             </button>
                         </div>
-                        <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="">
+                        <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="reportlist">
                             <aside>
                                 <button class="absolute mail2 w-[18vw] mb-[4.3vw] z-40 mr-[10vw]">
                                     <img src="{{asset('Assets/report2.png')}}" alt="">
@@ -277,6 +282,11 @@
                 view all
             </a>
         </h1>
+        {{-- <h1 class="text-[#56B8E6] viewall font-nunito">
+            <a href="/xtralistA">
+                view all
+            </a>
+        </h1> --}}
         <div class="h-[30vw] w-[screen] flex items-center mt-[2.5vw]">
             <div class="featured-carousel owl-carousel">
                 @if ($xtras->count())

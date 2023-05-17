@@ -61,8 +61,6 @@
                     <div class="text-[1.8vw] text-white font-nunito underline">Running</div>
                     <div class="w-screen text-[1vw] text-white flex">
                         <div class="text-[1vw] font-nunito text-[#797C81] text-white"><mark class="bg-transparent text-white">24</mark> Members</div>
-                        <div class="text-[1vw] font-nunito text-[#797C81] text-white"><mark class="bg-transparent text-white">, 3</mark> Online</div>
-                        <div class="text-[1vw] font-nunito text-[#797C81] text-white"><mark class="bg-transparent text-white">, 21</mark> Offline</div>
                     </div>
                 </div>
                 {{-- header sampe sini --}}

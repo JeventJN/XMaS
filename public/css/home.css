@@ -16,7 +16,16 @@
     transition-duration: 300ms;
 }
 
+#segmentTitleA{
+    width: 25%;
+    height: 5vw;
+    margin-top: 8vw;
+    background-color: #49596A;
+    transition-duration: 300ms;
+}
+
 .segment:hover > #segmentTitle {width: 50%; background-color: #1B2F45;}
+.segmentA:hover > #segmentTitleA {width: 50%; background-color: #1B2F45;}
 
 .upcomingxtra{
     width: 15vw;

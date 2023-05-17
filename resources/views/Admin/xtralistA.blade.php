@@ -16,8 +16,8 @@
     @include('Admin.navbarA')
 
     {{-- modal pop up xtralist Admin--}}
-    <form action="/xtralistNU" id="modal" method="GET" autocomplete="off">
-        <div class="fixed modal z-50 h-[15vw] w-[40vw] ml-[29.5vw] mb-[20vw] mt-[0vw]" id="popupA">
+    <form action="/xtralistA" id="modal" method="GET" autocomplete="off">
+        <div class="fixed modal z-50 h-[15vw] w-[40vw] ml-[29.5vw] mb-[20vw] mt-[0vw] font-nunito" id="popupA">
             <div class=" flex justify-around items-center flex-col">
                 <div class="w-[36vw] flex justify-end">
                     <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalno1" class="w-[2vw] h-[2vw] mt-[1vw] cursor-pointer" viewBox="0 0 256 256"><path fill="black" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
@@ -29,57 +29,57 @@
                 </div>
                 <div class="w-[36vw] h-[2.5vw] flex justify-end text-[1.2vw] mb-[1vw]">
                     <button type="submit">
-                        <div class="w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] flex justify-center items-center mr-[1vw] text-white hover:bg-[#145003] hover:cursor-pointer">
+                        <div class="w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] flex justify-center items-center mr-[1vw] text-white hover:bg-[#145003] hover:cursor-pointer hover:font-bold">
                             Yes
                         </div>
                     </button>
-                    <div id="hidemodalno2" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer">
+                    <div id="hidemodalno2" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer hover:font-bold">
                         No
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <div id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw]">
+    <div id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
         <div class="flex flex-col jutify-center items-center">
-            <div class="flex w-[85%] items-center justify-between mt-[1vw] font-semibold">
-                <div class="text-[2vw]">
+            <div class="flex w-[85%] items-center justify-between mt-[1.8vw] font-semibold">
+                <div class="text-[1.8vw]">
                     Create New Xtra
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalA" class="w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
             </div>
-            <div class="flex w-[85%] flex-col items-start justify-center mt-[1vw]">
-                <div class="text-[1.8vw]">
+            <div class="flex w-[85%] flex-col items-start justify-center mt-[0.5vw]">
+                <div class="text-[1.8vw] font-bold">
                     Xtra Name
                 </div>
                 <div class="w-[25vw] h-[5vw] border border-[0.3vw] rounded-[1.2vw] shadow-inner flex items-center">
                     <input type="text" id="xtraname" name="xtraname" placeholder="Xtra name..." class="outline-none text-[1.8vw] m-[0.5vw]" autocomplete="off">
                 </div>
-                <div class="text-[1.8vw] mt-[1vw]">
+                <div class="text-[1.8vw] mt-[1vw] font-bold">
                     Categories
                 </div>
                 <div class="flex text-[1.8vw] items-center mt-[1vw]">
-                    <input type="radio" id="category" name="category" value="Physique" class="w-[2vw] h-[2vw]">
+                    <input type="radio" id="category" name="category" value="Physique" class="w-[2vw] h-[2vw] hover:cursor-pointer">
                     <label class="ml-[1.5vw]">Physique</label>
                 </div>
                 <div class="flex text-[1.8vw] items-center">
-                    <input type="radio" id="category" name="category" value="Non-Physique" class="w-[2vw] h-[2vw]">
+                    <input type="radio" id="category" name="category" value="Non-Physique" class="w-[2vw] h-[2vw] hover:cursor-pointer">
                     <label class="ml-[1.5vw]">Non-Physique</label>
                 </div>
             </div>
-            <div id="showmodalA1" class="text-[1.8vw] absolute mt-[21vw] ml-[32vw] hover:cursor-pointer">Create</div>
+            <div id="showmodalA1" class="text-[1.8vw] absolute mt-[20.5vw] ml-[32vw] font-bold hover:cursor-pointer">Create</div>
         </div>
     </div>
 
     {{-- modal pop up xtralist user--}}
-    <div id="modalpopup" class="modal">
-        <form action="/xtralistNU" id="modal" method="GET">
+    <div id="modalpopup" class="modal font-nunito">
+        <form action="/xtralistA" id="modal" method="GET">
             @if (request('search'))
                     <input type="hidden" name="search" value={{ request('search') }}>
             @endif
-            <svg xmlns="http://www.w3.org/2000/svg" id="hidemodal" class="mt-[1.5vw] ml-[43vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalF" class="mt-[1.5vw] ml-[43vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
             <div class="flex flex-col ml-[4vw]">
-                <p class="text-[2vw] font-semibold">Categories</p>
+                <p class="text-[2vw] font-bold">Categories</p>
                 <div class="flex items-center">
                     <input type="checkbox" id="Physique" name="Physique" value="Physique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('Physique') === NULL) ? '' : 'checked' }} >
                     <label class="ml-[1vw] text-[2vw]" for="Physique">Physique</label>
@@ -88,7 +88,7 @@
                     <input type="checkbox" id="NonPhysique" name="NonPhysique" value="NonPhysique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('NonPhysique') === NULL) ? '' : 'checked' }} >
                     <label class="ml-[1vw] text-[2vw]" for="NonPhysique">Non-Physique</label>
                 </div>
-                <p class="mt-[1vw] text-[2vw] font-semibold">Days</p>
+                <p class="mt-[1vw] text-[2vw] font-bold">Days</p>
                 <div class="flex flex-wrap w-[40vw]">
                     <div class="flex items-center w-[8vw] h-[3vw]">
                         <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('Mon') === NULL) ? '' : 'checked' }}>
@@ -120,7 +120,10 @@
                     </div>
                 </div>
             </div>
-            <div class="flex justify-end mr-[2vw] text-[2vw]">
+            <div class="flex justify-end mr-[2vw] text-[2vw] font-bold flex">
+                <div id="reset" class="hover:text-[#A1A9B2] mr-[2vw] hover:cursor-pointer" onclick="resetfun()">
+                    Reset
+                </div>
                 <button type="submit" class="hover:text-[#A1A9B2]">
                     Apply
                 </button>
@@ -133,12 +136,12 @@
             <div class="headercontainer flex justify-start items-center mt-[1.5vw] ml-[5vw]">
                 <p class="text-[2vw] font-bold font-nunito ml-[1vw]">Xtra List</p>
                 <button class="svg ml-[39vw] cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg"  id="showmodal" viewBox="0 0 24 24"><path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg"  id="showmodalF" viewBox="0 0 24 24"><path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"/></svg>
                 </button>
 
                 {{-- search --}}
 
-                <form action="/xtralistNU" method="GET">
+                <form action="/xtralistA" method="GET">
                     @if (request('Physique'))
                             <input type="hidden" name="Physique" value={{ request('Physique') }}>
                     @endif
@@ -174,7 +177,7 @@
                             <input class="bg-neutral-100 h-[3.5vw] w-[19vw] no-outline" autocomplete="off" type="text" name="search" placeholder="Search..." value="{{ request('search') }}">
                         </div>
                         <button type="submit">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="svg mr-[1vgw]" viewBox="0 0 24 24"><path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.612 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3l-1.4 1.4ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg mr-[1vw]" viewBox="0 0 24 24"><path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.612 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3l-1.4 1.4ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z"/></svg>
                         </button>
                     </div>
                 </form>
@@ -183,7 +186,7 @@
                 <div id="showmodalA"class="flex flex-col">
                     <div class="xtraboxcontainer flex justify-center items-center">
                         <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                            <img src="{{asset('Assets/add.png')}}" alt="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15vw" height="15vw" viewBox="0 0 256 256"><path fill="currentColor" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88Zm48-88a8 8 0 0 1-8 8h-32v32a8 8 0 0 1-16 0v-32H88a8 8 0 0 1 0-16h32V88a8 8 0 0 1 16 0v32h32a8 8 0 0 1 8 8Z"/></svg>
                         </div>
                     </div>
                 </div>
@@ -245,7 +248,7 @@
 
                                     {{-- Delete disini --}}
 
-                                    <img class="w-[2.5vw] h-[3vw] hover:scale-[1.1]" src="{{asset('Assets/delete.png')}}" alt="">
+                                    <img class="w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" src="{{asset('Assets/delete.png')}}" alt="">
                                 </div>
                             </div>
                         </div>

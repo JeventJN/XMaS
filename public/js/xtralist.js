@@ -1,6 +1,7 @@
 var modal = document.getElementById('modalpopup');
 var showmodal = document.getElementById('showmodal');
 var hidemodal = document.getElementById('hidemodal');
+var reset = document.getElementById('reset');
 var window = document.getElementById('window');
 
 showmodal.addEventListener('click', openModal);
@@ -17,6 +18,16 @@ function closeModal(){
 var valuelist = document.getElementById('valueList');
 var listArray = [];
 var checkboxes = document.querySelectorAll('.checkbox');
+
+function resetfun(){
+    for(var checkbox of checkboxes) {
+        {
+            if(checkbox.checked == true){
+                checkbox.checked = false;
+            }
+        }
+    }
+}
 
 for(var checkbox of checkboxes) {
     checkbox.addEventListener('click', function()

@@ -11,7 +11,7 @@
     <title>Aproval</title>
   @vite('resources/css/app.css')
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden scrollbar-hide">
     {{-- Navbar Options --}}
 
     {{-- @guest
@@ -22,7 +22,7 @@
         @include('User.navbarUser')
     @endauth --}}
     @include('Admin.navbarA')
-    <div class="w-screen flex justify-center items-center">
+    <div class="w-screen flex justify-center items-center font-nunito">
         <div class="w-[80%] bg-[#E5E5E5] h-fit mt-[12vw] flex flex-col items-center justify-center rounded-[1vw]">
             <div class="w-screen h-[2vw]"></div>
             {{-- FOR EACH DARI SINI --}}
@@ -30,10 +30,10 @@
                 <div class="text-[1.5vw] ml-[1vw] w-[65%]">
                     <mark class="bg-white font-bold">Jevent Natthannael</mark> as <mark class="bg-white font-bold">Running</mark> Xtra's Leader
                 </div>
-                <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer">
+                <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
                     Accept
                 </div>
-                <div class="ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white">
+                <div class="ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
                     Deny
                 </div>
             </div>
