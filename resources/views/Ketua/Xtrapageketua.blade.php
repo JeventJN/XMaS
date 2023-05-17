@@ -160,8 +160,11 @@
       <div class="containertengah">
 
         <div class="button-make-advance float-right">
+          <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
+          <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">
           <a href="absensiketua" class="btn">Make Attendance</a>
           <a type="button" class="btn" data-toggle="modal" data-target="#add">
+
             Add Schedule
           </a>
         </div>
@@ -218,19 +221,23 @@
         {{-- Pilihan Sections --}}
 
         <div class="tab-content" id="myTabContent">
-        {{-- Segment Description --}}
+        {{-- ===Segment Description=== --}}
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <form action="" class="KotakForm">
-              <div class="form-group" id="KotakDesc">
-                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
 
-                {{-- ini buat bisa edit isi Desc --}}
-                {{-- <textarea
+            {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
+            {{-- <form action="" class="KotakForm">
+                <div class="form-group" id="KotakDesc">
+                    <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
+                <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
                   name="descriptiontextarea"
                   style="height: 15vw; border-radius: 2.5vw"
+
+                ></textarea>
+            </div>
+
                 ></textarea> --}}
                 {{-- ini buat bisa edit isi Desc --}}
 
@@ -243,16 +250,47 @@
                 >{!! $xtra->description !!}{!! $xtra->description !!}</div>
               </div>
 
-              <div class="form-group" id="KotakAct">
-                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
 
-                {{-- ini buat bisa edit isi Activity--}}
-                {{-- <textarea
+            <div class="form-group" id="KotakAct">
+                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
+                <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                name="activitytextarea"
+                style="height: 9vw; border-radius: 2.5vw;"
+                ></textarea>
+            </div>
+            </form> --}}
+            {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
+
+            {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
+            <div action="" class="KotakForm">
+                <div class="form-group" id="KotakDesc">
+                    <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
+                    <div
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    name="descriptiontextarea"
+                    style="height: 15vw; border-radius: 2.5vw"
+                    ></div>
+                </div>
+
+                <div class="form-group" id="KotakAct">
+                    <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
+                    <div
                     class="form-control"
                     id="exampleFormControlTextarea1"
                     rows="3"
                     name="activitytextarea"
                     style="height: 9vw; border-radius: 2.5vw;"
+
+                    ></div>
+                </div>
+            </div>
+            {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
+
                     ></textarea> --}}
                 {{-- ini buat bisa edit isi Activity --}}
 
@@ -265,10 +303,11 @@
                 >{!! $xtra->latest_schedule?->activity !!}</div>
               </div>
             </form>
-          </div>
-          {{-- Segment Description --}}
 
-          {{-- Segment Documentation --}}
+          </div>
+          {{-- ===Segment Description=== --}}
+
+          {{-- ===Segment Documentation=== --}}
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
@@ -349,9 +388,9 @@
               </div>
             </div>
           </div>
-          {{-- Segment Documentation --}}
+          {{-- ===Segment Documentation=== --}}
 
-          {{-- Segment Member --}}
+          {{-- ===Segment Member=== --}}
           <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
             <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span class="nummember">{{ ($xtra->members)->count() }}</span></div>
             <div class="row" id="member">
@@ -429,7 +468,7 @@
 
             </div>
           </div>
-          {{-- Segment Member --}}
+          {{-- ===Segment Member=== --}}
         </div>
       </div>
 
@@ -520,99 +559,54 @@
     </div>
 
     <!-- modal add schedule -->
-    <div
-      class="modal fade"
-      id="add"
-      data-backdrop="static"
-      data-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content" style="background-color: #1b2f45; border-radius: 2vw; padding: 1.8vw;">
-          <div class="modal-header" style="border: none">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-lg-6 col-sm-6 col-md-6">
-                <input
-                  type="date"
-                  class="form-control"
-                  id="inputEmail3"
-                  style="background-color: #d9d9d9;"
-                />
-              </div>
-              <div class="col-lg-6 col-sm-6 col-md-6">
-                <form class="form_add">
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size: 1.5vw;"
-                      >Xtra:</label
-                    >
-                    <div class="col-sm-10">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="inputEmail3"
-                      />
+    {{-- EDIT --}}
+    {{-- Modal Add Schedule --}}
+    <div id="modaladdschedule" class="modaladdschedule">
+        {{-- Modal Content --}}
+        <div class="modal-contentaddschedule">
+            <div class="kotakisimodal">
+                <div class="boxjudulcloseaddschedule">
+                    <div class="tanggal">
+                        <input type="date" class="form-control" style="font-size: 2.5vw; border-radius: 1.5vw; background-color: #D9D9D9;"/>
                     </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size: 1.5vw;"
-                      >Activity:</label
-                    >
-                    <div class="col-sm-10">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="inputEmail3"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size: 1.5vw;"
-                      >Schedule:</label
-                    >
-                    <div class="col-sm-10">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="inputEmail3"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label" style="font-size: 1.5vw;"
-                      >Location:</label
-                    >
-                    <div class="col-sm-10">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="inputEmail3"
-                      />
-                    </div>
-                  </div>
+                    <span class="closeaddschedule">&times;</span>
+                </div>
 
-                  <center>
-                    <button class="btn" id="btn-confirm">Confirm</button>
-                  </center>
-                </form>
-              </div>
+                <div class="isiaddschedule">
+                    <div class="kotakisi1"></div>
+                    <div class="kotakisi2">
+                        <div class="formketerangan">
+                            <div class="namaxtra">Xtra</div>
+                            <div class="activityxtra">Activity</div>
+                            <div class="schedulextra">Schedule</div>
+                            <div class="locationxtra">Location</div>
+                        </div>
+                        <div class="titikdua">
+                            <div class="">:</div>
+                            <div class="">:</div>
+                            <div class="">:</div>
+                            <div class="">:</div>
+                        </div>
+                        <form class="isiform">
+                            <input type="email" class="form-control" id="inputEmail3" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw"/>
+                            <input type="email" class="form-control" id="inputEmail3" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw"/>
+                            <input type="email" class="form-control" id="inputEmail3" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw"/>
+                            <input type="email" class="form-control" id="inputEmail3" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw"/>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="boxsubmitaddschedule">
+                    <div class="kosongpengisiboxsubmit"></div>
+                    <div class="boxbtnconfirmmodal">
+                        <button class="btnconfirmmodal">Confirm</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-{{-- </div> --}}
+    {{-- Modal Add Schedule --}}
+    {{-- EDIT --}}
 
     <!-- footer -->
     @include('../footer')
@@ -672,6 +666,35 @@
               }
             }
           }
+        }
+    </script>
+
+    <script>
+        // script untuk modal add schedule
+        // Get modal
+        var modaladdschedule = document.getElementById("modaladdschedule")
+
+        // Get button that opens modal
+        var btnaddschedule = document.getElementById("addschedulebtn");
+
+        // Get the <span> element that closes the modal
+        var spanaddschedule = document.getElementsByClassName("closeaddschedule")[0];
+
+        // When the user clicks the button, open the modal
+        btnaddschedule.onclick = function() {
+            modaladdschedule.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        spanaddschedule.onclick = function() {
+            modaladdschedule.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modaladdschedule.style.display = "none";
+            }
         }
     </script>
 

@@ -312,10 +312,10 @@ main .form-group textarea,
 input {
     background-color: #d9d9d9;
     border-radius: 1.04vw;
-    padding: 1.04vw;
+    padding: 2vw 2.25vw 2.25vw 2.25vw;
     /* height: 10vw; */
     /* width: 76.57vw; */
-    /* border: red solid; */
+    border: red solid;
 }
 
 main .card {
@@ -365,7 +365,7 @@ main #contact .card { /*Kotak Member List*/
 .main #contact .card::-webkit-scrollbar {
     display: none !important;
     width: 0;
-  }
+}
 
 main #contact .card .badge { /*isi Member List*/
     margin-top: 0.52vw;
@@ -620,6 +620,7 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
 
 /*===============================================================*/
 
+/* untuk modal add schedule */
 /* mengatur warna inputan dan radius */
 .form_add input {
     background-color: #d9d9d9;
@@ -627,13 +628,13 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
     padding: 1.04vw;
     height: 3.3vw;
     width: 32vw;
-    /* border: cyan solid; */
+    border: cyan solid;
 }
 
 .form_add label {
     color: white;
     width: 15vw;
-    /* border: cyan solid; */
+    border: green solid;
 }
 
 /* mengatur tombol konfirmasi */
@@ -645,6 +646,7 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
     border-radius: 1vw;
     margin-top: 1vw;
     margin-left: 6vw;
+    /* border: red solid; */
 }
 
 /* membuat animasi ketika cursor di atas objek  */
@@ -655,10 +657,10 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
 /* bagian persentasi.html */
 
 section {
-     margin: 0;
+    margin: 0;
 }
 section .row {
-     height: 100vh;
+    height: 100vh;
 }
 
 section img {
@@ -703,3 +705,172 @@ section .blank {
 section p {
     color: white;
 }
+
+/* UNTUK MODAL ADD SCHEDULE */
+.modaladdschedule {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 5.3vw; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 50;
+}
+
+  /* Modal Content */
+.modal-contentaddschedule {
+    background-color: #1B2F45;
+    margin: auto;
+    padding: 1.1vw;
+    border: 0.052vw solid #888;
+    /* width: 80%; */
+    height: 43vw;
+    width: 75vw;
+    border-radius: 1.8vw;
+    border: #FFFFFF 0.2vw solid;
+}
+
+.kotakisimodal{
+    display: flex;
+    flex-direction: column;
+    padding: 0.2vw;
+    /* border: cyan solid; */
+}
+
+.boxjudulcloseaddschedule{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    /* border: yellow solid; */
+}
+
+.closeaddschedule {
+    color: white;
+    float: right;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.tanggal{
+    width: 30vw;
+    font-size: 20vw;
+}
+
+.judulmodal{
+    flex: 5;
+    font-size: 1.5vw;
+}
+
+.isiaddschedule{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vw;
+    height: auto;
+    /* border: purple solid; */
+}
+
+.kotakisi1{
+    flex: 2;
+    /* border: green solid; */
+}
+
+.kotakisi2{
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    /* border: red solid; */
+}
+
+.formketerangan{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: right;
+    justify-content: center;
+    font-size: 2vw;
+    font-weight: 800;
+    gap: 3vw;
+    /* border: pink solid; */
+}
+
+.titikdua{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    font-weight: 800;
+    padding-left: 0.1vw;
+    gap: 3vw;
+    /* border: wheat solid; */
+}
+
+.isiform{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.75vw;
+    gap: 2vw;
+    /* border: blue solid; */
+}
+
+#inputEmail3{
+    width: 25vw;
+    height: 4vw;
+    border-radius: 1.4vw;
+}
+
+.boxsubmitaddschedule{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 1.2vw;
+    margin-top: 3vw;
+    /* border: yellow solid; */
+}
+
+.kosongpengisiboxsubmit{
+    flex: 2;
+    /* border: pink solid; */
+}
+
+.boxbtnconfirmmodal{
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* border: red solid; */
+}
+
+.btnconfirmmodal{
+    font-size: 2.3vw;
+    font-weight: 800;
+    height: 5.5vw;
+    width: 20vw;
+    border-radius: 1.7vw;
+    background-color: #D9D9D9;
+    border: none;
+}
+
+.btnconfirmmodal:hover{
+    background-color: #56B8E6;
+}
+
+
+
+
+
+
+
