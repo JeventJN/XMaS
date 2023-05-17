@@ -100,6 +100,7 @@
     line-height: 2;
     padding-left: 0.2vw;
     padding-right: 0.2vw;
+    margin-right: 0.5vw;
     font-size: 1.8vw;
     /* border: green solid; */
   }
@@ -110,8 +111,24 @@
     /* border: blue solid; */
   }
 
+  .boxphoneedit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5vw;
+    /* border: red solid; */
+  }
+
   .identitasnama, .identitasNIP, .identitasphone{
     font-size: 1.8vw;
+  }
+
+  .editphonenumbericon{
+    fill: blue;
+  }
+
+  .editphonenumbericon:hover{
+    fill: red;
   }
 
   .boxtempatsampah{
@@ -146,7 +163,7 @@
     /* border: cyan solid; */
   }
 
-  /* ============================ untuk member: Requesst Leader Access!!! ============================ */
+  /* ============================ untuk member: Request Leader Access!!! ============================ */
 
   .boxtombol .request{
     height: 3.8vw;
@@ -159,6 +176,7 @@
   }
 
   .boxtombol .request:hover{
+    text-decoration: underline;
     background-color: #FFFFFF;
     color: black;
   }
@@ -213,7 +231,7 @@
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 5.3vw; /* Location of the box */
+    /* padding-top: 5.3vw; Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -221,13 +239,14 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 50;
   }
 
   /* Modal Content */
   .modal-contentlogout {
     background-color: #fefefe;
     margin: auto;
-    padding: 1.1vw;
+    padding: 1.1vw 2vw 1.1vw 2vw;
     border: 0.052vw solid #888;
     /* width: 80%; */
     height: 15vw;
@@ -247,7 +266,7 @@
     flex-direction: row;
     justify-content: end;
     align-items: center;
-    height: 2.8vw;
+    height: 2.1vw;
   }
 
   .judulmodal{
@@ -258,17 +277,19 @@
   .isilogout{
     display: flex;
     flex-direction: column;
-    gap: 0.5vw;
+    gap: 0.15vw;
     height: 4.5vw;
     /* border: purple solid; */
   }
 
   .kalimatlogout1{
     font-size: 1.6vw;
+    font-weight: 600;
   }
 
   .kalimatlogout2{
     font-size: 1.6vw;
+    font-weight: 600;
   }
 
   /* ====================The Modal for Tempat Sampah==================== */
@@ -276,7 +297,7 @@
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 5.3vw; /* Location of the box */
+    /* padding-top: 5.3vw; Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -284,13 +305,14 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 50;
   }
 
   /* Modal Content */
   .modal-contentsampah {
     background-color: #fefefe;
     margin: auto;
-    padding: 1.1vw;
+    padding: 1.1vw 2vw 1.1vw 2vw;
     border: 0.052vw solid #888;
     /* width: 80%; */
     height: 15vw;
@@ -310,7 +332,7 @@
     flex-direction: row;
     justify-content: end;
     align-items: center;
-    height: 2.8vw;
+    height: 2.1vw;
   }
 
   .judulmodal{
@@ -321,17 +343,19 @@
   .isisampah{
     display: flex;
     flex-direction: column;
-    gap: 0.5vw;
+    gap: 0.15vw;
     height: 4.5vw;
     /* border: purple solid; */
   }
 
   .kalimatsampah1{
     font-size: 1.6vw;
+    font-weight: 600;
   }
 
   .kalimatsampah2{
     font-size: 1.6vw;
+    font-weight: 600;
   }
 
   /*===============================================================*/
@@ -409,7 +433,7 @@
     flex-direction: row;
     justify-content: right;
     margin-top: 2.5vw;
-    gap: 1.2vw;
+    gap: 2vw;
     /* border: yellow solid; */
 }
 
@@ -418,7 +442,7 @@
     flex-direction: row;
     justify-content: right;
     margin-top: 2.5vw;
-    gap: 1.2vw;
+    gap: 2vw;
     /* border: yellow solid; */
 }
 
@@ -433,7 +457,7 @@
 }
 
 .btnsubmitmodal:hover{
-    font-weight: 500;
+    font-weight: 700;
     color: white;
     background-color: black;
 }
@@ -449,7 +473,7 @@
 }
 
 .btnyesmodal:hover{
-    font-weight: 500;
+    font-weight: 700;
     color: white;
     background-color: #155003;
 }
@@ -459,13 +483,13 @@
     height: 2.4vw;
     width: 11vw;
     border-radius: 0.2vw;
-    color: white;
+    color: black;
     border: none;
     background-color: #FF0000;
 }
 
 .btncancelmodal:hover{
-    font-weight: 500;
+    font-weight: 700;
     color: white;
     background-color: #6D0000;
 }
@@ -474,7 +498,7 @@
   .closerequest {
     color: #aaaaaa;
     float: right;
-    font-size: 2.8vw;
+    font-size: 3vw;
     color: #000;
     font-weight: bold;
   }
@@ -527,6 +551,7 @@
 
   .boxtombol .logout:hover{
     background-color: #6D0000;
+    font-weight: 700;
     color: white;
   }
 
@@ -564,17 +589,17 @@
 
   .boxstatus3member {
     height: 100%;
-    font-size: 2.3vw;
+    font-size: 2vw;
     color: white;
     background-color: #797D81;
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin: 0.35vw;
-    padding-top: 0.58vw;
-    padding-bottom: 0.58vw;
-    padding-left: 5.6vw;
-    padding-right: 5.6vw;
+    padding-top: 0.4vw;
+    padding-bottom: 0.4vw;
+    padding-left: 5.8vw;
+    padding-right: 5.8vw;
     border-radius: 1vw;
 
     /* border: 3px solid rgb(194, 204, 47); */
@@ -592,17 +617,17 @@
 
   .boxstatus3leader {
     height: 100%;
-    font-size: 2.3vw;
+    font-size: 2vw;
     color: rgb(0, 0, 0);
-    background-color: #FFF172;
+    background-color: #FFF172;;
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin: 0.35vw;
-    padding-top: 0.58vw;
-    padding-bottom: 0.58vw;
-    padding-left: 5.6vw;
-    padding-right: 5.6vw;
+    padding-top: 0.4vw;
+    padding-bottom: 0.4vw;
+    padding-left: 5.8vw;
+    padding-right: 5.8vw;
     border-radius: 1vw;
 
     /* border: 3px solid rgb(194, 204, 47); */
