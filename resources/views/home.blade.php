@@ -42,6 +42,7 @@
         @include('Non-User.navbarNU')
             @if (session()->has('logoutSuccess'))
                 {{-- Ini pop-up kalau log-out {href=profile} (Ini saya hidden dulu, bukan saya comment ya) --}}
+                {{-- log out --}}
                 <div id="modalpopupLO" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
                     <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
                         <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
@@ -53,6 +54,25 @@
                 <script>
                     var modal2 = document.getElementById('modalpopupLO');
                     var hidemodal2 = document.getElementById('hidemodalLO');
+
+                    hidemodal2.addEventListener('click', closePopup2);
+
+                    function closePopup2(){
+                        modal2.style.display="none";
+                    }
+                </script>
+                {{-- delete --}}
+                <div id="modalpopupDL" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+                    <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                        <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                            Your account is successfully deleted
+                            <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalDL" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    var modal2 = document.getElementById('modalpopupDL');
+                    var hidemodal2 = document.getElementById('hidemodalDL');
 
                     hidemodal2.addEventListener('click', closePopup2);
 

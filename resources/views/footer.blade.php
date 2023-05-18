@@ -39,6 +39,7 @@
         {{-- <div class="pembungkussemua"> --}}
             <div id="smallFooter">
                 <footer id="footerA">
+                    <div class="spasipengisi" style="background: white; height: 13vw; border: white 3vw solid;"></div>
                     <div class="footer-flex">
                         <div class="copyright">
                             &copy;<strong><span>2023 Sneakys</span></strong>.
