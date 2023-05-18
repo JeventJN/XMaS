@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex justify-end mr-[2vw] text-[2vw] font-bold flex">
+            <div class="flex justify-end mr-[2vw] mt-[0.5vw] text-[2vw] font-bold flex">
                 <div id="reset" class="hover:text-[#A1A9B2] mr-[2vw] hover:cursor-pointer" onclick="resetfun()">
                     Reset
                 </div>

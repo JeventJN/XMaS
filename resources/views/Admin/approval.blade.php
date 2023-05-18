@@ -40,12 +40,12 @@
             {{-- INI BATASNYA --}}
             <div class="w-[95%] h-[5vw] bg-white rounded-[1vw] flex items-center mt-[1vw] mb-[1vw] border border-[0.2vw] border-black flex">
                 <div class="text-[1.5vw] ml-[1vw] w-[65%]">
-                    <mark class="bg-white font-bold">Zakaria Berlam</mark> as <mark class="bg-white font-bold">Running</mark> Xtra's Leader
+                    <mark class="bg-white font-bold">Jevent Natthannael</mark> as <mark class="bg-white font-bold">Running</mark> Xtra's Leader
                 </div>
-                <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer">
+                <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
                     Accept
                 </div>
-                <div class="ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white">
+                <div class="ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
                     Deny
                 </div>
             </div>

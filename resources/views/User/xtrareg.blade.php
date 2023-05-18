@@ -33,7 +33,7 @@
                         <div class="select-wrap" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
                             <select name="xtrachs" class="input bg-gray-50 text-gray-900 text-sm block max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] scrollbar-hide">
                                 <div id="select-box" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
-                                <option selected="false" disabled class="hidden">Choose one of your extracurricular</option>
+                                <option selected="false" disabled class="hidden">Choose one of your Xtra</option>
                                 @foreach ($xtras as $xtr)
                                     <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.2vw] border-none" id="xtrachs" value="{{ $xtr->kdExtracurricular }}">{{$xtr->name}}</option>
                                 @endforeach
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <button class="flex w-[100%] justify-end mt-[3vw]">
-                        <div class="w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white flex justify-center items-center hover:bg-black hover:cursor-pointer text-[1.3vw] hover:font-bold">Register</div>
+                        <div class="w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white flex justify-center items-center hover:bg-black hover:cursor-pointer text-[1.3vw] hover:font-bold font-nunito">Register</div>
                     </button>
                     <script src="{{asset('js/User/xtrareg.js')}}"></script>
                 </form>

@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, minimum-scale=1.0, user-scalable=0">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="{{asset('css/Ketua/reportform.css')}}">
   <title>Report Form</title>
   @vite('resources/css/app.css')
 </head>
 <body class="overflow-x-hidden flex flex-col">
     <div class="h-[5.2vw] bg-[#1B2F45] flex items-center justify-center">
-        <div class="absolute mr-[95vw]">
+        <div class="absolute mr-[95vw] z-50 w-[3vw] h-[3vw]">
             {{-- Balik ke profile ketua --}}
-            <a href="">
+            <a href="reportlist">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-[3vw] h-[3vw]" width="40" height="40" viewBox="0 0 24 24"><path fill="white" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20v-2z"/></svg>
             </a>
         </div>
@@ -46,18 +47,18 @@
             </div>
         </div>
         <div class="flex w-screen h-[33vw] justify-center items-center mt-[9vw] ">
-            <div class="w-fit flex">
+            <div class="w-fit flex font-nunito">
                 <div class="flex flex-col items-center justify-between w-[25.5vw] h-[33vw] mr-[6vw]">
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
-                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw]">
-                            <div class="">Extracurricular's Name</div>
+                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] font-semibold">
+                            <div class="">Xtra's Name</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
-                            <input type="text" name="xtraname" id="xtraname" placeholder="Xtraname..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] mb-[1vw] w-[23vw]">
+                            <input type="text" name="xtraname" id="xtraname" placeholder="Xtra's Name..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] mb-[1vw] w-[23vw]">
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
-                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw]">
+                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] font-semibold">
                             <div class="">Leader's Name</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
@@ -65,7 +66,7 @@
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
-                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw]">
+                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] font-semibold">
                             <div class="">Report Date</div>
                         </div>
                         <div class="flex justify-start items-end w-[23vw]">
@@ -75,24 +76,24 @@
                 </div>
                 <div class="flex flex-col items-center w-[25.5vw] h-[33vw]">
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
-                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw]">
+                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] font-semibold">
                             <div class="">Reports's Title</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
-                            <input type="text" name="reporttitle" id="reporttitle" placeholder="Report's Title..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] w-[23vw]">
+                            <input type="text" name="reporttitle" id="reporttitle" placeholder="Report's Title..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] w-[23vw] mb-[1vw]">
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[17.5vw] bg-[#395474] rounded-[1vw] mt-[3vw] flex justify-between items-center flex-col">
-                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] mt-[1vw]">
+                        <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] mt-[1vw] font-semibold">
                             <div class="">Reports's Description</div>
                         </div>
                         <div class=" w-[23vw] h-[13vw] mb-[1vw]">
-                            <textarea name="reportdesc" id="reportdesc" style="resize:none;" placeholder="Report's Description...                         _                                                        _                                                        _                                                         _                                                        " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-normal underline scrollbar-hide"></textarea>
+                            <textarea name="reportdesc" id="reportdesc" style="resize:none;" placeholder="Report's Description...                         _                                                             _                                                             _                                                           _                                                            " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-all underline scrollbar-hide"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col w-[25.5vw] h-[33vw] ml-[6vw]">
-                    <div class="text-[1.8vw] ">Documentation</div>
+                    <div class="text-[1.8vw] font-semibold ">Documentation</div>
                     <div class="h-[31.2vw] bg-[#395474] outline-dotted outline-[0.1vw] flex">
                         <img class="h-[31.2vw] w-[25.5vw]" id="photoContainer" src="{{asset('Assets/UploadPhotoForm.png')}}" alt="">
                         <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/UploadedPhotoForm.png')}}'">
@@ -102,7 +103,7 @@
         </div>
         {{-- Ini untuk submit report --}}
         {{-- <div class="flex justify-center w-screen h-fit font-nunito">
-            <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white text-[1.5vw] hover:bg-black hover:cursor-pointer" id="showmodal">
+            <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white text-[1.5vw] hover:bg-black hover:cursor-pointer hover:font-bold" id="showmodal">
                 Submit
             </div>
         </div> --}}

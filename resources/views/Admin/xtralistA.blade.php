@@ -42,32 +42,32 @@
     </form>
     <div id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
         <div class="flex flex-col jutify-center items-center">
-            <div class="flex w-[85%] items-center justify-between mt-[1.8vw] font-semibold">
+            <div class="flex w-[90%] items-center mt-[2.2vw] font-black">
                 <div class="text-[1.8vw]">
                     Create New Xtra
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalA" class="w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalA" class="w-[2vw] h-[2vw] ml-[23.5vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
             </div>
             <div class="flex w-[85%] flex-col items-start justify-center mt-[0.5vw]">
                 <div class="text-[1.8vw] font-bold">
                     Xtra Name
                 </div>
-                <div class="w-[25vw] h-[5vw] border border-[0.3vw] rounded-[1.2vw] shadow-inner flex items-center">
+                <div class="w-[25vw] h-[4.5vw] border border-[0.3vw] rounded-[1.2vw] shadow-inner flex items-center">
                     <input type="text" id="xtraname" name="xtraname" placeholder="Xtra name..." class="outline-none text-[1.8vw] m-[0.5vw]" autocomplete="off">
                 </div>
-                <div class="text-[1.8vw] mt-[1vw] font-bold">
+                <div class="text-[1.8vw] mt-[1.5vw] font-bold">
                     Categories
                 </div>
-                <div class="flex text-[1.8vw] items-center mt-[1vw]">
+                <div class="flex text-[1.5vw] items-center mt-[0.5vw]">
                     <input type="radio" id="category" name="category" value="Physique" class="w-[2vw] h-[2vw] hover:cursor-pointer">
                     <label class="ml-[1.5vw]">Physique</label>
                 </div>
-                <div class="flex text-[1.8vw] items-center">
+                <div class="flex text-[1.5vw] items-center">
                     <input type="radio" id="category" name="category" value="Non-Physique" class="w-[2vw] h-[2vw] hover:cursor-pointer">
                     <label class="ml-[1.5vw]">Non-Physique</label>
                 </div>
             </div>
-            <div id="showmodalA1" class="text-[1.8vw] absolute mt-[20.5vw] ml-[32vw] font-bold hover:cursor-pointer">Create</div>
+            <div id="showmodalA1" class="text-[1.8vw] absolute mt-[20.5vw] ml-[32vw] font-bold hover:cursor-pointer hover:text-[#A1A9B2]">Create</div>
         </div>
     </div>
 
@@ -120,7 +120,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex justify-end mr-[2vw] text-[2vw] font-bold flex">
+            <div class="flex justify-end mr-[2vw] text-[2vw] mt-[0.5vw] font-bold flex">
                 <div id="reset" class="hover:text-[#A1A9B2] mr-[2vw] hover:cursor-pointer" onclick="resetfun()">
                     Reset
                 </div>

@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex justify-end mr-[2vw] text-[2vw]">
+            <div class="flex justify-end mr-[2vw] mt-[0.5vw] text-[2vw]">
                 <button type="submit" class="hover:text-[#A1A9B2]">
                     Apply
                 </button>
