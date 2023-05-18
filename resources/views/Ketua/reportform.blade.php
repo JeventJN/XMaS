@@ -41,7 +41,7 @@
                         </div>
                     </button>
                     <div id="hidemodalno" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer hover:font-bold">
-                        No
+                        Cancel
                     </div>
                 </div>
             </div>
