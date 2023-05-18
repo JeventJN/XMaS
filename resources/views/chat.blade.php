@@ -44,8 +44,8 @@
                         <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
                     </div>
                     <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
-                        <div class="text-[0.5vw] text-white">Just Now</div>
-                        <div class="bg-[#56B8E6] w-[2vw] h-[2vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
+                        <div class="text-[0.8vw] text-white">Just Now</div>
+                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             </div>
             {{-- ini pemberitahuan tanggal chat --}}
             <div class="w-full h-fit flex justify-center">
-                <div class="w-[10vw] h-[3vw] bg-[#1B2F45] flex justify-center items-center text-[1vw] text-white mt-[2vw] rounded-[0.5vw]">dawdwa</div>
+                <div class="w-[8vw] h-[2.5vw] bg-[#1B2F45] flex justify-center items-center text-[1vw] text-white mt-[2vw] rounded-[0.5vw]">dawdwa</div>
             </div>
             {{-- ini footer box chat --}}
             <div class="w-full h-[43vw] bg-white"></div>
