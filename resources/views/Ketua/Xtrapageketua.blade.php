@@ -83,6 +83,7 @@
                           e.target.style.fontSize = '2vw';
                           e.target.style.width = '40vw';
                           e.target.style.height = '5vw';
+                          e.target.style.paddingBottom = '4.1vw';
 
                         if (value == 'Running') {
                             e.target.classList.add('JudulXtra');
@@ -139,7 +140,7 @@
 
                 {{-- elips untuk batas luar dari gambar logo ekskul --}}
                 <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
-                    <img src="{{ asset('Assets/$xtra->logo') }}" alt="{{ $xtra->name }}" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
+                    <img src="{{ asset('Assets/Xtrapage assets/$xtra->logo') }}" alt="" class="elips" style="height: 20.8vw; width: 20.8vw;"/>
                 </div>
             </div>
 
@@ -160,13 +161,18 @@
       <div class="containertengah">
 
         <div class="button-make-advance float-right">
-          <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
-          <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">
-          <a href="absensiketua" class="btn">Make Attendance</a>
-          <a type="button" class="btn" data-toggle="modal" data-target="#add">
-
+        {{-- Untuk Make Attendance dan Add Schedule --}}
+        {{-- <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
+        <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">
             Add Schedule
-          </a>
+        </a> --}}
+        {{-- Untuk Make Attendance dan Add Schedule --}}
+
+        {{-- Add Photo only --}}
+        <a type="button" class="btn" id="" style="padding-left: 4vw; padding-right: 4vw;">
+            Add Photo
+        </a>
+        {{-- Add Photo only --}}
         </div>
 
         {{-- hanya buat spasi --}}
@@ -234,22 +240,8 @@
                   rows="3"
                   name="descriptiontextarea"
                   style="height: 15vw; border-radius: 2.5vw"
-
                 ></textarea>
             </div>
-
-                ></textarea> --}}
-                {{-- ini buat bisa edit isi Desc --}}
-
-                <div
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  name="descriptiontextarea"
-                  style="height: 15vw; border-radius: 2.5vw"
-                >{!! $xtra->description !!}{!! $xtra->description !!}</div>
-              </div>
-
 
             <div class="form-group" id="KotakAct">
                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
@@ -268,6 +260,7 @@
             <div action="" class="KotakForm">
                 <div class="form-group" id="KotakDesc">
                     <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
+                    <img src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt="" style="margin-left: auto; height: 2vw; width: 2vw;"/>
                     <div
                     class="form-control"
                     id="exampleFormControlTextarea1"
@@ -279,31 +272,17 @@
 
                 <div class="form-group" id="KotakAct">
                     <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
+                    <img src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt="" style="margin-left: auto; height: 2vw; width: 2vw;"/>
                     <div
                     class="form-control"
                     id="exampleFormControlTextarea1"
                     rows="3"
                     name="activitytextarea"
                     style="height: 9vw; border-radius: 2.5vw;"
-
                     ></div>
                 </div>
             </div>
             {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
-
-                    ></textarea> --}}
-                {{-- ini buat bisa edit isi Activity --}}
-
-                <div
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  name="activitytextarea"
-                  style="height: 9vw; border-radius: 2.5vw;"
-                >{!! $xtra->latest_schedule?->activity !!}</div>
-              </div>
-            </form>
-
           </div>
           {{-- ===Segment Description=== --}}
 
@@ -311,18 +290,16 @@
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
-                @foreach ($xtra->documentations as $doc)
-                    <div class="swiper-slide">
-                        <div class="card" style="width: 19vw">
-                            <img
-                            src="{{ asset('Assets/Xtrapage assets/foto/$doc->photo') }}"
-                            class="card-img-top"
-                            alt="..."
-                            />
-                        </div>
-                    </div>
-                @endforeach
-                {{-- <div class="swiper-slide">
+                <div class="swiper-slide">
+                  <div class="card" style="width: 19vw">
+                    <img
+                      src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <div class="swiper-slide">
                   <div class="card" style="width: 19vw">
                     <img
                       src="{{ asset('Assets/Xtrapage assets/foto/2.png') }}"
@@ -384,7 +361,7 @@
                       alt="..."
                     />
                   </div>
-                </div> --}}
+                </div>
               </div>
             </div>
           </div>
@@ -434,37 +411,19 @@
               </div> --}}
               {{-- Untuk Leave Xtra --}}
 
-              @auth
-                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                    <div class="gambarhover">
-                            <a href="/xtrareg">
-                                <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="join.src='{{asset('Assets/Xtrapage assets/GambarJoinHover.png')}}'" onmouseout="join.src='{{asset('Assets/Xtrapage assets/GambarJoin.png')}}'">
-                                    JOIN NOW!!!
-                                </div>
-                            </a>
-                            <div class="flex">
-                                {{-- <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt=""> --}}
-                                <img class="gambarjoin" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+              <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                <div class="gambarhover">
+                        <a href="/xtrareg">
+                            <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="join.src='{{asset('Assets/Xtrapage assets/GambarJoinHover.png')}}'" onmouseout="join.src='{{asset('Assets/Xtrapage assets/GambarJoin.png')}}'">
+                                JOIN NOW!!!
                             </div>
-                    </div>
+                        </a>
+                        <div class="flex">
+                            {{-- <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt=""> --}}
+                            <img class="gambarjoin" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                        </div>
                 </div>
-              @endauth
-
-              @guest
-                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                    <div class="gambarhover">
-                            <a href="/xtrareg">
-                                <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="join.src='{{asset('Assets/Xtrapage assets/GambarJoinHover.png')}}'" onmouseout="join.src='{{asset('Assets/Xtrapage assets/GambarJoin.png')}}'">
-                                    JOIN NOW!!!
-                                </div>
-                            </a>
-                            <div class="flex">
-                                {{-- <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt=""> --}}
-                                <img class="gambarjoin" id="join" src="{{asset('Assets/Xtrapage assets/GambarJoin.png')}}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
-                            </div>
-                    </div>
-                </div>
-              @endguest
+              </div>
 
             </div>
           </div>
@@ -477,7 +436,7 @@
         <div class="containerbawah">
           <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">10</span> </div>
           <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Choose date<img src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}" alt="" style="margin-left: 0.5vw; width: 2vw;"/></button>
+            <button onclick="myFunction()" class="dropbtn">Choose date<img class="gambarPanah" src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}" alt="" style="margin-left: 1vw; width: 2vw;"/></button>
             <div id="myDropdown" class="dropdown-content">
               <a href="#">March 12, 2023</a>
               <a href="#">March 12, 2023</a>
@@ -491,7 +450,7 @@
           </div>
 
           <div class="luarPML">
-              <h4 class="text-center font-weight-bold" style="color: white; font-size: 1.5vw; background-color: #1b2f45; margin-top: 0.5vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
+              <h4 class="text-center font-weight-bold" style="color: white; font-size: 1.65vw; background-color: #1b2f45; margin-top: 1.8vw; margin-bottom: 0.6vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
                   Presence Member List
               </h4>
               <div class="presence-list">
@@ -511,6 +470,13 @@
 
               </div>
           </div>
+          {{-- untuk button save --}}
+          {{-- <div class="kotakbtnsave">
+            <a type="button" class="btnsave" id="">
+                Save
+            </a>
+          </div> --}}
+          {{-- Untuk button save --}}
         </div>
         {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
       </div>

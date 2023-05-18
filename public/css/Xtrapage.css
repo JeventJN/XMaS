@@ -246,7 +246,7 @@ main .nav-item a:hover {
     font-size: 1.45vw;
     margin-left: -3.5vw;
     margin-right: -3.5vw;
-    padding-top: 1.4vw !important;
+    padding-top: 1.7vw !important;
     margin-bottom: 1vw;
     /* border: cyan solid; */
 }
@@ -362,15 +362,18 @@ main #contact .card { /*Kotak Member List*/
     /* border: purple solid; */
 }
 
-.main #contact .card::-webkit-scrollbar {
+main #contact .card ::-webkit-scrollbar{
     display: none !important;
-    width: 0;
 }
 
 main #contact .card .badge { /*isi Member List*/
     margin-top: 0.52vw;
     font-size: 1.5vw;
     font-weight: 500;
+    text-align: left;
+    padding-left: 2.4vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
 
     border-radius: 1.5625vw;
     background-color: #395474;
@@ -516,22 +519,25 @@ main .presence-list { /*kotak Presence Member List*/
     background-color: #1b2f45;
     display: flex;
     flex-direction: column;
-    height: 25.5vw;
+    height: 27.4vw;
     width: 100%;
     border-top-right-radius: 3vw;
     border-bottom-left-radius: 3vw;
     border-bottom-right-radius: 3vw;
-    margin-bottom: 2.5vw;
+    margin-bottom: 2.3vw;
     /* border: yellow solid; */
 }
 
 main .presence .badge { /*isi presence list*/
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    text-align: left;
     flex-direction: column;
     font-size: 1.5vw;
+    font-weight: 500;
     border-radius: 1.15vw;
     padding: 0.5vw;
+    padding-left: 3vw;
     color: black;
     background-color: #e5e5e5;
     width: 36vw;
@@ -561,6 +567,7 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
     background-color: #1b2f45;
     color: white;
     padding: 0.833vw;
+    padding-top: 1.3vw;
     font-size: 1.45vw;
     border: none;
     cursor: pointer;
@@ -603,7 +610,7 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
 }
 
 .dropdown-content a {
-    font-weight: bold;
+    font-weight: 500;
     font-size: 1.3vw;
     height: 3.5vw;
     border: 1px solid black;
@@ -614,11 +621,40 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
     /* border: green solid; */
 }
 
-  .dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {background-color: #ddd;}
 
-  .show {display: block;}
+.show {display: block;}
 
 /*===============================================================*/
+
+.kotakbtnsave{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* border: red solid; */
+}
+
+.kotakbtnsave .btnsave{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    background-color: #395474;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.8vw;
+    padding-top: 1.4vw;
+    padding-bottom: 1.4vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    font-size: 1.6vw;
+}
+
+.kotakbtnsave .btnsave:hover{
+    background-color: #1B2F45;
+    color: white;
+}
 
 /* untuk modal add schedule */
 /* mengatur warna inputan dan radius */
