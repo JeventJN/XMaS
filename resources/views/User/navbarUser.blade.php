@@ -28,7 +28,7 @@
                 Xtra Registration
             </a>
             <a class="w-[8.75vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] mr-[1vw]"
-                href="/">
+                href="/myclub">
                 MyClub
             </a>
             <a class="w-[5vw] h-[5vw] flex items-center justify-center rounded-[50%] bg-red-500" href="/">

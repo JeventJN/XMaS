@@ -19,7 +19,7 @@
     <div class="w-screen h-[5.25vw]"></div>
     {{--  --}}
     <div class="w-screen flex h-[41.7vw]">
-        <div class="absolute ml-[56vw] h-[5vw] w-[40vw] flex items-center justify-start font-nunito text-[5vw] mt-[3vw] text-black font-bold">Xtra&nbsp<mark class="text-white bg-transparent">Registration</mark></div>
+        <div class="absolute ml-[56.5vw] h-[5vw] w-[40vw] flex items-center justify-start font-nunito text-[4.5vw] mt-[3vw] text-black font-bold">Xtra&nbsp<mark class="text-white bg-transparent">Registration</mark></div>
         <div class="w-[66%] h-[41.7vw] flex items-center">
             <img class="w-[45vw] h-[45vw] mr-[10] mb-[4vw]" src="{{asset('Assets/LogoXMaSGray.png')}}" alt="">
         </div>
@@ -27,33 +27,33 @@
         <div class="absolute ml-[24vw] w-[61vw] h-[24vw] bg-[#395474] mt-[11vw] rounded-[1vw] flex flex-col items-center justify-center">
             <div class="w-[51vw] h-[18vw]">
                 <div class="mt-[1vw] w-[25vw] rounded-[0.3vw]">
-                    <form id="xtrareg" action="/xtrareg" method="POST" onsubmit="return eventsubmits(this)">
+                    <form id="xtrareg" action="/xtrareg" method="POST" onsubmit="return eventsubmits(this)" autocomplete="off">
                         @csrf
                         {{-- <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] rounded-[0.3vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[2.5vw] p-[0.2vw] focus:text-black text-[2vw]" required> --}}
                         <div class="select-wrap" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
                             <select name="xtrachs" class="input bg-gray-50 text-gray-900 text-sm block max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] scrollbar-hide">
                                 <div id="select-box" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
-                                <option selected="true" disabled>Choose one of your extracurricular</option>
+                                <option selected="false" disabled class="hidden">Choose one of your extracurricular</option>
                                 @foreach ($xtras as $xtr)
-                                    <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none" id="xtrachs" value="{{ $xtr->kdExtracurricular }}">{{$xtr->name}}</option>
+                                    <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.2vw] border-none" id="xtrachs" value="{{ $xtr->kdExtracurricular }}">{{$xtr->name}}</option>
                                 @endforeach
                                 </div>
                             </select>
                         </div>
                     </form>
                 </div>
-                <form id="xtrareg" action="/xtrareg" method="POST" onsubmit="return eventsubmits(this)">
+                <form id="xtrareg" action="/xtrareg" method="POST" onsubmit="return eventsubmits(this)" autocomplete="off">
                     @csrf
-                    <div class="text-white text-[2vw] mt-[2vw] font-nunito">
+                    <div class="text-white text-[1.8vw] mt-[2vw] font-nunito">
                         What’s the reason you want to join this Xtra?
                     </div>
                     <div class="w-[35vw] h-[3vw] bg-[#1B2F45] rounded-[1vw] flex justify-center items-end mt-[1vw]">
                         <div class="w-[31vw] border-b-[0.2vw] mb-[0.5vw] flex items-center">
-                            <input type="text" name="reason" id="reason" class="w-[100%] h-[1.8vw] bg-[#1B2F45] outline-none text-white text-[1.5vw]">
+                            <input type="text" name="reason" id="reason" class="w-[100%] h-[1.8vw] bg-[#1B2F45] outline-none text-white text-[1.2vw]">
                         </div>
                     </div>
                     <button class="flex w-[100%] justify-end mt-[3vw]">
-                        <div class="w-[12vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white flex justify-center items-center hover:bg-black hover:cursor-pointer text-[1.5vw]">Register</div>
+                        <div class="w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white flex justify-center items-center hover:bg-black hover:cursor-pointer text-[1.3vw] hover:font-bold">Register</div>
                     </button>
                     <script src="{{asset('js/User/xtrareg.js')}}"></script>
                 </form>
