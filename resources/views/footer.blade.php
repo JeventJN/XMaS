@@ -88,11 +88,11 @@
                             </div>
                             <div class="contact">
                                 <div class="contact-icon">
-                                    <object data="Assets/Footer assets/smartphone.svg" class="antara"></object>
-                                    <object data="Assets/Footer assets/mail.svg" class="antara"></object>
-                                    <object data="Assets/Footer assets/instagram.svg" class="antara"></object>
-                                    <object data="Assets/Footer assets/phone.svg" class="antara"></object>
-                                    <object data="Assets/Footer assets/home.svg" class="antara"></object>
+                                    <object data="{{asset("/Assets/Footer assets/smartphone.svg")}}" class="antara"></object>
+                                    <object data="{{asset("/Assets/Footer assets/mail.svg")}}" class="antara"></object>
+                                    <object data="{{asset("/Assets/Footer assets/instagram.svg")}}" class="antara"></object>
+                                    <object data="{{asset("/Assets/Footer assets/phone.svg")}}" class="antara"></object>
+                                    <object data="{{asset("/Assets/Footer assets/home.svg")}}" class="antara"></object>
                                 </div>
 
                                 <div class="contact-data">
