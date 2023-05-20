@@ -11,7 +11,7 @@
     <title>Xtra List</title>
   @vite('resources/css/app.css')
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden scrollbar-hide">
 
     @include('Admin.navbarA')
 

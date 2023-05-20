@@ -10,7 +10,7 @@
   <title>Report Form</title>
   @vite('resources/css/app.css')
 </head>
-<body class="overflow-x-hidden flex flex-col">
+<body class="overflow-x-hidden flex flex-col scrollbar-hide">
     <div class="h-[5.2vw] bg-[#1B2F45] flex items-center justify-center">
         <div class="absolute mr-[95vw] z-50 w-[3vw] h-[3vw]">
             {{-- Balik ke profile ketua --}}

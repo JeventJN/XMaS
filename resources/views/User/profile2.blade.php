@@ -7,7 +7,7 @@
     <title>Profile-User</title>
     <link rel="stylesheet" href="{{ asset('css/profileuser.css') }}">
 </head>
-<body>
+<body class="scrollbar-hide">
 
     @include('Non-User.navbarNU')
 

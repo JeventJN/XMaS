@@ -13,7 +13,7 @@
   <title>User Home</title>
   @vite('resources/css/app.css')
 </head>
-<body class="overflow-x-hidden overflow-y-hidden">
+<body class="overflow-x-hidden overflow-y-hidden scrollbar-hide">
     <form class="w-screen h-screen flex" method="POST" autocomplete="off">
         <div class="w-[27%] h-screen bg-[#395474] flex flex-col">
             {{-- ini container untuk profile chat --}}

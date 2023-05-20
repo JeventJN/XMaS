@@ -11,7 +11,7 @@
     <title>Sign Up</title>
     @vite('resources/css/app.css')
 
-<body>
+<body class="scrollbar-hide">
     <div class="bg-cover" style="background-image: url('Assets/SignUp.png')">
         <div class="topcontainer">
             <a href="/home">

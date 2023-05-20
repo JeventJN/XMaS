@@ -13,7 +13,7 @@
 
     @vite('resources/css/app.css')
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden scrollbar-hide">
     @include('User.NavbarUser')
     {{-- Cuma buat space dari navbar --}}
     <div class="w-screen h-[5.25vw]"></div>
