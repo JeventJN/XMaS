@@ -197,7 +197,9 @@
                 </div>
                 {{-- Bubble chat other user --}}
                 <div class="w-fit max-w-[90%] h-fit m-[1vw] mb-[3vw] bg-[#1B2F45] rounded-[0.5vw]">
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[100deg] mt-[10vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#1B2F45" d="M1 21h22L12 2"/></svg> --}}
+                    <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[100deg] mt-[8vw] ml-[-0.5vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#1B2F45" d="M1 21h22L12 2"/></svg>
+                    </div>
                     <div class="flex font-nunito justify-between w-[90%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center">
                         {{-- Chat time --}}
                         <div class="text-[0.6vw] text-white">
@@ -212,10 +214,10 @@
                     <p class="font-nunito text-[1vw] text-white ml-[1vw] mb-[1vw] mr-[1vw]">Story of my life. I take her home. I spent all night to her warm and time is frozen. Story of my life. I give her hope. I spent her love until she broke inside. The story of my life. </p>
                 </div>
             </div>
+
             {{-- Sended Chat --}}
             <div class="ml-[54%] w-[45%] h-fit mt-[1vw] flex items-end justify-end">
                 {{-- Bubble chat User --}}
-                {{-- <svg xmlns="http://www.w3.org/2000/svg" class="absolute mb-[2.2vw] mr-[3.6vw] rotate-[20deg]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#114F94" d="M1 21h22L12 2"/></svg> --}}
                 <div class="w-fit max-w-[90%] h-fit m-[1vw] mb-[3vw] bg-[#114F94] rounded-[0.5vw]">
                     <div class="flex font-nunito justify-between w-[90%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center">
                         {{-- Chat time --}}
@@ -228,22 +230,94 @@
                             Jevent Natthannael - Leader
                         </div>
                     </div>
-                    <p class="font-nunito text-[1vw] text-white ml-[1vw] mb-[1vw] mr-[1vw]">Story of my life - One Direction</p>
+                    <p class="font-nunito text-[1vw] text-white ml-[1vw] mb-[1vw] mr-[1vw]">Written in these walls are the stories that I can't explain
+                        I leave my heart open but it stays right here empty for days
+                        She told me in the morning she don't feel the same about us in her bones
+                        It seems to me that when I die, these words will be written on my stone
+                        And I'll be gone, gone tonight
+                        The ground beneath my feet is open wide
+                        The way that I been holdin' on too tight
+                        With nothin' in between
+                        The story of my life, I take her home
+                        I drive all night to keep her warm
+                        And time is frozen (the story of, the story of)
+                        The story of my life, I give her hope
+                        I spend her love until she's broke inside
+                        The story of my life (the story of, the story of)
+                        Written on these walls are the colors that I can't change
+                        Leave my heart open, but it stays right here in its cage
+                        I know that in the morning, I'll see us in the light up on the hill
+                        Although I am broken, my heart is untamed still
+                        And I'll be gone, gone tonight
+                        The fire beneath my feet is burnin' bright
+                        The way that I've been holdin' on so tight
+                        With nothin' in between
+                        The story of my life, I take her home
+                        I drive all night to keep her warm
+                        And time is frozen (the story of, the story of)
+                        The story of my life, I give her hope
+                        I spend her love until she's broke inside
+                        The story of my life (the story of, the story of)
+                        And I've been waiting for this time to come around
+                        But, baby, runnin' after you is like chasin' the clouds
+                        The story of my life, I take her home
+                        I drive all night to keep her warm
+                        And time is frozen
+                        The story of my life, I give her hope (give her hope)
+                        I spend her love until she's broke inside
+                        The story of my life (the story of)
+                        The story of my life
+                        The story of my life (the story of, the story of)
+                        The story of my life</p>
+                    <div class="flex justify-end">
+                        <div class="relative w-[10vw]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[20deg] ml-[8vw] mt-[-2.2vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#114F94" d="M1 21h22L12 2"/></svg>
+                        </div>
+                    </div>
                 </div>
                 {{-- photo User --}}
-                <div class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] bg-blue-500 mb-[1vw]">
+                <div class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] bg-blue-500 mb-[0.5vw]">
                     <img class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] border border-black border-[0.1vw]" src="{{asset('Assets/RunningLogo.png')}}" alt="">
                 </div>
             </div>
-             {{-- Received Chat --}}
-             <div class="w-[45%] h-fit ml-[1vw] mt-[1vw] flex items-end">
+
+            {{-- Sended Chat --}}
+            <div class="ml-[54%] w-[45%] h-fit mt-[1vw] flex items-end justify-end">
+                {{-- Bubble chat User --}}
+                <div class="w-fit max-w-[90%] h-fit m-[1vw] mb-[3vw] bg-[#114F94] rounded-[0.5vw]">
+                    <div class="flex font-nunito justify-between w-[90%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center">
+                        {{-- Chat time --}}
+                        <div class="text-[0.6vw] text-white">
+                            05.00
+                        </div>
+                        <div class="w-[1vw]"></div>
+                        {{-- Nmae - Position --}}
+                        <div class="text-[1.1vw] text-white text-[#FFF172] underline">
+                            Jevent Natthannael - Leader
+                        </div>
+                    </div>
+                    <p class="font-nunito text-[1vw] text-white ml-[1vw] mb-[1vw] mr-[1vw]">Story of My Life kan?</p>
+                    <div class="flex justify-end">
+                        <div class="relative w-[10vw]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[20deg] ml-[8vw] mt-[-2.2vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#114F94" d="M1 21h22L12 2"/></svg>
+                        </div>
+                    </div>
+                </div>
+                {{-- photo User --}}
+                <div class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] bg-blue-500 mb-[0.5vw]">
+                    <img class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] border border-black border-[0.1vw]" src="{{asset('Assets/RunningLogo.png')}}" alt="">
+                </div>
+            </div>
+            <div class="w-[45%] h-fit ml-[1vw] mt-[1vw] flex items-end">
                 {{-- photo other user --}}
                 <div class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] bg-blue-500 mb-[1vw]">
                     <img class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] border border-black border-[0.1vw]" src="{{asset('Assets/RunningLogo.png')}}" alt="">
                 </div>
                 {{-- Bubble chat other user --}}
                 <div class="w-fit max-w-[90%] h-fit m-[1vw] mb-[3vw] bg-[#1B2F45] rounded-[0.5vw]">
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[100deg] mt-[10vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#1B2F45" d="M1 21h22L12 2"/></svg> --}}
+                    <div class="relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[100deg] mt-[8vw] ml-[-0.5vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#1B2F45" d="M1 21h22L12 2"/></svg>
+                    </div>
                     <div class="flex font-nunito justify-between w-[90%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center">
                         {{-- Chat time --}}
                         <div class="text-[0.6vw] text-white">
