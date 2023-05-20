@@ -19,6 +19,11 @@ class userXmas extends Model
         'photo'
     ];
 
+    public function getKeyType()
+    {
+        return 'string';
+    }
+
     public function members(){
         return $this->hasMany(Member::class, 'NIP', 'NIP');
     }
