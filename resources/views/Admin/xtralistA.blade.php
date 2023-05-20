@@ -46,13 +46,13 @@
         </div>
     </div>
     <script>
-        var modal2 = document.getElementById('modalpopupDL');
-        var hidemodal2 = document.getElementById('hidemodalDL');
+        var modal3 = document.getElementById('modalpopupDL');
+        var hidemodal3 = document.getElementById('hidemodalDL');
 
-        hidemodal2.addEventListener('click', closePopup2);
+        hidemodal3.addEventListener('click', closePopup3);
 
-        function closePopup2(){
-            modal2.style.display="none";
+        function closePopup3(){
+            modal3.style.display="none";
         }
     </script>
     {{-- popup --}}

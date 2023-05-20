@@ -11,7 +11,7 @@ body {
     font-family: "Anton", sans-serif;
     font-family: "Nunito", sans-serif;
     overflow-x: hidden;
-    }
+}
 
 /* mengatur position relative supaya di bawah satu dimensi box-jumboron */
 .jumbotron {
@@ -19,7 +19,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    height: 49.7vw;
+    height: 48.7vw;
 }
 
 /* Mengatur box-jumbotron, menggunakan position absolut supaya objek di atas jumbotron 1 dimensi */
@@ -315,7 +315,7 @@ input {
     padding: 2vw 2.25vw 2.25vw 2.25vw;
     /* height: 10vw; */
     /* width: 76.57vw; */
-    border: red solid;
+    /* border: red solid; */
 }
 
 main .card {
@@ -452,7 +452,7 @@ main #contact .modal {
 
 main .presence {
     margin: 0;
-    margin-top: 100px;
+    margin-top: 5.208vw;
     /* border: red solid; */
 }
 
@@ -613,7 +613,7 @@ main .presence-list::-webkit-scrollbar { /*Presence List Member*/
     font-weight: 500;
     font-size: 1.3vw;
     height: 3.5vw;
-    border: 1px solid black;
+    border: 0.05vw solid black;
     color: black;
     padding: 0.625vw 0.833vw;
     text-decoration: none;
@@ -710,7 +710,7 @@ section .btn_close a {
     width: 1.5625vw;
     height: 1.5625vw;
     border-radius: 100%;
-    border: 2px solid black;
+    border: 0.1vw solid black;
     top: 1.04vw;
     left: 5.2vw;
     font-size: 1.04vw;
@@ -747,7 +747,7 @@ section p {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 5.3vw; /* Location of the box */
+    padding-top: 4.2vw; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -794,12 +794,179 @@ section p {
     float: right;
     font-size: 5vw;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .tanggal{
     width: 30vw;
     font-size: 20vw;
 }
+
+/* cobacoba */
+
+.bungkuscalendar{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    /* border: red solid; */
+}
+
+.inline{
+    max-width: 20.8vw;
+    margin: auto;
+}
+
+.input-icons img {
+    position: absolute;
+    margin-top: 0.9vw;
+    margin-left: 26vw;
+    width: 3vw;
+    height: 3vw;
+    /* border: red solid; */
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 0.5vw;
+}
+
+.input-field{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 3px;
+    /* border: red solid; */
+}
+
+.datepicker{
+	display: block;
+	border: none;
+	border-radius: 1.5vw;
+	/* border: 1px solid transparent; */
+	padding-left: 5vw;
+    /* text-indent: 5vw; */
+	color: rgb(63, 62, 62);
+	width: 30vw;
+    height: 4.8vw;
+	background-color: #D9D9D9;
+	cursor: pointer;
+    font-size: 2.5vw;
+    font-weight: 700;
+	/* border: purple solid; */
+}
+
+input:focus {outline: none;}
+
+#ui-datepicker-div {
+	display: none;
+	background-color: #fff;
+	/* box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.1); */
+	margin-top: 0.25rem;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	width: 30vw;
+	/* border: blue solid; */
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	/* border: cyan solid; */
+}
+
+.ui-datepicker-calendar thead th {
+	padding: 0.25rem 0;
+	text-align: center;
+	font-size: 1.35vw;
+	font-weight: 400;
+	color: #78909C;
+	width: 20vw;
+	/* border: orange solid; */
+}
+
+.ui-datepicker-calendar tbody td {
+	width: 2.5rem;
+    height: 3.5vw;
+	text-align: center;
+	padding: 0;
+	/* border: purple solid; */
+}
+
+.ui-datepicker-calendar tbody td a { /*Atur tanggal (ukuran tanggal) ini css buat per tanggal*/
+	display: block;
+	border-radius: 0.25rem;
+	line-height: 2rem;
+	transition: 0.3s all;
+	color: #546E7A;
+    text-align: center;
+	font-size: 1.4vw;
+	text-decoration: none;
+    border: none !important;
+}
+
+.ui-datepicker-calendar tbody td a:hover { /*Untuk hover pilih tanggal*/
+	background-color: #E0F2F1;
+}
+
+.ui-datepicker-calendar tbody td a.ui-state-active { /*Untuk tanggal yang terpilih*/
+	background-color: #009688;
+	color: white;
+}
+
+.ui-datepicker-header a.ui-corner-all {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	width: 2rem;
+	height: 2rem;
+	margin: 0.5rem;
+	border-radius: 0.25rem;
+	transition: 0.3s all;
+}
+
+.ui-datepicker-header a.ui-corner-all:hover {
+	background-color: #ECEFF1;
+}
+
+.ui-datepicker-header a.ui-datepicker-prev {
+	left: 0;
+	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==");
+	background-repeat: no-repeat;
+	background-size: 0.5rem;
+	background-position: 50%;
+	/* transform: rotate(180deg); */
+}
+
+.ui-datepicker-header a.ui-datepicker-next {
+	right: 0;
+	background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==');
+	background-repeat: no-repeat;
+	background-size: 0.521vw;
+	background-position: 50%;
+}
+
+.ui-datepicker-header a>span {
+	display: none;
+}
+
+.ui-datepicker-title {
+	text-align: center;
+	line-height: 2rem;
+	margin-bottom: 0.25rem;
+	font-size: 1.7vw;
+	font-weight: 500;
+	padding-bottom: 0.25rem;
+    /* border: green solid; */
+}
+
+.ui-datepicker-week-col {
+	color: #78909C;
+	font-weight: 400;
+	font-size: 0.75rem;
+    /* border: cyan solid; */
+}
+/* cobacoba */
 
 .judulmodal{
     flex: 5;
@@ -891,10 +1058,10 @@ section p {
 }
 
 .btnconfirmmodal{
-    font-size: 2.3vw;
+    font-size: 2.1vw;
     font-weight: 800;
-    height: 5.5vw;
-    width: 20vw;
+    height: 5vw;
+    width: 18.5vw;
     border-radius: 1.7vw;
     background-color: #D9D9D9;
     border: none;
@@ -903,10 +1070,4 @@ section p {
 .btnconfirmmodal:hover{
     background-color: #56B8E6;
 }
-
-
-
-
-
-
 

@@ -8,6 +8,11 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> --}}
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -40,6 +45,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <title></title>
+
+    @vite('resources/css/app.css')
   </head>
 
   <body>
@@ -79,13 +86,13 @@
         </div>
     </div>
     <script>
-        var modal2 = document.getElementById('modalpopupEDIT');
-        var hidemodal2 = document.getElementById('hidemodalEDIT');
+        var modal3 = document.getElementById('modalpopupEDIT');
+        var hidemodal3 = document.getElementById('hidemodalEDIT');
 
-        hidemodal2.addEventListener('click', closePopup2);
+        hidemodal3.addEventListener('click', closePopup3);
 
-        function closePopup2(){
-            modal2.style.display="none";
+        function closePopup3(){
+            modal3.style.display="none";
         }
     </script>
     {{-- popup --}}
@@ -204,16 +211,16 @@
 
         <div class="button-make-advance float-right">
         {{-- Untuk Make Attendance dan Add Schedule --}}
-        {{-- <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
+        <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
         <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">
             Add Schedule
-        </a> --}}
+        </a>
         {{-- Untuk Make Attendance dan Add Schedule --}}
 
         {{-- Add Photo only --}}
-        <a type="button" class="btn" id="" style="padding-left: 4vw; padding-right: 4vw;">
+        {{-- <a type="button" class="btn" id="" style="padding-left: 4vw; padding-right: 4vw;">
             Add Photo
-        </a>
+        </a> --}}
         {{-- Add Photo only --}}
         </div>
 
@@ -273,7 +280,7 @@
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
             {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
-            {{-- <form action="" class="KotakForm">
+            <form action="" class="KotakForm">
                 <div class="form-group" id="KotakDesc">
                     <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                 <textarea
@@ -295,11 +302,11 @@
                 style="height: 9vw; border-radius: 2.5vw;"
                 ></textarea>
             </div>
-            </form> --}}
+            </form>
             {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
 
             {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
-            <div action="" class="KotakForm">
+            {{-- <div action="" class="KotakForm">
                 <div class="form-group" id="KotakDesc">
                     <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                     <img src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt="" style="margin-left: auto; height: 2vw; width: 2vw;"/>
@@ -323,7 +330,7 @@
                     style="height: 9vw; border-radius: 2.5vw;"
                     ></div>
                 </div>
-            </div>
+            </div> --}}
             {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
           </div>
           {{-- ===Segment Description=== --}}
@@ -478,7 +485,8 @@
         <div class="containerbawah">
           <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">10</span> </div>
           <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Choose date<img class="gambarPanah" src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}" alt="" style="margin-left: 1vw; width: 2vw;"/></button>
+            <button onclick="myFunction()" class="dropbtn">Choose date <img class="gambarPanah" src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}" alt="" style="margin-left: 1vw; width: 2vw;"/></button>
+            {{-- <button onclick="myFunction()" class="dropbtn" id="panahdate2">Choose date </button> --}}
             <div id="myDropdown" class="dropdown-content">
               <a href="#">March 12, 2023</a>
               <a href="#">March 12, 2023</a>
@@ -574,9 +582,19 @@
         <div class="modal-contentaddschedule">
             <div class="kotakisimodal">
                 <div class="boxjudulcloseaddschedule">
-                    <div class="tanggal">
-                        <input type="date" class="form-control" style="font-size: 2.5vw; border-radius: 1.5vw; background-color: #D9D9D9;"/>
+                    {{-- <div class="tanggal">
+                        <input type="date" class="form-control" placeholder="Choose date" style="font-size: 2.5vw; border-radius: 1.5vw; background-color: #D9D9D9;"/>
+                    </div> --}}
+
+                    <div class="bungkuscalendar">
+                        <form class="inline">
+                        <div class="input-icons">
+                            <img class="" src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}" class="datepicker-trigger" alt=""/>
+                            <input type="text" placeholder="Choose a date" class="datepicker" autocomplete="off">
+                        </div>
+                        </form>
                     </div>
+
                     <span class="closeaddschedule">&times;</span>
                 </div>
 
@@ -705,6 +723,23 @@
             }
         }
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $('.datepicker').datepicker({
+                dateFormat: "yy-mm-dd",
+                beforeShow: function(input, inst) {
+                    $('.datepicker-trigger').attr('src', '{{ asset('Assets/Xtrapage assets/chevrondown.png') }}');
+                },
+                onClose: function(dateText, inst) {
+                    $('.datepicker-trigger').attr('src', '{{ asset('Assets/Xtrapage assets/chevronup.png') }}');
+                }
+            });
+        });
+    </script>
+    @vite('resources/js/app.js')
 
 </body>
 </html>
