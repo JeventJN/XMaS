@@ -18,7 +18,8 @@
         <div class="w-[27%] h-screen bg-[#395474] flex flex-col">
             {{-- ini container untuk profile chat --}}
             <div class="w-full min-h-[6.5vw] border-b-[0.1vw] border-white flex items-center justify-around">
-                <svg xmlns="http://www.w3.org/2000/svg" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" stroke="#395474" stroke-width="0.1vw"><path fill="white" d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
+                {{-- <svg xmlns="http://www.w3.org/2000/svg" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" stroke="#395474" stroke-width="1vw"><path fill="white" d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg> --}}
+                <svg xmlns="http://www.w3.org/2000/svg" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" style="fill: white; font-weight:1vw"><path d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
                 <div class="w-[20vw] h-[4vw] bg-[#E5E5E5] mr-[1vw] rounded-[1vw] flex justify-around flex items-center">
                     {{-- Masukin foto profile disini --}}
                     <div class="w-[3.5vw] h-[3.5vw] rounded-[50%]">
@@ -187,47 +188,70 @@
         <div class="w-[73%] max-h-[38vw] flex flex-col bg-white overflow-y-scroll mt-[5vw] scrollbar-hide">
             {{-- ini pemberitahuan tanggal chat --}}
             <div class="w-full h-fit flex justify-center">
-                <div class="w-[8vw] h-[2.5vw] bg-[#1B2F45] flex justify-center items-center text-[1vw] text-white mt-[2vw] rounded-[0.5vw]">Today</div>
+                <div class="w-[8vw] h-[2.5vw] bg-[#1B2F45] flex justify-center items-center text-[1vw] text-white mt-[2vw] rounded-[0.5vw] mb-[2vw]">Today</div>
             </div>
             {{-- Received Chat --}}
-            <div class="w-[45%] h-fit ml-[1vw] mt-[1vw] flex items-end">
+            <div class="w-[65%] h-fit ml-[1vw] mt-[-2vw] flex items-end">
                 {{-- photo other user --}}
                 <div class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] bg-blue-500 mb-[1vw]">
                     <img class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] border border-black border-[0.1vw]" src="{{asset('Assets/RunningLogo.png')}}" alt="">
                 </div>
                 {{-- Bubble chat other user --}}
                 <div class="w-fit max-w-[90%] h-fit m-[1vw] mb-[3vw] bg-[#1B2F45] rounded-[0.5vw]">
-                    <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[100deg] mt-[8vw] ml-[-0.5vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#1B2F45" d="M1 21h22L12 2"/></svg>
-                    </div>
-                    <div class="flex font-nunito justify-between w-[90%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center">
-                        {{-- Chat time --}}
-                        <div class="text-[0.6vw] text-white">
-                            05.00
+                    <div class="w-full justify-center items-center">
+                        <div class="flex font-nunito justify-between max-w-[100%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center justify-center">
+                            {{-- Chat time --}}
+                            <div class="text-[0.6vw] text-white">
+                                05.00
+                            </div>
+                            <div class="w-[1vw]"></div>
+                            {{-- Nmae - Position --}}
+                            <div class="text-[1.1vw] text-white text-[#FFF172] underline flex">
+                                {{-- Nama Other User --}}
+                                <p>Jevent Natthannael</p>
+                                <p>-</p>
+                                {{-- Posisi Other User --}}
+                                <p>Leader</p>
+                            </div>
                         </div>
-                        <div class="w-[1vw]"></div>
-                        {{-- Name - Position --}}
-                        <div class="text-[1.1vw] text-white text-[#FFF172] underline">
-                            Jevent Natthannael - Leader
-                        </div>
                     </div>
+                    {{-- kalau ada foto --}}
+                    {{-- <div class="w-full ml-[0.7vw] justify-center items-center m-[1vw]">
+                        <div class="w-[95%] flex justify-center items-center">
+                            <img class="border border-white border-[0.1vw]" src="Assets/PhotoUploaded.png" alt="">
+                        </div>
+                    </div> --}}
                     <p class="font-nunito text-[1vw] text-white ml-[1vw] mb-[1vw] mr-[1vw]">Story of my life. I take her home. I spent all night to her warm and time is frozen. Story of my life. I give her hope. I spent her love until she broke inside. The story of my life. </p>
+                    <div class="flex justify-start">
+                        <div class="relative w-[10vw]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[100deg] ml-[-0.5vw] mt-[-1.8vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#1B2F45" d="M1 21h22L12 2"/></svg>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             {{-- Sended Chat --}}
-            <div class="ml-[54%] w-[45%] h-fit mt-[1vw] flex items-end justify-end">
+            <div class="ml-[34%] w-[65%] h-fit mt-[-2vw] flex items-end justify-end">
                 {{-- Bubble chat User --}}
                 <div class="w-fit max-w-[90%] h-fit m-[1vw] mb-[3vw] bg-[#114F94] rounded-[0.5vw]">
-                    <div class="flex font-nunito justify-between w-[90%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center">
-                        {{-- Chat time --}}
-                        <div class="text-[0.6vw] text-white">
-                            05.00
+                    <div class="w-full justify-center items-center">
+                        <div class="flex font-nunito justify-between max-w-[100%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center justify-center">
+                            {{-- Chat time --}}
+                            {{-- Nmae - Position --}}
+                            <div class="text-[1.1vw] text-white text-[#FFF172] underline">
+                                You
+                            </div>
+                            <div class="w-[1vw]"></div>
+                            {{-- Chat time --}}
+                            <div class="text-[0.6vw] text-white">
+                                05.00
+                            </div>
                         </div>
-                        <div class="w-[1vw]"></div>
-                        {{-- Nmae - Position --}}
-                        <div class="text-[1.1vw] text-white text-[#FFF172] underline">
-                            Jevent Natthannael - Leader
+                    </div>
+                    {{-- Ini kalau ada foto --}}
+                    <div class="w-full ml-[1vw] justify-center items-center m-[1vw]">
+                        <div class="w-[95%] flex justify-center items-center">
+                            <img class="border border-white border-[0.1vw]" src="Assets/Header.png" alt="">
                         </div>
                     </div>
                     <p class="font-nunito text-[1vw] text-white ml-[1vw] mb-[1vw] mr-[1vw]">Written in these walls are the stories that I can't explain
@@ -282,20 +306,29 @@
             </div>
 
             {{-- Sended Chat --}}
-            <div class="ml-[54%] w-[45%] h-fit mt-[1vw] flex items-end justify-end">
+            <div class="ml-[34%] w-[65%] h-fit mt-[-2vw] flex items-end justify-end">
                 {{-- Bubble chat User --}}
                 <div class="w-fit max-w-[90%] h-fit m-[1vw] mb-[3vw] bg-[#114F94] rounded-[0.5vw]">
-                    <div class="flex font-nunito justify-between w-[90%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center">
-                        {{-- Chat time --}}
-                        <div class="text-[0.6vw] text-white">
-                            05.00
-                        </div>
-                        <div class="w-[1vw]"></div>
-                        {{-- Nmae - Position --}}
-                        <div class="text-[1.1vw] text-white text-[#FFF172] underline">
-                            Jevent Natthannael - Leader
+                    <div class="w-full justify-center items-center">
+                        <div class="flex font-nunito justify-between max-w-[90%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center justify-center">
+                            {{-- Chat time --}}
+                            {{-- Nmae - Position --}}
+                            <div class="text-[1.1vw] text-white text-[#FFF172] underline">
+                                You
+                            </div>
+                            <div class="w-[1vw]"></div>
+                            {{-- Chat time --}}
+                            <div class="text-[0.6vw] text-white">
+                                05.00
+                            </div>
                         </div>
                     </div>
+                    {{-- Ini kalau ada foto --}}
+                    {{-- <div class="w-full ml-[1vw] justify-center items-center m-[1vw]">
+                        <div class="w-[95%] flex justify-center items-center">
+                            <img class="border border-white border-[0.1vw]" src="Assets/Header.png" alt="">
+                        </div>
+                    </div> --}}
                     <p class="font-nunito text-[1vw] text-white ml-[1vw] mb-[1vw] mr-[1vw]">Story of My Life kan?</p>
                     <div class="flex justify-end">
                         <div class="relative w-[10vw]">
@@ -308,28 +341,42 @@
                     <img class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] border border-black border-[0.1vw]" src="{{asset('Assets/RunningLogo.png')}}" alt="">
                 </div>
             </div>
-            <div class="w-[45%] h-fit ml-[1vw] mt-[1vw] flex items-end">
+            <div class="w-[65%] h-fit ml-[1vw] mt-[-2vw] flex items-end">
                 {{-- photo other user --}}
                 <div class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] bg-blue-500 mb-[1vw]">
                     <img class="max-w-[3.5vw] max-h-[3.5vw] rounded-[50%] border border-black border-[0.1vw]" src="{{asset('Assets/RunningLogo.png')}}" alt="">
                 </div>
                 {{-- Bubble chat other user --}}
                 <div class="w-fit max-w-[90%] h-fit m-[1vw] mb-[3vw] bg-[#1B2F45] rounded-[0.5vw]">
-                    <div class="relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[100deg] mt-[8vw] ml-[-0.5vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#1B2F45" d="M1 21h22L12 2"/></svg>
-                    </div>
-                    <div class="flex font-nunito justify-between w-[90%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center">
-                        {{-- Chat time --}}
-                        <div class="text-[0.6vw] text-white">
-                            05.00
+                    <div class="w-full justify-center items-center">
+                        <div class="flex font-nunito justify-between max-w-[100%] h-fit ml-[1vw] mt-[1vw] mr-[1vw] mb-[0.5vw] items-center justify-center">
+                            {{-- Chat time --}}
+                            <div class="text-[0.6vw] text-white">
+                                05.00
+                            </div>
+                            <div class="w-[1vw]"></div>
+                            {{-- Nmae - Position --}}
+                            <div class="text-[1.1vw] text-[#56B8E6] underline flex">
+                                {{-- Nama Other User --}}
+                                <p>Jevent Natthannael</p>
+                                <p>-</p>
+                                {{-- Posisi Other User --}}
+                                <p>Member</p>
+                            </div>
                         </div>
-                        <div class="w-[1vw]"></div>
-                        {{-- Name - Position --}}
-                        <div class="text-[1.1vw] text-white text-[#FFF172] underline">
-                            Jevent Natthannael - Leader
+                    </div>
+                    {{-- Ini kalau ada foto --}}
+                    {{-- <div class="w-full ml-[1vw] justify-center items-center m-[1vw]">
+                        <div class="w-[95%] flex justify-center items-center">
+                            <img class="border border-white border-[0.1vw]" src="Assets/Header.png" alt="">
+                        </div>
+                    </div> --}}
+                    <p class="font-nunito text-[1vw] text-white ml-[1vw] mb-[1vw] mr-[1vw]">Kalau ini? <br/> Coba liat kak Glen, kasian dia sendirian.</p>
+                    <div class="flex justify-start">
+                        <div class="relative w-[10vw]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="absolute rotate-[100deg] ml-[-0.5vw] mt-[-1.8vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="#1B2F45" d="M1 21h22L12 2"/></svg>
                         </div>
                     </div>
-                    <p class="font-nunito text-[1vw] text-white ml-[1vw] mb-[1vw] mr-[1vw]">Story of my life. I take her home. I spent all night to her warm and time is frozen. Story of my life. I give her hope. I spent her love until she broke inside. The story of my life. </p>
                 </div>
             </div>
             {{-- ini footer box chat --}}
