@@ -280,7 +280,7 @@
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
             {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
-            <form action="" class="KotakForm">
+            {{-- <form action="" class="KotakForm">
                 <div class="form-group" id="KotakDesc">
                     <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                 <textarea
@@ -302,11 +302,11 @@
                 style="height: 9vw; border-radius: 2.5vw;"
                 ></textarea>
             </div>
-            </form>
+            </form> --}}
             {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
 
             {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
-            {{-- <div action="" class="KotakForm">
+            <div action="" class="KotakForm">
                 <div class="form-group" id="KotakDesc">
                     <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                     <img src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt="" style="margin-left: auto; height: 2vw; width: 2vw;"/>
@@ -315,7 +315,7 @@
                     id="exampleFormControlTextarea1"
                     rows="3"
                     name="descriptiontextarea"
-                    style="height: 15vw; border-radius: 2.5vw"
+                    style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;"
                     ></div>
                 </div>
 
@@ -327,10 +327,10 @@
                     id="exampleFormControlTextarea1"
                     rows="3"
                     name="activitytextarea"
-                    style="height: 9vw; border-radius: 2.5vw;"
+                    style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;"
                     ></div>
                 </div>
-            </div> --}}
+            </div>
             {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
           </div>
           {{-- ===Segment Description=== --}}
