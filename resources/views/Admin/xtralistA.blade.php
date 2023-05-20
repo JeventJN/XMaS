@@ -82,7 +82,7 @@
             </div>
         </div>
     </form>
-    <div id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
+    <form id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
         <div class="flex flex-col jutify-center items-center">
             <div class="flex w-[90%] items-center mt-[2.2vw] font-black">
                 <div class="text-[1.8vw]">
@@ -111,7 +111,7 @@
             </div>
             <div id="showmodalA1" class="text-[1.8vw] absolute mt-[20.5vw] ml-[32vw] font-bold hover:cursor-pointer hover:text-[#A1A9B2]">Create</div>
         </div>
-    </div>
+    </form>
 
     {{-- modal pop up xtralist user--}}
     <div id="modalpopup" class="modal font-nunito">

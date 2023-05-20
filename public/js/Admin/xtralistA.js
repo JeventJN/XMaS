@@ -8,6 +8,8 @@ var hidemodal1 = document.getElementById('hidemodalno1');
 var hidemodal2 = document.getElementById('hidemodalno2');
 var showmodalF = document.getElementById('showmodalF');
 var hidemodalF = document.getElementById('hidemodalF');
+var form = document.getElementById('modalpopupA');
+
 
 showmodal1.addEventListener('click', openModal1);
 showmodal.addEventListener('click', openModalA);
@@ -40,15 +42,15 @@ function closeModal1(){
 
 function openModal1(){
     const xtraname = document.getElementById('xtraname')
-    const category = document.getElementById('category')
 
     if(xtraname.value.length < 1){
         alert("Fill Xtra name.");
         return false;
     }
 
-    if(!category.checked){
-        alert("Choose one category.");
+    if (form.category.value != 'Physique' && form.category.value != 'Non-Physique')
+    {
+        alert ("Please select one program");
         return false;
     }
 
