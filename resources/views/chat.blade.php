@@ -48,6 +48,126 @@
                         <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
                     </div>
                 </div>
+                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                    {{-- Masukin logo xtra disini --}}
+                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
+                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
+                    </div>
+                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
+                        {{-- Nama eskul di container chat --}}
+                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
+                        {{-- Nama oranng masukin di mark --}}
+                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
+                    </div>
+                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
+                        <div class="text-[0.8vw] text-white">Just Now</div>
+                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
+                    </div>
+                </div>
+                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                    {{-- Masukin logo xtra disini --}}
+                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
+                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
+                    </div>
+                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
+                        {{-- Nama eskul di container chat --}}
+                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
+                        {{-- Nama oranng masukin di mark --}}
+                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
+                    </div>
+                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
+                        <div class="text-[0.8vw] text-white">Just Now</div>
+                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
+                    </div>
+                </div>
+                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                    {{-- Masukin logo xtra disini --}}
+                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
+                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
+                    </div>
+                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
+                        {{-- Nama eskul di container chat --}}
+                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
+                        {{-- Nama oranng masukin di mark --}}
+                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
+                    </div>
+                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
+                        <div class="text-[0.8vw] text-white">Just Now</div>
+                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
+                    </div>
+                </div>
+                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                    {{-- Masukin logo xtra disini --}}
+                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
+                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
+                    </div>
+                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
+                        {{-- Nama eskul di container chat --}}
+                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
+                        {{-- Nama oranng masukin di mark --}}
+                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
+                    </div>
+                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
+                        <div class="text-[0.8vw] text-white">Just Now</div>
+                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
+                    </div>
+                </div>
+                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                    {{-- Masukin logo xtra disini --}}
+                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
+                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
+                    </div>
+                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
+                        {{-- Nama eskul di container chat --}}
+                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
+                        {{-- Nama oranng masukin di mark --}}
+                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
+                    </div>
+                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
+                        <div class="text-[0.8vw] text-white">Just Now</div>
+                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
+                    </div>
+                </div>
+                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                    {{-- Masukin logo xtra disini --}}
+                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
+                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
+                    </div>
+                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
+                        {{-- Nama eskul di container chat --}}
+                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
+                        {{-- Nama oranng masukin di mark --}}
+                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
+                    </div>
+                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
+                        <div class="text-[0.8vw] text-white">Just Now</div>
+                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
+                    </div>
+                </div>
+                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                    {{-- Masukin logo xtra disini --}}
+                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
+                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
+                    </div>
+                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
+                        {{-- Nama eskul di container chat --}}
+                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
+                        {{-- Nama oranng masukin di mark --}}
+                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
+                    </div>
+                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
+                        <div class="text-[0.8vw] text-white">Just Now</div>
+                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-[4.35vw] flex justify-end items-center border-t border-t-[0.1vw]">
+                {{-- Notifikasi --}}
+                <div class="bg-[#1B2F45] w-fit h-[2vw] mr-[1vw] rounded-[0.5vw] flex justify-center text-[1.2vw] text-white items-center">
+                    <div class="w-[0.5vw]"></div>
+                    5 notification(s) from 2 group(s)
+                    <div class="w-[0.5vw]"></div>
+                </div>
             </div>
         </div>
         <div class="ml-[27%] w-[73%] min-h-[6.5vw] border-b-[0.1vw] border-white flex items-center justify-start bg-[#1B2F45] fixed">
