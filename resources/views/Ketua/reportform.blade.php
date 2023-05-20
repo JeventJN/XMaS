@@ -19,7 +19,7 @@
             </a>
         </div>
         <div class="font-nunito text-[2.8vw] text-white font-bold">
-            Extracurricular Report Form
+            Xtra Report Form
         </div>
     </div>
     <form class="absolute" action="" id="reportform" method="POST" autocomplete="off">
@@ -94,9 +94,9 @@
                 </div>
                 <div class="flex flex-col w-[25.5vw] h-[33vw] ml-[6vw]">
                     <div class="text-[1.8vw] font-semibold ">Documentation</div>
-                    <div class="h-[31.2vw] bg-[#395474] outline-dotted outline-[0.1vw] flex">
-                        <img class="h-[31.2vw] w-[25.5vw]" id="photoContainer" src="{{asset('Assets/UploadPhotoForm.png')}}" alt="">
-                        <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/UploadedPhotoForm.png')}}'">
+                    <div class="h-[31.2vw] w-[25.5vw] bg-[#1B2F45] outline outline-dotted outline-[0.2vw]  flex justify-center">
+                        <img class="h-[31.2vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto1.png')}}" alt="">
+                        <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded1.png')}}'">
                     </div>
                 </div>
             </div>
