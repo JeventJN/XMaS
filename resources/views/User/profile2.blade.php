@@ -13,17 +13,13 @@
 
     <div class="batas">
         <div class="boxfotoprofile">
-
-            <div class="boxluarfoto">
+            <div class="boxluarfoto" >
                 <img class="fotoprofile" src="{{ asset('Assets/Profile assets/Foto.png') }}" alt>
-                <form method="GET" enctype="multipart/form-data">
-                    <div class="iconcamera" id="iconcamera">
-                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profile assets/Edit Photo.svg') }}" alt>
-                        <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
-                    </div>
-                </form>
+                <div class="iconcamera">
+                    <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profile assets/Edit Photo.svg') }}" alt>
+                    <input type="file" name="" id="upload-photo">
+                </div>
             </div>
-
             <div class="boxluarprofile">
                 <div class="boxidentitastempatsampah">
                     <div class="boxidentitas">
@@ -40,9 +36,10 @@
                         <div class="identitasnama">Vanessa Kwandinata</div>
                         <div class="identitasNIP">0398</div>
                         <div class="boxphoneedit">
-                            <div class="identitasphone">+62895635863956</div>
-                            <a href="{{ route('profile2')}}"><svg class="editphonenumbericon" xmlns="http://www.w3.org/2000/svg" width="1.7vw" height="1.7vw" viewBox="0 0 256 256"><path d="m227.32 73.37l-44.69-44.68a16 16 0 0 0-22.63 0L36.69 152A15.86 15.86 0 0 0 32 163.31V208a16 16 0 0 0 16 16h168a8 8 0 0 0 0-16H115.32l112-112a16 16 0 0 0 0-22.63ZM92.69 208H48v-44.69l88-88L180.69 120ZM192 108.69L147.32 64l24-24L216 84.69Z"/></svg>
-                            </a>
+                            <form>
+                                <input class="identitasphone" value="+62895635863956">
+                            </form>
+                            <a href="{{ route('profile')}}"><svg class="editphonenumbericon" xmlns="http://www.w3.org/2000/svg" width="1.7vw" height="1.7vw" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z"/></svg></a>
                         </div>
                     </div>
                     <div class="boxtempatsampah">
@@ -275,19 +272,6 @@
         }
         //SCRIPT DROPDOWN=============================================
     </script>
-    <script>
-        document.getElementById('iconcamera').addEventListener('click', function() {
-            document.getElementById('fileupload').click();
-            });
-
-            document.getElementById('fileupload').addEventListener('change', function() {
-            var files = this.files;
-            // Handle uploaded files here
-            console.log(files);
-         });
-
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </body>
 </html>

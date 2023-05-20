@@ -78,7 +78,11 @@ Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-scr
 
 Route::get('profile', function (){
     return view('user/profile');
-});
+}) -> name('profile');
+
+Route::get('profile2', function (){
+    return view('user/profile2');
+}) -> name('profile2');
 
 Route::get('approval', function (){
     return view('Admin.approval');
