@@ -65,7 +65,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalno1" class="w-[2vw] h-[2vw] mt-[1vw] cursor-pointer" viewBox="0 0 256 256"><path fill="black" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
                 </div>
                 <div class="w-[36vw] font-semibold text-[1.5vw] mb-[2vw]">
-                    This action will <mark class="bg-white text-[#FF0000]">send</mark> the report.
+                    This action will <mark class="bg-white text-[#FF0000]">create</mark> new Xtra.
                     <br/>
                     Do you want to continue?
                 </div>
@@ -76,7 +76,7 @@
                         </div>
                     </button>
                     <div id="hidemodalno2" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer hover:font-bold">
-                        No
+                        Cancel
                     </div>
                 </div>
             </div>

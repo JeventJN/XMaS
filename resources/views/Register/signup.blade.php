@@ -106,7 +106,6 @@
                         <div class="upload" >
                             <img class="h-[26vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto.png')}}" alt="">
                             <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0 hover:cursor-pointer" type="file" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded.png')}}'">
-
                         </div>
                         <div class="buttonsignup mt-[0.5vw]">
                             <input type="checkbox" id="checkbox" class="w-[1vw] h-[1vw] underline italic ml-[-3vw]">
