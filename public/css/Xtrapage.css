@@ -19,7 +19,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    height: 48.7vw;
+    /* height: 47.5vw; */
+    height: 100vh;
 }
 
 /* Mengatur box-jumbotron, menggunakan position absolut supaya objek di atas jumbotron 1 dimensi */
@@ -237,7 +238,7 @@ main .nav-item a:hover {
     border-top-left-radius: 1.8vw;
     border-top-right-radius: 1.8vw;
     border: none;
-    height: 5.75vw;
+    height: 5.95xtravw;
     position: absolute;
     width: 18vw;
     text-align: center;
@@ -747,7 +748,7 @@ section p {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 4.2vw; /* Location of the box */
+    padding-top: 2.2vw; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -844,7 +845,7 @@ section p {
 	border: none;
 	border-radius: 1.5vw;
 	/* border: 1px solid transparent; */
-	padding-left: 5vw;
+	padding-left: 3vw;
     /* text-indent: 5vw; */
 	color: rgb(63, 62, 62);
 	width: 30vw;

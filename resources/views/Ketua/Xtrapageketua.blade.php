@@ -49,7 +49,7 @@
     @vite('resources/css/app.css')
   </head>
 
-  <body>
+  <body class="scrollbar-hide">
 
     <!-- navbar -->
     @include('Non-User.navbarNU')
@@ -134,7 +134,7 @@
                           e.target.style.height = '5vw';
                           e.target.style.paddingBottom = '4.1vw';
 
-                        if (value == 'Running') {
+                        if (value == 'Chess') {
                             e.target.classList.add('JudulXtra');
                             e.target.style.width = '30vw';
                             e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
