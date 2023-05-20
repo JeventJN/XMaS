@@ -22,7 +22,6 @@
             Xtra Report Form
         </div>
     </div>
-    <form class="absolute" action="" id="reportform" method="POST" autocomplete="off">
         {{-- Modal Submit --}}
         <div class="modal" id="modalpopup">
             <div class=" flex justify-around items-center flex-col">
@@ -54,7 +53,9 @@
                             <div class="">Xtra's Name</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
-                            <input type="text" name="xtraname" id="xtraname" placeholder="Xtra's Name..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] mb-[1vw] w-[23vw]">
+                            <div class="min-w-[100%] text-[1.5vw] border-b-[0.1vw] mb-[1vw] text-white">
+                                masukin nama xtra di sini
+                            </div>
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
@@ -62,15 +63,19 @@
                             <div class="">Leader's Name</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
-                            <input type="text" name="leadername" id="leadername" placeholder="Leader..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] mb-[1vw] w-[23vw]">
+                            <div class="min-w-[100%] text-[1.5vw] border-b-[0.1vw] mb-[1vw] text-white">
+                                masukin nama leader di sini
+                            </div>
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
                         <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] font-semibold">
                             <div class="">Report Date</div>
                         </div>
-                        <div class="flex justify-start items-end w-[23vw]">
-                            <input type="date" name="reportdate" id="reportdate" class="text-[1.5vw] text-white focus:outline-none bg-[#395474] fill-white underline border-b-[0.1vw] w-[23vw] mb-[1vw] cursor-text fill-white">
+                        <div class="flex justify-start w-[23vw]">
+                            <div class="min-w-[100%] text-[1.5vw] border-b-[0.1vw] mb-[1vw] text-white">
+                                masukin tanggal laporan di sini
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,34 +85,46 @@
                             <div class="">Reports's Title</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
-                            <input type="text" name="reporttitle" id="reporttitle" placeholder="Report's Title..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] w-[23vw] mb-[1vw]">
+                            <div class="min-w-[100%] text-[1.5vw] border-b-[0.1vw] mb-[1vw] text-white">
+                                masukin judul report
+                            </div>
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[17.5vw] bg-[#395474] rounded-[1vw] mt-[3vw] flex justify-between items-center flex-col">
                         <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] mt-[1vw] font-semibold">
                             <div class="">Reports's Description</div>
                         </div>
-                        <div class=" w-[23vw] h-[13vw] mb-[1vw]">
-                            <textarea name="reportdesc" id="reportdesc" style="resize:none;" placeholder="Report's Description...                         _                                                             _                                                             _                                                           _                                                            " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-all underline scrollbar-hide"></textarea>
+                        <div class="flex justify-start w-[23vw]">
+                            <div class="min-w-[100%] text-[1.5vw] max-h-[11vw] mb-[2vw] text-white overflow-y-scroll scrollbar-hide underline">
+                                <p class="hypens-auto">
+                                    masukin nama xtra di sini masukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sini masukin nama xtra di sini
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-col w-[25.5vw] h-[33vw] ml-[6vw]">
                     <div class="text-[1.8vw] font-semibold ">Documentation</div>
                     <div class="h-[31.2vw] w-[25.5vw] bg-[#1B2F45] outline outline-dotted outline-[0.2vw]  flex justify-center">
+                        {{-- ganti gambar disini --}}
                         <img class="h-[31.2vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto1.png')}}" alt="">
-                        <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded1.png')}}'">
                     </div>
                 </div>
             </div>
         </div>
-        {{-- Ini untuk submit report --}}
+
+        {{-- Ini untuk Admin (Acc/Dec) --}}
         <div class="flex justify-center w-screen h-fit font-nunito">
-            <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#1B2F45] rounded-[0.2vw] text-white text-[1.5vw] hover:bg-black hover:cursor-pointer hover:font-bold" id="showmodal">
+            <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
+                Accept
+            </div>
+            <div class="flex items-center justify-center w-[3.5vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white text-[1.3vw] hover:bg-black hover:cursor-pointer opacity-0">
                 Submit
+            </div>
+            <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
+                Deny
             </div>
         </div>
         <script src="{{asset('js/Ketua/reportform.js')}}"></script>
-    </form>
 </body>
 </html>
