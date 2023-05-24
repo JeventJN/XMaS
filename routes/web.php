@@ -3,7 +3,7 @@
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\logInController;
 use App\Http\Controllers\signUpController;
-use App\Http\Controllers\xtralistController;
+use App\Http\Controllers\xtraController;
 use App\Http\Controllers\cameraController;
 use App\Http\Controllers\xtraregController;
 use Illuminate\Support\Facades\Route;
@@ -42,11 +42,11 @@ Route::get(('/xtrareg'), [xtraregController::class, 'xtra'])->middleware('auth')
 Route::post(('/xtrareg'), [xtraregController::class, 'newMember'])->middleware('auth');
 
 
-Route::get(('/xtralistNU'), [xtralistController::class, 'index']);
+Route::get(('/xtralistNU'), [xtraController::class, 'index']);
 
 
 // halaman xtra satuan
-Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtralistController::class, 'show']);
+Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtraController::class, 'show']);
 
 
 Route::get('/reportform', function () {
@@ -71,7 +71,7 @@ Route::get(('/contoh'), function (){
     return view(('/contoh'));
 });
 
-Route::get(('/myclub'), [xtralistController::class, 'myclub']);
+Route::get(('/myclub'), [xtraController::class, 'myclub']);
 
 Route::get(('/reportlist'), function (){
     return view(('/Admin.reportlist'));

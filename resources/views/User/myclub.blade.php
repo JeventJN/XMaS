@@ -48,9 +48,9 @@
 
     {{-- modal pop up --}}
      {{-- modal pop up xtralist user--}}
-     <div id="modalpopup" class="modal font-nunito">
+     <div id="modalpopup" class="modal font-nunito z-50">
         {{-- CECILLL INI MASIH APPLY KE NU --}}
-        <form action="/user.myclub" id="modal" method="GET">
+        <form action="/myclub" id="modal" method="GET">
             @if (request('search'))
                     <input type="hidden" name="search" value={{ request('search') }}>
             @endif
@@ -114,7 +114,7 @@
                 <button class="svg ml-[39vw] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg"  id="showmodal" viewBox="0 0 24 24"><path fill="currentColor" d="M9 5a1 1 0 1 0 0 2a1 1 0 0 0 0-2zM6.17 5a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 0 1 0-2h1.17zM15 11a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h7.17zM9 17a1 1 0 1 0 0 2a1 1 0 0 0 0-2zm-2.83 0a3.001 3.001 0 0 1 5.66 0H19a1 1 0 1 1 0 2h-7.17a3.001 3.001 0 0 1-5.66 0H5a1 1 0 1 1 0-2h1.17z"/></svg>
                 </button>
-                <form action="/user.myclub" method="GET">
+                <form action="/myclub" method="GET">
                     @if (request('Physique'))
                             <input type="hidden" name="Physique" value={{ request('Physique') }}>
                     @endif
