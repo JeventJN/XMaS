@@ -2,15 +2,15 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+}
 
-  body {
+body {
     font-family: "Anton", sans-serif;
     font-family: "Nunito", sans-serif;
     overflow-x: hidden;
-    }
+}
 
-  .batas {
+.batas {
     width: 100%;
     height: 100%;
     padding-top: 4vw;
@@ -21,9 +21,9 @@
     align-items: center;
 
     /* border: solid red; */
-  }
+}
 
-  .boxfotoprofile {
+.boxfotoprofile {
     width: 100%;
     height: 100%;
 
@@ -33,9 +33,9 @@
     align-items: center;
 
     /* border: solid rgb(25, 0, 255); */
-  }
+}
 
-  .boxluarfoto {
+.boxluarfoto {
     width: 25vw;
     height: 28vw;
     border-radius: 2.1369212504946575vw;
@@ -52,18 +52,18 @@
     justify-content: center;
 
     border: solid #59606d;
-  }
+}
 
-  .boxluarfoto:hover .iconcamera{
+.boxluarfoto:hover .iconcamera {
     visibility: visible;
-  }
+}
 
-  .fotoprofile{
+.fotoprofile {
     width: 25vw;
     height: 28vw;
-  }
+}
 
-  .iconcamera{
+.iconcamera {
     width: 100%;
     height: 100%;
     top: 0;
@@ -73,16 +73,16 @@
     border-radius: 2.1369212504946575vw;
     visibility: hidden;
     cursor: pointer;
-  }
+}
 
-  .boxluarprofile {
+.boxluarprofile {
     width: 65vw;
     height: 25vw;
     border-radius: 1vw;
     margin-top: 3.32409972299169vw;
     margin-bottom: 2.23189552829442vw;
     margin-left: 2.1vw;
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     padding-top: 1vw;
     padding-bottom: 2.374356944994064vw;
 
@@ -91,28 +91,28 @@
     /* align-items: center; */
 
     border: solid #59606d;
-  }
+}
 
-  .boxidentitastempatsampah{
+.boxidentitastempatsampah {
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
     /* border: red solid; */
-  }
+}
 
-  .boxidentitas{
+.boxidentitas {
     flex: 0;
     line-height: 2;
     padding-left: 1.5vw;
     /* border: yellow solid; */
-  }
+}
 
-  .formidentitas{
+.formidentitas {
     font-size: 1.8vw;
     font-weight: 700;
-  }
+}
 
-  .titikdua{
+.titikdua {
     flex: 0;
     line-height: 2;
     padding-left: 0.2vw;
@@ -120,35 +120,57 @@
     margin-right: 0.5vw;
     font-size: 1.8vw;
     /* border: green solid; */
-  }
+}
 
-  .isiidentitas{
+.isiidentitas {
     flex: 2;
     line-height: 2;
     /* border: blue solid; */
-  }
+}
 
-  .boxphoneedit{
+.boxphoneedit {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 0.5vw;
     /* border: red solid; */
-  }
+}
 
-  .identitasnama, .identitasNIP, .identitasphone{
+.isiboxphoneedit {
+    display: flex;
+    flex-direction: row;
+}
+
+.boxcheckcross {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.identitasnama,
+.identitasNIP,
+.identitasphone {
     font-size: 1.8vw;
-  }
+}
 
-  .editphonenumbericon{
+.editphonenumbericon {
     fill: blue;
-  }
+}
 
-  .editphonenumbericon:hover{
+.editphonenumbericon:hover {
     fill: red;
-  }
+}
 
-  .boxtempatsampah{
+#phonetext {
+    display: block;
+}
+
+#phoneinput {
+    display: none;
+}
+
+.boxtempatsampah {
     flex: 0.2;
     display: flex;
     flex-direction: row;
@@ -156,21 +178,21 @@
     flex-direction: row;
     justify-content: right;
     /* border: purple solid; */
-  }
+}
 
-  .icontempatsampah{
+.icontempatsampah {
     width: 3vw;
     height: 3vw;
     margin-right: 0.8vw;
     cursor: pointer;
-  }
+}
 
-  .spasi{
+.spasi {
     height: 10vw;
     /* border: orange solid; */
-  }
+}
 
-  .boxtombol{
+.boxtombol {
     width: 100%;
     height: 5vw;
     display: flex;
@@ -179,27 +201,27 @@
     padding-left: 1.75vw;
     padding-right: 1.75vw;
     /* border: cyan solid; */
-  }
+}
 
-  /* ============================ untuk member: Request Leader Access!!! ============================ */
+/* ============================ untuk member: Request Leader Access!!! ============================ */
 
-  .boxtombol .request{
+.boxtombol .request {
     height: 3.8vw;
     width: 17vw;
     font-size: 1.45vw;
-    border: #1B2F45 solid;
-    background-color: #1B2F45;
+    border: #1b2f45 solid;
+    background-color: #1b2f45;
     border-radius: 0.5vw;
-    color: #FFFFFF;
-  }
+    color: #ffffff;
+}
 
-  .boxtombol .request:hover{
+.boxtombol .request:hover {
     text-decoration: underline;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: black;
-  }
+}
 
-  /* ====================The Modal for Request Leader Access==================== */
+/* ====================The Modal for Request Leader Access==================== */
 .modalrequest {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -210,12 +232,12 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
 
-  /* Modal Content */
-  .modal-contentrequest {
+/* Modal Content */
+.modal-contentrequest {
     background-color: #fefefe;
     margin: auto;
     padding: 1.1vw 2.3vw 1.1vw 2.3vw;
@@ -224,27 +246,27 @@
     height: 23vw;
     width: 45vw;
     border-radius: 1.8vw;
-    border: #1B2F45 0.3vw solid;
-  }
+    border: #1b2f45 0.3vw solid;
+}
 
-  .kotakisimodal{
+.kotakisimodal {
     display: flex;
     flex-direction: column;
     /* border: cyan solid; */
-  }
+}
 
-  .boxjudulcloserequest{
+.boxjudulcloserequest {
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
+}
 
-  .judulmodal{
+.judulmodal {
     flex: 5;
     font-size: 1.5vw;
-  }
+}
 
-  /* ====================The Modal for Log Out==================== */
+/* ====================The Modal for Log Out==================== */
 .modallogout {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -255,13 +277,13 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
     z-index: 50;
-  }
+}
 
-  /* Modal Content */
-  .modal-contentlogout {
+/* Modal Content */
+.modal-contentlogout {
     background-color: #fefefe;
     margin: auto;
     padding: 1.1vw 2vw 1.1vw 2vw;
@@ -270,47 +292,47 @@
     height: 15vw;
     width: 39.8vw;
     border-radius: 1.8vw;
-    border: #1B2F45 0.2vw solid;
-  }
+    border: #1b2f45 0.2vw solid;
+}
 
-  .kotakisimodal{
+.kotakisimodal {
     display: flex;
     flex-direction: column;
     /* border: cyan solid; */
-  }
+}
 
-  .boxjudulcloselogout{
+.boxjudulcloselogout {
     display: flex;
     flex-direction: row;
     justify-content: end;
     align-items: center;
     height: 2.1vw;
-  }
+}
 
-  .judulmodal{
+.judulmodal {
     flex: 5;
     font-size: 1.5vw;
-  }
+}
 
-  .isilogout{
+.isilogout {
     display: flex;
     flex-direction: column;
     gap: 0.15vw;
     height: 4.5vw;
     /* border: purple solid; */
-  }
+}
 
-  .kalimatlogout1{
+.kalimatlogout1 {
     font-size: 1.6vw;
     font-weight: 600;
-  }
+}
 
-  .kalimatlogout2{
+.kalimatlogout2 {
     font-size: 1.6vw;
     font-weight: 600;
-  }
+}
 
-  /* ====================The Modal for Tempat Sampah==================== */
+/* ====================The Modal for Tempat Sampah==================== */
 .modalsampah {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -321,13 +343,13 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
     z-index: 50;
-  }
+}
 
-  /* Modal Content */
-  .modal-contentsampah {
+/* Modal Content */
+.modal-contentsampah {
     background-color: #fefefe;
     margin: auto;
     padding: 1.1vw 2vw 1.1vw 2vw;
@@ -336,58 +358,58 @@
     height: 15vw;
     width: 39.8vw;
     border-radius: 1.8vw;
-    border: #1B2F45 0.2vw solid;
-  }
+    border: #1b2f45 0.2vw solid;
+}
 
-  .kotakisimodal{
+.kotakisimodal {
     display: flex;
     flex-direction: column;
     /* border: cyan solid; */
-  }
+}
 
-  .boxjudulclosesampah{
+.boxjudulclosesampah {
     display: flex;
     flex-direction: row;
     justify-content: end;
     align-items: center;
     height: 2.1vw;
-  }
+}
 
-  .judulmodal{
+.judulmodal {
     flex: 5;
     font-size: 1.5vw;
-  }
+}
 
-  .isisampah{
+.isisampah {
     display: flex;
     flex-direction: column;
     gap: 0.15vw;
     height: 4.5vw;
     /* border: purple solid; */
-  }
+}
 
-  .kalimatsampah1{
+.kalimatsampah1 {
     font-size: 1.6vw;
     font-weight: 600;
-  }
+}
 
-  .kalimatsampah2{
+.kalimatsampah2 {
     font-size: 1.6vw;
     font-weight: 600;
-  }
+}
 
 /*===============================================================*/
 
 /*===============================================================*/
 
-.boxsubmitrequest{
+.boxsubmitrequest {
     display: flex;
     flex-direction: row;
     justify-content: right;
     /* border: yellow solid; */
 }
 
-.boxsubmitlogout{
+.boxsubmitlogout {
     display: flex;
     flex-direction: row;
     justify-content: right;
@@ -396,7 +418,7 @@
     /* border: yellow solid; */
 }
 
-.boxsubmitsampah{
+.boxsubmitsampah {
     display: flex;
     flex-direction: row;
     justify-content: right;
@@ -405,116 +427,119 @@
     /* border: yellow solid; */
 }
 
-.btnsubmitmodal{
+.btnsubmitmodal {
     font-size: 1.2vw;
     height: 2.4vw;
     width: 11vw;
     border-radius: 0.2vw;
     color: white;
     border: none;
-    background-color: #1B2F45;
+    background-color: #1b2f45;
 }
 
-.btnsubmitmodal:hover{
+.btnsubmitmodal:hover {
     font-weight: 700;
     color: white;
     background-color: black;
 }
 
-.btnyesmodal{
+.btnyesmodal {
     font-size: 1.2vw;
     height: 2.4vw;
     width: 11vw;
     border-radius: 0.2vw;
     color: white;
     border: none;
-    background-color: #398E20;
+    background-color: #398e20;
 }
 
-.btnyesmodal:hover{
+.btnyesmodal:hover {
     font-weight: 700;
     color: white;
     background-color: #155003;
 }
 
-.btncancelmodal{
+.btncancelmodal {
     font-size: 1.2vw;
     height: 2.4vw;
     width: 11vw;
     border-radius: 0.2vw;
     color: black;
     border: none;
-    background-color: #FF0000;
+    background-color: #ff0000;
 }
 
-.btncancelmodal:hover{
+.btncancelmodal:hover {
     font-weight: 700;
     color: white;
-    background-color: #6D0000;
+    background-color: #6d0000;
 }
 
-  /* The Close Button */
-  .closerequest {
+/*  The Close Button  */
+.closerequest {
     color: #aaaaaa;
     float: right;
     font-size: 3vw;
     color: #000;
     font-weight: bold;
-  }
+}
 
-  .closerequest:hover, .close:focus {
-    color: #FF0000;
+.closerequest:hover,
+.close:focus {
+    color: #ff0000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  .closelogout {
+.closelogout {
     color: #aaaaaa;
     float: right;
     font-size: 2.8vw;
     color: #000;
     font-weight: bold;
-  }
+}
 
-  .closelogout:hover, .close:focus {
-    color: #FF0000;
+.closelogout:hover,
+.close:focus {
+    color: #ff0000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  .closesampah {
+.closesampah {
     color: #aaaaaa;
     float: right;
     font-size: 2.8vw;
     color: #000;
     font-weight: bold;
-  }
+}
 
-  .closesampah:hover, .close:focus {
-    color: #FF0000;
+.closesampah:hover,
+.close:focus {
+    color: #ff0000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-  /* ============================ untuk member!!! ============================ */
+/* ============================ untuk member!!! ============================ */
 
-  .boxtombol .logout{
+.boxtombol .logout {
     margin-left: auto;
     height: 2.8vw;
     width: 11vw;
     font-size: 1.3vw;
     border: none;
     border-radius: 0.5vw;
-    background-color: #FF0000;
-  }
+    background-color: #ff0000;
+}
 
-  .boxtombol .logout:hover{
-    background-color: #6D0000;
+.boxtombol .logout:hover {
+    background-color: #6d0000;
     font-weight: 700;
     color: white;
-  }
+}
 
-  .boxstatus {
+.boxstatus {
     width: 100%;
     height: 100%;
     padding-left: 3.55vw;
@@ -524,9 +549,9 @@
     justify-content: left;
 
     /* border: 2px solid rgb(65, 204, 47); */
-  }
+}
 
-  .boxstatus1 {
+.boxstatus1 {
     height: 100%;
     width: 25vw;
     display: flex;
@@ -534,23 +559,23 @@
     justify-content: center;
 
     /* border: 3px solid rgb(240, 0, 0); */
-  }
+}
 
-  .boxstatus2member {
+.boxstatus2member {
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     border-radius: 1.2vw;
 
-    border: 0.15vw solid #797D81;
-  }
+    border: 0.15vw solid #797d81;
+}
 
-  .boxstatus3member {
+.boxstatus3member {
     height: 100%;
     font-size: 2vw;
     color: white;
-    background-color: #797D81;
+    background-color: #797d81;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -562,23 +587,23 @@
     border-radius: 1vw;
 
     /* border: 3px solid rgb(194, 204, 47); */
-  }
+}
 
-  .boxstatus2leader {
+.boxstatus2leader {
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     border-radius: 1.2vw;
 
-    border: 0.15vw solid #FFF172;
-  }
+    border: 0.15vw solid #fff172;
+}
 
-  .boxstatus3leader {
+.boxstatus3leader {
     height: 100%;
     font-size: 2vw;
     color: rgb(0, 0, 0);
-    background-color: #FFF172;;
+    background-color: #fff172;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -590,4 +615,4 @@
     border-radius: 1vw;
 
     /* border: 3px solid rgb(194, 204, 47); */
-  }
+}

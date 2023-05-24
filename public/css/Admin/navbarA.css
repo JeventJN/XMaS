@@ -1,103 +1,13 @@
-.bigcontainer {
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container {
-    min-width: 90%;
-    background-color: #a1a9b2;
-    border-radius: 1vw;
-}
-
-.headercontainer {
-    width: 90%;
-    height: 10vw;
-}
-
-.rowcontainer {
-    min-width: 80vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.xtraboxcontainer {
+body {
     cursor: pointer;
-    width: 36vw;
-    height: 20vw;
-    background-color: white;
-    margin: 2vw;
-    border-radius: 1.375vw;
-    border-width: 0.2vw;
-    border-color: black;
 }
 
-.xtraboxcontainer:hover {
-    background-color: #395474;
-    color: white;
-}
-
-.xtrabox {
-    width: 15vw;
-    height: 15vw;
-}
-
-.xtrabox img {
-    border-radius: 50%;
-    width: 12vw;
-    height: 12vw;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    margin-left: 24vw;
-    margin-top: 9vw;
-    background-color: white;
-    width: 48vw;
-    height: 28vw;
-    border-color: #1b2f45;
-    border-width: 0.25vw;
-    border-radius: 2vw;
-}
-
-.svg {
-    height: 3vw;
-    width: 3vw;
-}
-
-.no-outline:focus {
-    outline: none;
-}
-
-input[type="checkbox"] {
-    width: 2vw;
-    height: 2vw;
-    -webkit-border-radius: 0.2vw;
-    -moz-border-radius: 0.2vw;
-    border-radius: 0.2vw;
-}
-
-input[type="checkbox"]:checked {
-    width: 2vw;
-    height: 2vw;
-    -webkit-border-radius: 0.2vw;
-    -moz-border-radius: 0.2vw;
-    border-radius: 0.2vw;
-}
-
-/* MODAL */
-/* ====================The Modal for Tempat Sampah==================== */
-.modalsampah {
+/* ====================The Modal for Log Out==================== */
+.modallogout {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 15vw; /*Location of the box*/
+    /* padding-top: 5.3vw; Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -109,7 +19,7 @@ input[type="checkbox"]:checked {
 }
 
 /* Modal Content */
-.modal-contentsampah {
+.modal-contentlogout {
     background-color: #fefefe;
     margin: auto;
     padding: 1.1vw 2vw 1.1vw 2vw;
@@ -127,7 +37,7 @@ input[type="checkbox"]:checked {
     /* border: cyan solid; */
 }
 
-.boxjudulclosesampah {
+.boxjudulcloselogout {
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -140,30 +50,31 @@ input[type="checkbox"]:checked {
     font-size: 1.5vw;
 }
 
-.isisampah {
+.isilogout {
     display: flex;
     flex-direction: column;
     gap: 0.15vw;
     height: 4.5vw;
 }
 
-.kalimatsampah1 {
+.kalimatlogout1 {
+    color: black;
     font-size: 1.6vw;
     font-weight: 600;
 }
 
-.kalimatsampah2 {
+.kalimatlogout2 {
+    color: black;
     font-size: 1.6vw;
     font-weight: 600;
 }
 
-.boxsubmitsampah {
+.boxsubmitlogout {
     display: flex;
     flex-direction: row;
     justify-content: right;
     margin-top: 2.5vw;
     gap: 2vw;
-    /* border: yellow solid; */
 }
 
 .btnyesmodal {
@@ -198,7 +109,7 @@ input[type="checkbox"]:checked {
     background-color: #6d0000;
 }
 
-.closesampah {
+.closelogout {
     color: #aaaaaa;
     float: right;
     font-size: 2.8vw;
@@ -206,7 +117,7 @@ input[type="checkbox"]:checked {
     font-weight: bold;
 }
 
-.closesampah:hover,
+.closelogout:hover,
 .close:focus {
     color: #ff0000;
     text-decoration: none;

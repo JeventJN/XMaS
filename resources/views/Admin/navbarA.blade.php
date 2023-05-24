@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/Admin/navbarA.css') }}">
   @vite('resources/css/app.css')
 </head>
 <body class="scrollbar-hide">
@@ -37,10 +38,67 @@
             {{-- <div class="w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/approval">
                 Approval
             </div> --}}
-            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/logout">
+            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/logout" id="logoutbtn">
+
                 Log Out
             </a>
+            
+            {{-- Modal Log Out --}}
+            <div id="modallogout" class="modallogout">
+                {{-- Modal Content --}}
+                <div class="modal-contentlogout">
+                    <div class="kotakisimodal">
+                        <div class="boxjudulcloselogout">
+                            <span class="closelogout">&times;</span>
+                        </div>
+                        <div class="isilogout">
+                            <div class="kalimatlogout1">This action will <span style="color: red;">log</span> you <span style="color: red;">out</span></div>
+                            <div class="kalimatlogout2">Do you want to continue?</div>
+                        </div>
+                        <div class="boxsubmitlogout">
+                            <a href="/logout"><button class="btnyesmodal">Yes</button></a>
+                            <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- Modal Log Out --}}
         </div>
     </div>
+
+    <script>
+        //SCRIPT MODAL LOG OUT======================================
+        // Get modal
+        var modallogout = document.getElementById("modallogout")
+
+        // Get button that opens modal
+        var btnlogout = document.getElementById("logoutbtn");
+
+        // Get the <span> element that closes the modal
+        var spanlogout = document.getElementsByClassName("closelogout")[0];
+        var btncancel = document.getElementById("btncancelmodal2");
+
+        // When the user clicks the button, open the modal
+        btnlogout.onclick = function() {
+            modallogout.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        spanlogout.onclick = function() {
+            modallogout.style.display = "none";
+        }
+
+        btncancel.onclick = function() {
+            modallogout.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modallogout.style.display = "none";
+            }
+        }
+        // SCRIPT MODAL LOG OUT========================================
+ </script>
 </body>
 </html>
