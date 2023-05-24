@@ -388,7 +388,7 @@
             var phone = document.getElementById('phoneinputform');
 
             if (phone.value.length < 12) {
-                alert("Phone number can't be less than 12 characters")
+                alert("Phone number can't be less than 12 characters!")
                 return false;
             }
         }

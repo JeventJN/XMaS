@@ -22,7 +22,6 @@
         @include('User.navbarUser')
     @endauth
 
-    
     {{-- modal pop up xtralist user--}}
     <div id="modalpopup" class="modal font-nunito">
 

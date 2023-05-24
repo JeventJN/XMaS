@@ -525,7 +525,6 @@
     </div>
     {{-- Modal Leave --}}
 
-    {{-- EDIT --}}
     {{-- Modal Add Schedule --}}
     <div id="modaladdschedule" class="modaladdschedule">
         {{-- Modal Content --}}
@@ -584,7 +583,6 @@
         </div>
     </div>
     {{-- Modal Add Schedule --}}
-    {{-- EDIT --}}
 
     {{-- Modal Pop Up Notif --}}
     <div id="modalconfirm" class="modalconfirm">

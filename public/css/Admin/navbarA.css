@@ -1,4 +1,4 @@
-body{
+body {
     cursor: pointer;
 }
 
@@ -55,7 +55,6 @@ body{
     flex-direction: column;
     gap: 0.15vw;
     height: 4.5vw;
-    /* border: purple solid; */
 }
 
 .kalimatlogout1 {
@@ -76,7 +75,6 @@ body{
     justify-content: right;
     margin-top: 2.5vw;
     gap: 2vw;
-    /* border: yellow solid; */
 }
 
 .btnyesmodal {

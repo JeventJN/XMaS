@@ -43,8 +43,9 @@
             modal2.style.display="none";
         }
     </script>
+    {{-- joined --}}
     {{-- popup --}}
-    
+
     {{-- modal pop up --}}
      {{-- modal pop up xtralist user--}}
      <div id="modalpopup" class="modal font-nunito">

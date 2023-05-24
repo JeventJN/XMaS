@@ -390,6 +390,7 @@
 
     <script>
         //SCRIPT MODAL TEMPAT SAMPAH======================================
+        
         // Get modal
         var modalsampah = document.getElementById("modalsampah")
 
@@ -420,6 +421,7 @@
                 modalsampah.style.display = "none";
             }
         }
+
         // SCRIPT MODAL TEMPAT SAMPAH========================================
     </script>
 </body>
