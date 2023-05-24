@@ -38,11 +38,10 @@
             {{-- <div class="w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/approval">
                 Approval
             </div> --}}
-            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/logout" id="logoutbtn">
-
+            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" id="logoutbtn">
                 Log Out
             </a>
-            
+
             {{-- Modal Log Out --}}
             <div id="modallogout" class="modallogout">
                 {{-- Modal Content --}}
