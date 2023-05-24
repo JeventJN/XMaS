@@ -162,4 +162,7 @@
     display: none;
 } */
 
-
+input[type="file"]:hover,
+input[type="file"]::-webkit-file-upload-button:hover {
+  cursor: pointer;
+}

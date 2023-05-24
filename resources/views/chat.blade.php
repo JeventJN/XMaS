@@ -13,19 +13,19 @@
   <title>User Home</title>
   @vite('resources/css/app.css')
 </head>
-<body class="overflow-x-hidden overflow-y-hidden">
+<body class="overflow-x-hidden overflow-y-hidden scrollbar-hide">
     <form class="w-screen h-screen flex" method="POST" autocomplete="off">
         <div class="w-[27%] h-screen bg-[#395474] flex flex-col">
             {{-- ini container untuk profile chat --}}
             <div class="w-full min-h-[6.5vw] border-b-[0.1vw] border-white flex items-center">
                 {{-- <svg xmlns="http://www.w3.org/2000/svg" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" stroke="#395474" stroke-width="1vw"><path fill="white" d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg> --}}
                 <svg xmlns="http://www.w3.org/2000/svg" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" style="fill: white; font-weight:1vw"><path d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
-                <div class="w-[20vw] h-[4vw] bg-[#E5E5E5] mr-[1vw] rounded-[1vw] flex flex items-center">
+                <div class="w-[23vw] h-[4vw] bg-[#E5E5E5] mr-[1vw] rounded-[1vw] flex flex items-center">
                     {{-- Masukin foto profile disini --}}
                     <div class="ml-[0.7vw] w-[3.2vw] h-[3.2vw] rounded-[50%] flex items-center">
                         <img class="w-[3.2vw] h-[3.2vw] rounded-[50%] border border-[#114F94] border-[0.1vw]" src="{{asset('Assets/RunningLogo.png')}}" alt="">
                     </div>
-                    <div class="w-[14vw] h-[3.5vw] ml-[0.5vw] flex flex-col items-start rounded-[1vw] justify-center leading-[1.3vw]">
+                    <div class="h-[3.5vw] ml-[1vw] flex flex-col items-start rounded-[1vw] justify-center leading-[1.3vw]">
                         <div class="text-[1vw] font-nunito font-bold">Vnaneesa Kwan</div>
                         <div class="text-[1vw] font-nunito text-[#797C81] font-bold">Member</div>
                     </div>
@@ -376,7 +376,10 @@
             {{-- ini footer box chat --}}
             <div class="w-full h-[43vw] bg-white"></div>
             <div class="w-[73%] h-[4vw] bg-[#1B2F45] flex items-center justify-around fixed mt-[38vw]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="ml-[1vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="white" d="M12 17.5q1.875 0 3.188-1.313T16.5 13q0-1.875-1.313-3.188T12 8.5q-1.875 0-3.188 1.313T7.5 13q0 1.875 1.313 3.188T12 17.5ZM4 21q-.825 0-1.413-.588T2 19V7q0-.825.588-1.413T4 5h3.15L9 3h6l1.85 2H20q.825 0 1.413.588T22 7v12q0 .825-.588 1.413T20 21H4Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" id="cam" class="ml-[1vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="white" d="M12 17.5q1.875 0 3.188-1.313T16.5 13q0-1.875-1.313-3.188T12 8.5q-1.875 0-3.188 1.313T7.5 13q0 1.875 1.313 3.188T12 17.5ZM4 21q-.825 0-1.413-.588T2 19V7q0-.825.588-1.413T4 5h3.15L9 3h6l1.85 2H20q.825 0 1.413.588T22 7v12q0 .825-.588 1.413T20 21H4Z"/></svg>
+                <div class="absolute max-h-[3vw] max-w-[3vw] opacity-0 mr-[67vw] flex justify-center hover:cursor-pointer">
+                    <input class="ml-[0.75vw] min-h-[3vw] min-w-[3vw] mt-[0.35vw] hover:cursor-pointer" type="file" name="photo" id="photo">
+                </div>
                 <div class="w-[62vw] h-[4vw] flex items-center">
                     <div class="w-[62vw] h-[2.5vw] bg-[#E5E5E5] rounded-[1vw] flex justify-start items-center" autocomplete="off" method="POST" action="chat">
                         <textarea class="ml-[1vw] w-[60vw] bg-[#E5E5E5] text-[1.3vw] outline-none break-normal max-h-[2vw] scrollbar-hide italic focus:not-italic" style="resize:none;" placeholder="Type a message" type="text"></textarea>

@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="scrollbar-hide">
     <div class="z-50 fixed w-screen h-[5.25vw] bg-[#1B2F45] flex items-center opacity-80">
         <div class="content w-[48%]">
             <img class="w-[10vw] h-[5vw] ml-[1vw]" src="{{ asset('Assets/LogoXMaS.png') }}" alt="">
@@ -19,18 +19,34 @@
                 href="/home">
                 Home
             </a>
+            {{-- <div class="w-[8vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]"
+                href="/home">
+                Home
+            </div> --}}
             <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]"
                 href="/xtralistNU">
                 Xtra List
             </a>
+            {{-- <div class="w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]"
+                href="/xtralistNU">
+                Xtra List
+            </div> --}}
             <a class="w-[16vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw]"
                 href="/xtrareg">
                 Xtra Registration
             </a>
+            {{-- <div class="w-[16vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw]"
+                href="/xtrareg">
+                Xtra Registration
+            </div> --}}
             <a class="w-[8.75vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] mr-[1vw]"
                 href="/myclub">
                 MyClub
             </a>
+            {{-- <div class="w-[8.75vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] mr-[1vw]"
+                href="/myclub">
+                MyClub
+            </div> --}}
             <a class="w-[5vw] h-[5vw] flex items-center justify-center rounded-[50%] bg-red-500" href="/">
                 @if (Auth::check() && Auth::user()->photo)
                     @if (Illuminate\Support\Str::contains(Auth::user()->photo, 'database-assets'))

@@ -53,6 +53,9 @@ Route::get('/reportform', function () {
     return view('Ketua/reportform');
 });
 
+Route::get('/reportformA', function () {
+    return view('Admin/reportformA');
+});
 
 Route::get(('/xtrapageketua'), function (){
     return view('Ketua/xtrapageketua');

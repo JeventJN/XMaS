@@ -13,7 +13,10 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="overflow-x-hidden">
+
+
+<body class="overflow-x-hidden scrollbar-hide">
+
 
     @include('Admin.navbarA')
 
@@ -79,8 +82,8 @@
                     </svg>
                 </div>
                 <div class="w-[36vw] font-semibold text-[1.5vw] mb-[2vw]">
-                    This action will <mark class="bg-white text-[#FF0000]">send</mark> the report.
-                    <br />
+                    This action will <mark class="bg-white text-[#FF0000]">create</mark> new Xtra.
+                    <br/>
                     Do you want to continue?
                 </div>
                 <div class="w-[36vw] h-[2.5vw] flex justify-end text-[1.2vw] mb-[1vw]">
@@ -89,15 +92,14 @@
                             Yes
                         </div>
                     </button>
-                    <div id="hidemodalno2"
-                        class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer hover:font-bold">
-                        No
+                    <div id="hidemodalno2" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer hover:font-bold">
+                        Cancel
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <div id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
+    <form id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
         <div class="flex flex-col jutify-center items-center">
             <div class="flex w-[90%] items-center mt-[2.2vw] font-black">
                 <div class="text-[1.8vw]">
@@ -135,7 +137,7 @@
                 Create
             </div>
         </div>
-    </div>
+    </form>
 
     {{-- modal pop up xtralist user --}}
     <div id="modalpopup" class="modal font-nunito">
