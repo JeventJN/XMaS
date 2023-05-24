@@ -9,7 +9,7 @@
     <title>Header</title>
 </head>
 <body>
-    <div class="z-50 pt-[5.25vw] w-full h-[42.335vw] bg-blue-100">
+    <div class="z-50 pt-[5.25vw] w-full h-[42.335vh] bg-blue-100">
         <div class="bg-cover w-full h-[42.335vw] " style="background-image: url('Assets/Header.png');">
             <div class="w-[41%] h-[42.335vw] bg-[#1B2F45] opacity-70 flex flex-col justify-center items-center hover:opacity-100 hover:bg-[#42556A] leading-tight">
                 <img class="mb-[1vw] scale-[0.83]" src="Assets/LogoXMaSWord.png" alt="">
