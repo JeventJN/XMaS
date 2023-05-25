@@ -68,7 +68,7 @@ class extracurricular extends Model
                             ->where(DB::raw("`recent_sched`.`recent_date`"),  '=', DB::raw("`schedules`.`date`"))
                             ->where(fn($query) =>
                                         $query->where('location', 'like', '%'.$search.'%')
-                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%W')"), 'like', '%'.$search.'%')
+                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%D')"), 'like', '%'.$search.'%')
                                             ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
                                             ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%'))
                         ))
