@@ -96,8 +96,11 @@
                             <div class="button-elips" onmouseover="hover()" onmouseout="out()">
                                 <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
                                     data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
+                                @php
+                                    $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . '(' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')'
+                                @endphp
                                 <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
-                                    data-value="{{ date('D', strtotime($xtra->latest_schedule?->date)) . '(' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')' }}"
+                                    data-value="{{ $schedule }}"
                                     data-text="Schedule">Schedule</a>
                                 <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
                                     data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
@@ -125,18 +128,20 @@
                                     e.target.style.height = '5vw';
                                     e.target.style.paddingBottom = '4.1vw';
 
-                                    if (value == 'Chess') {
+
+                                    if (value == @json($xtra->name)) {
                                         e.target.classList.add('JudulXtra');
                                         e.target.style.width = '30vw';
                                         e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
                                         // e.target.style.marginBottom = '-0.2vw';
-                                    } else if (value == 'Wed(17.00 - 19.00)') {
+                                    } else if (value == @json($schedule)) {
+                                    // } else if (value == 'aaaaaa') {
                                         e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
                                         e.target.style.width = '38vw';
                                         // e.target.style.marginTop = '-0.28vw';
                                         // e.target.style.marginBottom = '-0.3vw';
                                         e.target.classList.add('ScheduleXtra');
-                                    } else if (value == 'Jevent Natthannael') {
+                                    } else if (value == @json($xtra->leader?->userXmas?->name)) {
                                         e.target.style.padding = '1.3vw 1vw 3.5vw 18vw';
                                         e.target.style.width = '40vw';
                                         // e.target.style.marginTop = '-0.58vw';
