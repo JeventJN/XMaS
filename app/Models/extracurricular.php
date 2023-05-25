@@ -57,7 +57,7 @@ class extracurricular extends Model
             // FROM `schedules`
             // INNER JOIN (SELECT `schedules`.`kdExtracurricular`, MAX(`schedules`.`DATE`) AS `data`, DATE_FORMAT(MAX(`schedules`.`date`), '%a') FROM `schedules` GROUP BY `schedules`.`kdExtracurricular`  ) AS `a` ON `schedules`.`kdExtracurricular` = `a`.`kdExtracurricular` AND `schedules`.`date` = `a`.`data`
             ->orWhere(fn($query) =>
-                $query->orWhereIn('kdExtracurricular', fn($query) =>
+                $query->orWhereIn(DB::raw('`extracurriculars`.kdExtracurricular'), fn($query) =>
                 // $query->select('kdExtracurricular')
                 //     ->from('schedules')
                 //     ->whereIn('kdschedule', fn($query) =>
@@ -129,7 +129,7 @@ class extracurricular extends Model
             if(isset($filters['Sun']) === true){
                 $day[] = ['Sun'];
             }
-            $query->whereIn('kdExtracurricular', fn($query) =>
+            $query->whereIn(DB::raw('`extracurriculars`.kdExtracurricular'), fn($query) =>
                 $query->select('kdExtracurricular')
                     ->from(fn($query) =>
                             $query->select(DB::raw(" `schedules`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
@@ -246,13 +246,8 @@ class extracurricular extends Model
     }
 
     public function scopeuserclub($query, $NIP){
-        // $query->whereIn('kdExtracurricular', fn($query) =>
-        //     $query->select('kdExtracurricular')
-        //         ->from('members')
-        //         ->where('NIP', '=', $NIP)
-        // );
-
-        $query->JOIN('members', fn($join) =>
+        $query->SELECT(DB::raw("`extracurriculars`.*, `members`.`kdState`"))
+            ->JOIN('members', fn($join) =>
                         $join->on(DB::raw("`extracurriculars`.`kdExtracurricular`"), '=', DB::raw("`members`.`kdExtracurricular`"))
                     )
             ->where('NIP', '=', $NIP)
