@@ -170,14 +170,14 @@
                                             <img src="{{asset('Assets/$xtra->logo') }}" alt="{{ $xtra->name }}">
                                         </div>
                                         <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
+                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($xtra->name, 12, '...') }}</div>
                                             <div class="leading-[2vw] text-[1.65vw] font-semibold">
                                                 <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) }}</div>
                                                 @if ($xtra->leader === NULL)
                                                     <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
                                                 @endif
                                                 <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
-                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule?->location }}</div>
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($xtra->latest_schedule?->location, 15, '...') }}</div>
                                                 @if ($xtra->latest_schedule === NULL)
                                                     <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
                                                 @endif
@@ -207,14 +207,14 @@
                                             <img src="{{asset('Assets/$xtra->logo') }}" alt="{{ $xtra->name }}">
                                         </div>
                                         <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
+                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($xtra->name, 12, '...') }}</div>
                                             <div class="leading-[2vw] text-[1.65vw] font-semibold">
                                                 <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) }}</div>
                                                 @if ($xtra->leader === NULL)
                                                     <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
                                                 @endif
                                                 <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
-                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule?->location }}</div>
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($xtra->latest_schedule?->location, 15, '...') }}</div>
                                                 @if ($xtra->latest_schedule === NULL)
                                                     <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
                                                 @endif
