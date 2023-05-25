@@ -36,6 +36,6 @@ class xtraController extends Controller
     public function myclub(){
         $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
         // dd(extracurricular::latest()->userclub()->get());
-        return view('/User.myclub', ['xtras' => extracurricular::latest()->userclub($NIP)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get(), 'nip' => $NIP]);
+        return view('User.myclub', ['xtras' => extracurricular::latest()->userclub($NIP)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get(), 'nip' => $NIP]);
     }
 }
