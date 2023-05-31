@@ -203,6 +203,8 @@
                                 </div>
                             </div>
                         @else
+                        <div class="">
+
                             <a href="/myclub/{{ $xtra->kdExtracurricular }}">
                                 {{-- INI TEMPLATE KALAU CUMA ANGGOTA ESKUL --}}
                                 <div class="flex flex-col">
@@ -225,16 +227,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="absolute w-fit h-fit flex justify-end mt-[18vw] ml-[33vw]">
-                                        <div class="w-[2.5vw] h-[2.5vw]">
-                                            {{-- TEMBAK LINK CHAT DISINI --}}
-                                            <a href="/chat">
-                                                <img class=" w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/chat.png')}}" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </a>
+                            <div class="absolute w-fit h-fit flex justify-end ml-[33vw] mt-[-6vw]">
+                                <div class="w-[2.5vw] h-[2.5vw]">
+                                    {{-- TEMBAK LINK CHAT DISINI --}}
+                                    <a href="/chat">
+                                        <img class=" w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/chat.png')}}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                         @endif
                     @endforeach
                 @else
