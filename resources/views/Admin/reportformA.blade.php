@@ -114,7 +114,7 @@
         </div>
 
         {{-- Ini untuk Admin (Acc/Dec) --}}
-        <form action="">
+        <form action="" method="post">
             <div class="flex justify-center w-screen h-fit font-nunito">
                 <button id="Accept">
                     <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">

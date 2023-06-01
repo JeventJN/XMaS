@@ -163,7 +163,7 @@
                         {{-- {{ $xtra->leader?->NIP . '...' . $nip }} --}}
                         @if($xtra->leader?->NIP == $nip)
                             <div class="">
-                                <a href="/myclub/{{ $xtra->kdExtracurricular }}">
+                                <a href="/xtralist/{{ $xtra->kdExtracurricular }}">
                                     {{-- INI TEMPLATE KALAU KETUA (ADA EDITNYA) --}}
                                     <div class="flex flex-col">
                                         <div class="xtraboxcontainer flex justify-center items-center">
@@ -205,7 +205,7 @@
                         @else
                         <div class="">
 
-                            <a href="/myclub/{{ $xtra->kdExtracurricular }}">
+                            <a href="/xtralist/{{ $xtra->kdExtracurricular }}">
                                 {{-- INI TEMPLATE KALAU CUMA ANGGOTA ESKUL --}}
                                 <div class="flex flex-col">
                                     <div class="xtraboxcontainer flex justify-center items-center">
