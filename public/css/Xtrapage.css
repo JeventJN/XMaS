@@ -898,6 +898,7 @@ input:focus {
     border-radius: 0.5rem;
     padding: 0.5rem;
     width: 30vw;
+    position: fixed;
     /* box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.1); */
     /* border: blue solid; */
 }
@@ -1035,10 +1036,10 @@ table {
     flex-direction: column;
     color: white;
     text-align: right;
-    justify-content: center;
+    /* justify-content: center; */
     font-size: 2vw;
     font-weight: 800;
-    gap: 3vw;
+    gap: 3.2vw;
     /* border: pink solid; */
 }
 
@@ -1047,11 +1048,11 @@ table {
     flex-direction: column;
     color: white;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     font-size: 2vw;
     font-weight: 800;
     padding-left: 0.1vw;
-    gap: 3vw;
+    gap: 3.2vw;
     /* border: wheat solid; */
 }
 
@@ -1064,33 +1065,16 @@ table {
     /* border: blue solid; */
 }
 
-#inputEmail3 {
-    width: 25vw;
-    height: 4vw;
-    border-radius: 1.4vw;
-}
-
-.boxsubmitaddschedule {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    gap: 1.2vw;
-    margin-top: 3vw;
-    /* border: yellow solid; */
-}
-
-.kosongpengisiboxsubmit {
-    flex: 2;
-    /* border: pink solid; */
-}
-
-.boxbtnconfirmmodal {
-    flex: 3;
+.boxjamaddschedule{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    /* border: red solid; */
+}
+
+#inputEmail3, #xtraAS, #activityAS, #locationAS {
+    width: 25vw;
+    height: 4vw;
+    border-radius: 1.4vw;
 }
 
 .btnconfirmmodal {
@@ -1099,12 +1083,12 @@ table {
     height: 5vw;
     width: 18.5vw;
     border-radius: 1.7vw;
-    background-color: #d9d9d9;
+    background-color: #d9d9d9 !important;
     border: none;
 }
 
 .btnconfirmmodal:hover {
-    background-color: #56b8e6;
+    background-color: #56b8e6 !important;
 }
 
 /* Modal Save */

@@ -42,28 +42,29 @@
                 Log Out
             </a>
 
-            {{-- Modal Log Out --}}
-            <div id="modallogout" class="modallogout">
-                {{-- Modal Content --}}
-                <div class="modal-contentlogout">
-                    <div class="kotakisimodal">
-                        <div class="boxjudulcloselogout">
-                            <span class="closelogout">&times;</span>
-                        </div>
-                        <div class="isilogout">
-                            <div class="kalimatlogout1">This action will <span style="color: red;">log</span> you <span style="color: red;">out</span></div>
-                            <div class="kalimatlogout2">Do you want to continue?</div>
-                        </div>
-                        <div class="boxsubmitlogout">
-                            <a href="/logout"><button class="btnyesmodal">Yes</button></a>
-                            <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- Modal Log Out --}}
         </div>
     </div>
+    
+    {{-- Modal Log Out --}}
+    <div id="modallogout" class="modallogout">
+        {{-- Modal Content --}}
+        <div class="modal-contentlogout">
+            <div class="kotakisimodal">
+                <div class="boxjudulcloselogout">
+                    <span class="closelogout">&times;</span>
+                </div>
+                <div class="isilogout">
+                    <div class="kalimatlogout1">This action will <span style="color: red;">log</span> you <span style="color: red;">out</span></div>
+                    <div class="kalimatlogout2">Do you want to continue?</div>
+                </div>
+                <div class="boxsubmitlogout">
+                    <a href="/logout"><button class="btnyesmodal">Yes</button></a>
+                    <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Modal Log Out --}}
 
     <script>
         //SCRIPT MODAL LOG OUT======================================

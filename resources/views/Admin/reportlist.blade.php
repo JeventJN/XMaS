@@ -42,6 +42,11 @@
         function closePopup2(){
             modal2.style.display="none";
         }
+
+        setTimeout(() => {
+            const modal = document.getElementById("modalpopupACC");
+            modal.style.display = 'none';
+        }, 3000);
     </script>
 
     {{-- deny --}}
@@ -62,6 +67,11 @@
         function closePopup3(){
             modal3.style.display="none";
         }
+
+        setTimeout(() => {
+            const modal = document.getElementById("modalpopupDN");
+            modal.style.display = 'none';
+        }, 3000);
     </script>
     {{-- popup --}}
 

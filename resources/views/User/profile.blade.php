@@ -37,6 +37,11 @@
         function closePopup2() {
             modal2.style.display = "none";
         }
+
+        setTimeout(() => {
+            const modal = document.getElementById("modalpopupSENT");
+            modal.style.display = 'none';
+        }, 3000);
     </script>
     {{-- popup --}}
 
@@ -76,21 +81,24 @@
                                 <div class="isiboxphoneedit">
                                     <div class="identitasphone" style="margin-right: 0.5vw;">+62895635863956</div>
                                     <button onclick="showphone()">
-                                        <svg class="editphonenumbericon" xmlns="http://www.w3.org/2000/svg" width="1.7vw" height="1.7vw" viewBox="0 0 256 256"><path d="m227.32 73.37l-44.69-44.68a16 16 0 0 0-22.63 0L36.69 152A15.86 15.86 0 0 0 32 163.31V208a16 16 0 0 0 16 16h168a8 8 0 0 0 0-16H115.32l112-112a16 16 0 0 0 0-22.63ZM92.69 208H48v-44.69l88-88L180.69 120ZM192 108.69L147.32 64l24-24L216 84.69Z" /></svg>
+                                        <svg class="editphonenumbericon" xmlns="http://www.w3.org/2000/svg"
+                                            width="1.7vw" height="1.7vw" viewBox="0 0 256 256">
+                                            <path d="m227.32 73.37l-44.69-44.68a16 16 0 0 0-22.63 0L36.69 152A15.86 15.86 0 0 0 32 163.31V208a16 16 0 0 0 16 16h168a8 8 0 0 0 0-16H115.32l112-112a16 16 0 0 0 0-22.63ZM92.69 208H48v-44.69l88-88L180.69 120ZM192 108.69L147.32 64l24-24L216 84.69Z" />
+                                        </svg>
                                     </button>
                                 </div>
                             </div>
 
                             <div class="" id="phoneinput">
                                 <div class="isiboxphoneedit">
-                                    <form action="{{ route('profile') }}" onsubmit="return validate()">
-                                        <input type="text" name="" value="+62895635863956" style="font-size: 1.8vw;" id="phoneinputform">
+                                    <form action="{{ route('profile') }}" onsubmit="return validate()" style="display: flex; align-items: center;">
+                                        <input type="number" name="" value="62895635863956" style="font-size: 1.8vw; padding-left: 1vw;" id="phoneinputform" autocomplete="off">
                                         <button type="submit">
-                                            <svg class="editphonenumbericon" xmlns="http://www.w3.org/2000/svg" width="1.7vw" height="1.7vw" style="margin-top: 1.2vw; margin-left: 0.2vw; margin-right: 0.5vw" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z" /></svg>
+                                            <svg class="editphonenumbericonsubmit" xmlns="http://www.w3.org/2000/svg" width="2.2vw" height="2.2vw" viewBox="0 0 24 24"><path fill="" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z" /></svg>
                                         </button>
                                     </form>
                                     <button onclick="showphone()" class="boxcheckcross">
-                                        <svg class="editphonenumbericon" xmlns="http://www.w3.org/2000/svg" width="1.7vw" height="1.7vw" viewBox="0 0 24 24"><path fill="currentColor"d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>
+                                        <svg class="editphonenumbericoncancel" xmlns="http://www.w3.org/2000/svg" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="" d="M16.066 8.995a.75.75 0 1 0-1.06-1.061L12 10.939L8.995 7.934a.75.75 0 1 0-1.06 1.06L10.938 12l-3.005 3.005a.75.75 0 0 0 1.06 1.06L12 13.06l3.005 3.006a.75.75 0 0 0 1.06-1.06L13.062 12l3.005-3.005Z" /></svg>
                                     </button>
                                 </div>
                             </div>
@@ -99,7 +107,8 @@
                     </div>
                     <div class="boxtempatsampah">
                         {{-- <img class="icontempatsampah" id="sampahbtn" src="{{ asset('Assets/Profile assets/tempatsampah.png') }}" alt=""> --}}
-                        <img class="icontempatsampah w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" id="sampahbtn" src="{{ asset('Assets/delete.png') }}" alt="">
+                        <img class="icontempatsampah w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" id="sampahbtn"
+                            src="{{ asset('Assets/delete.png') }}" alt="">
                         {{-- Modal Tempat Sampah --}}
                         <div id="modalsampah" class="modalsampah">
                             {{-- Modal Content --}}
@@ -109,11 +118,14 @@
                                         <span class="closesampah">&times;</span>
                                     </div>
                                     <div class="isisampah">
-                                        <div class="kalimatsampah1">This action will <span style="color: red;">delete</span> your account</div>
+                                        <div class="kalimatsampah1">This action will <span
+                                                style="color: red;">delete</span> your account</div>
                                         <div class="kalimatsampah2">Do you want to continue?</div>
                                     </div>
                                     <div class="boxsubmitsampah">
-                                        <a href="/logout"><button class="btnyesmodal">Yes</button></a>
+                                        <form action="">
+                                            <a href="/logout"><button class="btnyesmodal">Yes</button></a>
+                                        </form>
                                         <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
                                     </div>
                                 </div>
@@ -127,6 +139,7 @@
 
                     {{-- ini untuk member --}}
                     <button type="button" class="request" id="requestbtn">Request Leader Access</button>
+                    {{-- <button class="request" id="requestbtn" disabled>Waiting for Admin...</button> --}}
                     {{-- Modal Request --}}
                     <div id="modalrequest" class="modalrequest">
                         {{-- Modal Content --}}
@@ -138,42 +151,29 @@
                                 </div>
 
                                 {{-- dropdown jepeng --}}
-                                <div class="mt-[0.2vw] w-[25vw] rounded-[0.3vw] border-none"
-                                    style="border: #1B2F45 0.2vw solid">
-                                    <form id="xtrareg" action="/xtrareg" method="POST"
-                                        onsubmit="return eventsubmits(this)" autocomplete="off">
+                                <form id="xtrareg" action="/xtrareg" method="POST" onsubmit="return eventsubmits()" autocomplete="off">
+                                    <div class="mt-[0.2vw] w-[25vw] rounded-[0.3vw] border-none">
                                         {{-- <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] rounded-[0.3vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[2.5vw] p-[0.2vw] focus:text-black text-[2vw]" required> --}}
-                                        <div class="select-wrap"
-                                            class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
-                                            <select name="xtrachs"
-                                                class="input bg-gray-50 text-gray-900 text-sm block max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] scrollbar-hide">
-                                                <div id="select-box"
-                                                    class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
-                                                    <option selected="false" disabled class="hidden">Choose one of
-                                                        your Xtra</option>
-                                                    <option
-                                                        class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none"
-                                                        id="xtrachs" value="">Running</option>
-                                                    <option
-                                                        class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none"
-                                                        id="xtrachs" value="">Running</option>
-                                                    <option
-                                                        class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none"
-                                                        id="xtrachs" value="">Running</option>
-                                                    <option
-                                                        class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none"
-                                                        id="xtrachs" value="">Running</option>
+                                        <div class="select-wrap" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
+                                            <select name="xtrachs" id="xtrachs" class="input bg-gray-50 text-gray-900 text-sm block max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] scrollbar-hide" style="border: #1B2F45 0.2vw solid">
+                                                <div class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
+                                                    <option selected="false" disabled class="hidden" value="">Choose one of your Xtra</option>
+                                                    <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none" id="" value="Running">Running</option>
+                                                    <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none" id="" value="Running">Running</option>
+                                                    <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none" id="" value="Running">Running</option>
+                                                    <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none" id="" value="Running">Running</option>
                                                 </div>
                                             </select>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                    <div class="spasi1" style="height: 8.5vw;"></div>
+                                    <div class="boxsubmitrequest">
+                                        <button type="submit" class="btnsubmitmodal">Submit</button>
+                                    </div>
+                                </form>
                                 {{-- dropdown jepeng --}}
 
-                                <div class="spasi1" style="height: 8.5vw;"></div>
-                                <div class="boxsubmitrequest">
-                                    <button class="btnsubmitmodal">Submit</button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -194,11 +194,14 @@
                                     <span class="closelogout">&times;</span>
                                 </div>
                                 <div class="isilogout">
-                                    <div class="kalimatlogout1">This action will <span style="color: red;">log</span> you <span style="color: red;">out</span></div>
+                                    <div class="kalimatlogout1">This action will <span style="color: red;">log</span>
+                                        you <span style="color: red;">out</span></div>
                                     <div class="kalimatlogout2">Do you want to continue?</div>
                                 </div>
                                 <div class="boxsubmitlogout">
-                                    <a href="/logout"><button class="btnyesmodal">Yes</button></a>
+                                    <form action="">
+                                        <a href="/logout"><button class="btnyesmodal">Yes</button></a>
+                                    </form>
                                     <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
                                 </div>
                             </div>
@@ -387,10 +390,24 @@
         function validate() {
             var phone = document.getElementById('phoneinputform');
 
-            if (phone.value.length < 12) {
-                alert("Phone number can't be less than 12 characters!")
+            if (phone.value.length < 11 || phone.value.length > 13) {
+                alert("Phone number must be around 11 to 13.")
                 return false;
             }
+        }
+    </script>
+
+    <script>
+        // untuk validasi pilihan ekstra
+        function eventsubmits() {
+            const xtrachs = document.getElementById('xtrachs');
+            // alert(xtrachs.value)
+            if (xtrachs.value == "") {
+                alert("Choose one xtra");
+                return false;
+            }
+
+            return true;
         }
     </script>
 

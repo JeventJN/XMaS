@@ -43,6 +43,11 @@
         function closePopup2() {
             modal2.style.display = "none";
         }
+
+        setTimeout(() => {
+            const modal = document.getElementById("modalpopupCR");
+            modal.style.display = 'none';
+        }, 3000);
     </script>
 
     {{-- deleted --}}
@@ -67,6 +72,11 @@
         function closePopup3() {
             modal3.style.display = "none";
         }
+
+        setTimeout(() => {
+            const modal = document.getElementById("modalpopupDL");
+            modal.style.display = 'none';
+        }, 3000);
     </script>
     {{-- popup --}}
 
@@ -364,7 +374,9 @@
                                             <div class="kalimatsampah2">Do you want to continue?</div>
                                         </div>
                                         <div class="boxsubmitsampah">
-                                            <a href="/xtralistA"><button class="btnyesmodal">Yes</button></a>
+                                            <form>
+                                                <a href="/xtralistA"><button class="btnyesmodal">Yes</button></a>
+                                            </form>
                                             <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
                                         </div>
                                     </div>
