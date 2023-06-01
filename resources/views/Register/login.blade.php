@@ -34,6 +34,7 @@
             function closePopup1(){
                 modal1.style.display="none";
             }
+            setTimeout(closePopup1, 5000);
         </script>
     @endif
     <div class="bg-cover" style="background-image: url('Assets/LogIn.png')">

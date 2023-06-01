@@ -377,19 +377,38 @@
             <div class="w-full h-[43vw] bg-white"></div>
             <div class="w-[73%] h-[4vw] bg-[#1B2F45] flex items-center justify-around fixed mt-[38vw]">
                 <svg xmlns="http://www.w3.org/2000/svg" id="cam" class="ml-[1vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="white" d="M12 17.5q1.875 0 3.188-1.313T16.5 13q0-1.875-1.313-3.188T12 8.5q-1.875 0-3.188 1.313T7.5 13q0 1.875 1.313 3.188T12 17.5ZM4 21q-.825 0-1.413-.588T2 19V7q0-.825.588-1.413T4 5h3.15L9 3h6l1.85 2H20q.825 0 1.413.588T22 7v12q0 .825-.588 1.413T20 21H4Z"/></svg>
+                {{-- ini upload photo --}}
                 <div class="absolute max-h-[3vw] max-w-[3vw] opacity-0 mr-[67vw] flex justify-center hover:cursor-pointer">
                     <input class="ml-[0.75vw] min-h-[3vw] min-w-[3vw] mt-[0.35vw] hover:cursor-pointer" type="file" name="photo" id="photo">
                 </div>
+                {{-- Ini text input --}}
                 <div class="w-[62vw] h-[4vw] flex items-center">
                     <div class="w-[62vw] h-[2.5vw] bg-[#E5E5E5] rounded-[1vw] flex justify-start items-center" autocomplete="off" method="POST" action="chat">
                         <textarea class="ml-[1vw] w-[60vw] bg-[#E5E5E5] text-[1.3vw] outline-none break-normal max-h-[2vw] scrollbar-hide italic focus:not-italic" style="resize:none;" placeholder="Type a message" type="text"></textarea>
                     </div>
                 </div>
+                {{-- ini kirim form --}}
                 <button type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-[1vw]" width="2vw" height="2vw" viewBox="0 0 24 24"><path fill="white" d="M1.946 9.316c-.522-.175-.526-.456.011-.635L21.043 2.32c.529-.176.832.12.684.638l-5.453 19.086c-.151.529-.456.547-.68.045L12 14l6-8l-8 6l-8.054-2.684Z"/></svg>
                 </button>
             </div>
         </div>
+        {{-- ini pop up waktu photo di upload --}}
+        <div id="photopop" class="absolute z-50 w-[20vw] h-[2vw] bg-[#E5E5E5] ml-[78vw] flex justify-center items-center font-nunito text-[1.5vw] rounded-[0.5vw] mt-[2vw] hidden">Photo have been uploaded</div>
     </form>
+    <script>
+        var photopop = document.getElementById('photopop');
+        var photo= document.getElementById('photo');
+        photo.addEventListener('input', closePop);
+
+        function closePop() {
+            photopop.style.display = 'flex';
+            setTimeout(hidePop, 2000);
+        }
+
+        function hidePop() {
+            photopop.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
