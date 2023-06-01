@@ -42,6 +42,11 @@
         function closePopup2(){
             modal2.style.display="none";
         }
+
+        setTimeout(() => {
+            const modal = document.getElementById("modalpopupJOIN");
+            modal.style.display = 'none';
+        }, 3000);
     </script>
     {{-- joined --}}
     {{-- popup --}}

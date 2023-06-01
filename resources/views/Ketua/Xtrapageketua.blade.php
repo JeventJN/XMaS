@@ -23,7 +23,9 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <!-- memanggil font awesome  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- memanggil AOS  -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -43,11 +45,15 @@
     {{-- popup --}}
     {{-- left --}}
     <div id="modalpopupLEFT" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-        <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-            <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+        <div
+            class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+            <div
+                class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
                 Successfully left the Xtra
-                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLEFT" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
-                    <path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
+                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLEFT"
+                    class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
                 </svg>
             </div>
         </div>
@@ -61,14 +67,25 @@
         function closePopup2() {
             modal2.style.display = "none";
         }
+
+        setTimeout(() => {
+            const modal = document.getElementById("modalpopupLEFT");
+            modal.style.display = 'none';
+        }, 3000);
     </script>
 
     {{-- edit --}}
     <div id="modalpopupEDIT" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-        <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-            <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+        <div
+            class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+            <div
+                class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
                 The Xtra is successfully edited
-                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalEDIT" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalEDIT"
+                    class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
+                </svg>
             </div>
         </div>
     </div>
@@ -81,6 +98,11 @@
         function closePopup3() {
             modal3.style.display = "none";
         }
+
+        setTimeout(() => {
+            const modal = document.getElementById("modalpopupEDIT");
+            modal.style.display = 'none';
+        }, 3000);
     </script>
     {{-- popup --}}
 
@@ -96,6 +118,9 @@
                             <div class="button-elips" onmouseover="hover()" onmouseout="out()">
                                 <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
                                     data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
+                                @php
+                                    $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . '(' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')'
+                                @endphp
                                 <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
                                     data-value="{{ date('D', strtotime($xtra->latest_schedule?->date)) . '(' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')' }}"
                                     data-text="Schedule">Schedule</a>
@@ -121,22 +146,23 @@
                                     e.target.style.backgroundColor = '#1B2F45';
                                     e.target.style.color = 'white';
                                     e.target.style.fontSize = '2vw';
-                                    e.target.style.width = '40vw';
+                                    e.target.style.width = 'fit-content';
                                     e.target.style.height = '5vw';
                                     e.target.style.paddingBottom = '4.1vw';
 
-                                    if (value == 'Chess') {
+                                    if (value == @json($xtra->name)) {
+                                        // if(value == "asdasdasdas"){
                                         e.target.classList.add('JudulXtra');
-                                        e.target.style.width = '30vw';
-                                        e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
+                                        // e.target.style.width = '30vw';
+                                        e.target.style.padding = '1.3vw 10vw 3.5vw 17.5vw';
                                         // e.target.style.marginBottom = '-0.2vw';
-                                    } else if (value == 'Wed(17.00 - 19.00)') {
+                                    } else if (value == @json($schedule)) {
                                         e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
                                         e.target.style.width = '38vw';
                                         // e.target.style.marginTop = '-0.28vw';
                                         // e.target.style.marginBottom = '-0.3vw';
                                         e.target.classList.add('ScheduleXtra');
-                                    } else if (value == 'Jevent Natthannael') {
+                                    } else if (value == @json($xtra->leader?->userXmas?->name)) {
                                         e.target.style.padding = '1.3vw 1vw 3.5vw 18vw';
                                         e.target.style.width = '40vw';
                                         // e.target.style.marginTop = '-0.58vw';
@@ -244,28 +270,16 @@
 
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
                     {{-- <form action="" class="KotakForm">
-                <div class="form-group" id="KotakDesc">
-                    <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  name="descriptiontextarea"
-                  style="height: 15vw; border-radius: 2.5vw"
-                ></textarea>
-            </div>
+                        <div class="form-group" id="KotakDesc">
+                        <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw"></textarea>
+                        </div>
 
-            <div class="form-group" id="KotakAct">
-                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
-                <textarea
-                class="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-                name="activitytextarea"
-                style="height: 9vw; border-radius: 2.5vw;"
-                ></textarea>
-            </div>
-            </form> --}}
+                        <div class="form-group" id="KotakAct">
+                        <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw;"></textarea>
+                        </div>
+                    </form> --}}
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
 
                     {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
@@ -280,6 +294,9 @@
                             <div class="form-control" id="exampleFormControlTextarea1" rows="3"
                                 name="descriptiontextarea"
                                 style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi quasi similique nam
+                                magni, laboriosam consectetur velit dignissimos perferendis porro odio laudantium
+                                sapiente unde, deleniti vero dolore temporibus eaque impedit eveniet!
                             </div>
                         </div>
 
@@ -293,6 +310,9 @@
                             <div class="form-control" id="exampleFormControlTextarea1" rows="3"
                                 name="activitytextarea"
                                 style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi facilis officia minus
+                                illum nemo corrupti aperiam, dolorum consectetur fugiat deserunt, ea modi vero
+                                repudiandae, cumque qui ipsam culpa explicabo perspiciatis.
                             </div>
                         </div>
                     </div>
@@ -513,7 +533,8 @@
                     <span class="closeleave">&times;</span>
                 </div>
                 <div class="isileave">
-                    <div class="kalimatleave1">This action will <span style="color: red;">leave</span> from thix Xtra</div>
+                    <div class="kalimatleave1">This action will <span style="color: red;">leave</span> from thix Xtra
+                    </div>
                     <div class="kalimatleave2">Do you want to continue?</div>
                 </div>
                 <div class="boxsubmitleave">
@@ -538,7 +559,7 @@
                     <div class="bungkuscalendar">
                         <form class="inline">
                             <div class="input-icons">
-                                <img class="" src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}"
+                                <img class="" src="{{ asset('Assets/Xtrapage assets/chevrondown.svg') }}"
                                     class="datepicker-trigger" id="datepicker-trigger" alt="" />
                                 <input type="text" placeholder="Choose a date" class="datepicker"
                                     autocomplete="off">
@@ -564,19 +585,21 @@
                             <div class="">:</div>
                             <div class="">:</div>
                         </div>
-                        <form class="isiform">
-                            <input type="email" class="form-control" id="inputEmail3" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
-                            <input type="email" class="form-control" id="inputEmail3" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
-                            <input type="email" class="form-control" id="inputEmail3" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
-                            <input type="email" class="form-control" id="inputEmail3" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
-                        </form>
-                    </div>
-                </div>
+                        <form name="formAddSchedule" class="isiform" onsubmit="return validasiAddSchedule()"
+                            autocomplete="off">
+                            <input disabled type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+                            <input name="activityAS" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
-                <div class="boxsubmitaddschedule">
-                    <div class="kosongpengisiboxsubmit"></div>
-                    <div class="boxbtnconfirmmodal">
-                        <a href=""><button class="btnconfirmmodal" id="confirmbtn">Confirm</button></a>
+                            <div class="boxjamaddschedule">
+                                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw;">
+                                <div style="color: white; font-size: 3vw; margin-left: 0.5vw; margin-right: 0.5vw"> - </div>
+                                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw;">
+                            </div>
+
+                            <input name="locationAS" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+
+                            <a href=""><button type="submit" class="btnconfirmmodal" id="confirmbtn">Confirm</button></a>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -638,7 +661,7 @@
     -->
     <script>
         /* When the user clicks on the button,
-                        toggle between hiding and showing the dropdown content */
+                            toggle between hiding and showing the dropdown content */
         var rotated = false;
 
         function myFunction() {
@@ -778,9 +801,7 @@
         var btnconfirm = document.getElementById("confirmbtn");
 
         // When the user clicks the button, open the modal
-        btnconfirm.onclick = function() {
-            modalconfirm.style.display = "block";
-        }
+
 
         setTimeout(() => {
             const modal = document.getElementById("modalconfirm");
@@ -797,16 +818,42 @@
                 dateFormat: "yy-mm-dd",
                 beforeShow: function(input, inst) {
                     $('#datepicker-trigger').attr('src',
-                        '{{ asset('Assets/Xtrapage assets/chevronup.png') }}');
+                        '{{ asset('Assets/Xtrapage assets/chevronup.svg') }}');
                 },
                 onClose: function(dateText, inst) {
                     $('#datepicker-trigger').attr('src',
-                        '{{ asset('Assets/Xtrapage assets/chevrondown.png') }}');
+                        '{{ asset('Assets/Xtrapage assets/chevrondown.svg') }}');
                 }
             });
         });
     </script>
     @vite('resources/js/app.js')
+
+    <script>
+        function validasiAddSchedule() {
+            var activity = document.getElementById("activityAS");
+            var location = document.getElementById("locationAS");
+
+            var modalconfirm = document.getElementById("modalconfirm");
+            var btnconfirm = document.getElementById("confirmbtn");
+
+            if (activity.value == "") {
+                alert("Activity must be filled out");
+                return false;
+            } else if (location.value == ""){
+                alert("Location must be filled out");
+                return false;
+            }else {
+                btnconfirm.onclick = function() {
+                    modalconfirm.style.display = "block";
+                }
+                setTimeout(() => {
+                    const modal = document.getElementById("modalconfirm");
+                    modal.style.display = 'none';
+                }, 5000);
+            }
+        }
+    </script>
 
 </body>
 

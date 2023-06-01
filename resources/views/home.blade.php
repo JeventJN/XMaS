@@ -60,7 +60,13 @@
                     function closePopup2(){
                         modal2.style.display="none";
                     }
+
+                    setTimeout(() => {
+                        const modal = document.getElementById("modalpopupLO");
+                        modal.style.display = 'none';
+                    }, 3000);
                 </script>
+
                 {{-- delete --}}
                 <div id="modalpopupDL" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
                     <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
@@ -79,6 +85,11 @@
                     function closePopup3(){
                         modal3.style.display="none";
                     }
+
+                    setTimeout(() => {
+                        const modal = document.getElementById("modalpopupDL");
+                        modal.style.display = 'none';
+                    }, 3000);
                 </script>
             @endif
     @endguest
@@ -114,6 +125,11 @@
                         function closePopup1(){
                             modal1.style.display="none";
                         }
+
+                        setTimeout(() => {
+                            const modal = document.getElementById("modalpopupLI");
+                            modal.style.display = 'none';
+                        }, 3000);
                     </script>
                 @endif
         @endauth

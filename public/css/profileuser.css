@@ -139,6 +139,8 @@ body {
 .isiboxphoneedit {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .boxcheckcross {
@@ -159,6 +161,15 @@ body {
 }
 
 .editphonenumbericon:hover {
+    fill: red;
+}
+
+.editphonenumbericonsubmit {
+    fill: green;
+    margin-left: 0.8vw;
+}
+
+.editphonenumbericoncancel {
     fill: red;
 }
 
@@ -432,15 +443,15 @@ body {
     height: 2.4vw;
     width: 11vw;
     border-radius: 0.2vw;
-    color: white;
+    color: white !important;
     border: none;
-    background-color: #1b2f45;
+    background-color: #1b2f45 !important;
 }
 
 .btnsubmitmodal:hover {
     font-weight: 700;
-    color: white;
-    background-color: black;
+    color: white !important;
+    background-color: black !important;
 }
 
 .btnyesmodal {
@@ -615,4 +626,15 @@ body {
     border-radius: 1vw;
 
     /* border: 3px solid rgb(194, 204, 47); */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
