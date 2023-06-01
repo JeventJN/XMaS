@@ -16,10 +16,20 @@
 <body class="overflow-x-hidden overflow-y-hidden scrollbar-hide">
     <form class="w-screen h-screen flex" method="POST" autocomplete="off">
         <div class="w-[27%] h-screen bg-[#395474] flex flex-col">
+            {{-- Notifikasi --}}
+            <div class="w-[27%] h-[4.35vw] flex justify-start items-center border-t border-t-[0.1vw] fixed z-50 mt-[43vw]">
+                {{-- Notifikasi --}}
+                <div class="bg-[#1B2F45] w-fit h-[2vw] mr-[1vw] rounded-[0.5vw] flex justify-center text-[1.2vw] text-white items-center ml-[8vw] mb-[0.3vw]">
+                    <div class="w-[0.5vw]"></div>
+                    5 notification(s) from 2 group(s)
+                    <div class="w-[0.5vw]"></div>
+                </div>
+            </div>
             {{-- ini container untuk profile chat --}}
             <div class="w-full min-h-[6.5vw] border-b-[0.1vw] border-white flex items-center">
-                {{-- <svg xmlns="http://www.w3.org/2000/svg" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" stroke="#395474" stroke-width="1vw"><path fill="white" d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg> --}}
-                <svg xmlns="http://www.w3.org/2000/svg" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" style="fill: white; font-weight:1vw"><path d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
+                <a href="/myclub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" style="fill: white; font-weight:1vw"><path d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
+                </a>
                 <div class="w-[23vw] h-[4vw] bg-[#E5E5E5] mr-[1vw] rounded-[1vw] flex flex items-center">
                     {{-- Masukin foto profile disini --}}
                     <div class="ml-[0.7vw] w-[3.2vw] h-[3.2vw] rounded-[50%] flex items-center">
@@ -33,7 +43,7 @@
             </div>
             <div class="max-w-full max-h-full bg-[#395474] flex flex-col overflow-scroll scrollbar-hide">
                 {{-- Ini container untuk chat box --}}
-                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                <a href="" class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around hover:bg-[#1B2F45]">
                     {{-- Masukin logo xtra disini --}}
                     <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
                         <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
@@ -48,8 +58,8 @@
                         <div class="text-[0.8vw] text-white">Just Now</div>
                         <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
                     </div>
-                </div>
-                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                </a>
+                <a href="" class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around hover:bg-[#1B2F45]">
                     {{-- Masukin logo xtra disini --}}
                     <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
                         <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
@@ -64,8 +74,8 @@
                         <div class="text-[0.8vw] text-white">Just Now</div>
                         <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
                     </div>
-                </div>
-                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                </a>
+                <a href="" class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around hover:bg-[#1B2F45]">
                     {{-- Masukin logo xtra disini --}}
                     <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
                         <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
@@ -80,8 +90,8 @@
                         <div class="text-[0.8vw] text-white">Just Now</div>
                         <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
                     </div>
-                </div>
-                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                </a>
+                <a href="" class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around hover:bg-[#1B2F45]">
                     {{-- Masukin logo xtra disini --}}
                     <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
                         <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
@@ -96,8 +106,8 @@
                         <div class="text-[0.8vw] text-white">Just Now</div>
                         <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
                     </div>
-                </div>
-                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
+                </a>
+                <a href="" class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around hover:bg-[#1B2F45]">
                     {{-- Masukin logo xtra disini --}}
                     <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
                         <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
@@ -112,63 +122,7 @@
                         <div class="text-[0.8vw] text-white">Just Now</div>
                         <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
                     </div>
-                </div>
-                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
-                    {{-- Masukin logo xtra disini --}}
-                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
-                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
-                    </div>
-                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
-                        {{-- Nama eskul di container chat --}}
-                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
-                        {{-- Nama oranng masukin di mark --}}
-                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
-                    </div>
-                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
-                        <div class="text-[0.8vw] text-white">Just Now</div>
-                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
-                    </div>
-                </div>
-                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
-                    {{-- Masukin logo xtra disini --}}
-                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
-                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
-                    </div>
-                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
-                        {{-- Nama eskul di container chat --}}
-                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
-                        {{-- Nama oranng masukin di mark --}}
-                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
-                    </div>
-                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
-                        <div class="text-[0.8vw] text-white">Just Now</div>
-                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
-                    </div>
-                </div>
-                <div class="w-full min-h-[5vw] border-b-[0.1vw] border-white flex items-center justify-around">
-                    {{-- Masukin logo xtra disini --}}
-                    <div class="min-w-[4vw] h-[4vw] rounded-[50%] ">
-                        <img class="w-[4vw] h-[4vw] rounded-[50%] border border-black border-[0.1vw]" src="Assets/RunningLogo.png" alt="">
-                    </div>
-                    <div class="min-w-[16vw] min-h-[4vw] flex flex-col leading-[1.8vw] justify-center items-start">
-                        {{-- Nama eskul di container chat --}}
-                        <div class="font-nunito text-[1.8vw] underline text-white">Basketball</div>
-                        {{-- Nama oranng masukin di mark --}}
-                        <div class="font-nunito text-[1vw] text-white break-normal max-w-[16vw]"><mark class="bg-transparent text-white">Masukin nama disini</mark> : Zaka ganteng</div>
-                    </div>
-                    <div class="min-w-[4vw] min-h-[4vw] flex flex-col items-center justify-around">
-                        <div class="text-[0.8vw] text-white">Just Now</div>
-                        <div class="bg-[#56B8E6] w-[1.5vw] h-[1.5vw] rounded-[50%] flex justify-center text-[0.8vw] text-white items-center">5</div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full h-[4.35vw] flex justify-end items-center border-t border-t-[0.1vw]">
-                {{-- Notifikasi --}}
-                <div class="bg-[#1B2F45] w-fit h-[2vw] mr-[1vw] rounded-[0.5vw] flex justify-center text-[1.2vw] text-white items-center">
-                    <div class="w-[0.5vw]"></div>
-                    5 notification(s) from 2 group(s)
-                    <div class="w-[0.5vw]"></div>
-                </div>
+                </a>
             </div>
         </div>
         <div class="ml-[27%] w-[73%] min-h-[6.5vw] border-b-[0.1vw] border-white flex items-center justify-start bg-[#1B2F45] fixed">
@@ -377,19 +331,38 @@
             <div class="w-full h-[43vw] bg-white"></div>
             <div class="w-[73%] h-[4vw] bg-[#1B2F45] flex items-center justify-around fixed mt-[38vw]">
                 <svg xmlns="http://www.w3.org/2000/svg" id="cam" class="ml-[1vw]" width="3vw" height="3vw" viewBox="0 0 24 24"><path fill="white" d="M12 17.5q1.875 0 3.188-1.313T16.5 13q0-1.875-1.313-3.188T12 8.5q-1.875 0-3.188 1.313T7.5 13q0 1.875 1.313 3.188T12 17.5ZM4 21q-.825 0-1.413-.588T2 19V7q0-.825.588-1.413T4 5h3.15L9 3h6l1.85 2H20q.825 0 1.413.588T22 7v12q0 .825-.588 1.413T20 21H4Z"/></svg>
+                {{-- ini upload photo --}}
                 <div class="absolute max-h-[3vw] max-w-[3vw] opacity-0 mr-[67vw] flex justify-center hover:cursor-pointer">
                     <input class="ml-[0.75vw] min-h-[3vw] min-w-[3vw] mt-[0.35vw] hover:cursor-pointer" type="file" name="photo" id="photo">
                 </div>
+                {{-- Ini text input --}}
                 <div class="w-[62vw] h-[4vw] flex items-center">
                     <div class="w-[62vw] h-[2.5vw] bg-[#E5E5E5] rounded-[1vw] flex justify-start items-center" autocomplete="off" method="POST" action="chat">
                         <textarea class="ml-[1vw] w-[60vw] bg-[#E5E5E5] text-[1.3vw] outline-none break-normal max-h-[2vw] scrollbar-hide italic focus:not-italic" style="resize:none;" placeholder="Type a message" type="text"></textarea>
                     </div>
                 </div>
+                {{-- ini kirim form --}}
                 <button type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mr-[1vw]" width="2vw" height="2vw" viewBox="0 0 24 24"><path fill="white" d="M1.946 9.316c-.522-.175-.526-.456.011-.635L21.043 2.32c.529-.176.832.12.684.638l-5.453 19.086c-.151.529-.456.547-.68.045L12 14l6-8l-8 6l-8.054-2.684Z"/></svg>
                 </button>
             </div>
         </div>
+        {{-- ini pop up waktu photo di upload --}}
+        <div id="photopop" class="absolute z-50 w-[20vw] h-[3vw] bg-black ml-[54vw] mt-[38vw] flex justify-center items-center font-nunito text-[1.5vw] text-white rounded-[0.5vw] mt-[2vw] hidden">Photo have been uploaded</div>
     </form>
+    <script>
+        var photopop = document.getElementById('photopop');
+        var photo= document.getElementById('photo');
+        photo.addEventListener('input', closePop);
+
+        function closePop() {
+            photopop.style.display = 'flex';
+            setTimeout(hidePop, 2000);
+        }
+
+        function hidePop() {
+            photopop.style.display = 'none';
+        }
+    </script>
 </body>
 </html>

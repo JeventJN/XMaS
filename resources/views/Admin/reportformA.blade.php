@@ -114,17 +114,44 @@
         </div>
 
         {{-- Ini untuk Admin (Acc/Dec) --}}
-        <div class="flex justify-center w-screen h-fit font-nunito">
-            <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
-                Accept
+        <form action="" method="post">
+            <div class="flex justify-center w-screen h-fit font-nunito">
+                <button id="Accept">
+                    <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
+                        Accept
+                    </div>
+                </button>
+                <div class="flex items-center justify-center w-[3.5vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white text-[1.3vw] hover:bg-black hover:cursor-pointer opacity-0">
+                    Submit
+                </div>
+                <button id="Deny">
+                    <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
+                        Deny
+                    </div>
+                </button>
+                {{-- ini inputnya ya bos, saya masukin valuenya dari js --}}
+                <input type="radio" class="hidden" id="report" name="report">
             </div>
-            <div class="flex items-center justify-center w-[3.5vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white text-[1.3vw] hover:bg-black hover:cursor-pointer opacity-0">
-                Submit
-            </div>
-            <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
-                Deny
-            </div>
-        </div>
-        <script src="{{asset('js/Ketua/reportform.js')}}"></script>
+            <script>
+                var acc = document.getElementById('Accept');
+                var dec = document.getElementById('Deny');
+                var rep = document.getElementById('report');
+
+                acc.addEventListener('click', sendAcc);
+                dec.addEventListener('click', sendDec);
+
+                function sendAcc(){
+                    rep.checked = true;
+                    rep.value = 'Accept';
+                    console.log(rep.value);
+                }
+
+                function sendDec(){
+                    rep.checked = true;
+                    rep.value = 'Decline';
+                    console.log(rep.value);
+                }
+            </script>
+        </form>
 </body>
 </html>

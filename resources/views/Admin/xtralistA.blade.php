@@ -341,53 +341,51 @@
                     @endforeach --}}
 
                 {{-- ADMIN HAPUS XTRA -------------------------------------------------------------------------------------------------- --}}
-                <a href="/xtralist">
-                    <div class="flex flex-col">
-                        <div class="xtraboxcontainer flex justify-center items-center">
-                            <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                <img src="{{ asset('Assets/RunningLogo.png') }}" alt="">
-                            </div>
-                            <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
-                                <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
-                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
-                                </div>
+                <div class="flex flex-col">
+                    <a href="/home" class="xtraboxcontainer flex justify-center items-center">
+                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                            <img src="{{ asset('Assets/RunningLogo.png') }}" alt="">
+                        </div>
+                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
+                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
                             </div>
                         </div>
-                        <div class="absolute w-fit h-fit flex justify-end mt-[17vw] ml-[33vw]">
-                            <div class="w-[2.5vw] h-[2.5vw]">
+                    </a>
+                    <div class="absolute w-fit h-fit flex justify-end mt-[17vw] ml-[33vw]">
+                        <div class="w-[2.5vw] h-[2.5vw]">
 
-                                {{-- Delete disini --}}
+                            {{-- Delete disini --}}
 
-                                <img class="w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" id="sampahbtn" src="{{ asset('Assets/delete.png') }}" alt="">
-                                {{-- Modal Tempat Sampah --}}
-                                <div id="modalsampah" class="modalsampah">
-                                    {{-- Modal Content --}}
-                                    <div class="modal-contentsampah">
-                                        <div class="kotakisimodal">
-                                            <div class="boxjudulclosesampah">
-                                                <span class="closesampah">&times;</span>
-                                            </div>
-                                            <div class="isisampah">
-                                                <div class="kalimatsampah1">This action will <span style="color: red;">delete</span> this Xtra.</div>
-                                                <div class="kalimatsampah2">Do you want to continue?</div>
-                                            </div>
-                                            <div class="boxsubmitsampah">
-                                                <form>
-                                                    <a href="/xtralistA"><button class="btnyesmodal">Yes</button></a>
-                                                </form>
-                                                <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
-                                            </div>
+                            <img class="w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" id="sampahbtn" src="{{ asset('Assets/delete.png') }}" alt="">
+                            {{-- Modal Tempat Sampah --}}
+                            <div id="modalsampah" class="modalsampah">
+                                {{-- Modal Content --}}
+                                <div class="modal-contentsampah">
+                                    <div class="kotakisimodal">
+                                        <div class="boxjudulclosesampah">
+                                            <span class="closesampah">&times;</span>
+                                        </div>
+                                        <div class="isisampah">
+                                            <div class="kalimatsampah1">This action will <span style="color: red;">delete</span> this Xtra.</div>
+                                            <div class="kalimatsampah2">Do you want to continue?</div>
+                                        </div>
+                                        <div class="boxsubmitsampah">
+                                            <form>
+                                                <a href="/xtralistA"><button class="btnyesmodal">Yes</button></a>
+                                            </form>
+                                            <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- Modal Tempat Sampah --}}
                             </div>
+                            {{-- Modal Tempat Sampah --}}
                         </div>
                     </div>
-                </a>
+                </div>
                 {{-- @else
                 <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
                 @endif --}}

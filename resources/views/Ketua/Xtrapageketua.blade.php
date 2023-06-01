@@ -122,7 +122,7 @@
                                     $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . '(' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')'
                                 @endphp
                                 <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
-                                    data-value="{{ date('D', strtotime($xtra->latest_schedule?->date)) . '(' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')' }}"
+                                    data-value="{{ $schedule }}"
                                     data-text="Schedule">Schedule</a>
                                 <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
                                     data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
@@ -150,13 +150,14 @@
                                     e.target.style.height = '5vw';
                                     e.target.style.paddingBottom = '4.1vw';
 
+
                                     if (value == @json($xtra->name)) {
-                                        // if(value == "asdasdasdas"){
                                         e.target.classList.add('JudulXtra');
                                         // e.target.style.width = '30vw';
                                         e.target.style.padding = '1.3vw 10vw 3.5vw 17.5vw';
                                         // e.target.style.marginBottom = '-0.2vw';
                                     } else if (value == @json($schedule)) {
+                                    // } else if (value == 'aaaaaa') {
                                         e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
                                         e.target.style.width = '38vw';
                                         // e.target.style.marginTop = '-0.28vw';
