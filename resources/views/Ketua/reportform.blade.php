@@ -54,17 +54,17 @@
                             <div class="">Xtra's Name</div>
                         </div>
                         {{-- Nama Eskul dari database --}}
-                        <div class="flex justify-start w-[23vw] bg-[#395474] border-b-[0.1vw] mb-[1vw] w-[23vw] text-white">
+                        <div class="flex justify-start w-[23vw] bg-[#395474] border-b-[0.1vw] mb-[1vw] w-[23vw] text-white text-[1.5vw]">
                             Masukin nama xtra disini
                         </div>
                     </div>
-                    <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
-                        {{-- Nama Leader eskul --}}
+                    <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col text-[1.5vw]">
                         <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] font-semibold">
                             <div class="">Leader's Name</div>
                         </div>
+                        {{-- Nama Leader eskul --}}
                         <div class="flex justify-start w-[23vw] bg-[#395474] border-b-[0.1vw] mb-[1vw] w-[23vw] text-white">
-                            Ni Putu Intan Paramitha Marchilla Audrey Dewi
+                            Jevent Natthannael
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
