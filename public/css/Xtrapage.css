@@ -40,13 +40,14 @@ body {
     display: flex;
     flex-direction: row;
     padding-left: 5vw;
-    /* border: red solid */
+    /* border: red solid; */
 }
 
 .containerlogo .row div {
     flex: 1;
     margin-left: 0;
     margin-right: 0;
+    /* border: green solid; */
 }
 
 /* mengatur jumbotron bagian logo BCA */
@@ -100,7 +101,7 @@ body {
     flex-direction: column;
     align-items: start;
     padding-top: 2.6vw;
-    /* border: green solid; */
+    /* border: pink solid; */
 }
 
 /* ================================================================ */
@@ -295,6 +296,14 @@ main .tab-content .tab-pane {
 .boxlabeledit {
     display: flex;
     flex-direction: row;
+}
+
+.gambarpensil{
+    margin-left: auto; height: 2vw; width: 2vw; cursor: pointer;
+}
+
+.gambarpensil:hover{
+    transform: scale(1.15);
 }
 
 .KotakForm {

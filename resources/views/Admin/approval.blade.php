@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('css/Non-User/xtralistNU.css')}}">
+    <link rel="stylesheet" href="{{asset('css/Admin/approval.css')}}">
     <title>Aproval</title>
   @vite('resources/css/app.css')
 </head>
@@ -83,12 +84,57 @@
                 <div class="text-[1.5vw] ml-[1vw] w-[65%]">
                     <mark class="bg-white font-bold">Jevent Natthannael</mark> as <mark class="bg-white font-bold">Running</mark> Xtra's Leader
                 </div>
-                <div class="flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
+
+                <button type="button" id="acceptbtn" class="accept flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
                     Accept
+                </button>
+
+                {{-- Modal Accept --}}
+                <div id="modalaccept" class="modalaccept">
+                    {{-- Modal Content --}}
+                    <div class="modal-contentaccept">
+                        <div class="kotakisimodal">
+                            <div class="boxjudulcloseaccept">
+                                <span class="closeaccept">&times;</span>
+                            </div>
+                            <div class="isiaccept">
+                                <div class="kalimataccept1">This action will <span style="color: red;">give</span> leader access to requester.</div>
+                                <div class="kalimataccept2">Do you want to continue?</div>
+                            </div>
+                            <div class="boxsubmitaccept">
+                                <a href=""><button class="btnyesmodal">Yes</button></a>
+                                <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
+                {{-- Modal Accept --}}
+
+                <button type="button" id="denybtn" class=" deny ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
                     Deny
+                </button>
+
+                {{-- Modal Deny --}}
+                <div id="modaldeny" class="modaldeny">
+                    {{-- Modal Content --}}
+                    <div class="modal-contentdeny">
+                        <div class="kotakisimodal">
+                            <div class="boxjudulclosedeny">
+                                <span class="closedeny">&times;</span>
+                            </div>
+                            <div class="isideny">
+                                <div class="kalimatdeny1">This action will <span style="color: red;">deny</span> the requester.</div>
+                                <div class="kalimatdeny2">Do you want to continue?</div>
+                            </div>
+                            <div class="boxsubmitdeny">
+                                <a href=""><button class="btnyesmodal">Yes</button></a>
+                                <button class="btncancelmodal" id="btncancelmodal3">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                {{-- Modal Deny --}}
+
             </div>
             {{-- INI BATASNYA --}}
             <div class="w-[95%] h-[5vw] bg-white rounded-[1vw] flex items-center mt-[1vw] mb-[1vw] border border-[0.2vw] border-black flex">
@@ -107,5 +153,77 @@
     </div>
     <div class="mt-[5.8vw]"></div>
     @include('footer')
+
+    <script>
+        //SCRIPT MODAL ACCEPT======================================
+        // Get modal
+        var modalaccept = document.getElementById("modalaccept")
+
+        // Get button that opens modal
+        var btnaccept = document.getElementById("acceptbtn");
+
+        // Get the <span> element that closes the modal
+        var spanaccept = document.getElementsByClassName("closeaccept")[0];
+        var btncancel = document.getElementById("btncancelmodal1");
+
+        // When the user clicks the button, open the modal
+        btnaccept.onclick = function() {
+            modalaccept.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        spanaccept.onclick = function() {
+            modalaccept.style.display = "none";
+        }
+
+        btncancel.onclick = function() {
+            modalaccept.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modalaccept) {
+                modalaccept.style.display = "none";
+            }
+        }
+        // SCRIPT MODAL ACCEPT========================================
+    </script>
+
+    <script>
+        //SCRIPT MODAL DENY======================================
+        // Get modal
+        var modaldeny = document.getElementById("modaldeny")
+
+        // Get button that opens modal
+        var btndeny = document.getElementById("denybtn");
+
+        // Get the <span> element that closes the modal
+        var spandeny = document.getElementsByClassName("closedeny")[0];
+        var btncancel = document.getElementById("btncancelmodal3");
+
+        // When the user clicks the button, open the modal
+        btndeny.onclick = function() {
+            modaldeny.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        spandeny.onclick = function() {
+            modaldeny.style.display = "none";
+        }
+
+        btncancel.onclick = function() {
+            modaldeny.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modaldeny) {
+                modaldeny.style.display = "none";
+            }
+        }
+        // SCRIPT MODAL DENY========================================
+    </script>
+
+
 </body>
 </html>

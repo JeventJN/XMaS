@@ -139,7 +139,7 @@
 
                     {{-- ini untuk member --}}
                     <button type="button" class="request" id="requestbtn">Request Leader Access</button>
-                    {{-- <button class="request" id="requestbtn" disabled>Waiting for Admin...</button> --}}
+                    {{-- <button class="requestdisable" id="requestbtn" disabled>Approval Leader on Progress</button> --}}
                     {{-- Modal Request --}}
                     <div id="modalrequest" class="modalrequest">
                         {{-- Modal Content --}}
@@ -199,8 +199,8 @@
                                     <div class="kalimatlogout2">Do you want to continue?</div>
                                 </div>
                                 <div class="boxsubmitlogout">
-                                    <form action="">
-                                        <a href="/logout"><button class="btnyesmodal">Yes</button></a>
+                                    <form action="/logout" method="POST">
+                                        <button class="btnyesmodal">Yes</button>
                                     </form>
                                     <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
                                 </div>
@@ -295,7 +295,7 @@
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
-            if (event.target == modal) {
+            if (event.target == modallogout) {
                 modallogout.style.display = "none";
             }
         }

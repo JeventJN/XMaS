@@ -145,7 +145,7 @@
                                     e.target.innerHTML = value;
                                     e.target.style.backgroundColor = '#1B2F45';
                                     e.target.style.color = 'white';
-                                    e.target.style.fontSize = '2vw';
+                                    e.target.style.fontSize = '1.6vw';
                                     e.target.style.width = 'fit-content';
                                     e.target.style.height = '5vw';
                                     e.target.style.paddingBottom = '4.1vw';
@@ -153,21 +153,20 @@
 
                                     if (value == @json($xtra->name)) {
                                         e.target.classList.add('JudulXtra');
+                                        e.target.style.padding = '1.3vw 4vw 3.5vw 16vw';
                                         // e.target.style.width = '30vw';
-                                        e.target.style.padding = '1.3vw 10vw 3.5vw 17.5vw';
                                         // e.target.style.marginBottom = '-0.2vw';
                                     } else if (value == @json($schedule)) {
-                                    // } else if (value == 'aaaaaa') {
-                                        e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
-                                        e.target.style.width = '38vw';
-                                        // e.target.style.marginTop = '-0.28vw';
-                                        // e.target.style.marginBottom = '-0.3vw';
                                         e.target.classList.add('ScheduleXtra');
+                                        e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
+                                        e.target.style.width = '35vw';
+                                        e.target.style.marginTop = '-0.05vw';
+                                        // e.target.style.marginBottom = '-0.3vw';
                                     } else if (value == @json($xtra->leader?->userXmas?->name)) {
-                                        e.target.style.padding = '1.3vw 1vw 3.5vw 18vw';
-                                        e.target.style.width = '40vw';
-                                        // e.target.style.marginTop = '-0.58vw';
                                         e.target.classList.add('LeaderXtra');
+                                        e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
+                                        // e.target.style.width = '40vw';
+                                        // e.target.style.marginTop = '-0.58vw';
                                     }
 
                                 });
@@ -189,7 +188,7 @@
                                     } else if (text == 'Schedule') {
                                         e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
                                         e.target.style.width = '29.2vw';
-                                        e.target.style.marginTop = '-0.08vw';
+                                        e.target.style.marginTop = '-0.01vw';
                                         e.target.style.marginBottom = '-0.08vw';
                                         e.target.classList.remove('ScheduleXtra');
                                     } else if (text == 'Leader') {
@@ -270,31 +269,32 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
-                    {{-- <form action="" class="KotakForm">
+                    <form action="" class="KotakForm">
                         <div class="form-group" id="KotakDesc">
-                        <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw"></textarea>
+                            <div class="boxlabeledit">
+                                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
+                                <label for="exampleFormControlTextarea1" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt=""/></label>
+                            </div>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw"></textarea>
                         </div>
 
                         <div class="form-group" id="KotakAct">
-                        <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw;"></textarea>
+                            <div class="boxlabeledit">
+                                <label for="exampleFormControlTextarea2" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
+                                <label for="exampleFormControlTextarea2" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt=""/></label>
+                            </div>
+                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw;"></textarea>
                         </div>
-                    </form> --}}
+                    </form>
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
 
                     {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
-                    <div action="" class="KotakForm">
+                    {{-- <div action="" class="KotakForm">
                         <div class="form-group" id="KotakDesc">
                             <div class="boxlabeledit">
-                                <label for="exampleFormControlTextarea1"
-                                    style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
-                                <img src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt=""
-                                    style="margin-left: auto; height: 2vw; width: 2vw;" />
+                                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                             </div>
-                            <div class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                name="descriptiontextarea"
-                                style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;">
+                            <div class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;">
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi quasi similique nam
                                 magni, laboriosam consectetur velit dignissimos perferendis porro odio laudantium
                                 sapiente unde, deleniti vero dolore temporibus eaque impedit eveniet!
@@ -303,20 +303,15 @@
 
                         <div class="form-group" id="KotakAct">
                             <div class="boxlabeledit">
-                                <label for="exampleFormControlTextarea1"
-                                    style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
-                                <img src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt=""
-                                    style="margin-left: auto; height: 2vw; width: 2vw;" />
+                                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
                             </div>
-                            <div class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                name="activitytextarea"
-                                style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;">
+                            <div class="form-control" id="exampleFormControlTextarea1" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi facilis officia minus
                                 illum nemo corrupti aperiam, dolorum consectetur fugiat deserunt, ea modi vero
                                 repudiandae, cumque qui ipsam culpa explicabo perspiciatis.
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
                 </div>
                 {{-- ===Segment Description=== --}}
@@ -558,12 +553,10 @@
                     </div> --}}
 
                     <div class="bungkuscalendar">
-                        <form class="inline">
+                        <form class="inline" method="POST">
                             <div class="input-icons">
-                                <img class="" src="{{ asset('Assets/Xtrapage assets/chevrondown.svg') }}"
-                                    class="datepicker-trigger" id="datepicker-trigger" alt="" />
-                                <input type="text" placeholder="Choose a date" class="datepicker"
-                                    autocomplete="off">
+                                <img class="" src="{{ asset('Assets/Xtrapage assets/chevrondown.svg') }}" class="datepicker-trigger" id="datepicker-trigger" alt="" />
+                                <input type="text" placeholder="Choose a date" class="datepicker" autocomplete="off">
                             </div>
                         </form>
                     </div>
@@ -577,7 +570,7 @@
                         <div class="formketerangan">
                             <div class="namaxtra">Xtra</div>
                             <div class="activityxtra">Activity</div>
-                            <div class="schedulextra">Schedule</div>
+                            <div class="schedulextra">Time</div>
                             <div class="locationxtra">Location</div>
                         </div>
                         <div class="titikdua">
@@ -586,18 +579,17 @@
                             <div class="">:</div>
                             <div class="">:</div>
                         </div>
-                        <form name="formAddSchedule" class="isiform" onsubmit="return validasiAddSchedule()"
-                            autocomplete="off">
+                        <form name="formAddSchedule" method="POST" class="isiform" onsubmit="return validasiAddSchedule()" autocomplete="off">
                             <input disabled type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
-                            <input name="activityAS" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+                            <input placeholder="Input here" name="activityAS" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
                             <div class="boxjamaddschedule">
-                                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw;">
+                                <input type="time" id="appt1" name="appt" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw;">
                                 <div style="color: white; font-size: 3vw; margin-left: 0.5vw; margin-right: 0.5vw"> - </div>
-                                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw;">
+                                <input type="time" id="appt2" name="appt" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw;">
                             </div>
 
-                            <input name="locationAS" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+                            <input placeholder="Input here" name="locationAS" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
                             <a href=""><button type="submit" class="btnconfirmmodal" id="confirmbtn">Confirm</button></a>
                         </form>
@@ -833,6 +825,8 @@
     <script>
         function validasiAddSchedule() {
             var activity = document.getElementById("activityAS");
+            var start = document.getElementById("appt1");
+            var end = document.getElementById("appt2");
             var location = document.getElementById("locationAS");
 
             var modalconfirm = document.getElementById("modalconfirm");
@@ -841,10 +835,19 @@
             if (activity.value == "") {
                 alert("Activity must be filled out");
                 return false;
+            } else if (start.value == "") {
+                alert("Start time must be filled out");
+                return false;
+            } else if (end.value == "") {
+                alert("End time must be filled out");
+                return false;
+            } else if(start.value > end.value) {
+                alert("Start time must be greater than end time");
+                return false;
             } else if (location.value == ""){
                 alert("Location must be filled out");
                 return false;
-            }else {
+            } else {
                 btnconfirm.onclick = function() {
                     modalconfirm.style.display = "block";
                 }

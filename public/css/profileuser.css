@@ -232,6 +232,16 @@ body {
     color: black;
 }
 
+.requestdisable{
+    height: 3.8vw;
+    width: 17vw;
+    font-size: 1.1vw;
+    border: #49596A solid;
+    background-color: #49596A;
+    border-radius: 0.5vw;
+    color: #ffffff;
+}
+
 /* ====================The Modal for Request Leader Access==================== */
 .modalrequest {
     display: none; /* Hidden by default */
