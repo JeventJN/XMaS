@@ -1,0 +1,241 @@
+ /* ====================The Modal for Accept==================== */
+ .modalaccept {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    /* padding-top: 5.3vw; Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 50;
+  }
+
+  /* Modal Content */
+  .modal-contentaccept {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 1.1vw 2vw 1.1vw 2vw;
+    border: 0.052vw solid #888;
+    /* width: 80%; */
+    height: 15vw;
+    width: 39.8vw;
+    border-radius: 1.8vw;
+    border: #1B2F45 0.2vw solid;
+  }
+
+  .kotakisimodal{
+    display: flex;
+    flex-direction: column;
+    /* border: cyan solid; */
+  }
+
+  .boxjudulcloseaccept{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    height: 2.1vw;
+  }
+
+  .judulmodal{
+    flex: 5;
+    font-size: 1.5vw;
+  }
+
+  .isiaccept{
+    display: flex;
+    flex-direction: column;
+    gap: 0.15vw;
+    height: 4.5vw;
+    /* border: purple solid; */
+  }
+
+  .kalimataccept1{
+    font-size: 1.6vw;
+    font-weight: 600;
+  }
+
+  .kalimataccept2{
+    font-size: 1.6vw;
+    font-weight: 600;
+  }
+
+.boxsubmitaccept{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-top: 2.5vw;
+    gap: 2vw;
+    /* border: yellow solid; */
+}
+
+.btnyesmodal{
+    font-size: 1.2vw;
+    height: 2.4vw;
+    width: 11vw;
+    border-radius: 0.2vw;
+    color: white;
+    border: none;
+    background-color: #398E20;
+}
+
+.btnyesmodal:hover{
+    font-weight: 700;
+    color: white;
+    background-color: #155003;
+}
+
+.btncancelmodal{
+    font-size: 1.2vw;
+    height: 2.4vw;
+    width: 11vw;
+    border-radius: 0.2vw;
+    color: black;
+    border: none;
+    background-color: #FF0000;
+}
+
+.btncancelmodal:hover{
+    font-weight: 700;
+    color: white;
+    background-color: #6D0000;
+}
+
+.closeaccept {
+    color: #aaaaaa;
+    float: right;
+    font-size: 2.8vw;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .closeaccept:hover, .close:focus {
+    color: #FF0000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+ /* ====================The Modal for Deny==================== */
+ .modaldeny {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    /* padding-top: 5.3vw; Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    z-index: 50;
+  }
+
+  /* Modal Content */
+  .modal-contentdeny {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 1.1vw 2vw 1.1vw 2vw;
+    border: 0.052vw solid #888;
+    /* width: 80%; */
+    height: 15vw;
+    width: 39.8vw;
+    border-radius: 1.8vw;
+    border: #1B2F45 0.2vw solid;
+  }
+
+  .kotakisimodal{
+    display: flex;
+    flex-direction: column;
+    /* border: cyan solid; */
+  }
+
+  .boxjudulclosedeny{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    height: 2.1vw;
+  }
+
+  .judulmodal{
+    flex: 5;
+    font-size: 1.5vw;
+  }
+
+  .isideny{
+    display: flex;
+    flex-direction: column;
+    gap: 0.15vw;
+    height: 4.5vw;
+    /* border: purple solid; */
+  }
+
+  .kalimatdeny1{
+    font-size: 1.6vw;
+    font-weight: 600;
+  }
+
+  .kalimatdeny2{
+    font-size: 1.6vw;
+    font-weight: 600;
+  }
+
+.boxsubmitdeny{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-top: 2.5vw;
+    gap: 2vw;
+    /* border: yellow solid; */
+}
+
+.btnyesmodal{
+    font-size: 1.2vw;
+    height: 2.4vw;
+    width: 11vw;
+    border-radius: 0.2vw;
+    color: white;
+    border: none;
+    background-color: #398E20;
+}
+
+.btnyesmodal:hover{
+    font-weight: 700;
+    color: white;
+    background-color: #155003;
+}
+
+.btncancelmodal1, .btncancelmodal3{
+    font-size: 1.2vw;
+    height: 2.4vw;
+    width: 11vw;
+    border-radius: 0.2vw;
+    color: black;
+    border: none;
+    background-color: #FF0000;
+}
+
+.btncancelmodal1:hover, .btncancelmodal3:hover{
+    font-weight: 700;
+    color: white;
+    background-color: #6D0000;
+}
+
+.closedeny {
+    color: #aaaaaa;
+    float: right;
+    font-size: 2.8vw;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .closedeny:hover, .close:focus {
+    color: #FF0000;
+    text-decoration: none;
+    cursor: pointer;
+  }
