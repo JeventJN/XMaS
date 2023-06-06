@@ -116,16 +116,12 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="flex: 1;">
                         <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
                             <div class="button-elips" onmouseover="hover()" onmouseout="out()">
-                                <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
-                                    data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
+                                <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
                                 @php
                                     $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . '(' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')'
                                 @endphp
-                                <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
-                                    data-value="{{ $schedule }}"
-                                    data-text="Schedule">Schedule</a>
-                                <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}"
-                                    data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
+                                <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $schedule }}" data-text="Schedule">Schedule</a>
+                                <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
                                 {{-- <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
                       <a class="buttons" href="" data-value="Wed(17.00 - 19.00)" data-text="Schedule">Schedule</a>
                       <a class="buttons" href="" data-value="Jevent Natthannael" data-text="Leader">Leader</a> --}}
@@ -139,7 +135,6 @@
                             buttons.forEach((button) => {
 
                                 button.addEventListener('mouseover', (e) => {
-
                                     const value = e.target.getAttribute('data-value');
 
                                     e.target.innerHTML = value;
@@ -162,13 +157,12 @@
                                         e.target.style.width = '35vw';
                                         e.target.style.marginTop = '-0.05vw';
                                         // e.target.style.marginBottom = '-0.3vw';
-                                    } else if (value == @json($xtra->leader?->userXmas?->name)) {
+                                    } else if (value == @json($xtra->leader->userXmas->name)) {
                                         e.target.classList.add('LeaderXtra');
                                         e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
                                         // e.target.style.width = '40vw';
                                         // e.target.style.marginTop = '-0.58vw';
                                     }
-
                                 });
                                 button.addEventListener('mouseout', (e) => {
                                     const text = e.target.getAttribute('data-text');
@@ -247,19 +241,13 @@
             {{-- Pilihan Sections --}}
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                        aria-controls="home" aria-selected="true"
-                        style="padding-top: 1vw; width: 18vw">Description</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" style="padding-top: 1vw; width: 18vw">Description</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                        aria-controls="profile" aria-selected="false"
-                        style="padding-top: 1vw; width: 18vw">Documentation</a>
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style="padding-top: 1vw; width: 18vw">Documentation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                        aria-controls="contact" aria-selected="false"
-                        style="padding-top: 1vw; width: 18vw">Member</a>
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" style="padding-top: 1vw; width: 18vw">Member</a>
                 </li>
             </ul>
             {{-- Pilihan Sections --}}
@@ -322,50 +310,42 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top"
-                                        alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/2.png') }}" class="card-img-top"
-                                        alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapage assets/foto/2.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/3.png') }}" class="card-img-top"
-                                        alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapage assets/foto/3.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top"
-                                        alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top"
-                                        alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top"
-                                        alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top"
-                                        alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top"
-                                        alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                         </div>
@@ -375,14 +355,12 @@
 
                 {{-- ===Segment Member=== --}}
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span
-                            class="nummember">{{ $xtra->members->count() }}</span></div>
+                    <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span class="nummember">{{ $xtra->members->count() }}</span></div>
                     <div class="row" id="member">
                         <br />
                         <div class="col-lg-6 col-sm-6 col-md-6 col-6">
                             <div class="luarcard">
-                                <h4 class="text-center text-dark font-weight-bold"
-                                    style="font-size: 1.5vw; margin-top: 1vw; margin-bottom: 0.8vw">
+                                <h4 class="text-center text-dark font-weight-bold" style="font-size: 1.5vw; margin-top: 1vw; margin-bottom: 0.8vw">
                                     Member List
                                 </h4>
                                 <div class="card">
@@ -410,12 +388,10 @@
 
                         {{-- Untuk Leave Xtra --}}
                         <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                            <img src="{{ asset('Assets/Xtrapage assets/stop.png') }}" alt=""
-                                class="gambarstop" />
+                            <img src="{{ asset('Assets/Xtrapage assets/stop.png') }}" alt="" class="gambarstop" />
                             <div class="btn-member">
                                 {{-- <button type="button" class="btn" id="leavebtn" data-toggle="modal" data-target="#staticBackdrop" style="border: none">Leave Xtra</button> --}}
-                                <button type="button" class="leave" id="leavebtn" style="border: none">Leave
-                                    Xtra</button>
+                                <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
                             </div>
                         </div>
                         {{-- Untuk Leave Xtra --}}
@@ -444,8 +420,7 @@
         <div class="presence" style="margin-top: 3vw;">
             {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
             <div class="containerbawah">
-                <div class="TulisanPresenceMember" style="">Presence Member : <span
-                        class="numpresence">10</span> </div>
+                <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">10</span> </div>
                 <div class="dropdown">
                     <button onclick="myFunction()" class="dropbtn">Choose date <img class="gambarPanah"
                             src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}" alt=""
@@ -548,10 +523,6 @@
         <div class="modal-contentaddschedule">
             <div class="kotakisimodal">
                 <div class="boxjudulcloseaddschedule">
-                    {{-- <div class="tanggal">
-                        <input type="date" class="form-control" placeholder="Choose date" style="font-size: 2.5vw; border-radius: 1.5vw; background-color: #D9D9D9;"/>
-                    </div> --}}
-
                     <div class="bungkuscalendar">
                         <form class="inline" method="POST">
                             <div class="input-icons">
@@ -640,21 +611,11 @@
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
-    </script>
-    -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>-->
     <script>
-        /* When the user clicks on the button,
-                            toggle between hiding and showing the dropdown content */
+        /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
         var rotated = false;
 
         function myFunction() {
@@ -807,6 +768,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
         jQuery(document).ready(function($) {
+            $('.datepicker-trigger').click(function() {
+                $('.datepicker').datepicker('show');
+            });
+
             $('.datepicker').datepicker({
                 dateFormat: "yy-mm-dd",
                 beforeShow: function(input, inst) {

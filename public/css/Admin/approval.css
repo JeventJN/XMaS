@@ -210,7 +210,7 @@
     background-color: #155003;
 }
 
-.btncancelmodal{
+.btncancelmodal1, .btncancelmodal3{
     font-size: 1.2vw;
     height: 2.4vw;
     width: 11vw;
@@ -220,7 +220,7 @@
     background-color: #FF0000;
 }
 
-.btncancelmodal:hover{
+.btncancelmodal1:hover, .btncancelmodal3:hover{
     font-weight: 700;
     color: white;
     background-color: #6D0000;
