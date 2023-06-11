@@ -38,6 +38,17 @@
     {{-- {{Auth::User()}} --}}
     {{-- {{gettype(Auth::User()->NIP)}} --}}
     {{-- {{sprintf("%04d", Auth::User()->NIP)}} --}}
+
+    {{-- @if ($flag == 1)
+        <p>hai</p>
+    @endif --}}
+
+    {{-- Ini jalan --}}
+    {{-- @if (Auth::User()->NIP == '0000')
+        <p>hai</p>
+    @endif --}}
+
+
     @guest
         @include('Non-User.navbarNU')
             @if (session()->has('logoutSuccess'))
@@ -67,43 +78,44 @@
                     }, 3000);
                 </script>
 
-                {{-- delete --}}
-                <div id="modalpopupDL" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-                    <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-                        <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
-                            Your account is successfully deleted
-                            <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalDL" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
-                        </div>
+            @endif
+
+            {{-- delete --}}
+            <div id="modalpopupDL" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+                <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                    <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                        Your account is successfully deleted
+                        <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalDL" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
                     </div>
                 </div>
-                <script>
-                    var modal3 = document.getElementById('modalpopupDL');
-                    var hidemodal3 = document.getElementById('hidemodalDL');
+            </div>
+            <script>
+                var modal3 = document.getElementById('modalpopupDL');
+                var hidemodal3 = document.getElementById('hidemodalDL');
 
-                    hidemodal3.addEventListener('click', closePopup3);
+                hidemodal3.addEventListener('click', closePopup3);
 
-                    function closePopup3(){
-                        modal3.style.display="none";
-                    }
+                function closePopup3(){
+                    modal3.style.display="none";
+                }
 
-                    setTimeout(() => {
-                        const modal = document.getElementById("modalpopupDL");
-                        modal.style.display = 'none';
-                    }, 3000);
-                </script>
-            @endif
+                setTimeout(() => {
+                    const modal = document.getElementById("modalpopupDL");
+                    modal.style.display = 'none';
+                }, 3000);
+            </script>
     @endguest
 
     {{-- {{Auth::User()->hasRole('admin')}} --}}
 
 
     @auth
-        @if (Auth::User()->NIP != 0)
+        @if (Auth::User()->NIP !== 0)
             @include('User/navbarUser')
         @else
-            @can('admin')
-                @include('Admin.navbarA')
-            @endcan
+            @include('Admin.navbarA')
+            {{-- @can('admin')
+            @endcan --}}
         @endif
             {{-- welkam, {{auth()->user()->name}} --}}
             {{-- Ini pop-up kalau log-in berhasil {href=login} (Ini saya hidden dulu, bukan saya comment ya) --}}
@@ -169,217 +181,178 @@
 
 
     {{-- Upcoming Extracurricular Segment (BUAT NU dan U)--}}
-    {{-- <div class="segment">
-        <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
-            Upcoming Extracurriculars
-        </div>
-        <div class="h-[30vw] w-[screen] flex items-center">
-            <div class="featured-carousel owl-carousel">
-                @if ($xtras->count())
-                    @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
-                        @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
-                            <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
-                                <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
-                                    <div class="upcomingxtra">
-                                        <div class="logo">
-                                            <div class="photo"> --}}
-                                                {{-- Pass Xtra BG Here --}}
-                                                {{-- <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
+    @guest
+        <div class="segment">
+            <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
+                Upcoming Extracurriculars
+            </div>
+            <div class="h-[30vw] w-[screen] flex items-center">
+                <div class="featured-carousel owl-carousel">
+                    @if ($xtras->count())
+                        @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
+                            @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
+                                <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
+                                    <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                                        <div class="upcomingxtra">
+                                            <div class="logo">
+                                                <div class="photo">
+                                                    {{-- Pass Xtra BG Here --}}
+                                                    <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
+                                                </div>
+                                                <div class="logoxtra">
+                                                    <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
+                                                </div>
                                             </div>
-                                            <div class="logoxtra">
-                                                <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
+                                            <div class="title text-[1.5vw] font-nunito font-semibold">
+                                                {{ $xtr->name }}
                                             </div>
-                                        </div>
-                                        <div class="title text-[1.5vw] font-nunito font-semibold">
-                                            {{ $xtr->name }}
-                                        </div>
-                                        <div class="content text-white text-[1.5vw]">
-                                            <h3>
-                                                @if ($xtr->latest_schedule?->location === NULL)
-                                                    <p>No location</p>
-                                                @else
-                                                    {{$xtr->latest_schedule?->location}}
-                                                @endif
-                                            </h3>
-                                            <h3>
-                                                @if ($xtr->latest_schedule?->date === NULL)
-                                                    <p>No schedule</p>
-                                                @else
-                                                    {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('m', strtotime($xtr->latest_schedule?->date)) . '/' . date('d', strtotime($xtr->latest_schedule?->date)) . '/' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
-                                                @endif
-                                            </h3>
-                                            <h3>
-                                                @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
-                                                    <p>No phone number</p>
-                                                @else
-                                                    {{str_replace("62", "0", $xtr->leader?->userXmas?->phoneNumber)}}
-                                                @endif
-
-                                            </h3>
+                                            <div class="content text-white text-[1.5vw]">
+                                                <h3>
+                                                    @if ($xtr->latest_schedule?->location === NULL)
+                                                        <p>No location</p>
+                                                    @else
+                                                        {{$xtr->latest_schedule?->location}}
+                                                    @endif
+                                                </h3>
+                                                <h3>
+                                                    @if ($xtr->latest_schedule?->date === NULL)
+                                                        <p>No schedule</p>
+                                                    @else
+                                                        {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . ' '  . date('M', strtotime($xtr->latest_schedule?->date)) . ' ' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
+                                                    @endif
+                                                </h3>
+                                                <h3>
+                                                    @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
+                                                        <p>No phone number</p>
+                                                    @else
+                                                        {{ substr_replace($xtr->leader?->userXmas?->phoneNumber, "0", 0, 2) }}
+                                                    @endif
+                                                </h3>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                        @endif
-                    @endforeach
-                @else
-                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
-                @endif
-            </div>
-        </div>
-    </div> --}}
-
-    {{-- INI BUAT ADMIN --}}
-    <div class="segmentA">
-        <div id="segmentTitleA" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
-            Newest Reports
-        </div>
-        <h1 class="text-[#56B8E6] viewall font-nunito z-50">
-            <a href="/reportlist">
-                view all
-            </a>
-        </h1>
-        <div class="h-[30vw] w-[screen] flex items-center">
-            <div class="featured-carousel owl-carousel">
-                <section class="w-[18vw] h-[20vw] ml-[10vw] group flex items-center ml-[3vw] visible mb-[5vw]">
-                        <div class="w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
-                            {{-- input Xtra Logo di sini --}}
-                            <button class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50 mb-[6vw]">
-                                <img class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50" src="Assets/RunningLogo.png" alt="">
-                            </button>
-                            <button class="mail1 w-[18vw] z-40">
-                                <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
-                            </button>
-                        </div>
-                        <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="reportlist">
-                            <aside>
-                                <button class="absolute mail2 w-[18vw] mb-[4.3vw] z-40 mr-[10vw]">
-                                    <img src="{{asset('Assets/report2.png')}}" alt="">
-                                </button>
-                                {{-- input TITLE REPORT di sini --}}
-                                <button class="titleMail w-[18vw] absolute text-[1vw] z-50 mt-[5.5vw]">
-                                    <p >cawdadawadddawd</p>
-                                </button>
-                                {{-- input Xtra Logo di sini --}}
-                                <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] absolute ml-[15vw] mt-[2vw] z-50">
-                                    <img class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/RunningLogo.png" alt="">
-                                </button>
-                            </aside>
-                        </a>
-                </section>
-                <section class="w-[18vw] h-[20vw] ml-[10vw] group flex items-center ml-[3vw] visible mb-[5vw]">
-                    <div class="w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
-                        {{-- input Xtra Logo di sini --}}
-                        <button class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50 mb-[6vw]">
-                            <img class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50" src="Assets/RunningLogo.png" alt="">
-                        </button>
-                        <button class="mail1 w-[18vw] z-40">
-                            <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
-                        </button>
-                    </div>
-                    <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="reportlist">
-                        <aside>
-                            <button class="absolute mail2 w-[18vw] mb-[4.3vw] z-40 mr-[10vw]">
-                                <img src="{{asset('Assets/report2.png')}}" alt="">
-                            </button>
-                            {{-- input TITLE REPORT di sini --}}
-                            <button class="titleMail w-[18vw] absolute text-[1vw] z-50 mt-[5.5vw]">
-                                <p >cawdadawadddawd</p>
-                            </button>
-                            {{-- input Xtra Logo di sini --}}
-                            <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] absolute ml-[15vw] mt-[2vw] z-50">
-                                <img class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/RunningLogo.png" alt="">
-                            </button>
-                        </aside>
-                    </a>
-            </section>
-            <section class="w-[18vw] h-[20vw] ml-[10vw] group flex items-center ml-[3vw] visible mb-[5vw]">
-                <div class="w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
-                    {{-- input Xtra Logo di sini --}}
-                    <button class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50 mb-[6vw]">
-                        <img class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50" src="Assets/RunningLogo.png" alt="">
-                    </button>
-                    <button class="mail1 w-[18vw] z-40">
-                        <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
-                    </button>
+                                </a>
+                            @endif
+                        @endforeach
+                    @else
+                        <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                    @endif
                 </div>
-                <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="reportlist">
-                    <aside>
-                        <button class="absolute mail2 w-[18vw] mb-[4.3vw] z-40 mr-[10vw]">
-                            <img src="{{asset('Assets/report2.png')}}" alt="">
-                        </button>
-                        {{-- input TITLE REPORT di sini --}}
-                        <button class="titleMail w-[18vw] absolute text-[1vw] z-50 mt-[5.5vw]">
-                            <p >cawdadawadddawd</p>
-                        </button>
-                        {{-- input Xtra Logo di sini --}}
-                        <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] absolute ml-[15vw] mt-[2vw] z-50">
-                            <img class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/RunningLogo.png" alt="">
-                        </button>
-                    </aside>
-                </a>
-        </section>
-        <section class="w-[18vw] h-[20vw] ml-[10vw] group flex items-center ml-[3vw] visible mb-[5vw]">
-            <div class="w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
-                {{-- input Xtra Logo di sini --}}
-                <button class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50 mb-[6vw]">
-                    <img class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50" src="Assets/RunningLogo.png" alt="">
-                </button>
-                <button class="mail1 w-[18vw] z-40">
-                    <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
-                </button>
-            </div>
-            <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="reportlist">
-                <aside>
-                    <button class="absolute mail2 w-[18vw] mb-[4.3vw] z-40 mr-[10vw]">
-                        <img src="{{asset('Assets/report2.png')}}" alt="">
-                    </button>
-                    {{-- input TITLE REPORT di sini --}}
-                    <button class="titleMail w-[18vw] absolute text-[1vw] z-50 mt-[5.5vw]">
-                        <p >cawdadawadddawd</p>
-                    </button>
-                    {{-- input Xtra Logo di sini --}}
-                    <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] absolute ml-[15vw] mt-[2vw] z-50">
-                        <img class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/RunningLogo.png" alt="">
-                    </button>
-                </aside>
-            </a>
-    </section>
-    <section class="w-[18vw] h-[20vw] ml-[10vw] group flex items-center ml-[3vw] visible mb-[5vw]">
-        <div class="w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
-            {{-- input Xtra Logo di sini --}}
-            <button class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50 mb-[6vw]">
-                <img class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50" src="Assets/RunningLogo.png" alt="">
-            </button>
-            <button class="mail1 w-[18vw] z-40">
-                <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
-            </button>
-        </div>
-        <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="reportlist">
-            <aside>
-                <button class="absolute mail2 w-[18vw] mb-[4.3vw] z-40 mr-[10vw]">
-                    <img src="{{asset('Assets/report2.png')}}" alt="">
-                </button>
-                {{-- input TITLE REPORT di sini --}}
-                <button class="titleMail w-[18vw] absolute text-[1vw] z-50 mt-[5.5vw]">
-                    <p >cawdadawadddawd</p>
-                </button>
-                {{-- input Xtra Logo di sini --}}
-                <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] absolute ml-[15vw] mt-[2vw] z-50">
-                    <img class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/RunningLogo.png" alt="">
-                </button>
-            </aside>
-        </a>
-</section>
-                {{-- Untuk Admin Report --}}
             </div>
         </div>
-    </div>
+    @endguest
+
+    @auth
+        @if (Auth::User()->NIP !== 0)
+            <div class="segment">
+                <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
+                    Upcoming Extracurriculars
+                </div>
+                <div class="h-[30vw] w-[screen] flex items-center">
+                    <div class="featured-carousel owl-carousel">
+                        @if ($xtras->count())
+                            @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
+                                @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
+                                    <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
+                                        <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                                            <div class="upcomingxtra">
+                                                <div class="logo">
+                                                    <div class="photo">
+                                                        {{-- Pass Xtra BG Here --}}
+                                                        <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
+                                                    </div>
+                                                    <div class="logoxtra">
+                                                        <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
+                                                    </div>
+                                                </div>
+                                                <div class="title text-[1.5vw] font-nunito font-semibold">
+                                                    {{ $xtr->name }}
+                                                </div>
+                                                <div class="content text-white text-[1.5vw]">
+                                                    <h3>
+                                                        @if ($xtr->latest_schedule?->location === NULL)
+                                                            <p>No location</p>
+                                                        @else
+                                                            {{$xtr->latest_schedule?->location}}
+                                                        @endif
+                                                    </h3>
+                                                    <h3>
+                                                        @if ($xtr->latest_schedule?->date === NULL)
+                                                            <p>No schedule</p>
+                                                        @else
+                                                            {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . ' '  . date('M', strtotime($xtr->latest_schedule?->date)) . ' ' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
+                                                        @endif
+                                                    </h3>
+                                                    <h3>
+                                                        @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
+                                                            <p>No phone number</p>
+                                                        @else
+                                                            {{ substr_replace($xtr->leader?->userXmas?->phoneNumber, "0", 0, 2) }}
+                                                        @endif
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endif
+                            @endforeach
+                        @else
+                            <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        @else
+            <div class="segmentA">
+                <div id="segmentTitleA" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
+                    Newest Reports
+                </div>
+                <h1 class="text-[#56B8E6] viewall font-nunito z-50">
+                    <a href="/reportlist">
+                        view all
+                    </a>
+                </h1>
+                <div class="h-[30vw] w-[screen] flex items-center">
+                    <div class="featured-carousel owl-carousel">
+                        @foreach ($reports as $report)
+                            <section class="w-[18vw] h-[20vw] ml-[10vw] group flex items-center ml-[3vw] visible mb-[5vw]">
+                                <div class="w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
+                                    {{-- input Xtra Logo di sini --}}
+                                    <button class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50 mb-[6vw]">
+                                        <img class="logo1 rounded-[50%] w-[6vw] h-[6vw] absolute z-50" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
+                                    </button>
+                                    <button class="mail1 w-[18vw] z-40">
+                                        <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
+                                    </button>
+                                </div>
+                                <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 hover:cursor-pointer invisible group-hover:visible mb-[18vw]" href="reportlist">
+                                    <aside>
+                                        <button class="absolute mail2 w-[18vw] mb-[4.3vw] z-40 mr-[10vw]">
+                                            <img src="{{asset('Assets/report2.png')}}" alt="">
+                                        </button>
+                                        {{-- input TITLE REPORT di sini --}}
+                                        <button class="titleMail w-[18vw] absolute text-[1vw] z-50 mt-[5.5vw]">
+                                            <p >{{$report->title}}</p>
+                                        </button>
+                                        {{-- input Xtra Logo di sini --}}
+                                        <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] absolute ml-[15vw] mt-[2vw] z-50">
+                                            <img class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
+                                        </button>
+                                    </aside>
+                                </a>
+                            </section>
+                        @endforeach
+                        {{-- Untuk Admin Report --}}
+                    </div>
+                </div>
+            </div>
+        @endif
+    @endauth
 
     {{-- Banner Options --}}
 
     {{-- Banner Home Non-User --}}
-    {{-- @guest
+    @guest
         <div class="h-fit w-screen">
             <a href="/signup">
                 <div class="registernow absolute ml-[9.8vw] h-[7.3vw] mt-[8.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0" onmouseover="signup.src='{{asset('Assets/SignUpNowHover.png')}}'" onmouseout="signup.src='{{asset('Assets/SignUpNow.png')}}'">
@@ -391,26 +364,29 @@
                 <img class="absolute ml-[1vw] h-[20vw] mt-[0.8vw]" id="signup" src="{{asset('Assets/SignUpNow.png')}}" alt="">
             </div>
         </div>
-    @endguest --}}
+    @endguest
 
-        {{-- Banner Home User --}}
     @auth
-        <img class="min-w-[100%]" src="{{asset('Assets/UserBanner.png')}}" alt="">
+        @if (Auth::User()->NIP !== 0)
+            {{-- Banner Home User --}}
+            <img class="min-w-[100%]" src="{{asset('Assets/UserBanner.png')}}" alt="">
+        @else
+            {{-- Banner Admin --}}
+            <div class="h-fit w-screen">
+                {{-- TEMBAK KE Report List (HAPUS KOMEN INI KALAU UDAH) --}}
+                <a href="/">
+                    <div class="registernow absolute ml-[10.8vw] h-[5.4vw] mt-[7.3vw] w-[18.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 opacity-0 rounded-[1vw]" onmouseover="report.src='{{asset('Assets/CheckReportHover.png')}}'" onmouseout="report.src='{{asset('Assets/CheckReport.png')}}'">
+                        DUMMY!!!
+                    </div>
+                </a>
+                <div class="flex">
+                    <img class="min-w-[100%]" src="{{asset('Assets/CheckReportBG.png')}}" alt="">
+                    <img class="absolute ml-[-3.5vw] w-[33vw] mt-[5vw]" id="report" src="{{asset('Assets/CheckReport.png')}}" alt="">
+                </div>
+            </div>
+        @endif
     @endauth
 
-    {{-- Banner Admin --}}
-    <div class="h-fit w-screen">
-        {{-- TEMBAK KE Report List (HAPUS KOMEN INI KALAU UDAH) --}}
-        <a href="/">
-            <div class="registernow absolute ml-[10.8vw] h-[5.4vw] mt-[7.3vw] w-[18.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 opacity-0 rounded-[1vw]" onmouseover="report.src='{{asset('Assets/CheckReportHover.png')}}'" onmouseout="report.src='{{asset('Assets/CheckReport.png')}}'">
-                DUMMY!!!
-            </div>
-        </a>
-        <div class="flex">
-            <img class="min-w-[100%]" src="{{asset('Assets/CheckReportBG.png')}}" alt="">
-            <img class="absolute ml-[-3.5vw] w-[33vw] mt-[5vw]" id="report" src="{{asset('Assets/CheckReport.png')}}" alt="">
-        </div>
-    </div>
 
     {{-- Extracurricular Segment --}}
     <div class="segment">

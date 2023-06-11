@@ -5,6 +5,7 @@ use App\Http\Controllers\logInController;
 use App\Http\Controllers\signUpController;
 use App\Http\Controllers\xtraController;
 use App\Http\Controllers\cameraController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\xtraregController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [homeController::class, 'showXtraSchedule'], [adminController::class, 'index']);
+// Route::get('/home', [Controller::class, 'index']);
+// Route::get('/home', [homeController::class, 'showXtraSchedule'], [Controller::class, 'index']);
+Route::get('/home', [homeController::class, 'showXtraSchedule']);
 // Route::resource('/home', adminController::class);
 Route::redirect('/', '/home');
 
@@ -31,6 +34,7 @@ Route::post('/signup', [signUpController::class, 'store']);
 Route::get('/login', [logInController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [logInController::class, 'masuk']);
 Route::get('/logout', [logInController::class, 'keluar'])->middleware('auth');
+// Route::post('/logout', [logInController::class, 'keluar'])->middleware('auth');
 
 
 Route::get(('/footer'), function(){
