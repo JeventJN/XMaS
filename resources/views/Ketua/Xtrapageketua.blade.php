@@ -525,12 +525,15 @@
                 <div class="boxjudulcloseaddschedule">
                     <div class="bungkuscalendar">
                         <form class="inline" method="POST">
-                            <div class="input-icons">
-                                <img class="" src="{{ asset('Assets/Xtrapage assets/chevrondown.svg') }}" class="datepicker-trigger" id="datepicker-trigger" alt="" />
-                                <input type="text" placeholder="Choose a date" class="datepicker" autocomplete="off">
+                          <div class="input-icons">
+                            <div class="datepicker-trigger">
+                              <img src="{{ asset('Assets/Xtrapage assets/calendar-month.svg') }}" alt="" style="cursor: pointer;"/>
                             </div>
+                            <input type="text" placeholder="Choose a date" class="datepicker" autocomplete="off">
+                          </div>
                         </form>
                     </div>
+
 
                     <span class="closeaddschedule">&times;</span>
                 </div>
