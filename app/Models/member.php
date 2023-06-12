@@ -11,6 +11,7 @@ class member extends Model
 
     // protected $fillable = [''];
     protected $guarded = ['kdMember'];
+    protected $primaryKey = 'kdMember';
     protected $with=[
         'userXmas'
     ];

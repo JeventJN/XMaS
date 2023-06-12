@@ -16,26 +16,31 @@ class xtraregController extends Controller
 
     public function newMember(Request $request)
     {
-        $xtra = extracurricular::find($request->kdExtracurricular);
+        $members = extracurricular::find($request->xtrachs)->members;
+        // dd($members);
 
-        // $member->NIP = $userXmas->NIP;
+        $flag = 0;
 
-        // $member = new Member;
-        // $member->NIP = auth()->user()->NIP;
-        // $member->kdExtracurricular = $xtra->kdExtracurricular;
-        // $member->kdState = 1;
-        // $member->reason = $request->reason;
-        // $member->save();
+        foreach ($members as $member) {
+            if ($member->NIP == $request->user) {
+                $flag = 1;
+            }
+        }
+        // dd($flag);
 
-        // dd($request);
-        member::create([
-            'NIP' => $request->user,
-            'kdExtracurricular' => $request->xtrachs,
-            'kdState' => '1',
-            'reason' => $request->reason
-        ]);
+        if ($flag != 1) {
+            member::create([
+                'NIP' => $request->user,
+                'kdExtracurricular' => $request->xtrachs,
+                'kdState' => '1',
+                'reason' => $request->reason
+            ]);
+            return redirect('myclub')->with('JoinSuccess', 'we');
+        }
+        else {
+            return redirect('xtrareg')->with('AlreadyJoined', 'we');
+        }
 
-        return redirect('myclub')->with('JoinSuccess');
     }
 
 }

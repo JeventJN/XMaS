@@ -11,7 +11,7 @@
 
 
 <body class="scrollbar-hide">
-    @include('Non-User.navbarNU')
+    @include('User.navbarUser')
 
     {{-- popup --}}
     <div id="modalpopupSENT" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">

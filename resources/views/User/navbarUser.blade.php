@@ -47,7 +47,7 @@
                 href="/myclub">
                 MyClub
             </div> --}}
-            <a class="w-[5vw] h-[5vw] flex items-center justify-center rounded-[50%] bg-red-500" href="/">
+            <a class="w-[5vw] h-[5vw] flex items-center justify-center rounded-[50%] bg-red-500" href="/profile">
                 @if (Auth::check() && Auth::user()->photo)
                     @if (Illuminate\Support\Str::contains(Auth::user()->photo, 'database-assets'))
                         <img class="w-[5vw] h-[5vw] rounded-[50%]" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ asset('Assets/UserDP.png') }}">
