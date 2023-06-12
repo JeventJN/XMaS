@@ -16,7 +16,7 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || auth()->user()->NIP != "0000"){
+        if(!auth()->check() || auth()->user()->NIP !== "0000"){
             abort(403);
         }
         return $next($request);

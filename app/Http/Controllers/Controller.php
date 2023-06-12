@@ -10,4 +10,12 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function index()
+    {
+        //
+        $flag = 1;
+
+        $this->authorize('admin');
+        return view('home')->with('flag', $flag);
+    }
 }

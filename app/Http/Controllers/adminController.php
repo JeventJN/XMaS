@@ -12,12 +12,14 @@ class adminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-        // $this->authorize('admin');
-        // return view('home');
-    }
+    // public function index()
+    // {
+    //     //
+    //     $flag = 1;
+
+    //     $this->authorize('admin');
+    //     return view('home')->with('flag', $flag);
+    // }
 
     /**
      * Show the form for creating a new resource.
