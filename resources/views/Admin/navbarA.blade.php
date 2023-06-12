@@ -58,11 +58,11 @@
                     <div class="kalimatlogout2">Do you want to continue?</div>
                 </div>
                 <div class="boxsubmitlogout">
-                    {{-- <form action="/logout" method="POST">
+                    <form action="/logout" method="POST">
                         @csrf
                         <button class="btnyesmodal">Yes</button>
-                    </form> --}}
-                    <a href="/logout"><button class="btnyesmodal">Yes</button></a>
+                    </form>
+                    {{-- <a href="/logout"><button class="btnyesmodal">Yes</button></a> --}}
                     <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
                 </div>
             </div>

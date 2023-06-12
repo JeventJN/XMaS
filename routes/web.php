@@ -33,8 +33,8 @@ Route::post('/signup', [signUpController::class, 'store']);
 
 Route::get('/login', [logInController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [logInController::class, 'masuk']);
-Route::get('/logout', [logInController::class, 'keluar'])->middleware('auth');
-// Route::post('/logout', [logInController::class, 'keluar'])->middleware('auth');
+// Route::get('/logout', [logInController::class, 'keluar'])->middleware('auth');
+Route::post('/logout', [logInController::class, 'keluar'])->middleware('auth');
 
 
 Route::get(('/footer'), function(){
