@@ -363,7 +363,7 @@
                                 <h4 class="text-center text-dark font-weight-bold" style="font-size: 1.5vw; margin-top: 1vw; margin-bottom: 0.8vw">
                                     Member List
                                 </h4>
-                                <div class="card">
+                                <div class="card scrollbar-hide">
                                     @if ($xtra->members->count())
                                         @foreach ($xtra->members as $member)
                                             <span class="badge">{{ $member?->userXmas?->name }}</span>

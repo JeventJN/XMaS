@@ -15,6 +15,33 @@
 </head>
 <body class="overflow-x-hidden scrollbar-hide">
     @include('User.NavbarUser')
+
+    @if (session()->has('AlreadyJoined'))
+        <div id="modalpopupAlrJOIN" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+            <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                    You already joined this Xtra
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalAlrJOIN" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                </div>
+            </div>
+        </div>
+        <script>
+            var modal2 = document.getElementById('modalpopupAlrJOIN');
+            var hidemodal2 = document.getElementById('hidemodalAlrJOIN');
+
+            hidemodal2.addEventListener('click', closePopup2);
+
+            function closePopup2(){
+                modal2.style.display="none";
+            }
+
+            setTimeout(() => {
+                const modal = document.getElementById("modalpopupAlrJOIN");
+                modal.style.display = 'none';
+            }, 3000);
+        </script>
+    @endif
+
     {{-- Cuma buat space dari navbar --}}
     <div class="w-screen h-[5.25vw]"></div>
     {{--  --}}
@@ -33,7 +60,7 @@
                         <div class="select-wrap" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
                             <select id="xtrachs" name="xtrachs" class="input bg-gray-50 text-gray-900 text-sm block max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] scrollbar-hide">
                                 <div id="select-box" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
-                                    <option selected="false" class="hidden" >
+                                    <option selected="false" class="hidden" value="choose">
                                         Choose one of your Xtra
                                     </option>
                                     @foreach ($xtras as $xtr)

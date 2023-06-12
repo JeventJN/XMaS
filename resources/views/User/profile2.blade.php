@@ -9,7 +9,7 @@
 </head>
 <body class="scrollbar-hide">
 
-    @include('Non-User.navbarNU')
+    @include('User.navbarUser')
 
     <div class="batas">
         <div class="boxfotoprofile">
