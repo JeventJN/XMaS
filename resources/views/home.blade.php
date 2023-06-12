@@ -77,7 +77,6 @@
                         modal.style.display = 'none';
                     }, 3000);
                 </script>
-
             @endif
 
             {{-- delete --}}
