@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('NIP');
             $table->unsignedInteger('kdExtracurricular');
             $table->unsignedInteger('kdState');
-            $table->text('reason');
+            $table->text('reason')->nullable();
             $table->timestamps();
             $table->foreign('NIP')
                 ->references('NIP')->on('user_xmas')->cascadeOnDelete()->cascadeOnUpdate();
@@ -38,5 +38,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('members');
     }
-    
+
 };

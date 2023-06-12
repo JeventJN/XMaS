@@ -65,11 +65,11 @@
                         <div class="radiobutton text-white ml-[5vw] text-[1.5vw] font-nunito">
                             <label class="text-[1.3vw]" for="PPTI">Program</label>
                             <div class="flex items-center">
-                                <input type="radio" id="program" name="program" value="PPTI" class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
+                                <input type="radio" id="program" name="program" value="PPTI" {{ old('program') == 'PPTI' ? 'checked' : '' }} class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
                                 <label class="ml-[0.8vw] text-[1.2vw]" for="PPTI">PPTI</label>
                             </div>
                             <div class="flex items-center">
-                                <input type="radio" id="program" name="program" value="PPBP" class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
+                                <input type="radio" id="program" name="program" value="PPBP" {{ old('program') == 'PPBP' ? 'checked' : '' }} class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
                                 <label class="ml-[0.8vw] text-[1.2vw]" for="PPTI">PPBP</label>
                             </div>
                         </div>

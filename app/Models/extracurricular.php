@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 class extracurricular extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'kdExtracurricular';
     // protected $fillable = [''];
     protected $guarded = ['kdExtracurricular'];
     protected $with = [
@@ -18,6 +19,7 @@ class extracurricular extends Model
         'latest_schedule',
         'leader'
     ];
+
 
     public function scopeFilter($query, array $filters){
         $query->when($filters['search'] ?? false, fn($query, $search) =>
