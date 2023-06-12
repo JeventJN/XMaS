@@ -204,7 +204,8 @@
                                                 </div>
                                             </div>
                                             <div class="title text-[1.5vw] font-nunito font-semibold">
-                                                {{ $xtr->name }}
+                                                {{-- {{ $xtr->name }} --}}
+                                                {{ Str::limit($xtr->name, 12, '...') }}
                                             </div>
                                             <div class="content text-white text-[1.5vw]">
                                                 <h3>
@@ -266,7 +267,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="title text-[1.5vw] font-nunito font-semibold">
-                                                    {{ $xtr->name }}
+                                                    {{-- {{ $xtr->name }} --}}
+                                                    {{ Str::limit($xtr->name, 12, '...') }}
                                                 </div>
                                                 <div class="content text-white text-[1.5vw]">
                                                     <h3>
@@ -332,7 +334,8 @@
                                         </button>
                                         {{-- input TITLE REPORT di sini --}}
                                         <button class="titleMail w-[18vw] absolute text-[1vw] z-50 mt-[5.5vw]">
-                                            <p >{{$report->title}}</p>
+                                                    <p>{{ Str::limit($report->title, 12, '...') }}</p>
+                                                    {{-- <p >{{$report->title}}</p> --}}
                                         </button>
                                         {{-- input Xtra Logo di sini --}}
                                         <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] absolute ml-[15vw] mt-[2vw] z-50">
