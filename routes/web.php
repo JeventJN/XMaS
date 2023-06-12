@@ -35,6 +35,7 @@ Route::get('/login', [logInController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [logInController::class, 'masuk']);
 // Route::get('/logout', [logInController::class, 'keluar'])->middleware('auth');
 Route::post('/logout', [logInController::class, 'keluar'])->middleware('auth');
+Route::post('/delete', [logInController::class, 'delete'])->middleware('auth');
 
 
 Route::get(('/footer'), function(){

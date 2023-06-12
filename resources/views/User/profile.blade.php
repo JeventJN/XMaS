@@ -47,9 +47,17 @@
 
     <div class="batas">
         <div class="boxfotoprofile">
+            <div class="boxluarfoto flex">
+                @if (Auth::check() && Auth::user()->photo)
+                    @if (Illuminate\Support\Str::contains(Auth::user()->photo, 'database-assets'))
+                        <img class="m-auto mt-[-0.15vw]" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ asset('Assets/UserDP.png') }}" style="object-fit: cover; width: 25vw; height: 27.65vw; border-radius: 1.95vw;">
 
-            <div class="boxluarfoto">
-                <img class="fotoprofile" src="{{ asset('Assets/Profile assets/Foto.png') }}" alt>
+                        {{-- <img class="" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ asset('Assets/UserDP.png') }}"> --}}
+                    @else
+                        <img class="" src="{{ asset('Assets/UserDP.png') }}" alt="{{ asset('Assets/UserDP.png') }}">
+                    @endif
+                @endif
+                {{-- <img class="fotoprofile" src="{{ asset('Assets/Profile assets/Foto.png') }}" alt> --}}
                 <form method="GET" enctype="multipart/form-data">
                     <div class="iconcamera" id="iconcamera">
                         <img class="fotocamera" for="upload-photo"
@@ -73,13 +81,13 @@
                         :
                     </div>
                     <div class="isiidentitas">
-                        <div class="identitasnama">Vanessa Kwandinata</div>
-                        <div class="identitasNIP">0398</div>
+                        <div class="identitasnama">{{Auth::User()->name}}</div>
+                        <div class="identitasNIP">{{Auth::User()->NIP}}</div>
 
                         <div class="boxphoneedit">
                             <div class="" id="phonetext">
                                 <div class="isiboxphoneedit">
-                                    <div class="identitasphone" style="margin-right: 0.5vw;">+62895635863956</div>
+                                    <div class="identitasphone" style="margin-right: 0.5vw;">{{Auth::User()->phoneNumber}}</div>
                                     <button onclick="showphone()">
                                         <svg class="editphonenumbericon" xmlns="http://www.w3.org/2000/svg"
                                             width="1.7vw" height="1.7vw" viewBox="0 0 256 256">
@@ -123,8 +131,10 @@
                                         <div class="kalimatsampah2">Do you want to continue?</div>
                                     </div>
                                     <div class="boxsubmitsampah">
-                                        <form action="">
-                                            <a href="/logout"><button class="btnyesmodal">Yes</button></a>
+                                        <form action="/delete" method="POST">
+                                            @csrf
+                                            <button class="btnyesmodal">Yes</button>
+                                            <input type="hidden" name="NIP" value="{{Auth::User()->NIP}}">
                                         </form>
                                         <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
                                     </div>
@@ -200,6 +210,7 @@
                                 </div>
                                 <div class="boxsubmitlogout">
                                     <form action="/logout" method="POST">
+                                        @csrf
                                         <button class="btnyesmodal">Yes</button>
                                     </form>
                                     <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>

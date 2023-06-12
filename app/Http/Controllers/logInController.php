@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\userXmas;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,5 +40,18 @@ class logInController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->intended('/home')->with('logoutSuccess', 'Successfully logged out');
+    }
+
+    function delete(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        $user = userXmas::find($request->NIP);
+        $user -> delete();
+
+        return redirect()->intended('/home')->with('deleteSuccess', 'Successfully del');
     }
 }
