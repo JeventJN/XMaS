@@ -31,7 +31,6 @@
     width: 15vw;
     height: 20vw;
     background-color: #395474;
-    margin-left: 5vw;
     border-radius: 2vw;
     display: flex;
     flex-direction: column;
@@ -89,7 +88,6 @@
     background-color: white;
     border-color: black;
     border-width: 0.2vw;
-    margin-left: 2vw;
     border-radius: 2vw;
     display: flex;
     flex-direction: column;
@@ -165,4 +163,42 @@
 input[type="file"]:hover,
 input[type="file"]::-webkit-file-upload-button:hover {
   cursor: pointer;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+.carousel-items {
+display: flex;
+/* transition: transform 0.3s ease; */
+}
+
+.carousel-item {
+flex: 100%;
+width: 100%;
+}
+
+.active {
+transform: translateX(0);
+}
+
+.carousel1 {
+    width: 100%;
+    overflow: hidden;
+  }
+
+.carousel1-items {
+display: flex;
+/* transition: transform 0.3s ease; */
+}
+
+.carousel1-item {
+flex: 100%;
+width: 100%;
+}
+
+.active1 {
+transform: translateX(0);
 }

@@ -188,58 +188,64 @@
                 Upcoming Extracurriculars
             </div>
             <div class="h-[30vw] w-[screen] flex items-center">
-                <div class="featured-carousel owl-carousel">
-                    @if ($xtras->count())
-                        @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
-                            @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
-                                <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
-                                    <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
-                                        <div class="upcomingxtra">
-                                            <div class="logo">
-                                                <div class="photo">
-                                                    {{-- Pass Xtra BG Here --}}
-                                                    <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
+                <div class="carousel1 flex h-fit">
+                    <div class="carousel1-items select-none flex ml-[2vw]">
+                        @if ($xtras->count())
+                            @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
+                                @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
+                                    <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
+                                        <div class="carousel1-item">
+                                            <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                                                <div class="upcomingxtra">
+                                                    <div class="logo">
+                                                        <div class="photo">
+                                                            {{-- Pass Xtra BG Here --}}
+                                                            <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
+                                                        </div>
+                                                        <div class="logoxtra">
+                                                            <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="title text-[1.5vw] font-nunito font-semibold">
+                                                        {{-- {{ $xtr->name }} --}}
+                                                        {{ Str::limit($xtr->name, 12, '...') }}
+                                                    </div>
+                                                    <div class="content text-white text-[1.5vw]">
+                                                        <h3>
+                                                            @if ($xtr->latest_schedule?->location === NULL)
+                                                                <p>No location</p>
+                                                            @else
+                                                                {{$xtr->latest_schedule?->location}}
+                                                            @endif
+                                                        </h3>
+                                                        <h3>
+                                                            @if ($xtr->latest_schedule?->date === NULL)
+                                                                <p>No schedule</p>
+                                                            @else
+                                                                {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . ' '  . date('M', strtotime($xtr->latest_schedule?->date)) . ' ' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
+                                                            @endif
+                                                        </h3>
+                                                        <h3>
+                                                            @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
+                                                                <p>No phone number</p>
+                                                            @else
+                                                                {{ substr_replace($xtr->leader?->userXmas?->phoneNumber, "0", 0, 2) }}
+                                                            @endif
+                                                        </h3>
+                                                    </div>
                                                 </div>
-                                                <div class="logoxtra">
-                                                    <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
-                                                </div>
-                                            </div>
-                                            <div class="title text-[1.5vw] font-nunito font-semibold">
-                                                {{-- {{ $xtr->name }} --}}
-                                                {{ Str::limit($xtr->name, 12, '...') }}
-                                            </div>
-                                            <div class="content text-white text-[1.5vw]">
-                                                <h3>
-                                                    @if ($xtr->latest_schedule?->location === NULL)
-                                                        <p>No location</p>
-                                                    @else
-                                                        {{$xtr->latest_schedule?->location}}
-                                                    @endif
-                                                </h3>
-                                                <h3>
-                                                    @if ($xtr->latest_schedule?->date === NULL)
-                                                        <p>No schedule</p>
-                                                    @else
-                                                        {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . ' '  . date('M', strtotime($xtr->latest_schedule?->date)) . ' ' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
-                                                    @endif
-                                                </h3>
-                                                <h3>
-                                                    @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
-                                                        <p>No phone number</p>
-                                                    @else
-                                                        {{ substr_replace($xtr->leader?->userXmas?->phoneNumber, "0", 0, 2) }}
-                                                    @endif
-                                                </h3>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
-                            @endif
-                        @endforeach
-                    @else
-                        <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
-                    @endif
+                                    </a>
+                                    <div class="w-[5vw]"></div>
+                                @endif
+                            @endforeach
+                        @else
+                            <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                        @endif
+                    </div>
                 </div>
+                <script src="{{asset('js/home1.js')}}"></script>
             </div>
         </div>
     @endguest
@@ -251,58 +257,64 @@
                     Upcoming Extracurriculars
                 </div>
                 <div class="h-[30vw] w-[screen] flex items-center">
-                    <div class="featured-carousel owl-carousel">
-                        @if ($xtras->count())
-                            @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
-                                @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
-                                    <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
-                                        <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
-                                            <div class="upcomingxtra">
-                                                <div class="logo">
-                                                    <div class="photo">
-                                                        {{-- Pass Xtra BG Here --}}
-                                                        <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
+                    <div class="carousel1 flex h-fit">
+                        <div class="carousel1-items select-none flex ml-[2vw]">
+                            @if ($xtras->count())
+                                @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
+                                    @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
+                                        <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
+                                            <div class="carousel1-item">
+                                                <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                                                    <div class="upcomingxtra">
+                                                        <div class="logo">
+                                                            <div class="photo">
+                                                                {{-- Pass Xtra BG Here --}}
+                                                                <img src="{{asset('Assets/RunningBg.jpeg')}}" alt="">
+                                                            </div>
+                                                            <div class="logoxtra">
+                                                                <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="title text-[1.5vw] font-nunito font-semibold">
+                                                            {{-- {{ $xtr->name }} --}}
+                                                            {{ Str::limit($xtr->name, 12, '...') }}
+                                                        </div>
+                                                        <div class="content text-white text-[1.5vw]">
+                                                            <h3>
+                                                                @if ($xtr->latest_schedule?->location === NULL)
+                                                                    <p>No location</p>
+                                                                @else
+                                                                    {{$xtr->latest_schedule?->location}}
+                                                                @endif
+                                                            </h3>
+                                                            <h3>
+                                                                @if ($xtr->latest_schedule?->date === NULL)
+                                                                    <p>No schedule</p>
+                                                                @else
+                                                                    {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . ' '  . date('M', strtotime($xtr->latest_schedule?->date)) . ' ' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
+                                                                @endif
+                                                            </h3>
+                                                            <h3>
+                                                                @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
+                                                                    <p>No phone number</p>
+                                                                @else
+                                                                    {{ substr_replace($xtr->leader?->userXmas?->phoneNumber, "0", 0, 2) }}
+                                                                @endif
+                                                            </h3>
+                                                        </div>
                                                     </div>
-                                                    <div class="logoxtra">
-                                                        <img src="Assets/{{ $xtr->logo }}" alt="{{ $xtr->name }}">
-                                                    </div>
-                                                </div>
-                                                <div class="title text-[1.5vw] font-nunito font-semibold">
-                                                    {{-- {{ $xtr->name }} --}}
-                                                    {{ Str::limit($xtr->name, 12, '...') }}
-                                                </div>
-                                                <div class="content text-white text-[1.5vw]">
-                                                    <h3>
-                                                        @if ($xtr->latest_schedule?->location === NULL)
-                                                            <p>No location</p>
-                                                        @else
-                                                            {{$xtr->latest_schedule?->location}}
-                                                        @endif
-                                                    </h3>
-                                                    <h3>
-                                                        @if ($xtr->latest_schedule?->date === NULL)
-                                                            <p>No schedule</p>
-                                                        @else
-                                                            {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . ' '  . date('M', strtotime($xtr->latest_schedule?->date)) . ' ' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
-                                                        @endif
-                                                    </h3>
-                                                    <h3>
-                                                        @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
-                                                            <p>No phone number</p>
-                                                        @else
-                                                            {{ substr_replace($xtr->leader?->userXmas?->phoneNumber, "0", 0, 2) }}
-                                                        @endif
-                                                    </h3>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                @endif
-                            @endforeach
-                        @else
-                            <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
-                        @endif
+                                        </a>
+                                        <div class="w-[5vw]"></div>
+                                    @endif
+                                @endforeach
+                            @else
+                                <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                            @endif
+                        </div>
                     </div>
+                    <script src="{{asset('js/home1.js')}}"></script>
                 </div>
             </div>
         @else
@@ -407,32 +419,33 @@
                 view all
             </a>
         </h1> --}}
-        <div class="h-[30vw] w-[screen] flex items-center mt-[2.5vw]">
-            <div class="featured-carousel owl-carousel">
-                @if ($xtras->count())
-                    @foreach ($xtras as $xtr)
-                        <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
-                            <div class="xtrahover h-[25vw] flex items-center justify-center font-nunito font-bold text-[2vw]">
-                                <div class="xtra">
-                                    <div class="xtralogo">
-                                        <img src="Assets/{{$xtr->logo}}" alt="">
+         <div class="h-[30vw] w-[30%] flex items-center justify-center mt-[2.5vw] ml-[2vw]">
+            <div class="carousel flex h-fit">
+                <div class="carousel-items select-none">
+                    @if ($xtras->count())
+                        @foreach ($xtras as $xtr)
+                            <a href="/xtralist/{{ $xtr->kdExtracurricular }}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
+                                <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
+                                    <div class="carousel-item">
+                                        <div class="xtra">
+                                            <div class="xtralogo">
+                                                <img src="Assets/{{$xtr->logo}}" alt="">
+                                            </div>
+                                            <h3 class="mt-[1vw]">
+                                                {{$xtr->name}}
+                                            </h3>
+                                        </div>
                                     </div>
-                                    <h3 class="mt-[1vw]">
-                                        {{$xtr->name}}
-                                    </h3>
                                 </div>
-                            </div>
-                        </a>
-                    @endforeach
-                @else
-                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
-                @endif
+                            </a>
+                            <div class="w-[5vw]"></div>
+                        @endforeach
+                    @else
+                        <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                    @endif
+                </div>
             </div>
-            <script src="{{asset('carousel/js/jquery.min.js')}}"></script>
-            <script src="{{asset('carousel/js/popper.js')}}"></script>
-            <script src="{{asset('carousel/js/bootstrap.min.js')}}"></script>
-            <script src="{{asset('carousel/js/owl.carousel.min.js')}}"></script>
-            <script src="{{asset('carousel/js/main.js')}}"></script>
+            <script src="{{asset('js/home.js')}}"></script>
         </div>
     </div>
     @include('footer')
