@@ -142,7 +142,7 @@
                             <div class="xtraboxcontainer flex justify-center items-center">
                                 <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
                                     {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                    <img src="{{ asset('/Assets/$xtra->logo') }}" alt="{{ $xtra->name }}">
+                                    <img src="{{ asset('/Assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}">
                                 </div>
                                 <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                     <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ Str::limit($xtra->name, 12, '...') }}</div>
