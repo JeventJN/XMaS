@@ -17,7 +17,7 @@ class presenceFactory extends Factory
     public function definition()
     {
         return [
-            'kdSchedule' => mt_rand(1,20),
+            'kdSchedule' => mt_rand(1,45),
             'kdMember' => mt_rand(1,20),
             'Time' => fake()->time(),
         ];

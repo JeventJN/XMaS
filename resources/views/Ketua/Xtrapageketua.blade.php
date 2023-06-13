@@ -419,21 +419,24 @@
         <div class="presence" style="margin-top: 3vw;">
             {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
             <div class="containerbawah">
-                <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">10</span> </div>
+                <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">{{ $xtra->latest_schedule?->presences->count() }}</span> </div>
                 <div class="dropdown">
                     <button onclick="myFunction()" class="dropbtn">Choose date <img class="gambarPanah"
                             src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}" alt=""
                             style="margin-left: 1vw; width: 2vw" /></button>
                     {{-- <button onclick="myFunction()" class="dropbtn" id="panahdate2">Choose date </button> --}}
                     <div id="myDropdown" class="dropdown-content">
+                        @foreach ($xtra->schedules as $schedule)
+                            <a href="#">{{ date('M d, Y', strtotime($schedule->date)) }}</a>
+                        @endforeach
+                        {{-- <a href="#">March 12, 2023</a>
                         <a href="#">March 12, 2023</a>
                         <a href="#">March 12, 2023</a>
                         <a href="#">March 12, 2023</a>
                         <a href="#">March 12, 2023</a>
                         <a href="#">March 12, 2023</a>
                         <a href="#">March 12, 2023</a>
-                        <a href="#">March 12, 2023</a>
-                        <a href="#">March 12, 2023</a>
+                        <a href="#">March 12, 2023</a> --}}
                     </div>
                 </div>
 
@@ -445,7 +448,12 @@
                     <div class="presence-list">
 
                         <div class="kotakisiPME">
-                            <span class="badge">Jevent Natthannael</span>
+                            {{-- @dd($xtra->latest_schedule?->presences) --}}
+                            @foreach ($xtra->latest_schedule?->presences as $presence)
+                                <span class="badge">{{ $presence->members->userXmas->name }}</span>
+
+                            @endforeach
+                            {{-- <span class="badge">Jevent Natthannael</span>
                             <span class="badge">Jordan Cornelius</span>
                             <span class="badge">Nathaniel Calvin</span>
                             <span class="badge">Steven Felizion</span>
@@ -454,7 +462,7 @@
                             <span class="badge">Nathaniel Calvin</span>
                             <span class="badge">Steven Felizion</span>
                             <span class="badge">Michael Apen</span>
-                            <span class="badge">Harris Wahyudi</span>
+                            <span class="badge">Harris Wahyudi</span> --}}
                         </div>
 
                     </div>

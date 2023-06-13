@@ -13,6 +13,7 @@ use App\Models\schedule;
 use App\Models\state;
 use App\Models\userXmas;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -79,8 +80,65 @@ class DatabaseSeeder extends Seeder
         extracurricular::factory(5)->create();
         member::factory(20)->create();
         schedule::factory(40)->create();
+
+        $startTime = Carbon::now()->addHours(rand(1, 12));
+        $endTime = $startTime->copy()->addHours(rand(1,4));
+        schedule::create([
+            'kdExtracurricular' => 1,
+            'Date' => now()->addDays(10),
+            'TimeStart' => $startTime->format('H:i:s'),
+            'TimeEnd' => $endTime->format('H:i:s'),
+            'Location' => 'Dorm',
+            'Activity' => 'Latihan'
+        ]);
+
+        $startTime = Carbon::now()->addHours(rand(1, 12));
+        $endTime = $startTime->copy()->addHours(rand(1,4));
+        schedule::create([
+            'kdExtracurricular' => 2,
+            'Date' => now()->addDays(14),
+            'TimeStart' => $startTime->format('H:i:s'),
+            'TimeEnd' => $endTime->format('H:i:s'),
+            'Location' => 'BLI',
+            'Activity' => 'Main'
+        ]);
+
+        $startTime = Carbon::now()->addHours(rand(1, 12));
+        $endTime = $startTime->copy()->addHours(rand(1,4));
+        schedule::create([
+            'kdExtracurricular' => 3,
+            'Date' => now()->addDays(16),
+            'TimeStart' => $startTime->format('H:i:s'),
+            'TimeEnd' => $endTime->format('H:i:s'),
+            'Location' => 'lapangan',
+            'Activity' => 'Lomba'
+        ]);
+
+        $startTime = Carbon::now()->addHours(rand(1, 12));
+        $endTime = $startTime->copy()->addHours(rand(1,4));
+        schedule::create([
+            'kdExtracurricular' => 4,
+            'Date' => now()->addDays(18),
+            'TimeStart' => $startTime->format('H:i:s'),
+            'TimeEnd' => $endTime->format('H:i:s'),
+            'Location' => 'Dorm',
+            'Activity' => 'Persiapan lomba'
+        ]);
+
+        $startTime = Carbon::now()->addHours(rand(1, 12));
+        $endTime = $startTime->copy()->addHours(rand(1,4));
+        schedule::create([
+            'kdExtracurricular' => 5,
+            'Date' => now()->addDays(14),
+            'TimeStart' => $startTime->format('H:i:s'),
+            'TimeEnd' => $endTime->format('H:i:s'),
+            'Location' => 'BLI',
+            'Activity' => 'Main biasa'
+        ]);
+
+        // FACTORY
         report::factory(20)->create();
-        presence::factory(20)->create();
+        presence::factory(150)->create();
         documentation::factory(20)->create();
         chat::factory(20)->create();
 
