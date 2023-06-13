@@ -57,11 +57,11 @@
                         <img class="" src="{{ asset('Assets/UserDP.png') }}" alt="{{ asset('Assets/UserDP.png') }}">
                     @endif
                 @endif
-                {{-- <img class="fotoprofile" src="{{ asset('Assets/Profile assets/Foto.png') }}" alt> --}}
+                {{-- <img class="fotoprofile" src="{{ asset('Assets/Profileassets/Foto.png') }}" alt> --}}
                 <form method="GET" enctype="multipart/form-data">
                     <div class="iconcamera" id="iconcamera">
                         <img class="fotocamera" for="upload-photo"
-                            src="{{ asset('Assets/Profile assets/Edit Photo.svg') }}" alt>
+                            src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" alt>
                         <input type="file" name="fileupload" id="fileupload" style="display: none"
                             accept=".png, .jpg, .jpeg">
                     </div>
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <div class="boxtempatsampah">
-                        {{-- <img class="icontempatsampah" id="sampahbtn" src="{{ asset('Assets/Profile assets/tempatsampah.png') }}" alt=""> --}}
+                        {{-- <img class="icontempatsampah" id="sampahbtn" src="{{ asset('Assets/Profileassets/tempatsampah.png') }}" alt=""> --}}
                         <img class="icontempatsampah w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" id="sampahbtn"
                             src="{{ asset('Assets/delete.png') }}" alt="">
                         {{-- Modal Tempat Sampah --}}
