@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('kdExtracurricular');
             $table->string('name');
             $table->string('logo');
+            $table->string('backgroundImage');
             $table->text('description');
             $table->string('category');
             $table->timestamps();
