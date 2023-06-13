@@ -103,9 +103,10 @@
 
                             <div class="" id="phoneinput">
                                 <div class="isiboxphoneedit">
-                                    <form action="/changePhone" onsubmit="return validate()" style="display: flex; align-items: center;">
+                                    <form action="/changePhone" method="POST" onsubmit="return validate()" style="display: flex; align-items: center;">
                                         @csrf
-                                        <input type="number" name="" value="{{Auth::User()->phoneNumber}}" style="font-size: 1.8vw; padding-left: 1vw;" id="phoneinputform" autocomplete="off">
+                                        <input type="number" name="phone" placeholder="{{Auth::User()->phoneNumber}}" style="font-size: 1.8vw; padding-left: 1vw;" id="phoneinputform" autocomplete="off" value="{{ old('phone')}}">
+                                        <input type="hidden" name="NIP" value="{{Auth::User()->NIP}}">
                                         <button type="submit">
                                             <svg class="editphonenumbericonsubmit" xmlns="http://www.w3.org/2000/svg" width="2.2vw" height="2.2vw" viewBox="0 0 24 24"><path fill="" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z" /></svg>
                                         </button>

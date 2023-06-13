@@ -29,4 +29,14 @@ class profileController extends Controller
 
         return view('User.profile');
     }
+
+    function updatePhone(Request $request) {
+        $user = userXmas::find($request->NIP);
+
+        $user->phoneNumber = $request->phone;
+        $user->save();
+
+        return view('User.profile');
+
+    }
 }
