@@ -419,7 +419,7 @@
                 view all
             </a>
         </h1> --}}
-         <div class="h-[30vw] w-[30%] flex items-center justify-center mt-[2.5vw] ml-[2vw]">
+         <div class="h-[30vw] w-[100%] flex items-center justify-center mt-[2.5vw] ml-[2vw]">
             <div class="carousel flex h-fit">
                 <div class="carousel-items select-none">
                     @if ($xtras->count())
