@@ -6,6 +6,7 @@ use App\Http\Controllers\signUpController;
 use App\Http\Controllers\xtraController;
 use App\Http\Controllers\cameraController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\profileController;
 use App\Http\Controllers\xtraregController;
 use Illuminate\Support\Facades\Route;
 
@@ -88,9 +89,8 @@ Route::get('profile', function (){
     return view('user/profile');
 }) -> name('profile');
 
-Route::get('profile2', function (){
-    return view('user/profile2');
-}) -> name('profile2');
+Route::post('/changeImage', [profileController::class, 'updateImage']);
+Route::post('/changePhone', [profileController::class, 'updatePhone']);
 
 Route::get('approval', function (){
     return view('Admin.approval');

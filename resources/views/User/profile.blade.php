@@ -50,22 +50,26 @@
             <div class="boxluarfoto flex">
                 @if (Auth::check() && Auth::user()->photo)
                     @if (Illuminate\Support\Str::contains(Auth::user()->photo, 'database-assets'))
-                        <img class="m-auto mt-[-0.15vw]" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ asset('Assets/UserDP.png') }}" style="object-fit: cover; width: 25vw; height: 27.65vw; border-radius: 1.95vw;">
-
-                        {{-- <img class="" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ asset('Assets/UserDP.png') }}"> --}}
+                        <img class="m-auto mt-[-0.15vw] min-w-[24.7vw] max-w-[24.7vw] min-h-[27.65vw] max-h-[27.65vw]" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ asset('Assets/UserDP.png') }}" style="object-fit: cover; width: 24.7vw; height: 27.65vw; border-radius: 1.95vw;">
                     @else
                         <img class="" src="{{ asset('Assets/UserDP.png') }}" alt="{{ asset('Assets/UserDP.png') }}">
                     @endif
                 @endif
-                {{-- <img class="fotoprofile" src="{{ asset('Assets/Profile assets/Foto.png') }}" alt> --}}
-                <form method="GET" enctype="multipart/form-data">
+
+                <form id="imageForm" action="/changeImage" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="iconcamera" id="iconcamera">
-                        <img class="fotocamera" for="upload-photo"
-                            src="{{ asset('Assets/Profile assets/Edit Photo.svg') }}" alt>
-                        <input type="file" name="fileupload" id="fileupload" style="display: none"
-                            accept=".png, .jpg, .jpeg">
+                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profile assets/Edit Photo.svg') }}" alt>
+                        <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+                        <input type="hidden" name="NIP" value="{{ Auth::user()->NIP }}">
                     </div>
                 </form>
+
+                <script>
+                    document.getElementById("fileupload").addEventListener("change", function() {
+                        document.getElementById("imageForm").submit();
+                    });
+                </script>
             </div>
 
             <div class="boxluarprofile">
@@ -99,8 +103,9 @@
 
                             <div class="" id="phoneinput">
                                 <div class="isiboxphoneedit">
-                                    <form action="{{ route('profile') }}" onsubmit="return validate()" style="display: flex; align-items: center;">
-                                        <input type="number" name="" value="62895635863956" style="font-size: 1.8vw; padding-left: 1vw;" id="phoneinputform" autocomplete="off">
+                                    <form action="/changePhone" onsubmit="return validate()" style="display: flex; align-items: center;">
+                                        @csrf
+                                        <input type="number" name="" value="{{Auth::User()->phoneNumber}}" style="font-size: 1.8vw; padding-left: 1vw;" id="phoneinputform" autocomplete="off">
                                         <button type="submit">
                                             <svg class="editphonenumbericonsubmit" xmlns="http://www.w3.org/2000/svg" width="2.2vw" height="2.2vw" viewBox="0 0 24 24"><path fill="" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z" /></svg>
                                         </button>
