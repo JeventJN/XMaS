@@ -1,66 +1,53 @@
-const carousel = document.querySelector('.carousel');
-const carouselItems = document.querySelector('.carousel-items');
-const carouselItemWidth = carouselItems.querySelector('.carousel-item').clientWidth;
+const carousel = document.getElementById('carousel');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-let startX = 0;
-let currentTranslateX = 0;
-let previousTranslateX = 0;
-let isDragging = false;
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
 
-carouselItems.addEventListener('mousedown', dragStart);
-carouselItems.addEventListener('touchstart', dragStart);
-document.addEventListener('mousemove', drag);
-document.addEventListener('touchmove', drag);
-document.addEventListener('mouseup', dragEnd);
-document.addEventListener('touchend', dragEnd);
-document.addEventListener('mouseleave', dragEnd);
+        carousel.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
 
-function dragStart(event) {
-  if (event.type === 'touchstart') {
-    startX = event.touches[0].clientX;
-  } else {
-    startX = event.clientX;
-  }
+        carousel.addEventListener('mouseup', () => {
+            isDown = false;
+        });
 
-  isDragging = true;
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2;
+            carousel.scrollLeft = scrollLeft - walk;
+        });
 
-  // Add CSS transition when dragging starts
-  carouselItems.style.transition = '';
-}
+const carousel1 = document.getElementById('carousel1');
+    let isDown1 = false;
+    let startX1;
+    let scrollLeft1;
 
-function drag(event) {
-  if (isDragging) {
-    let currentX = 0;
+    carousel1.addEventListener('mousedown', (e) => {
+        isDown1 = true;
+        startX1 = e.pageX - carousel1.offsetLeft;
+        scrollLeft1 = carousel1.scrollLeft;
+    });
 
-    if (event.type === 'touchmove') {
-      currentX = event.touches[0].clientX;
-    } else {
-      currentX = event.clientX;
-    }
+    carousel1.addEventListener('mouseleave', () => {
+        isDown1 = false;
+    });
 
-    const dragDistance = currentX - startX;
-    currentTranslateX = previousTranslateX + dragDistance;
+    carousel1.addEventListener('mouseup', () => {
+        isDown1 = false;
+    });
 
-    // Limit scrolling within the bounds of the carousel
-    const minTranslateX = -(carouselItems.offsetWidth - carousel.offsetWidth);
-    const maxTranslateX = 0;
-    currentTranslateX = Math.max(Math.min(currentTranslateX, maxTranslateX), minTranslateX);
-
-    carouselItems.style.transform = `translateX(${currentTranslateX}px)`;
-  }
-}
-
-function dragEnd() {
-  if (isDragging) {
-    isDragging = false;
-
-    // Calculate the nearest snap position
-    const snapPosition = Math.round(currentTranslateX / carouselItemWidth) * carouselItemWidth;
-
-    // Add CSS transition when dragging ends
-    // carouselItems.style.transition = 'transform 0.3s ease';
-    carouselItems.style.transform = `translateX(${snapPosition}px)`;
-    previousTranslateX = snapPosition;
-  }
-}
-
+    carousel1.addEventListener('mousemove', (e) => {
+        if (!isDown1) return;
+        e.preventDefault();
+        const x1 = e.pageX - carousel1.offsetLeft;
+        const walk1 = (x1 - startX1) * 2;
+        carousel1.scrollLeft = scrollLeft1 - walk1;
+    });

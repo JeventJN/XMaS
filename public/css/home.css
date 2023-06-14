@@ -43,7 +43,6 @@
 }
 
 .upcomingxtra .photo img{
-    position: absolute;
     width: 15vw;
     height: 4.375vw;
     border-radius: 2vw 2vw 0 0;
@@ -51,7 +50,6 @@
 }
 
 .upcomingxtra .logoxtra img{
-    position: absolute;
     margin-top: 0.75vw;
     margin-left: 3.75vw;
     width: 7.5vw;
