@@ -86,12 +86,12 @@
                     </div>
                     <div class="isiidentitas">
                         <div class="identitasnama">{{Auth::User()->name}}</div>
-                        <div class="identitasNIP">{{Auth::User()->NIP}}</div>
+                        <div class="identitasNIP">{{str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT)}}</div>
 
                         <div class="boxphoneedit">
                             <div class="" id="phonetext">
                                 <div class="isiboxphoneedit">
-                                    <div class="identitasphone" style="margin-right: 0.5vw;">{{Auth::User()->phoneNumber}}</div>
+                                    <div class="identitasphone" style="margin-right: 0.5vw;">{{ substr_replace(Auth::User()->phoneNumber, "0", 0, 2) }}</div>
                                     <button onclick="showphone()">
                                         <svg class="editphonenumbericon" xmlns="http://www.w3.org/2000/svg"
                                             width="1.7vw" height="1.7vw" viewBox="0 0 256 256">
@@ -232,23 +232,45 @@
 
         <div class="boxstatus">
             <div class="boxstatus1">
+                @php
+                    $members = App\Models\member::all()
+                @endphp
 
-                {{-- ini untuk member --}}
-                <div class="boxstatus2member">
-                    <div class="boxstatus3member">
-                        Member
+                @foreach ($members as $member)
+                    @if ($member->NIP == Auth::User()->NIP)
+                        @if ($member->kdState == 2)
+                            @php
+                                $flag = 1;
+                            @endphp
+                            @break
+
+                        @else
+                            @php
+                                $flag = 0;
+                            @endphp
+                        @endif
+                    @else
+                        @php
+                            $flag = -1;
+                        @endphp
+                    @endif
+                @endforeach
+
+                @if ($flag == 1)
+                    {{-- ini untuk leader --}}
+                    <div class="boxstatus2leader">
+                        <div class="boxstatus3leader">
+                            Leader
+                        </div>
                     </div>
-                </div>
-                {{-- ini untuk member --}}
-
-                {{-- ini untuk leader --}}
-                {{-- <div class="boxstatus2leader">
-                    <div class="boxstatus3leader">
-                        Leader
+                @elseif ($flag == 0)
+                    {{-- ini untuk member --}}
+                    <div class="boxstatus2member">
+                        <div class="boxstatus3member">
+                            Member
+                        </div>
                     </div>
-                </div> --}}
-                {{-- ini untuk leader --}}
-
+                @endif
             </div>
         </div>
     </div>

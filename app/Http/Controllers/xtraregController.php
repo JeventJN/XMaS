@@ -29,8 +29,9 @@ class xtraregController extends Controller
         // dd($flag);
 
         if ($flag != 1) {
+            $NIP = str_pad($request->user, 4, '0', STR_PAD_LEFT);
             member::create([
-                'NIP' => $request->user,
+                'NIP' => $NIP,
                 'kdExtracurricular' => $request->xtrachs,
                 'kdState' => '1',
                 'reason' => $request->reason
