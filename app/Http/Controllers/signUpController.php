@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\userXmas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class signUpController extends Controller
 {
@@ -24,9 +25,13 @@ class signUpController extends Controller
             'password' => 'required|min:6',
             'photo' => 'image'
         ]);
-        
+
         if ($request->file('photo')) {
             $data['photo'] = $request->file('photo')->store('database-assets');
+        }
+
+        if (!Str::startsWith($data['phoneNumber'], '62')) {
+            $data['phoneNumber'] = '62' . substr($data['phoneNumber'], 1);
         }
 
         $data['password'] = Hash::make($data['password']);
