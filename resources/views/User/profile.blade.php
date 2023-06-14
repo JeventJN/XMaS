@@ -120,7 +120,7 @@
                         </div>
                     </div>
                     <div class="boxtempatsampah">
-                        {{-- <img class="icontempatsampah" id="sampahbtn" src="{{ asset('Assets/Profile assets/tempatsampah.png') }}" alt=""> --}}
+                        {{-- <img class="icontempatsampah" id="sampahbtn" src="{{ asset('Assets/Profileassets/tempatsampah.png') }}" alt=""> --}}
                         <img class="icontempatsampah w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" id="sampahbtn"
                             src="{{ asset('Assets/delete.png') }}" alt="">
                         {{-- Modal Tempat Sampah --}}

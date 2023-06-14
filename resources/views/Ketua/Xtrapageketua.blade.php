@@ -45,16 +45,10 @@
     {{-- popup --}}
     {{-- left --}}
     <div id="modalpopupLEFT" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-        <div
-            class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-            <div
-                class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+        <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+            <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
                 Successfully left the Xtra
-                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLEFT"
-                    class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
-                    <path fill="currentColor"
-                        d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLEFT" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" /></svg>
             </div>
         </div>
     </div>
@@ -107,114 +101,126 @@
     {{-- popup --}}
 
     <!-- jumbotron (foto besar) -->
-    <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important">
-        <div class="box-jumbotron">
-            {{-- containerlogo itu container dari logo ekskul (Strava), hover (Xtra, Schedule, Leader), logo BCA --}}
-            <div class="containerlogo">
-                <div class="row">
-                    {{-- component hover (Xtra, Schedule, dan Leader) sebelah logo --}}
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="flex: 1;">
-                        <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
-                            <div class="button-elips" onmouseover="hover()" onmouseout="out()">
-                                <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
-                                @php
-                                    $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . ' (' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')'
-                                @endphp
-                                <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $schedule }}" data-text="Schedule">Schedule</a>
-                                <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
-                                {{-- <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
-                                <a class="buttons" href="" data-value="Wed(17.00 - 19.00)" data-text="Schedule">Schedule</a>
-                                <a class="buttons" href="" data-value="Jevent Natthannael" data-text="Leader">Leader</a> --}}
+    <form method="GET" enctype="multipart/form-data">
+
+        {{-- Untuk yang bisa input gambar ke jumbotron --}}
+        <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/image_jumbo.png'); cursor: pointer;">
+        {{-- Untuk yang bisa input gambar ke jumbotron --}}
+
+        {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/image_jumbo.png');"> --}}
+            <input type="file" name="fileupload" id="fileupload" style="display: none;" accept=".png, .jpg, .jpeg">
+            <div class="box-jumbotron">
+                {{-- containerlogo itu container dari logo ekskul (Strava), hover (Xtra, Schedule, Leader), logo BCA --}}
+                <div class="containerlogo">
+                    <div class="row">
+                        {{-- component hover (Xtra, Schedule, dan Leader) sebelah logo --}}
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="flex: 1;">
+                            <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
+                                <div class="button-elips" onmouseover="hover()" onmouseout="out()">
+                                    <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
+                                    @php
+                                        $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . ' (' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')'
+                                    @endphp
+                                    <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $schedule }}" data-text="Schedule">Schedule</a>
+                                    <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
+                                    {{-- <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
+                                    <a class="buttons" href="" data-value="Wed(17.00 - 19.00)" data-text="Schedule">Schedule</a>
+                                    <a class="buttons" href="" data-value="Jevent Natthannael" data-text="Leader">Leader</a> --}}
+                                </div>
                             </div>
+
+                            {{-- JS untuk hover Xtra Schedule Leader --}}
+                            <script>
+                                const buttons = document.querySelectorAll('.buttons');
+
+                                buttons.forEach((button) => {
+
+                                    button.addEventListener('mouseover', (e) => {
+                                        const value = e.target.getAttribute('data-value');
+
+                                        e.target.innerHTML = value;
+                                        e.target.style.backgroundColor = '#1B2F45';
+                                        e.target.style.color = 'white';
+                                        e.target.style.fontSize = '1.6vw';
+                                        e.target.style.width = 'fit-content';
+                                        e.target.style.height = '5vw';
+                                        e.target.style.paddingBottom = '4.1vw';
+
+
+                                        if (value == @json($xtra->name)) {
+                                            e.target.classList.add('JudulXtra');
+                                            e.target.style.padding = '1.3vw 4vw 3.5vw 16vw';
+                                            // e.target.style.width = '30vw';
+                                            // e.target.style.marginBottom = '-0.2vw';
+                                        } else if (value == @json($schedule)) {
+                                            e.target.classList.add('ScheduleXtra');
+                                            e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
+                                            e.target.style.width = '35vw';
+                                            e.target.style.marginTop = '-0.05vw';
+                                            // e.target.style.marginBottom = '-0.3vw';
+                                        } else if (value == @json($xtra->leader->userXmas->name)) {
+                                            e.target.classList.add('LeaderXtra');
+                                            e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
+                                            // e.target.style.width = '40vw';
+                                            // e.target.style.marginTop = '-0.58vw';
+                                        }
+                                    });
+                                    button.addEventListener('mouseout', (e) => {
+                                        const text = e.target.getAttribute('data-text');
+
+                                        e.target.innerHTML = text;
+                                        e.target.style.backgroundColor = '#d9d9d9';
+                                        e.target.style.color = '#1B2F45';
+                                        e.target.style.fontSize = '1.7vw';
+                                        //   e.target.style.width = '25.5vw';
+
+                                        if (text == 'Xtra') {
+                                            e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
+                                            // e.target.style.marginBottom = '-0.08vw';
+                                            // e.target.style.marginBottom = '0vw';
+                                            e.target.style.width = '25.2vw';
+                                            e.target.classList.remove('JudulXtra');
+                                        } else if (text == 'Schedule') {
+                                            e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
+                                            e.target.style.width = '29.2vw';
+                                            e.target.style.marginTop = '-0.01vw';
+                                            e.target.style.marginBottom = '-0.08vw';
+                                            e.target.classList.remove('ScheduleXtra');
+                                        } else if (text == 'Leader') {
+                                            e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
+                                            e.target.style.width = '27.6vw';
+                                            // e.target.style.marginTop = '-0.08vw';
+                                            // e.target.style.marginTop = '0vw';
+                                            e.target.classList.remove('LeaderXtra');
+                                        }
+                                    });
+                                });
+                            </script>
+                            {{-- JS untuk hover Xtra Schedule Leader --}}
+
+                            {{-- elips untuk batas luar dari gambar logo ekskul --}}
+                            <form method="GET" enctype="multipart/form-data">
+
+                                {{-- untuk leader yang bisa ganti logo xtra --}}
+                                <div id="elipsganti" class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white; cursor: pointer;">
+                                {{-- untuk leader yang bisa ganti logo xtra --}}
+
+                                {{-- <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;"> --}}
+                                    <img src="{{ asset('/Assets/Xtrapageassets/' . $xtra->logo) }}" alt="{{ $xtra->name }}" class="elips" style="height: 20.8vw; width: 20.8vw;" />
+                                    <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+                                </div>
+                            </form>
                         </div>
 
-                        {{-- JS untuk hover Xtra Schedule Leader --}}
-                        <script>
-                            const buttons = document.querySelectorAll('.buttons');
-
-                            buttons.forEach((button) => {
-
-                                button.addEventListener('mouseover', (e) => {
-                                    const value = e.target.getAttribute('data-value');
-
-                                    e.target.innerHTML = value;
-                                    e.target.style.backgroundColor = '#1B2F45';
-                                    e.target.style.color = 'white';
-                                    e.target.style.fontSize = '1.6vw';
-                                    e.target.style.width = 'fit-content';
-                                    e.target.style.height = '5vw';
-                                    e.target.style.paddingBottom = '4.1vw';
-
-
-                                    if (value == @json($xtra->name)) {
-                                        e.target.classList.add('JudulXtra');
-                                        e.target.style.padding = '1.3vw 4vw 3.5vw 16vw';
-                                        // e.target.style.width = '30vw';
-                                        // e.target.style.marginBottom = '-0.2vw';
-                                    } else if (value == @json($schedule)) {
-                                        e.target.classList.add('ScheduleXtra');
-                                        e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
-                                        e.target.style.width = '35vw';
-                                        e.target.style.marginTop = '-0.05vw';
-                                        // e.target.style.marginBottom = '-0.3vw';
-                                    } else if (value == @json($xtra->leader->userXmas->name)) {
-                                        e.target.classList.add('LeaderXtra');
-                                        e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
-                                        // e.target.style.width = '40vw';
-                                        // e.target.style.marginTop = '-0.58vw';
-                                    }
-                                });
-                                button.addEventListener('mouseout', (e) => {
-                                    const text = e.target.getAttribute('data-text');
-
-                                    e.target.innerHTML = text;
-                                    e.target.style.backgroundColor = '#d9d9d9';
-                                    e.target.style.color = '#1B2F45';
-                                    e.target.style.fontSize = '1.7vw';
-                                    //   e.target.style.width = '25.5vw';
-
-                                    if (text == 'Xtra') {
-                                        e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
-                                        // e.target.style.marginBottom = '-0.08vw';
-                                        // e.target.style.marginBottom = '0vw';
-                                        e.target.style.width = '25.2vw';
-                                        e.target.classList.remove('JudulXtra');
-                                    } else if (text == 'Schedule') {
-                                        e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
-                                        e.target.style.width = '29.2vw';
-                                        e.target.style.marginTop = '-0.01vw';
-                                        e.target.style.marginBottom = '-0.08vw';
-                                        e.target.classList.remove('ScheduleXtra');
-                                    } else if (text == 'Leader') {
-                                        e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
-                                        e.target.style.width = '27.6vw';
-                                        // e.target.style.marginTop = '-0.08vw';
-                                        // e.target.style.marginTop = '0vw';
-                                        e.target.classList.remove('LeaderXtra');
-                                    }
-                                });
-                            });
-                        </script>
-                        {{-- JS untuk hover Xtra Schedule Leader --}}
-
-                        {{-- elips untuk batas luar dari gambar logo ekskul --}}
-                        <div class="elips"
-                            style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
-                            <img src="{{ asset('/Assets/Xtrapage assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}" class="elips"
-                                style="height: 20.8vw; width: 20.8vw;" />
+                        {{-- untuk logo BCA --}}
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-6" id="bca">
+                            <img src="{{ asset('/Assets/Xtrapageassets/bca.png') }}" alt="" class="bca" style="width: 30vw; margin-left: 2.5vw;" />
                         </div>
-                    </div>
-
-                    {{-- untuk logo BCA --}}
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-6" id="bca">
-                        <img src="{{ asset('/Assets/Xtrapage assets/bca.png') }}" alt="" class="bca"
-                            style="width: 30vw; margin-left: 2.5vw;" />
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </form>
     {{-- div untuk spasi aja --}}
     <div class="SpJumbotronMain" style="height: 5.5vw;"> </div>
 
@@ -225,9 +231,7 @@
             <div class="button-make-advance float-right">
                 {{-- Untuk Make Attendance dan Add Schedule --}}
                 <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
-                <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">
-                    Add Schedule
-                </a>
+                <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">Add Schedule</a>
                 {{-- Untuk Make Attendance dan Add Schedule --}}
 
                 {{-- Add Photo only --}}
@@ -261,7 +265,7 @@
                         <div class="form-group" id="KotakDesc">
                             <div class="boxlabeledit">
                                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
-                                <label for="exampleFormControlTextarea1" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt=""/></label>
+                                <label for="exampleFormControlTextarea1" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapageassets/Vector.png') }}" alt=""/></label>
                             </div>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw"></textarea>
                         </div>
@@ -269,7 +273,7 @@
                         <div class="form-group" id="KotakAct">
                             <div class="boxlabeledit">
                                 <label for="exampleFormControlTextarea2" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
-                                <label for="exampleFormControlTextarea2" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapage assets/Vector.png') }}" alt=""/></label>
+                                <label for="exampleFormControlTextarea2" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapageassets/Vector.png') }}" alt=""/></label>
                             </div>
                             <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw;"></textarea>
                         </div>
@@ -282,19 +286,20 @@
                             <div class="boxlabeledit">
                                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                             </div>
-                            <div class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" readonly>
                                 {!! $xtra->description !!}
-                                {{-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --}}
-                            </div>
+                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            </textarea>
                         </div>
 
                         <div class="form-group" id="KotakAct">
                             <div class="boxlabeledit">
                                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
                             </div>
-                            <div class="form-control" id="exampleFormControlTextarea1" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" readonly>
                                 {!! $xtra->latest_schedule?->activity !!}
-                            </div>
+                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            </textarea>
                         </div>
                     </div>
                     {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
@@ -308,43 +313,43 @@
                             @foreach ($xtra->documentations as $doc)
                                 <div class="swiper-slide">
                                     <div class="card" style="width: 19vw">
-                                        <img src="{{ asset('Assets/Xtrapage assets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
+                                        <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
                                     </div>
                                 </div>
                             @endforeach
                             {{-- <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/2.png') }}" class="card-img-top" alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapageassets/foto/2.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/3.png') }}" class="card-img-top" alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapageassets/foto/3.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapage assets/foto/1.png') }}" class="card-img-top" alt="..." />
+                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
                                 </div>
                             </div> --}}
                         </div>
@@ -387,7 +392,7 @@
 
                         {{-- Untuk Leave Xtra --}}
                         <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                            <img src="{{ asset('Assets/Xtrapage assets/stop.png') }}" alt="" class="gambarstop" />
+                            <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
                             <div class="btn-member">
                                 {{-- <button type="button" class="btn" id="leavebtn" data-toggle="modal" data-target="#staticBackdrop" style="border: none">Leave Xtra</button> --}}
                                 <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
@@ -399,13 +404,13 @@
                             <div class="gambarhover">
                                 <a href="/xtrareg">
                                     <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
-                                        onmouseover="join.src='{{ asset('Assets/Xtrapage assets/GambarJoinHover.png') }}'"
-                                        onmouseout="join.src='{{ asset('Assets/Xtrapage assets/GambarJoin.png') }}'">
+                                        onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
+                                        onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
                                         JOIN NOW!!!
                                     </div>
                                 </a>
                                 <div class="flex">
-                                    <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapage assets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                                    <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
                                 </div>
                             </div>
                         </div> --}}
@@ -422,7 +427,7 @@
                 <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">{{ $xtra->latest_schedule?->presences->count() }}</span> </div>
                 <div class="dropdown">
                     <button onclick="myFunction()" class="dropbtn">Choose date <img class="gambarPanah"
-                            src="{{ asset('Assets/Xtrapage assets/chevrondown.png') }}" alt=""
+                            src="{{ asset('Assets/Xtrapageassets/chevrondown.png') }}" alt=""
                             style="margin-left: 1vw; width: 2vw" /></button>
                     {{-- <button onclick="myFunction()" class="dropbtn" id="panahdate2">Choose date </button> --}}
                     <div id="myDropdown" class="dropdown-content">
@@ -534,7 +539,7 @@
                         <form class="inline" method="POST">
                           <div class="input-icons">
                             <div class="datepicker-trigger">
-                              <img src="{{ asset('Assets/Xtrapage assets/calendar-month.svg') }}" alt="" style="cursor: pointer;"/>
+                              <img src="{{ asset('Assets/Xtrapageassets/calendar-month.svg') }}" alt="" style="cursor: pointer;"/>
                             </div>
                             <input type="text" placeholder="Choose a date" class="datepicker" autocomplete="off">
                           </div>
@@ -786,11 +791,11 @@
                 dateFormat: "yy-mm-dd",
                 beforeShow: function(input, inst) {
                     $('#datepicker-trigger').attr('src',
-                        '{{ asset('Assets/Xtrapage assets/chevronup.svg') }}');
+                        '{{ asset('Assets/Xtrapageassets/chevronup.svg') }}');
                 },
                 onClose: function(dateText, inst) {
                     $('#datepicker-trigger').attr('src',
-                        '{{ asset('Assets/Xtrapage assets/chevrondown.svg') }}');
+                        '{{ asset('Assets/Xtrapageassets/chevrondown.svg') }}');
                 }
             });
         });
@@ -832,6 +837,21 @@
                 }, 5000);
             }
         }
+    </script>
+
+    <script>
+        document.getElementById('jumbotron').addEventListener('click', function() {
+            document.getElementById('fileupload').click();
+        });
+
+        document.getElementById('elipsganti').addEventListener('click', function() {
+            document.getElementById('fileupload').click();
+        });
+
+        document.getElementById('fileupload').addEventListener('change', function() {
+            var files = this.files;
+            console.log(files);
+        });
     </script>
 
 </body>

@@ -15,7 +15,7 @@ body {
 
 /* mengatur position relative supaya di bawah satu dimensi box-jumboron */
 .jumbotron {
-    background-image: url("../../Assets/Xtrapage assets/image_jumbo.png");
+    /* background-image: url("../../Assets/Xtrapageassets/image_jumbo.png"); */
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
