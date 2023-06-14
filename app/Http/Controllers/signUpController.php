@@ -24,6 +24,7 @@ class signUpController extends Controller
             'password' => 'required|min:6',
             'photo' => 'image'
         ]);
+        
         if ($request->file('photo')) {
             $data['photo'] = $request->file('photo')->store('database-assets');
         }

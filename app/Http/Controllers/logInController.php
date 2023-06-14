@@ -6,6 +6,7 @@ use App\Models\userXmas;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class logInController extends Controller
 {
@@ -50,6 +51,11 @@ class logInController extends Controller
         $request->session()->regenerateToken();
 
         $user = userXmas::find($request->NIP);
+
+        if ($user->photo) {
+            Storage::delete($user->photo);
+        }
+
         $user -> delete();
 
         return redirect()->intended('/home')->with('deleteSuccess', 'Successfully del');
