@@ -141,6 +141,8 @@ class extracurricular extends Model
             );
         }
 
+        return $query;
+
         // if((isset($filters['Mon']) && isset($filters['Tue']) && isset($filters['Wed']) && isset($filters['Thu']) && isset($filters['Fri']) && isset($filters['Sat']) && isset($filters['Sun'])) === false){
         //     $query->when($filters['Mon'] ?? false, fn($query) =>
         //         $query->whereIn('kdExtracurricular', fn($query) =>

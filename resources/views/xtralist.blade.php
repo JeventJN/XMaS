@@ -126,7 +126,7 @@
                     @endif
                     <div class="bg-neutral-100 ml-[1vw] w-[25.5vw] h-[4vw] rounded-[1vw] shadow flex items-center justify-end">
                         <div class="flex items-center justify-center w-[19vw] h-[3.5vw] mr-[1vw] font-nunito text-[1.5vw]">
-                            <input class="bg-neutral-100 h-[3.5vw] w-[19vw] no-outline" autocomplete="off" type="text" name="search" placeholder="Search..." value="{{ request('search') }}">
+                            <input class="bg-neutral-100 h-[3.5vw] w-[19vw] no-outline" autocomplete="off" type="text" name="search" placeholder="Search..." value="{{ request('search') }}" id="inputSearch">
                         </div>
                         <button type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" class="svg mr-[1vw]" viewBox="0 0 24 24"><path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.612 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3l-1.4 1.4ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z"/></svg>
@@ -134,7 +134,7 @@
                     </div>
                 </form>
             </div>
-            <div class="rowcontainer">
+            <div class="rowcontainer" id="all_xtra">
                 @if ($xtras->count())
                     @foreach ($xtras as $xtra)
                         {{-- @dd($xtra->latest_schedule) --}}
@@ -172,13 +172,78 @@
                         </a>
                     @endforeach
                 @else
-                <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
+                    <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
                 @endif
+            </div>
+            <div class="rowcontainer" id="list_xtra"></div>
+            <div class="rowcontainer" id="empty_xtra">
+                <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">Your search for "<span id="search_query"></span>" is not found</p>
             </div>
         </div>
     </div>
     <div class="h-[4vw]"></div>
     <p id="valueList"></p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#empty_xtra").hide();
+            $("#list_xtra").hide();
+
+            $("#inputSearch").keyup(function(){
+                var query = $(this).val();
+
+                // Extract filter values from the URL
+                var urlParams = new URLSearchParams(window.location.search);
+
+                var Physique = urlParams.get('Physique') ? urlParams.get('Physique') : '';
+                var NonPhysique = urlParams.get('NonPhysique') ? urlParams.get('NonPhysique') : '';
+                var Mon = urlParams.get('Mon') ? urlParams.get('Mon') : '';
+                var Tue = urlParams.get('Tue') ? urlParams.get('Tue') : '';
+                var Wed = urlParams.get('Wed') ? urlParams.get('Wed') : '';
+                var Thu = urlParams.get('Thu') ? urlParams.get('Thu') : '';
+                var Fri = urlParams.get('Fri') ? urlParams.get('Fri') : '';
+                var Sat = urlParams.get('Sat') ? urlParams.get('Sat') : '';
+                var Sun = urlParams.get('Sun') ? urlParams.get('Sun') : '';
+
+                if(query != ""){
+                    $('#all_xtra').hide();
+                    $('#list_xtra').show();
+                    $.ajax({
+                        url: "{{ url('search') }}",
+                        type:"GET",
+                        data: "search=" + query +'&Physique=' + Physique + '&NonPhysique=' + NonPhysique +'&Mon=' + Mon +'&Tue=' + Tue +'&Wed=' + Wed +'&Thu=' + Thu +'&Fri=' + Fri + '&Sat=' + Sat + '&Sun=' + Sun,
+                        success: function(data){
+                            console.log(data);
+                            console.log(Physique);
+                            console.log($('#Physique:checked').val());
+                            console.log($('#NonPhysique:checked').val());
+                            console.log($('#Mon:checked').val());
+                            console.log($('#Tue:checked').val());
+                            console.log(($('#Mon:checked').val()) ? true: false);
+                            console.log($('#Wed:checked').val());
+                            console.log($('#Thu:checked').val());
+                            console.log($('#Fri:checked').val());
+                            console.log($('#Sat:checked').val());
+                            console.log($('#Sun:checked').val());
+                            if (data.empty) {
+                                $("#search_query").text(query);
+                                $("#empty_xtra").show();
+                                $("#list_xtra").html("");
+                            } else {
+                                $("#empty_xtra").hide();
+                                $("#list_xtra").html(data);
+                            }
+                        }
+                    });
+                }else{
+                    $('#all_xtra').show();
+                    $('#list_xtra').hide();
+                    $("#empty_xtra").hide();
+                }
+            });
+        });
+    </script>
     <script src="{{asset('js/xtralist.js')}}"></script>
     {{-- Footer --}}
     @include('footer')
