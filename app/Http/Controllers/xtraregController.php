@@ -17,7 +17,6 @@ class xtraregController extends Controller
     public function newMember(Request $request)
     {
         $members = extracurricular::find($request->xtrachs)->members;
-        // dd($members);
 
         $flag = 0;
 

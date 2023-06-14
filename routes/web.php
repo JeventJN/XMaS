@@ -87,10 +87,12 @@ Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-scr
 
 Route::get('profile', function (){
     return view('user/profile');
-}) -> name('profile');
+})->name('profile');
 
 Route::post('/changeImage', [profileController::class, 'updateImage']);
 Route::post('/changePhone', [profileController::class, 'updatePhone']);
+Route::post('/showXtratoLead', [profileController::class, 'xtras']);
+Route::post('/reqLead', [profileController::class, 'requestLead']);
 
 Route::get('approval', function (){
     return view('Admin.approval');
