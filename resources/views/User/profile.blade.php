@@ -188,66 +188,69 @@
                     @endforeach
 
                     {{-- ini untuk member --}}
-                    @if($flag != 3)
+                    @if($flag != 3 && $flag != 1)
                         <button type="submit" class="request" id="requestbtn">Request Leader Access</button>
-                    @endif
 
-                    {{-- Modal Request --}}
-                    <div id="modalrequest" class="modalrequest">
-                        {{-- Modal Content --}}
-                        <div class="modal-contentrequest">
-                            <div class="kotakisimodal">
-                                <div class="boxjudulcloserequest">
-                                    <div class="judulmodal">What Xtra leader are you?</div>
-                                    <span class="closerequest">&times;</span>
-                                </div>
+                        {{-- Modal Request --}}
+                        <div id="modalrequest" class="modalrequest">
+                            {{-- Modal Content --}}
+                            <div class="modal-contentrequest">
+                                <div class="kotakisimodal">
+                                    <div class="boxjudulcloserequest">
+                                        <div class="judulmodal">What Xtra leader are you?</div>
+                                        <span class="closerequest">&times;</span>
+                                    </div>
 
-                                {{-- dropdown jepeng --}}
-                                <form id="xtrareg" action="/reqLead" method="POST" onsubmit="return eventsubmits()" autocomplete="off">
-                                    @csrf
-                                    <div class="mt-[0.2vw] w-[25vw] rounded-[0.3vw] border-none">
-                                        {{-- <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] rounded-[0.3vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[2.5vw] p-[0.2vw] focus:text-black text-[2vw]" required> --}}
-                                        <div class="select-wrap" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
-                                            <select name="xtrachs" id="xtrachs" class="input bg-gray-50 text-gray-900 text-sm block max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] scrollbar-hide" style="border: #1B2F45 0.2vw solid">
-                                                <div class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none bg-red-500">
-                                                    <option selected="false" disabled class="hidden" value="">Choose one of your Xtra</option>
-                                                    <div class=" max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw]">
-                                                        @php
-                                                            use App\Models\userXmas;
-                                                            $anggota = userXmas::find(Auth::User()->NIP)->members;
-                                                        @endphp
+                                    {{-- dropdown jepeng --}}
+                                    <form id="xtrareg" action="/reqLead" method="POST" onsubmit="return eventsubmits()" autocomplete="off">
+                                        @csrf
+                                        <div class="mt-[0.2vw] w-[25vw] rounded-[0.3vw] border-none">
+                                            {{-- <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] rounded-[0.3vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[2.5vw] p-[0.2vw] focus:text-black text-[2vw]" required> --}}
+                                            <div class="select-wrap" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
+                                                <select name="xtrachs" id="xtrachs" class="input bg-gray-50 text-gray-900 text-sm block max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] scrollbar-hide" style="border: #1B2F45 0.2vw solid">
+                                                    <div class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none bg-red-500">
+                                                        <option selected="false" disabled class="hidden" value="">Choose one of your Xtra</option>
+                                                        <div class=" max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw]">
+                                                            @php
+                                                                App\Models\userXmas;
+                                                                $anggota = userXmas::find(Auth::User()->NIP)->members;
+                                                            @endphp
 
-                                                        @foreach ($anggota as $member)
-
-                                                        <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none" name="xtra" value="{{ $member->xtras?->kdExtracurricular }}">{{ $member->xtras?->name }}</option>
-                                                        @endforeach
+                                                            @foreach ($anggota as $member)
+                                                                <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.5vw] border-none" name="xtra" value="{{ $member->xtras?->kdExtracurricular }}">{{ $member->xtras?->name }}</option>
+                                                            @endforeach
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </select>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="spasi1" style="height: 8.5vw;"></div>
+                                        <div class="spasi1" style="height: 8.5vw;"></div>
 
-                                    <input type="hidden" name="NIP" id="NIP" value="{{Auth::User()->NIP}}" >
+                                        <input type="hidden" name="NIP" id="NIP" value="{{Auth::User()->NIP}}" >
 
-                                    <div class="boxsubmitrequest">
-                                        <button type="submit" class="btnsubmitmodal">Submit</button>
-                                    </div>
-                                </form>
-                                {{-- dropdown jepeng --}}
+                                        <div class="boxsubmitrequest">
+                                            <button type="submit" class="btnsubmitmodal">Submit</button>
+                                        </div>
+                                    </form>
+                                    {{-- dropdown jepeng --}}
 
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
 
                     @if ($flag == 3)
                         <button class="requestdisable" id="requestbtn" disabled>Approval Leader on Progress</button>
                     @endif
 
                     {{-- ini untuk leader --}}
-                    {{-- <button type="button" class="request">Extracurricular Report</button> --}}
-                    {{-- ini untuk leader --}}
+                    @if ($flag == 1)
+                        {{-- <button type="button" class="request">Extracurricular Report</button> --}}
+                        <div class="request flex">
+                            <a href="/reportform" class="m-auto">Extracurricular Report</a>
+                        </div>
+                    @endif
 
                     <button type="button" class="logout" id="logoutbtn">Log Out</button>
                     {{-- Modal Log Out --}}
