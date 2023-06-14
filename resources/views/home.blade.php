@@ -334,44 +334,58 @@
                         view all
                     </a>
                 </h1>
-                <div class="h-[30vw] w-[100%] flex items-center justify-center ml-[1.8vw]">
+                <div class="h-[30vw] w-[100%] flex items-center justify-center ml-[1.8vw] mt-[-2vw]">
                     <div class="carousel flex h-fit">
-                        <div class="h-[30vw] w-[100%] flex items-center justify-center mr-[2vw]">
-                            <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
-                                <div class="carousel-items select-none ml-[1vw]">
-                                    @foreach ($reports as $report)
-                                        <section class="w-[18vw] h-fit ml-[10vw] group flex items-center visible">
-                                            <div class="w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer bg-red-500">
-                                                {{-- input Xtra Logo di sini --}}
-                                                <div class="">
-                                                    <div class="relative">
-                                                        <img class="absolute rounded-[50%] min-w-[6vw] min-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="mail1 min-w-[18vw] z-40">
-                                                    <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
-                                                </div>
+                        <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
+                            <div class="group flex h-[25vw] items-center">
+                                @foreach ($reports as $index => $report)
+                                    <div class="report w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
+                                        <div class="">
+                                            <div class="relative">
+                                            <img class="absolute rounded-[50%] min-w-[6vw] min-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
                                             </div>
-                                            <a class="absolute w-[18vw] h-[20vw] flex items-center z-50 invisible group-hover:visible mb-[18vw]" href="reportlist">
-                                                <aside>
-                                                    <button class="absolute mail2 w-[18vw] z-40">
-                                                        <img src="{{asset('Assets/report2.png')}}" alt="">
-                                                    </button>
-                                                    {{-- input TITLE REPORT di sini --}}
-                                                    <button class="absolute titleMail w-[18vw] text-[1vw] z-50 mt-[5.5vw]">
-                                                                <p>{{ Str::limit($report->title, 12, '...') }}</p>
-                                                                {{-- <p >{{$report->title}}</p> --}}
-                                                    </button>
-                                                    {{-- input Xtra Logo di sini --}}
-                                                    <button class="absolute logo2 rounded-[50%] w-[6vw] h-[6vw] ml-[15vw] mt-[2vw] z-50">
-                                                        <img class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
-                                                    </button>
-                                                </aside>
-                                            </a>
-                                        </section>
-                                    @endforeach
-                                </div>
+                                        </div>
+                                        <div class="mail1 min-w-[18vw] z-40">
+                                            <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
+                                        </div>
+                                    </div>
+                                    <a class="relative report1 flex items-center z-50 hidden mt-[-5vw]" href="reportlist">
+                                        <button class="absolute mail2 w-[18vw] z-40">
+                                            <img class="w-[18vw]" src="{{asset('Assets/report2.png')}}" alt="">
+                                        </button>
+                                        <button class="titleMail w-[18vw] text-[1vw] z-50">
+                                            <p>{{ Str::limit($report->title, 12, '...') }}</p>
+                                        </button>
+                                        <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] mt-[-2vw] ml-[-3vw] z-50">
+                                            <img class="w-[18vw] rounded-[50%]" class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
+                                        </button>
+                                        </a>
+                                    <div class="w-[5vw]"></div>
+                                @endforeach
                             </div>
+                            <script>
+                                    const reports = document.querySelectorAll('.report');
+                                    const report1s = document.querySelectorAll('.report1');
+
+                                    reports.forEach((report, index) => {
+                                    const report1 = report1s[index];
+
+                                    report.addEventListener('mouseenter', () => {
+                                        reports.forEach((r) => {
+                                        if (r !== report) {
+                                            r.nextElementSibling.classList.add('hidden');
+                                        }
+                                        });
+                                        report.nextElementSibling.classList.remove('hidden');
+                                        report.classList.add('hidden');
+                                    });
+
+                                    report1.addEventListener('mouseleave', () => {
+                                        report.classList.remove('hidden');
+                                        report.nextElementSibling.classList.add('hidden');
+                                    });
+                                    });
+                            </script>
                         </div>
                     </div>
                 </div>
