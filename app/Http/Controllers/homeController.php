@@ -14,6 +14,22 @@ class homeController extends Controller
     public function showXtraSchedule()
     {
         $reports = report::all();
-        return view('home', ['xtras' => extracurricular::latest()->get(), 'reports' => $reports]);
+        $xtras = extracurricular::all();
+        $flag = 1;
+
+
+        foreach ($xtras as $xtra) {
+            $latestSchedule = $xtra->latest_schedule;
+            if($latestSchedule >= today()){
+                $flag = 0;
+            }
+        }
+
+        if ($flag == 0) {
+            return view('home', ['xtras' => extracurricular::latest()->get(), 'reports' => $reports]);
+        }
+        else{
+            return view('home', ['xtras' => $xtras, 'reports' => $reports, 'kosong' => 'we']);
+        }
     }
 }

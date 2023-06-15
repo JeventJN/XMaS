@@ -162,7 +162,9 @@
                     <div class="h-[30vw] w-[100%] flex items-center justify-center mr-[2vw]">
                         <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
                             <div class="carousel-items select-none ml-[1vw]">
-                                @if ($xtras->count())
+                                @if(isset($kosong))
+                                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                                @elseif ($xtras->count())
                                     @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
                                         @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
                                             <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
@@ -212,9 +214,6 @@
                                             <div class="w-[5vw]"></div>
                                         @endif
                                     @endforeach
-                                @else
-                                    {{-- Ga ada xtra, yang bawah boleh dihapus ya peng --}}
-                                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                                 @endif
                             </div>
                         </div>
@@ -222,9 +221,9 @@
                 </div>
             </div>
         </div>
-    @endguest
+        @endguest
 
-    @auth
+        @auth
         @if (Auth::User()->NIP !== 0)
             <div class="segment">
                 <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
@@ -235,7 +234,10 @@
                         <div class="h-[30vw] w-[100%] flex items-center justify-center mr-[2vw]">
                             <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
                                 <div class="carousel-items select-none ml-[1vw]">
-                                    @if ($xtras->count())
+                                    {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 166 --}}
+                                    @if(isset($kosong))
+                                        <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                                    @elseif ($xtras->count())
                                         @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
                                             @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
                                                 <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
@@ -285,9 +287,6 @@
                                                 <div class="w-[5vw]"></div>
                                             @endif
                                         @endforeach
-                                    @else
-                                        {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 246 --}}
-                                        <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                                     @endif
                                 </div>
                             </div>
@@ -336,7 +335,7 @@
                                         <div class="w-[5vw]"></div>
                                     @endforeach
                                 @else
-                                    {{-- No report, buat dsni ya peng --}}
+                                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                                 @endif
 
                             </div>
@@ -457,7 +456,7 @@
                                     <div class="w-[5vw]"></div>
                                 @endforeach
                             @else
-                                {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 246 --}}
+                                {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 166 --}}
                                 <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                             @endif
                         </div>
