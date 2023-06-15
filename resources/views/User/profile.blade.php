@@ -204,7 +204,7 @@
                                 @endphp
                                 @break
 
-                            @else
+                            @elseif($member->kdState == 1)
                                 @php
                                     // member
                                     $flag = 0;
@@ -220,7 +220,7 @@
                     @endforeach
 
                     {{-- ini untuk member --}}
-                    @if($flag != 3 && $flag != 1)
+                    @if($flag == 0)
                         <button type="submit" class="request" id="requestbtn">Request Leader Access</button>
 
                         {{-- Modal Request --}}
@@ -277,10 +277,11 @@
 
                     {{-- ini untuk leader --}}
                     @if ($flag == 1)
-                    <form action="/reportform" method="POST"></form>
-                        @csrf
-                        <input type="hidden" name="NIP" id="NIP" value="{{Auth::User()->NIP}}">
-                        <button type="button" class="request">Extracurricular Report</button>
+                        <form action="/reportform" method="POST">
+                            @csrf
+                            <input type="hidden" name="NIP" id="NIP" value="{{Auth::User()->NIP}}">
+                            <button type="submit" class="request">Extracurricular Report</button>
+                        </form>
                     @endif
 
                     <button type="button" class="logout" id="logoutbtn">Log Out</button>

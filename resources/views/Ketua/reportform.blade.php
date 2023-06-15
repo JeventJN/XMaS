@@ -22,9 +22,10 @@
             Xtra Report Form
         </div>
     </div>
-    <form class="absolute" action="" id="reportform" method="POST" autocomplete="off">
-        {{-- Modal Submit --}}
-        <div class="modal" id="modalpopup">
+    {{-- Modal Submit --}}
+    <form class="absolute z-0" action="/addReport" id="reportform" method="POST" autocomplete="off">
+        @csrf
+        <div class="modal z-10" id="modalpopup">
             <div class=" flex justify-around items-center flex-col">
                 <div class="w-[36vw] flex justify-end">
                     <svg xmlns="http://www.w3.org/2000/svg" id="hidemodal" class="w-[2vw] h-[2vw] mt-[1vw] cursor-pointer" viewBox="0 0 256 256"><path fill="black" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
@@ -34,10 +35,10 @@
                     <br/>
                     Do you want to continue?
                 </div>
-                <div class="w-[36vw] h-[2.5vw] flex justify-end text-[1.2vw] mb-[1vw]">
+                <div class="w-[36vw] h-[2.5vw] flex justify-end text-[1.2vw] mb-[1vw] font-nunito">
                     <button type="submit">
                         <div class="w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] flex justify-center items-center mr-[1vw] text-white hover:bg-[#145003] hover:cursor-pointer hover:font-bold">
-                        Yes
+                            Yes
                         </div>
                     </button>
                     <div id="hidemodalno" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer hover:font-bold">
@@ -46,6 +47,7 @@
                 </div>
             </div>
         </div>
+
         <div class="flex w-screen h-[33vw] justify-center items-center mt-[9vw] ">
             <div class="w-fit flex font-nunito">
                 <div class="flex flex-col items-center justify-between w-[25.5vw] h-[33vw] mr-[6vw]">
@@ -55,7 +57,7 @@
                         </div>
                         {{-- Nama Eskul dari database --}}
                         <div class="flex justify-start w-[23vw] bg-[#395474] border-b-[0.1vw] mb-[1vw] w-[23vw] text-white text-[1.5vw]">
-                            Masukin nama xtra disini
+                            {{$member->xtras?->name}}
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col text-[1.5vw]">
@@ -64,7 +66,7 @@
                         </div>
                         {{-- Nama Leader eskul --}}
                         <div class="flex justify-start w-[23vw] bg-[#395474] border-b-[0.1vw] mb-[1vw] w-[23vw] text-white">
-                            Jevent Natthannael
+                            {{$member->userXmas?->name}}
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
@@ -82,7 +84,7 @@
                             <div class="">Reports's Title</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
-                            <input type="text" name="reporttitle" id="reporttitle" placeholder="Report's Title..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] w-[23vw] mb-[1vw]">
+                            <input type="text" name="title" id="reporttitle" placeholder="Report's Title..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] w-[23vw] mb-[1vw]">
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[17.5vw] bg-[#395474] rounded-[1vw] mt-[3vw] flex justify-between items-center flex-col">
@@ -90,7 +92,7 @@
                             <div class="">Reports's Description</div>
                         </div>
                         <div class=" w-[23vw] h-[13vw] mb-[1vw]">
-                            <textarea name="reportdesc" id="reportdesc" style="resize:none;" placeholder="Report's Description...                         _                                                             _                                                             _                                                           _                                                            " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-all underline scrollbar-hide"></textarea>
+                            <textarea name="explanation" id="reportdesc" style="resize:none;" placeholder="Report's Description...                         _                                                             _                                                             _                                                           _                                                            " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-all underline scrollbar-hide"></textarea>
                         </div>
                     </div>
                 </div>
@@ -109,7 +111,7 @@
                 Submit
             </div>
         </div>
-        <script src="{{asset('js/Ketua/reportform.js')}}"></script>
     </form>
+    <script src="{{asset('js/Ketua/reportform.js')}}"></script>
 </body>
 </html>
