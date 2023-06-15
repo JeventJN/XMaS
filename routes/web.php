@@ -8,6 +8,7 @@ use App\Http\Controllers\xtraController;
 use App\Http\Controllers\cameraController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\profileController;
+use App\Http\Controllers\reportController;
 use App\Http\Controllers\xtraregController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,9 +58,7 @@ Route::get(('/search'), [xtraController::class, 'searchLive']);
 Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtraController::class, 'show']);
 
 
-Route::get('/reportform', function () {
-    return view('Ketua/reportform');
-});
+Route::post('/reportform', [reportController::class, 'reportKetua']);
 
 Route::get('/reportformA', function () {
     return view('Admin/reportformA');

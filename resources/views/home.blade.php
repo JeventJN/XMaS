@@ -310,7 +310,7 @@
                     <div class="carousel flex h-fit">
                         <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
                             <div class="group flex h-[25vw] items-center">
-                                @if ($reports->count)
+                                @if ($reports->count())
                                     @foreach ($reports as $index => $report)
                                         <div class="report w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
                                             <div class="">
