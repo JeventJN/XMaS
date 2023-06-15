@@ -61,6 +61,15 @@ class profileController extends Controller
 
     function requestLead(Request $request){
         $members = extracurricular::find($request->xtrachs)->members;
+        $anggota = member::all();
+
+        foreach($anggota as $member){
+            if($member->kdState == 2){
+                if($member->NIP == $request->NIP){
+                    return redirect('profile')->with('alrLeader', 'Gaboleh lagi');
+                }
+            }
+        }
 
         foreach ($members as $member) {
             if ($member->NIP == $request->NIP) {

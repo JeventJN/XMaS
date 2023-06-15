@@ -118,7 +118,6 @@
             {{-- @can('admin')
             @endcan --}}
         @endif
-            {{-- welkam, {{auth()->user()->name}} --}}
             {{-- Ini pop-up kalau log-in berhasil {href=login} (Ini saya hidden dulu, bukan saya comment ya) --}}
                 @if (session()->has('loginSuccess'))
                     <div id="modalpopupLI" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
@@ -146,35 +145,6 @@
                     </script>
                 @endif
         @endauth
-    {{-- @else --}}
-
-    {{-- @endif --}}
-
-
-    {{-- ini script js, nanti kalau udah bisa delete account, tinggal ambil aja codingan dibawah ini --}}
-
-    {{-- Ini pop-up kalau Delete Account {href=profile} (Ini saya hidden dulu, bukan saya comment ya) --}}
-    {{-- <div id="modalpopupDEL" class="hidden fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-        <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-            <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw] flex">
-                Your account is successfully deleted
-                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalDEL" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
-            </div>
-        </div>
-    </div> --}}
-
-    {{-- <script src="{{asset('js/home3.js')}}">
-        var modal3 = document.getElementById('modalpopupDEL');
-        var hidemodal3 = document.getElementById('hidemodalDEL');
-
-        hidemodal3.addEventListener('click', closePopup3);
-
-        function closePopup3(){
-            modal3.style.display="none";
-        }
-        </script> --}}
-
-    {{-- BATAS BAWAH SCRIPTT --}}
 
 
     {{-- Header --}}
@@ -243,6 +213,7 @@
                                         @endif
                                     @endforeach
                                 @else
+                                    {{-- Ga ada xtra, yang bawah boleh dihapus ya peng --}}
                                     <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                                 @endif
                             </div>
@@ -315,6 +286,7 @@
                                             @endif
                                         @endforeach
                                     @else
+                                        {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 246 --}}
                                         <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                                     @endif
                                 </div>
@@ -338,30 +310,35 @@
                     <div class="carousel flex h-fit">
                         <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
                             <div class="group flex h-[25vw] items-center">
-                                @foreach ($reports as $index => $report)
-                                    <div class="report w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
-                                        <div class="">
-                                            <div class="relative">
-                                            <img class="absolute rounded-[50%] min-w-[6vw] min-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
+                                @if ($reports->count())
+                                    @foreach ($reports as $index => $report)
+                                        <div class="report w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
+                                            <div class="">
+                                                <div class="relative">
+                                                <img class="absolute rounded-[50%] min-w-[6vw] min-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="mail1 min-w-[18vw] z-40">
+                                                <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
                                             </div>
                                         </div>
-                                        <div class="mail1 min-w-[18vw] z-40">
-                                            <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
-                                        </div>
-                                    </div>
-                                    <a class="relative report1 flex items-center z-50 hidden mt-[-5vw]" href="reportlist">
-                                        <button class="absolute mail2 w-[18vw] z-40">
-                                            <img class="w-[18vw]" src="{{asset('Assets/report2.png')}}" alt="">
-                                        </button>
-                                        <button class="titleMail w-[18vw] text-[1vw] z-50">
-                                            <p>{{ Str::limit($report->title, 12, '...') }}</p>
-                                        </button>
-                                        <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] mt-[-2vw] ml-[-3vw] z-50">
-                                            <img class="w-[18vw] rounded-[50%]" class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
-                                        </button>
-                                        </a>
-                                    <div class="w-[5vw]"></div>
-                                @endforeach
+                                        <a class="relative report1 flex items-center z-50 hidden mt-[-5vw]" href="reportlist">
+                                            <button class="absolute mail2 w-[18vw] z-40">
+                                                <img class="w-[18vw]" src="{{asset('Assets/report2.png')}}" alt="">
+                                            </button>
+                                            <button class="titleMail w-[18vw] text-[1vw] z-50">
+                                                <p>{{ Str::limit($report->title, 12, '...') }}</p>
+                                            </button>
+                                            <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] mt-[-2vw] ml-[-3vw] z-50">
+                                                <img class="w-[18vw] rounded-[50%]" class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
+                                            </button>
+                                            </a>
+                                        <div class="w-[5vw]"></div>
+                                    @endforeach
+                                @else
+                                    {{-- No report, buat dsni ya peng --}}
+                                @endif
+
                             </div>
                             <script>
                                     const reports = document.querySelectorAll('.report');
@@ -417,8 +394,7 @@
         @else
             {{-- Banner Admin --}}
             <div class="h-fit w-screen">
-                {{-- TEMBAK KE Report List (HAPUS KOMEN INI KALAU UDAH) --}}
-                <a href="/">
+                <a href="/reportlist">
                     <div class="registernow absolute ml-[10.8vw] h-[5.4vw] mt-[7.3vw] w-[18.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 opacity-0 rounded-[1vw]" onmouseover="report.src='{{asset('Assets/CheckReportHover.png')}}'" onmouseout="report.src='{{asset('Assets/CheckReport.png')}}'">
                         DUMMY!!!
                     </div>
@@ -442,11 +418,6 @@
                 view all
             </a>
         </h1>
-        {{-- <h1 class="text-[#56B8E6] viewall font-nunito">
-            <a href="/xtralistA">
-                view all
-            </a>
-        </h1> --}}
         <div class="h-[30vw] w-[100%] flex items-center overflow-scroll scrollbar-hide ml-[1.8vw]" id="carousel1">
             <div class="flex h-fit">
                 <div class="h-[30vw] w-[100%] flex items-center mr-[2vw]">
@@ -486,6 +457,7 @@
                                     <div class="w-[5vw]"></div>
                                 @endforeach
                             @else
+                                {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 246 --}}
                                 <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                             @endif
                         </div>

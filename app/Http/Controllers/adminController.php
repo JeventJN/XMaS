@@ -24,7 +24,7 @@ class adminController extends Controller
         return view('Admin.approval', compact('members'));
     }
 
-    function accReq(Request $request){
+    public function accReq(Request $request){
         $members = extracurricular::find($request->xtra)->members;
 
         // hapus yang lama
@@ -49,7 +49,7 @@ class adminController extends Controller
         return redirect()->route('approval')->with('appAcc', 'we');
     }
 
-    function denyReq(Request $request){
+    public function denyReq(Request $request){
         $members = extracurricular::find($request->xtra)->members;
 
         foreach ($members as $member) {
