@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\userXmas;
+use App\Models\extracurricular;
+use App\Models\member;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //
     // public function index()
     // {
     //     //
@@ -21,69 +18,51 @@ class adminController extends Controller
     //     return view('home')->with('flag', $flag);
     // }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function approval(){
+        $members = member::where('kdState', '=', '3')->get();
+
+        return view('Admin.approval', compact('members'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    function accReq(Request $request){
+        $members = extracurricular::find($request->xtra)->members;
+
+        // hapus yang lama
+        foreach ($members as $member) {
+            if($member->kdState == 2){
+                $member->kdState = 1;
+
+                $member->save();
+            }
+        }
+
+        foreach ($members as $member) {
+            if ($member->NIP == $request->NIP) {
+                if ($member->kdState == 3) {
+                    $member->kdState = 2;
+
+                    $member->save();
+                }
+            }
+        }
+
+        return redirect()->route('approval')->with('appAcc', 'we');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\userXmas  $userXmas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(userXmas $userXmas)
-    {
-        //
-    }
+    function denyReq(Request $request){
+        $members = extracurricular::find($request->xtra)->members;
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\userXmas  $userXmas
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(userXmas $userXmas)
-    {
-        //
-    }
+        foreach ($members as $member) {
+            if ($member->NIP == $request->NIP) {
+                if ($member->kdState == 3) {
+                    $member->kdState = 1;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\userXmas  $userXmas
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, userXmas $userXmas)
-    {
-        //
-    }
+                    $member->save();
+                }
+            }
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\userXmas  $userXmas
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(userXmas $userXmas)
-    {
-        //
+
+        return redirect()->route('approval')->with('denyAcc', 'we');
     }
 }

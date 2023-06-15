@@ -194,21 +194,6 @@
     /* border: yellow solid; */
 }
 
-.btnyesmodal{
-    font-size: 1.2vw;
-    height: 2.4vw;
-    width: 11vw;
-    border-radius: 0.2vw;
-    color: white;
-    border: none;
-    background-color: #398E20;
-}
-
-.btnyesmodal:hover{
-    font-weight: 700;
-    color: white;
-    background-color: #155003;
-}
 
 .btncancelmodal1, .btncancelmodal3{
     font-size: 1.2vw;
