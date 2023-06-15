@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\logInController;
 use App\Http\Controllers\signUpController;
@@ -94,9 +95,9 @@ Route::post('/changePhone', [profileController::class, 'updatePhone']);
 Route::post('/showXtratoLead', [profileController::class, 'xtras']);
 Route::post('/reqLead', [profileController::class, 'requestLead']);
 
-Route::get('approval', function (){
-    return view('Admin.approval');
-});
+Route::get('/approval', [adminController::class, 'approval'])->name('approval');
+Route::post('/acceptReq', [adminController::class, 'accReq']);
+Route::post('/denyReq', [adminController::class, 'denyReq']);
 
 Route::get('xtralistA', function (){
     return view('Admin.xtralistA');

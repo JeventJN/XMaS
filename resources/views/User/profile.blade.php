@@ -212,8 +212,7 @@
                                                         <option selected="false" disabled class="hidden" value="">Choose one of your Xtra</option>
                                                         <div class=" max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw]">
                                                             @php
-                                                                App\Models\userXmas;
-                                                                $anggota = userXmas::find(Auth::User()->NIP)->members;
+                                                                $anggota = App\Models\userXmas::find(Auth::User()->NIP)->members;
                                                             @endphp
 
                                                             @foreach ($anggota as $member)

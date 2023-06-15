@@ -60,10 +60,7 @@ class profileController extends Controller
     }
 
     function requestLead(Request $request){
-        // bawa flag
-        // dd($request);
         $members = extracurricular::find($request->xtrachs)->members;
-        // dd($members);
 
         foreach ($members as $member) {
             if ($member->NIP == $request->NIP) {
