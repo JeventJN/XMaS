@@ -59,6 +59,7 @@ Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtraController::class, 'show
 
 
 Route::post('/reportform', [reportController::class, 'reportKetua']);
+Route::post('/addReport', [reportController::class, 'new']);
 
 Route::get('/reportformA', function () {
     return view('Admin/reportformA');
