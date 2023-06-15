@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\extracurricular;
+use App\Models\presence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -76,12 +77,38 @@ class xtraController extends Controller
         return $output;
     }
 
+    public function presenceChange(Request $request){
+        // ddd(request(['date', 'kd']));
+        if($request->ajax()){
+            $output="";
+            $data = presence::where('kdSchedule', fn($query) =>
+                $query->select('kdSchedule')
+                      ->from('schedules')
+                      ->where('kdExtracurricular', $request->kd)
+                      ->where('date', $request->date)
+            )->get();
+            // ddd($data);
+            if(count($data) > 0){
+                foreach ($data as $presence){
+                    $output .= '<span class="badge">'. $presence->members->userXmas->name . '</span>';
+                }
+            } else{
+                return response()->json([
+                    'empty' => true
+                ]);
+
+            }
+        }
+        return $output;
+    }
+
     public function show(Extracurricular $xtra){
         return view('/Ketua/Xtrapageketua', ['xtra' => $xtra]);
     }
 
     public function myclub(){
         $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
+        dd(Auth::user()->NIP);
         // dd(extracurricular::latest()->userclub()->get());
         return view('User.myclub', ['xtras' => extracurricular::latest()->userclub($NIP)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get(), 'nip' => $NIP]);
     }

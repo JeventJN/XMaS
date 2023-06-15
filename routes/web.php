@@ -52,6 +52,7 @@ Route::post(('/xtrareg'), [xtraregController::class, 'newMember'])->middleware('
 
 Route::get(('/xtralistNU'), [xtraController::class, 'index']);
 Route::get(('/search'), [xtraController::class, 'searchLive']);
+Route::get(('/presence'), [xtraController::class, 'presenceChange']);
 
 
 // halaman xtra satuan

@@ -37,6 +37,18 @@
 </head>
 
 <body class="scrollbar-hide">
+    {{-- @if ($user->kdState == 2)
+        @php
+            // ketua
+            $flag = 1;
+        @endphp
+        @break
+    @else
+        @php
+            // member
+            $flag = 0;
+        @endphp
+    @endif --}}
 
     <!-- navbar -->
     @include('Non-User.navbarNU')
@@ -424,7 +436,7 @@
         <div class="presence" style="margin-top: 3vw;">
             {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
             <div class="containerbawah">
-                <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence">{{ $xtra->latest_schedule?->presences->count() }}</span> </div>
+                <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence" id="presenceCountNumber">{{ $xtra->latest_schedule?->presences->count() }}</span> </div>
                 <div class="dropdown">
                     <button onclick="myFunction()" class="dropbtn">Choose date <img class="gambarPanah"
                             src="{{ asset('Assets/Xtrapageassets/chevrondown.png') }}" alt=""
@@ -432,7 +444,7 @@
                     {{-- <button onclick="myFunction()" class="dropbtn" id="panahdate2">Choose date </button> --}}
                     <div id="myDropdown" class="dropdown-content">
                         @foreach ($xtra->schedules as $schedule)
-                            <a href="#">{{ date('M d, Y', strtotime($schedule->date)) }}</a>
+                            <a>{{ date('M d, Y', strtotime($schedule->date)) }}</a>
                         @endforeach
                         {{-- <a href="#">March 12, 2023</a>
                         <a href="#">March 12, 2023</a>
@@ -444,7 +456,47 @@
                         <a href="#">March 12, 2023</a> --}}
                     </div>
                 </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+                <script>
+                    $(document).ready(function(){
+                        $("#presenceChosen").hide();
 
+                        $("#myDropdown a").click(function(){
+                            // var selectedDate = $(this).text();
+                            var selectedDate = moment($(this).text(), "MMM DD, YYYY").format("YYYY-MM-DD");
+                            var kd = "{{ $xtra->kdExtracurricular }}";
+
+                            if(selectedDate != ""){
+                                $('#presenceLatest').hide();
+                                $('#presenceChosen').show();
+                                $.ajax({
+                                    url: "{{ url('presence') }}",
+                                    type:"GET",
+                                    data: "date=" + selectedDate + "&kd=" + kd,
+                                    success: function(data){
+                                        console.log(data);
+                                        console.log(selectedDate);
+                                        if (data.empty) {
+                                            // $("#search_query").text(query);
+                                            // $("#empty_xtra").show();
+                                            $("#presenceChosen").html("");
+                                            $("#presenceCountNumber").html("0");
+                                        } else {
+                                            // $("#empty_xtra").hide();
+                                            $("#presenceChosen").html(data);
+                                            $("#presenceCountNumber").html(Object.keys(data).length);
+                                        }
+                                    }
+                                })
+                            }else{
+                                $('#presenceLatest').show();
+                                $('#presenceChosen').hide();
+                                // $("#empty_xtra").hide();
+                            }
+                        });
+                    });
+                </script>
                 <div class="luarPML">
                     <h4 class="text-center font-weight-bold"
                         style="color: white; font-size: 1.65vw; background-color: #1b2f45; margin-top: 1.8vw; margin-bottom: 0.6vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
@@ -452,7 +504,7 @@
                     </h4>
                     <div class="presence-list">
 
-                        <div class="kotakisiPME">
+                        <div class="kotakisiPME" id="presenceLatest">
                             {{-- @dd($xtra->latest_schedule?->presences) --}}
                             @foreach ($xtra->latest_schedule?->presences as $presence)
                                 <span class="badge">{{ $presence->members->userXmas->name }}</span>
@@ -469,7 +521,7 @@
                             <span class="badge">Michael Apen</span>
                             <span class="badge">Harris Wahyudi</span> --}}
                         </div>
-
+                        <div class="kotakisiPME" id="presenceChosen"></div>
                     </div>
                 </div>
                 {{-- Button save --}}
