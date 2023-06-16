@@ -73,4 +73,23 @@ class adminController extends Controller
 
         return view('Admin.reportformA', compact('report'));
     }
+
+    public function accDenyReport(Request $request){
+        $report = report::find($request->kdReport);
+
+        if ($request->report == 'Accept') {
+            $report->kdState = 4;
+
+            $report->save();
+
+            return redirect()->route('reportList')->with('reportAcc', 'we');
+        }
+        else if($request->report == 'Decline'){
+            $report->kdState = 5;
+
+            $report->save();
+
+            return redirect()->route('reportList')->with('reportDeny', 'we');
+        }
+    }
 }

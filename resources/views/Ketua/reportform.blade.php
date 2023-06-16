@@ -83,7 +83,7 @@
                 <div class="flex flex-col items-center w-[25.5vw] h-[33vw]">
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
                         <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] font-semibold">
-                            <div class="">Reports's Title</div>
+                            <div class="">Reportss's Title</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
                             <input type="text" name="title" id="reporttitle" placeholder="Report's Title..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] w-[23vw] mb-[1vw]" value="{{ old('title') }}">
@@ -93,7 +93,7 @@
                         <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] mt-[1vw] font-semibold">
                             <div class="">Reports's Description</div>
                         </div>
-                        <div class=" w-[23vw] h-[13vw] mb-[1vw]">
+                        <div class=" w-[23vw] h-[13.5vw] mb-[1vw]">
                             <textarea name="explanation" id="reportdesc" style="resize:none;" value="{{ old('reportdesc') }}" placeholder="Report's Description...                         _                                                             _                                                             _                                                           _                                                            " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-all underline scrollbar-hide"></textarea>
                         </div>
                     </div>
