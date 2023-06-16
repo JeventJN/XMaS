@@ -329,14 +329,17 @@ main .tab-content .tab-pane {
     /* border: yellow solid; */
 }
 
-main .form-group textarea,
-input {
+main .form-group textarea, input {
     background-color: #d9d9d9;
     border-radius: 1.04vw;
     padding: 2vw 2.25vw 2.25vw 2.25vw;
     /* height: 10vw; */
     /* width: 76.57vw; */
     /* border: red solid; */
+}
+
+main .form-group textarea::-webkit-scrollbar, input{
+    display: none;
 }
 
 main .card {
@@ -402,6 +405,29 @@ main #contact .card .badge {
     background-color: #395474;
     width: 31vw;
     /* border: red solid; */
+}
+
+.badgeMe{
+    margin-top: 0.52vw;
+    font-size: 1.5vw;
+    font-weight: 700;
+    text-align: left;
+    padding-left: 2.4vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+
+    border-radius: 1.5625vw;
+    /* background-color: #395474; */
+    background-color: #56B8E6;
+    width: 31vw;
+    /* border: orangered solid; */
+}
+
+.badgeNoMember{
+    font-size: 1.4vw;
+    font-weight: 600;
+    margin-top: 9vw;
+    color: #000;
 }
 
 main #contact .card .badge ::-webkit-scrollbar {
@@ -575,6 +601,27 @@ main .presence .badge {
     background-color: #e5e5e5;
     width: 36vw;
     /* border: red solid; */
+}
+
+.badgeMePML{
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    font-size: 1.5vw;
+    font-weight: 700;
+    border-radius: 1.4vw;
+    padding: 0.5vw;
+    padding-left: 3vw;
+    color: white;
+    background-color: #56B8E6;
+    width: 36vw;
+    /* border: red solid; */
+}
+
+.NoPresence{
+    font-size: 1.8vw;
+    font-weight: 600;
+    margin-top: 8vw;
 }
 
 main .presence-list {
