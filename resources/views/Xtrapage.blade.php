@@ -66,74 +66,79 @@
             @endif
         @endif
     @endauth
+    {{-- @dd($userMember) --}}
     <!-- navbar -->
 
     {{-- popup --}}
     {{-- left --}}
-    <div id="modalpopupLEFT" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-        <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-            <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
-                Successfully left the Xtra
-                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLEFT" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" /></svg>
+    @if (session()->has('notif'))
+        <div id="modalpopupLEFT" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+            <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                    {{ session('notif') }}
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalLEFT" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" /></svg>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        var modal2 = document.getElementById('modalpopupLEFT');
-        var hidemodal2 = document.getElementById('hidemodalLEFT');
+        <script>
+            var modal2 = document.getElementById('modalpopupLEFT');
+            var hidemodal2 = document.getElementById('hidemodalLEFT');
 
-        hidemodal2.addEventListener('click', closePopup2);
+            hidemodal2.addEventListener('click', closePopup2);
 
-        function closePopup2() {
-            modal2.style.display = "none";
-        }
+            function closePopup2() {
+                modal2.style.display = "none";
+            }
 
-        setTimeout(() => {
-            const modal = document.getElementById("modalpopupLEFT");
-            modal.style.display = 'none';
-        }, 3000);
-    </script>
+            setTimeout(() => {
+                const modal = document.getElementById("modalpopupLEFT");
+                modal.style.display = 'none';
+            }, 3000);
+        </script>
+    @endif
 
     {{-- edit --}}
-    <div id="modalpopupEDIT" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-        <div
-            class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+    {{-- @if (session()->has('edited'))
+        <div id="modalpopupEDIT" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
             <div
-                class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
-                The Xtra is successfully edited
-                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalEDIT"
-                    class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
-                    <path fill="currentColor"
-                        d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
-                </svg>
+                class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                <div
+                    class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                    The Xtra is successfully edited
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalEDIT"
+                        class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
+                        <path fill="currentColor"
+                            d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
+                    </svg>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        var modal3 = document.getElementById('modalpopupEDIT');
-        var hidemodal3 = document.getElementById('hidemodalEDIT');
+        <script>
+            var modal3 = document.getElementById('modalpopupEDIT');
+            var hidemodal3 = document.getElementById('hidemodalEDIT');
 
-        hidemodal3.addEventListener('click', closePopup3);
+            hidemodal3.addEventListener('click', closePopup3);
 
-        function closePopup3() {
-            modal3.style.display = "none";
-        }
+            function closePopup3() {
+                modal3.style.display = "none";
+            }
 
-        setTimeout(() => {
-            const modal = document.getElementById("modalpopupEDIT");
-            modal.style.display = 'none';
-        }, 3000);
-    </script>
+            setTimeout(() => {
+                const modal = document.getElementById("modalpopupEDIT");
+                modal.style.display = 'none';
+            }, 3000);
+        </script>
+    @endif --}}
     {{-- popup --}}
 
     <!-- jumbotron (foto besar) -->
     <form method="GET" enctype="multipart/form-data">
 
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
-        <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/image_jumbo.png'); cursor: pointer;">
+            {{-- <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/image_jumbo.png'); cursor: pointer;"> --}}
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
 
-        {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/image_jumbo.png');"> --}}
+        <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');">
             <input type="file" name="fileupload" id="fileupload" style="display: none;" accept=".png, .jpg, .jpeg">
             <div class="box-jumbotron">
                 {{-- containerlogo itu container dari logo ekskul (Strava), hover (Xtra, Schedule, Leader), logo BCA --}}
@@ -313,8 +318,7 @@
                                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                             </div>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" disabled>
-                                {!! $xtra->description !!}
-                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                {{ $xtra->description }}
                             </textarea>
                         </div>
 
@@ -323,8 +327,7 @@
                                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
                             </div>
                             <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" disabled>
-                                {!! $xtra->latest_schedule?->activity !!}
-                                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                {{ $xtra->latest_schedule?->activity }}
                             </textarea>
                         </div>
                     </div>
@@ -394,23 +397,31 @@
                                     Member List
                                 </h4>
                                 <div class="card scrollbar-hide">
-                                    @if ($xtra->members->count())
+                                    @if ($xtra->members->count() > 0)
+                                        @if ($flag == 1 || $flag == 0)
+                                            <span class="badgeMe">{{ $userMember->userXmas?->name }}</span>
+                                        @endif
                                         @foreach ($xtra->members as $member)
-                                            <span class="badge">{{ $member->userXmas?->name }}</span>
-                                                <span class="badgeMe">Jordan Cornelius</span>
-                                                {{-- <span class="badge">Jevent Natthannael</span>
-                                                <span class="badge">Jevent Natthannael</span>
-                                                <span class="badge">Michael Apen</span>
-                                                <span class="badge">Harris Wahyudi</span>
-                                                <span class="badge">Jevent Natthannael</span>
-                                                <span class="badge">Michael Apen</span>
-                                                <span class="badge">Harris Wahyudi</span>
-                                                <span class="badge">Jevent Natthannael</span>
-                                                <span class="badge">Michael Apen</span>
-                                                <span class="badge">Harris Wahyudi</span> --}}
+                                            @if ($userMember != NULL)
+                                                @if ($userMember->kdMember != $member->kdMember)
+                                                    <span class="badge">{{ $member->userXmas?->name }}</span>
+                                                    @endif
+                                            @else
+                                                <span class="badge">{{ $member->userXmas?->name }}</span>
+                                            @endif
+                                            {{-- <span class="badge">Jevent Natthannael</span>
+                                            <span class="badge">Jevent Natthannael</span>
+                                            <span class="badge">Michael Apen</span>
+                                            <span class="badge">Harris Wahyudi</span>
+                                            <span class="badge">Jevent Natthannael</span>
+                                            <span class="badge">Michael Apen</span>
+                                            <span class="badge">Harris Wahyudi</span>
+                                            <span class="badge">Jevent Natthannael</span>
+                                            <span class="badge">Michael Apen</span>
+                                            <span class="badge">Harris Wahyudi</span> --}}
                                         @endforeach
                                     @else
-                                        <span class="badgeNoMember">No Member.</span>
+                                        <span class="badgeNoMember">No Member Yet.</span>
                                     @endif
                                 </div>
                             </div>
@@ -422,30 +433,28 @@
                                 <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
                                 <div class="btn-member">
                                     {{-- <button type="button" class="btn" id="leavebtn" data-toggle="modal" data-target="#staticBackdrop" style="border: none">Leave Xtra</button> --}}
-                                    <form action="xtra.leave" method="POST">
-                                        <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
-                                        <input type="hidden" name="kdMember" value="{{ $xtra->kdExtracurricular }}">
-                                        <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
-                                    </form>
+                                    <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
                                 </div>
                             </div>
                             {{-- Untuk Leave Xtra --}}
-                            @else
-                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                    <div class="gambarhover">
-                                        <a href="/signup">
-                                            <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
-                                                onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
-                                                onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
-                                                JOIN NOW!!!
-                                            </div>
-                                        </a>
-                                        <div class="flex">
-                                            <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                        @elseif($flag == -1)
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                <div class="gambarhover">
+                                    <a href="/xtrareg">
+                                        <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
+                                            onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
+                                            onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
+                                            JOIN NOW!!!
                                         </div>
+                                    </a>
+                                    <div class="flex">
+                                        <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
                                     </div>
                                 </div>
-                            @endif
+                            </div>
+                        @elseif ($flag == -2)
+                            {{-- register now harusnya, tp codingan front end mana g nemu --}}
+                        @endif
                     </div>
                 </div>
                 {{-- ===Segment Member=== --}}
@@ -476,6 +485,43 @@
                             <a href="#">March 12, 2023</a> --}}
                         </div>
                     </div>
+                    <div class="luarPML">
+                        <h4 class="text-center font-weight-bold" style="color: white; font-size: 1.65vw; background-color: #1b2f45; margin-top: 1.8vw; margin-bottom: 0.6vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
+                            Presence Member List
+                        </h4>
+                        <div class="presence-list">
+
+                            <div class="kotakisiPME" id="presenceLatest">
+                                @if($xtra->latest_schedule?->presences?->count() > 0)
+                                    @if ($xtra->latest_schedule?->presences->where('kdMember', '=', $userMember->kdMember)->first() != NULL)
+                                        <span class="badgeMePML">{{ $userMember->userXmas?->name }}</span>
+                                    @endif
+                                    @foreach ($xtra->latest_schedule?->presences as $presence)
+                                            @if ($userMember != NULL)
+                                                @if ($presence->kdMember != $userMember->kdMember)
+                                                    <span class="badge">{{ $presence->members?->userXmas?->name }}</span>
+                                                @endif
+                                            @else
+                                                <span class="badge">{{ $presence->members?->userXmas?->name }}</span>
+                                            @endif
+
+                                    @endforeach
+                                    {{-- <span class="badge">Jordan Cornelius</span>
+                                    <span class="badge">Nathaniel Calvin</span>
+                                    <span class="badge">Steven Felizion</span>
+                                    <span class="badge">Michael Apen</span>
+                                    <span class="badge">Harris Wahyudi</span>
+                                    <span class="badge">Nathaniel Calvin</span>
+                                    <span class="badge">Steven Felizion</span>
+                                    <span class="badge">Michael Apen</span>
+                                    <span class="badge">Harris Wahyudi</span> --}}
+                                @else
+                                    <span class="NoPresence">No presence yet.</span>
+                                @endif
+                            </div>
+                            <div class="kotakisiPME" id="presenceChosen"></div>
+                        </div>
+                    </div>
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
                     <script>
@@ -485,7 +531,6 @@
                             $("#myDropdown a").click(function(){
                                 // var selectedDate = $(this).text();
                                 var selectedDate = moment($(this).text(), "MMM DD, YYYY").format("YYYY-MM-DD");
-                                var kd = "{{ $xtra->kdExtracurricular }}";
 
                                 if(selectedDate != ""){
                                     $('#presenceLatest').hide();
@@ -493,7 +538,7 @@
                                     $.ajax({
                                         url: "{{ url('presence') }}",
                                         type:"GET",
-                                        data: "date=" + selectedDate + "&kd=" + kd,
+                                        data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }} + "&kdMember=" + {{ $userMember->kdMember }},
                                         success: function(data){
                                             console.log(data);
                                             console.log(selectedDate);
@@ -513,37 +558,6 @@
                             });
                         });
                     </script>
-                    <div class="luarPML">
-                        <h4 class="text-center font-weight-bold" style="color: white; font-size: 1.65vw; background-color: #1b2f45; margin-top: 1.8vw; margin-bottom: 0.6vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
-                            Presence Member List
-                        </h4>
-                        <div class="presence-list">
-
-                            <div class="kotakisiPME" id="presenceLatest">
-                                @if($xtra->latest_schedule?->presences->count() > 0)
-                                    {{-- @dd($xtra->latest_schedule?->presences) --}}
-                                    @foreach ($xtra->latest_schedule?->presences as $presence)
-                                        <span class="badge">{{ $presence->members?->userXmas?->name }}</span>
-
-                                    @endforeach
-                                    <span class="badgeMePML">Jevent Natthannael</span>
-                                    {{-- <span class="badge">Jordan Cornelius</span>
-                                    <span class="badge">Nathaniel Calvin</span>
-                                    <span class="badge">Steven Felizion</span>
-                                    <span class="badge">Michael Apen</span>
-                                    <span class="badge">Harris Wahyudi</span>
-                                    <span class="badge">Nathaniel Calvin</span>
-                                    <span class="badge">Steven Felizion</span>
-                                    <span class="badge">Michael Apen</span>
-                                    <span class="badge">Harris Wahyudi</span> --}}
-                                @else
-                                    <span class="NoPresence">No presence yet.</span>
-                                @endif
-
-                            </div>
-                            <div class="kotakisiPME" id="presenceChosen"></div>
-                        </div>
-                    </div>
                     {{-- Button save --}}
                     <div class="kotakbtnsave">
                         <a type="button" class="btnsave" id="savebtn">
@@ -581,25 +595,32 @@
     </main>
 
     {{-- Modal Leave --}}
-    <div id="modalleave" class="modalleave">
-        {{-- Modal Content --}}
-        <div class="modal-contentleave">
-            <div class="kotakisimodal">
-                <div class="boxjudulcloseleave">
-                    <span class="closeleave">&times;</span>
-                </div>
-                <div class="isileave">
-                    <div class="kalimatleave1">This action will <span style="color: red;">leave</span> from thix Xtra
+    @if ($userMember != NULL)
+        <div id="modalleave" class="modalleave">
+            {{-- Modal Content --}}
+            <div class="modal-contentleave">
+                <div class="kotakisimodal">
+                    <div class="boxjudulcloseleave">
+                        <span class="closeleave">&times;</span>
                     </div>
-                    <div class="kalimatleave2">Do you want to continue?</div>
-                </div>
-                <div class="boxsubmitleave">
-                    <a href=""><button class="btnyesmodal">Yes</button></a>
-                    <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
+                    <div class="isileave">
+                        <div class="kalimatleave1">This action will <span style="color: red;">leave</span> from this Xtra
+                        </div>
+                        <div class="kalimatleave2">Do you want to continue?</div>
+                    </div>
+                    <div class="boxsubmitleave">
+                        <form action="{{ route('xtra.leave') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="kdMember" value="{{ $userMember->kdMember }}">
+                            <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
+                            <button class="btnyesmodal">Yes</button>
+                        </form>
+                        <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
     {{-- Modal Leave --}}
 
     {{-- Modal Add Schedule --}}

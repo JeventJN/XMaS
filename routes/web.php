@@ -53,11 +53,12 @@ Route::post(('/xtrareg'), [xtraregController::class, 'newMember'])->middleware('
 Route::get(('/xtralist'), [xtraController::class, 'index']);
 Route::get(('/search'), [xtraController::class, 'searchLive']);
 Route::get(('/presence'), [xtraController::class, 'presenceChange']);
-Route::post(('/leavextra'), [xtraController::class, 'leaveXtra'])->name('xtra.leave');
+Route::post(('/leave'), [xtraController::class, 'leaveXtra'])->name('xtra.leave');
 
 
 // halaman xtra satuan
 Route::post(('/xtrapage'), [xtraController::class, 'show']);
+Route::get(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapage');
 
 
 Route::post('/reportform', [reportController::class, 'reportKetua']);

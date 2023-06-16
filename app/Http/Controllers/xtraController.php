@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\extracurricular;
+use App\Models\member;
 use App\Models\presence;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 
 class xtraController extends Controller
@@ -89,11 +92,21 @@ class xtraController extends Controller
             )->get();
             // ddd($data);
             if(count($data) > 0){
+                $me = $data->where('kdMember', '=', $request->kdMember)->first();
+                if ($me != NULL){
+                    $output .= '<span class="badgeMePML">' . $me->members?->userXmas?->name . '</span>';
+                }
                 foreach ($data as $presence){
-                    $output .= '<span class="badge">'. $presence->members->userXmas->name . '</span>';
+                    if($request->kdMember != NULL){
+                        if ($presence->kdMember != $request->kdMember){
+                            $output .= '<span class="badge">'. $presence->members->userXmas->name . '</span>';
+                        }
+                    }else{
+                        $output .= '<span class="badge">'. $presence->members->userXmas->name . '</span>';
+                    }
                 }
             } else{
-                $output .= '<span> No presence yet. </span>';
+                $output .= '<span class="NoPresence"> No presence yet. </span>';
                 return response()->json([
                     'empty' => true,
                     'output' => $output
@@ -106,36 +119,41 @@ class xtraController extends Controller
         ]);
     }
 
-    function leaveXtra(Request $request) {
-        // $member = member::find($request->NIP);
+    // function leaveXtra(Request $request) {
+    //     $member = member::where('kdMember', $request->kdMember);
 
+    //     // dd($request->kdMember, $request->kdXtra, $member);
+    //     // $member->delete();
 
-        // if (!Str::startsWith($request->phone, '62')) {
-        //     $user->phoneNumber = '62' . substr($request->phone, 1);
-        // }
-        // else {
-        //     $user->phoneNumber = $request->phone;
-        // }
+    //     return redirect()->route('xtrapage')
+    //     ->withInput(['kdXtra' => $request->kdXtra])
+    //     ->with('leaveXtra', 'Successfully left the Xtra');
+    // }
 
+    public function leaveXtra(Request $request): RedirectResponse {
+        $member = member::where('kdMember', $request->kdMember);
 
-        // $user->save();
-        // return redirect('/profile');
+        $member->delete();
+
+        return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra])
+            // ->withInput(['kdXtra' => $request->kdXtra])
+            ->with('notif', 'Successfully left the Xtra');
     }
 
     public function show(Request $request){
+        // ddd($request->kdXtra);
         $xtra = extracurricular::find($request->kdXtra);
-        // $members = extracurricular::find($request->kdXtra)->members;
         $userMember = NULL;
 
         // merupakan user
         if(Auth::user()){
             // join jadi member
-            $userMember = $xtra->members->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();
+            $userMember = $xtra?->members?->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();
         }elseif(Auth::user() && !$userMember){
             // non-member
             $userMember = -1;
         }
-        // dd($userMember);
+        session(['previousUrl' => $request->url()]);
         // ddd($userMember, $request->kdXtra);
         return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember]);
     }
