@@ -93,13 +93,35 @@ class xtraController extends Controller
                     $output .= '<span class="badge">'. $presence->members->userXmas->name . '</span>';
                 }
             } else{
+                $output .= '<span> No presence yet. </span>';
                 return response()->json([
-                    'empty' => true
+                    'empty' => true,
+                    'output' => $output
                 ]);
-
             }
         }
-        return $output;
+        return response()->json([
+            'totalPresence' => count($data),
+            'output' => $output
+        ]);
+    }
+
+    function leaveXtra(Request $request) {
+        $member = member::find($request->NIP);
+
+
+        if (!Str::startsWith($request->phone, '62')) {
+            $user->phoneNumber = '62' . substr($request->phone, 1);
+        }
+        else {
+            $user->phoneNumber = $request->phone;
+        }
+
+
+        $user->save();
+        return redirect('/profile');
+
+
     }
 
     public function show(Extracurricular $xtra){

@@ -407,14 +407,17 @@
                             <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
                             <div class="btn-member">
                                 {{-- <button type="button" class="btn" id="leavebtn" data-toggle="modal" data-target="#staticBackdrop" style="border: none">Leave Xtra</button> --}}
-                                <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
+                                <form action="/xtra.leave" method="POST">
+                                    <input type="hidden" value="{{ $xtra->kdExtracurricular }}">
+                                    <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
+                                </form>
                             </div>
                         </div>
                         {{-- Untuk Leave Xtra --}}
 
                         {{-- <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
                             <div class="gambarhover">
-                                <a href="/xtrareg">
+                                <a href="/signup">
                                     <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
                                         onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
                                         onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
@@ -478,21 +481,17 @@
                                         console.log(data);
                                         console.log(selectedDate);
                                         if (data.empty) {
-                                            // $("#search_query").text(query);
-                                            // $("#empty_xtra").show();
-                                            $("#presenceChosen").html("");
+                                            $("#presenceChosen").html(data.output);
                                             $("#presenceCountNumber").html("0");
                                         } else {
-                                            // $("#empty_xtra").hide();
-                                            $("#presenceChosen").html(data);
-                                            $("#presenceCountNumber").html(Object.keys(data).length);
+                                            $("#presenceChosen").html(data.output);
+                                            $("#presenceCountNumber").html(data.totalPresence);
                                         }
                                     }
                                 })
                             }else{
                                 $('#presenceLatest').show();
                                 $('#presenceChosen').hide();
-                                // $("#empty_xtra").hide();
                             }
                         });
                     });
@@ -505,21 +504,26 @@
                     <div class="presence-list">
 
                         <div class="kotakisiPME" id="presenceLatest">
-                            {{-- @dd($xtra->latest_schedule?->presences) --}}
-                            @foreach ($xtra->latest_schedule?->presences as $presence)
-                                <span class="badge">{{ $presence->members->userXmas->name }}</span>
+                            @if($xtra->latest_schedule?->presences->count() > 0)
+                                {{-- @dd($xtra->latest_schedule?->presences) --}}
+                                @foreach ($xtra->latest_schedule?->presences as $presence)
+                                    <span class="badge">{{ $presence->members->userXmas->name }}</span>
 
-                            @endforeach
-                            {{-- <span class="badge">Jevent Natthannael</span>
-                            <span class="badge">Jordan Cornelius</span>
-                            <span class="badge">Nathaniel Calvin</span>
-                            <span class="badge">Steven Felizion</span>
-                            <span class="badge">Michael Apen</span>
-                            <span class="badge">Harris Wahyudi</span>
-                            <span class="badge">Nathaniel Calvin</span>
-                            <span class="badge">Steven Felizion</span>
-                            <span class="badge">Michael Apen</span>
-                            <span class="badge">Harris Wahyudi</span> --}}
+                                @endforeach
+                                {{-- <span class="badge">Jevent Natthannael</span>
+                                <span class="badge">Jordan Cornelius</span>
+                                <span class="badge">Nathaniel Calvin</span>
+                                <span class="badge">Steven Felizion</span>
+                                <span class="badge">Michael Apen</span>
+                                <span class="badge">Harris Wahyudi</span>
+                                <span class="badge">Nathaniel Calvin</span>
+                                <span class="badge">Steven Felizion</span>
+                                <span class="badge">Michael Apen</span>
+                                <span class="badge">Harris Wahyudi</span> --}}
+                            @else
+                                <span>No presence yet.</span>
+                            @endif
+
                         </div>
                         <div class="kotakisiPME" id="presenceChosen"></div>
                     </div>
