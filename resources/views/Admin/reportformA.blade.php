@@ -92,12 +92,15 @@
                     </div>
                     <div class="w-[25.5vw] h-[17.5vw] bg-[#395474] rounded-[1vw] mt-[3vw] flex justify-between items-center flex-col">
                         <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] mt-[1vw] font-semibold">
-                            <div class="">Reports's Description</div>
+                            <div class="">Report's Description</div>
                         </div>
-                        <div class="flex justify-start w-[23vw]">
+                        <div class="flex justify-start w-[23vw] h-[13.5vw]">
                             <div class="min-w-[100%] text-[1.5vw] max-h-[11vw] mb-[2vw] text-white overflow-y-scroll scrollbar-hide underline">
                                 <p class="hypens-auto">
-                                    masukin nama xtra di sini masukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sini masukin nama xtra di sini
+                                    Written in these walls are the stories that I can't explain
+                                    I leave my heart open but it stays right here empty for days
+                                    She told me in the morning she don't feel the same about us in her bones
+                                    It seems to me that when I die, these words will be written on my stone
                                 </p>
                             </div>
                         </div>
