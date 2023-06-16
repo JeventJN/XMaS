@@ -10,6 +10,7 @@ class report extends Model
     use HasFactory;
 
     // protected $fillable = [''];
+    protected $primaryKey = 'kdReport';
     protected $guarded = ['kdReport'];
 
     public function state(){

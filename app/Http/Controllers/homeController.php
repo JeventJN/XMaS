@@ -26,10 +26,10 @@ class homeController extends Controller
         }
 
         if ($flag == 0) {
-            return view('home', ['xtras' => extracurricular::latest()->get(), 'reports' => $reports]);
+            return view('home', ['xtras' => extracurricular::latest()->get(), 'reports' => report::latest()->get()]);
         }
         else{
-            return view('home', ['xtras' => $xtras, 'reports' => $reports, 'kosong' => 'we']);
+            return view('home', ['xtras' => $xtras, 'reports' => report::latest()->get(), 'kosong' => 'we']);
         }
     }
 }
