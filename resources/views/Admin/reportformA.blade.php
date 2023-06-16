@@ -22,29 +22,6 @@
             Xtra Report Form
         </div>
     </div>
-        {{-- Modal Submit --}}
-        <div class="modal" id="modalpopup">
-            <div class=" flex justify-around items-center flex-col">
-                <div class="w-[36vw] flex justify-end">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodal" class="w-[2vw] h-[2vw] mt-[1vw] cursor-pointer" viewBox="0 0 256 256"><path fill="black" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
-                </div>
-                <div class="w-[36vw] font-semibold text-[1.5vw] mb-[2vw]">
-                    This action will <mark class="bg-white text-[#FF0000]">send</mark> the report.
-                    <br/>
-                    Do you want to continue?
-                </div>
-                <div class="w-[36vw] h-[2.5vw] flex justify-end text-[1.2vw] mb-[1vw]">
-                    <button type="submit">
-                        <div class="w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] flex justify-center items-center mr-[1vw] text-white hover:bg-[#145003] hover:cursor-pointer hover:font-bold">
-                        Yes
-                        </div>
-                    </button>
-                    <div id="hidemodalno" class="w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] flex justify-center items-center hover:bg-[#6D0000] hover:text-white hover:cursor-pointer hover:font-bold">
-                        Cancel
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="flex w-screen h-[33vw] justify-center items-center mt-[9vw] ">
             <div class="w-fit flex font-nunito">
                 <div class="flex flex-col items-center justify-between w-[25.5vw] h-[33vw] mr-[6vw]">
@@ -54,7 +31,7 @@
                         </div>
                         <div class="flex justify-start w-[23vw]">
                             <div class="min-w-[100%] text-[1.5vw] border-b-[0.1vw] mb-[1vw] text-white">
-                                masukin nama xtra di sini
+                                {{$report->schedules?->xtras?->name}}
                             </div>
                         </div>
                     </div>
@@ -64,7 +41,7 @@
                         </div>
                         <div class="flex justify-start w-[23vw]">
                             <div class="min-w-[100%] text-[1.5vw] border-b-[0.1vw] mb-[1vw] text-white">
-                                masukin nama leader di sini
+                                {{ $report->schedules?->xtras?->members?->firstWhere('kdState', 2)?->userXmas?->name }}
                             </div>
                         </div>
                     </div>
@@ -74,7 +51,7 @@
                         </div>
                         <div class="flex justify-start w-[23vw]">
                             <div class="min-w-[100%] text-[1.5vw] border-b-[0.1vw] mb-[1vw] text-white">
-                                masukin tanggal laporan di sini
+                                {{ date('D', strtotime($report->schedules?->date)) . ', ' . date('d', strtotime($report->schedules?->date)) . ' '  . date('M', strtotime($report->schedules?->date)) . ' ' . date('Y', strtotime($report->schedules?->date)) }}
                             </div>
                         </div>
                     </div>
@@ -86,7 +63,7 @@
                         </div>
                         <div class="flex justify-start w-[23vw]">
                             <div class="min-w-[100%] text-[1.5vw] border-b-[0.1vw] mb-[1vw] text-white">
-                                masukin judul report
+                                {{ Str::limit($report->title, 40, '...') }}
                             </div>
                         </div>
                     </div>
@@ -97,7 +74,7 @@
                         <div class="flex justify-start w-[23vw]">
                             <div class="min-w-[100%] text-[1.5vw] max-h-[11vw] mb-[2vw] text-white overflow-y-scroll scrollbar-hide underline">
                                 <p class="hypens-auto">
-                                    masukin nama xtra di sini masukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sinimasukin nama xtra di sini masukin nama xtra di sini
+                                    {{$report->explanation}}
                                 </p>
                             </div>
                         </div>
@@ -107,14 +84,22 @@
                     <div class="text-[1.8vw] font-semibold ">Documentation</div>
                     <div class="h-[31.2vw] w-[25.5vw] bg-[#1B2F45] outline outline-dotted outline-[0.2vw]  flex justify-center">
                         {{-- ganti gambar disini --}}
-                        <img class="h-[31.2vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto1.png')}}" alt="">
+                        @if (Illuminate\Support\Str::contains($report->photo, 'database-assets'))
+                            <img class="max-h-[32.1vw] min-h-[32.1vw] max-w-[25.5vw] min-w-[25.5vw]" src="{{ asset('storage/' . $report->photo) }}" alt="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" style="object-fit: cover; width: 24.7vw; height: 27.65vw; border-radius: 1.95vw;">
+                        @else
+                            <div class="bg-[#D9D9D9] h-[31.2vw] w-[25.5vw] flex">
+                                <p class="m-auto font-nunito font-semibold text-[1.5vw]">No Documentation</p>
+                            </div>
+                        @endif
+                        {{-- <img class="h-[31.2vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto1.png')}}" alt=""> --}}
                     </div>
                 </div>
             </div>
         </div>
 
         {{-- Ini untuk Admin (Acc/Dec) --}}
-        <form action="" method="post">
+        <form action="subReport" method="post">
+            @csrf
             <div class="flex justify-center w-screen h-fit font-nunito">
                 <button id="Accept">
                     <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
@@ -131,6 +116,7 @@
                 </button>
                 {{-- ini inputnya ya bos, saya masukin valuenya dari js --}}
                 <input type="radio" class="hidden" id="report" name="report">
+                <input type="hidden" name="kdReport" value="{{$report->kdReport}}">
             </div>
             <script>
                 var acc = document.getElementById('Accept');

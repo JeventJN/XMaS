@@ -25,54 +25,58 @@
 
     {{-- popup --}}
     {{-- accept --}}
-    <div id="modalpopupACC" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-        <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-            <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
-                Report is successfully accepted
-                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalACC" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+    @if (session()->has('reportAcc'))
+        <div id="modalpopupACC" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+            <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                    Report is successfully accepted
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalACC" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        var modal2 = document.getElementById('modalpopupACC');
-        var hidemodal2 = document.getElementById('hidemodalACC');
+        <script>
+            var modal2 = document.getElementById('modalpopupACC');
+            var hidemodal2 = document.getElementById('hidemodalACC');
 
-        hidemodal2.addEventListener('click', closePopup2);
+            hidemodal2.addEventListener('click', closePopup2);
 
-        function closePopup2(){
-            modal2.style.display="none";
-        }
+            function closePopup2(){
+                modal2.style.display="none";
+            }
 
-        setTimeout(() => {
-            const modal = document.getElementById("modalpopupACC");
-            modal.style.display = 'none';
-        }, 3000);
-    </script>
+            setTimeout(() => {
+                const modal = document.getElementById("modalpopupACC");
+                modal.style.display = 'none';
+            }, 3000);
+        </script>
+    @endif
 
     {{-- deny --}}
-    <div id="modalpopupDN" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-        <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-            <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
-                Report is successfully denied
-                <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalDN" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+    @if (session()->has('reportDeny'))
+        <div id="modalpopupDN" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+            <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                    Report is successfully denied
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalDN" class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        var modal3 = document.getElementById('modalpopupDN');
-        var hidemodal3 = document.getElementById('hidemodalDN');
+        <script>
+            var modal3 = document.getElementById('modalpopupDN');
+            var hidemodal3 = document.getElementById('hidemodalDN');
 
-        hidemodal3.addEventListener('click', closePopup3);
+            hidemodal3.addEventListener('click', closePopup3);
 
-        function closePopup3(){
-            modal3.style.display="none";
-        }
+            function closePopup3(){
+                modal3.style.display="none";
+            }
 
-        setTimeout(() => {
-            const modal = document.getElementById("modalpopupDN");
-            modal.style.display = 'none';
-        }, 3000);
-    </script>
+            setTimeout(() => {
+                const modal = document.getElementById("modalpopupDN");
+                modal.style.display = 'none';
+            }, 3000);
+        </script>
+    @endif
     {{-- popup --}}
 
     {{-- modal pop up xtralist user--}}
