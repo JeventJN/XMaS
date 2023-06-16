@@ -10,6 +10,7 @@ class schedule extends Model
     use HasFactory;
 
     // protected $fillable = [''];
+    protected $primaryKey = 'kdSchedule';
     protected $guarded = ['kdSchedule'];
 
     public function xtras(){
