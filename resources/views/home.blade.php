@@ -326,7 +326,9 @@
                                                 <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
                                             </div>
                                         </div>
-                                        <a class="relative report1 flex items-center z-50 hidden mt-[-5vw]" href="reportlist">
+
+                                        <form action="/reportformA" method="post" class="relative report1 flex items-center z-50 hidden mt-[-5vw]" href="reportlist">
+                                            @csrf
                                             <button class="absolute mail2 w-[18vw] z-40">
                                                 <img class="w-[18vw]" src="{{asset('Assets/report2.png')}}" alt="">
                                             </button>
@@ -336,11 +338,13 @@
                                             <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] mt-[-2vw] ml-[-3vw] z-50">
                                                 <img class="w-[18vw] rounded-[50%]" class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
                                             </button>
-                                            </a>
+
+                                            <input type="hidden" name="report" value="{{$report->kdReport}}">
+                                        </form>
                                         <div class="w-[5vw]"></div>
                                     @endforeach
                                 @else
-                                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No report.</p>
                                 @endif
 
                             </div>

@@ -74,7 +74,7 @@
                             <div class="">Report Date</div>
                         </div>
                         <div class="flex justify-start items-end w-[23vw]">
-                            <input type="date" name="reportdate" id="reportdate" class="text-[1.5vw] text-white focus:outline-none bg-[#395474] fill-white underline border-b-[0.1vw] w-[23vw] mb-[1vw] cursor-text fill-white">
+                            <input type="date" name="reportdate" id="reportdate" class="text-[1.5vw] text-white focus:outline-none bg-[#395474] fill-white underline border-b-[0.1vw] w-[23vw] mb-[1vw] cursor-text fill-white" value="{{ old('reportdate') }}">
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                             <div class="">Reports's Title</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
-                            <input type="text" name="title" id="reporttitle" placeholder="Report's Title..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] w-[23vw] mb-[1vw]">
+                            <input type="text" name="title" id="reporttitle" placeholder="Report's Title..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] w-[23vw] mb-[1vw]" value="{{ old('title') }}">
                         </div>
                     </div>
                     <div class="w-[25.5vw] h-[17.5vw] bg-[#395474] rounded-[1vw] mt-[3vw] flex justify-between items-center flex-col">
@@ -92,7 +92,7 @@
                             <div class="">Reports's Description</div>
                         </div>
                         <div class=" w-[23vw] h-[13vw] mb-[1vw]">
-                            <textarea name="explanation" id="reportdesc" style="resize:none;" placeholder="Report's Description...                         _                                                             _                                                             _                                                           _                                                            " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-all underline scrollbar-hide"></textarea>
+                            <textarea name="explanation" id="reportdesc" style="resize:none;" value="{{ old('reportdesc') }}" placeholder="Report's Description...                         _                                                             _                                                             _                                                           _                                                            " wrap="soft" col="10" class="w-[23vw] h-[13vw] bg-[#395474] text-[1.5vw] text-white focus:outline-none break-all underline scrollbar-hide"></textarea>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                     <div class="text-[1.8vw] font-semibold ">Documentation</div>
                     <div class="h-[31.2vw] w-[25.5vw] bg-[#1B2F45] outline outline-dotted outline-[0.2vw]  flex justify-center">
                         <img class="h-[31.2vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto1.png')}}" alt="">
-                        <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded1.png')}}'">
+                        <input type="file" class="hover:cursor-pointer absolute h-[31.2vw] w-[25.5vw] opacity-0" name="photo" id="photo" accept=".png, .jpg, .jpeg" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded1.png')}}'">
                     </div>
                 </div>
             </div>

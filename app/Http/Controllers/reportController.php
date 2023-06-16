@@ -33,6 +33,7 @@ class reportController extends Controller
         // ]);
 
         $data = [
+            // kdschedule di report controller ambil dari schedule yang terakhir dari ketua ekskulnya
             'kdSchedule' => '1',
             'kdState' => '3',
             'title' => $request->title,
