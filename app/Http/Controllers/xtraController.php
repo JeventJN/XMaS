@@ -122,8 +122,22 @@ class xtraController extends Controller
         // return redirect('/profile');
     }
 
-    public function show(Extracurricular $xtra){
-        return view('/Ketua/Xtrapageketua', ['xtra' => $xtra]);
+    public function show(Request $request){
+        $xtra = extracurricular::find($request->kdXtra);
+        // $members = extracurricular::find($request->kdXtra)->members;
+        $userMember = NULL;
+
+        // merupakan user
+        if(Auth::user()){
+            // join jadi member
+            $userMember = $xtra->members->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();
+        }elseif(Auth::user() && !$userMember){
+            // non-member
+            $userMember = -1;
+        }
+        // dd($userMember);
+        // ddd($userMember, $request->kdXtra);
+        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember]);
     }
 
     public function myclub(){
