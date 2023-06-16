@@ -157,14 +157,16 @@
             <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
                 Upcoming Extracurriculars
             </div>
+            @if(isset($kosong))
+            <div class="flex justify-center w-screen items-center h-[30vw]">
+                <p class="text-[1.7vw] font-semibold justify-center items-center flex">No Extracurricular's Schedule Yet.</p>
+            </div>
+            @elseif ($xtras->count())
             <div class="h-[30vw] w-[100%] flex items-center justify-center ml-[1.8vw]">
                 <div class="carousel flex h-fit">
                     <div class="h-[30vw] w-[100%] flex items-center justify-center mr-[2vw]">
                         <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
                             <div class="carousel-items select-none ml-[1vw]">
-                                @if(isset($kosong))
-                                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
-                                @elseif ($xtras->count())
                                     @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
                                         @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
                                             <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
@@ -214,12 +216,12 @@
                                             <div class="w-[5vw]"></div>
                                         @endif
                                     @endforeach
-                                @endif
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                @endif
         </div>
         @endguest
 
@@ -229,13 +231,16 @@
                 <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
                     Upcoming Extracurriculars
                 </div>
+                @if(isset($kosong))
+                <div class="flex justify-center w-screen items-center h-[30vw]">
+                    <p class="text-[1.7vw] font-semibold justify-center items-center flex">No Incoming Report Yet.</p>
+                </div>
                 <div class="h-[30vw] w-[100%] flex items-center justify-center ml-[1.8vw]">
                     <div class="carousel flex h-fit">
                         <div class="h-[30vw] w-[100%] flex items-center justify-center mr-[2vw]">
                             <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
                                 <div class="carousel-items select-none ml-[1vw]">
                                     {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 166 --}}
-                                    @if(isset($kosong))
                                         <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                                     @elseif ($xtras->count())
                                         @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
