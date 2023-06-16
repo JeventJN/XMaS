@@ -13,7 +13,9 @@ class homeController extends Controller
 {
     public function showXtraSchedule()
     {
-        $reports = report::all();
+        $reports = report::latest()->get()->filter(function ($report) {
+            return $report->kdState == 3;})->values();
+
         $xtras = extracurricular::all();
         $flag = 1;
 
@@ -26,10 +28,10 @@ class homeController extends Controller
         }
 
         if ($flag == 0) {
-            return view('home', ['xtras' => extracurricular::latest()->get(), 'reports' => report::latest()->get()]);
+            return view('home', ['xtras' => extracurricular::latest()->get(), 'reports' => $reports]);
         }
         else{
-            return view('home', ['xtras' => $xtras, 'reports' => report::latest()->get(), 'kosong' => 'we']);
+            return view('home', ['xtras' => $xtras, 'reports' => $reports, 'kosong' => 'we']);
         }
     }
 }

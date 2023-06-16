@@ -64,6 +64,7 @@ Route::post('/reportform', [reportController::class, 'reportKetua']);
 Route::post('/addReport', [reportController::class, 'new']);
 
 Route::post('/reportformA', [adminController::class, 'report']);
+Route::post('/subReport', [adminController::class, 'accDenyReport']);
 
 
 Route::get(('/absensiketua'), function (){
@@ -79,7 +80,7 @@ Route::get(('/myclub'), [xtraController::class, 'myclub']);
 
 Route::get(('/reportlist'), function (){
     return view(('/Admin.reportlist'));
-});
+})->name('reportList');
 
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
 
