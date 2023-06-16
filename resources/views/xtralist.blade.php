@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('css/Non-User/xtralistNU.css')}}">
+    <link rel="stylesheet" href="{{asset('css/Non-User/xtralist.css')}}">
     <title>Xtra List</title>
   @vite('resources/css/app.css')
 </head>
@@ -25,7 +25,7 @@
     {{-- modal pop up xtralist user--}}
     <div id="modalpopup" class="modal font-nunito">
 
-        <form action="/xtralistNU" id="modal" method="GET">
+        <form action="/xtralist" id="modal" method="GET">
             @if (request('search'))
                     <input type="hidden" name="search" value={{ request('search') }}>
             @endif
@@ -93,7 +93,7 @@
 
                 {{-- search --}}
 
-                <form action="/xtralistNU" method="GET">
+                <form action="/xtralist" method="GET">
                     @if (request('Physique'))
                             <input type="hidden" name="Physique" value={{ request('Physique') }}>
                     @endif
@@ -138,38 +138,48 @@
                 @if ($xtras->count())
                     @foreach ($xtras as $xtra)
                         {{-- @dd($xtra->latest_schedule) --}}
-                        <a href="/xtralist/{{ $xtra->kdExtracurricular }}">
-                            <div class="xtraboxcontainer flex justify-center items-center">
-                                <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                    {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                    <img src="{{ asset('/Assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}">
-                                </div>
-                                <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                    <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ Str::limit($xtra->name, 12, '...') }}</div>
-                                    <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) }}</div>
-                                        @if ($xtra->leader === NULL)
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
-                                        @endif
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd))  : ''}}</div>
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($xtra->latest_schedule?->location, 15, '...') }}</div>
-                                        @if ($xtra->latest_schedule === NULL)
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
-                                        @endif
+                        <form action="/xtrapage" method="POST" class="xtraboxform" onclick="submitForm()">
+                            {{-- <a href="/xtrapage"> --}}
+                                @csrf
+                                <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
+                                <div class="xtraboxcontainer flex justify-center items-center">
+                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                        {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
+                                        <img src="{{ asset('/Assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}">
                                     </div>
+                                    <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                        <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ Str::limit($xtra->name, 12, '...') }}</div>
+                                        <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) }}</div>
+                                            @if ($xtra->leader === NULL)
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
+                                            @endif
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd))  : ''}}</div>
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($xtra->latest_schedule?->location, 15, '...') }}</div>
+                                            @if ($xtra->latest_schedule === NULL)
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
+                                            @endif
+                                        </div>
 
-                                    {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
-                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->leader?->userXmas?->name }}</div>
-                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ',' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . '-' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
-                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ ($xtra->latest_schedule ? $xtra->latest_schedule->location : null) ?? 'No Schedule Yet' }}</div> --}}
+                                        {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
+                                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->leader?->userXmas?->name }}</div>
+                                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ',' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . '-' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
+                                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ ($xtra->latest_schedule ? $xtra->latest_schedule->location : null) ?? 'No Schedule Yet' }}</div> --}}
 
-                                    {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div> --}}
-                                    {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div> --}}
-                                    {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB</div> --}}
+                                        {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div> --}}
+                                        {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div> --}}
+                                        {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
+                                        <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB</div> --}}
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            {{-- </a> --}}
+                        </form>
+                        <script>
+                            function submitForm() {
+                                var form = document.querySelector('.xtraboxform');
+                                form.submit();
+                            }
+                        </script>
                     @endforeach
                 @else
                     <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
