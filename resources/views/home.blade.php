@@ -240,8 +240,6 @@
                         <div class="h-[30vw] w-[100%] flex items-center justify-center mr-[2vw]">
                             <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
                                 <div class="carousel-items select-none ml-[1vw]">
-                                    {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 166 --}}
-                                        <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
                                     @elseif ($xtras->count())
                                         @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
                                             @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
@@ -344,7 +342,9 @@
                                         <div class="w-[5vw]"></div>
                                     @endforeach
                                 @else
-                                    <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No report.</p>
+                                <div class="w-screen flex justify-center h-[20vw] items-center">
+                                    <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
+                                </div>
                                 @endif
 
                             </div>
