@@ -50,24 +50,20 @@ Route::get(('/xtrareg'), [xtraregController::class, 'xtra'])->middleware('auth')
 Route::post(('/xtrareg'), [xtraregController::class, 'newMember'])->middleware('auth');
 
 
-Route::get(('/xtralistNU'), [xtraController::class, 'index']);
+Route::get(('/xtralist'), [xtraController::class, 'index']);
 Route::get(('/search'), [xtraController::class, 'searchLive']);
 Route::get(('/presence'), [xtraController::class, 'presenceChange']);
-Route::post(('/xtrapage'), [xtraController::class, 'leaveXtra'])->name('xtra.leave');
+Route::post(('/leavextra'), [xtraController::class, 'leaveXtra'])->name('xtra.leave');
 
 
 // halaman xtra satuan
-Route::get(('/xtralist/{xtra:kdExtracurricular}'), [xtraController::class, 'show']);
+Route::post(('/xtrapage'), [xtraController::class, 'show']);
 
 
 Route::post('/reportform', [reportController::class, 'reportKetua']);
 Route::post('/addReport', [reportController::class, 'new']);
 
 Route::post('/reportformA', [adminController::class, 'report']);
-
-Route::get(('/xtrapageketua'), function (){
-    return view('Ketua/xtrapageketua');
-});
 
 
 Route::get(('/absensiketua'), function (){

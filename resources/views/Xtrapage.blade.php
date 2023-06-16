@@ -37,21 +37,35 @@
 </head>
 
 <body class="scrollbar-hide">
-    {{-- @if ($user->kdState == 2)
-        @php
-            // ketua
-            $flag = 1;
-        @endphp
-        @break
-    @else
-        @php
-            // member
-            $flag = 0;
-        @endphp
-    @endif --}}
-
     <!-- navbar -->
-    @include('Non-User.navbarNU')
+    @guest
+        @include('Non-User.navbarNU')
+        @php
+            $flag = -2;
+        @endphp
+    @endguest
+
+    @auth
+        @include('User.navbarUser')
+        @if(!$userMember)
+            @php
+                // non-member
+                $flag = -1;
+            @endphp
+        @else
+            @if ($userMember->kdState == 2)
+                @php
+                    // ketua
+                    $flag = 1;
+                @endphp
+            @else
+                @php
+                // member
+                $flag = 0;
+                @endphp
+            @endif
+        @endif
+    @endauth
     <!-- navbar -->
 
     {{-- popup --}}
@@ -170,7 +184,7 @@
                                             e.target.style.width = '35vw';
                                             e.target.style.marginTop = '-0.05vw';
                                             // e.target.style.marginBottom = '-0.3vw';
-                                        } else if (value == @json($xtra->leader?->userXmas->name)) {
+                                        } else if (value == @json($xtra->leader?->userXmas?->name)) {
                                             e.target.classList.add('LeaderXtra');
                                             e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
                                             // e.target.style.width = '40vw';
@@ -293,7 +307,7 @@
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
 
                     {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
-                    <div action="" class="KotakForm">
+                    <div class="KotakForm">
                         <div class="form-group" id="KotakDesc">
                             <div class="boxlabeledit">
                                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
@@ -382,7 +396,7 @@
                                 <div class="card scrollbar-hide">
                                     @if ($xtra->members->count())
                                         @foreach ($xtra->members as $member)
-                                            <span class="badge">{{ $member?->userXmas?->name }}</span>
+                                            <span class="badge">{{ $member->userXmas?->name }}</span>
                                                 <span class="badgeMe">Jordan Cornelius</span>
                                                 {{-- <span class="badge">Jevent Natthannael</span>
                                                 <span class="badge">Jevent Natthannael</span>
@@ -402,165 +416,168 @@
                             </div>
                         </div>
 
-                        {{-- Untuk Leave Xtra --}}
-                        <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                            <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
-                            <div class="btn-member">
-                                {{-- <button type="button" class="btn" id="leavebtn" data-toggle="modal" data-target="#staticBackdrop" style="border: none">Leave Xtra</button> --}}
-                                <form action="/xtra.leave" method="POST">
-                                    <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
-                                    <input type="hidden" name="kdMember" value="{{ $xtra->kdExtracurricular }}">
-                                    <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
-                                </form>
-                            </div>
-                        </div>
-                        {{-- Untuk Leave Xtra --}}
-
-                        {{-- <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                            <div class="gambarhover">
-                                <a href="/signup">
-                                    <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
-                                        onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
-                                        onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
-                                        JOIN NOW!!!
-                                    </div>
-                                </a>
-                                <div class="flex">
-                                    <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                        @if ($flag == 1 || $flag == 0)
+                            {{-- Untuk Leave Xtra --}}
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
+                                <div class="btn-member">
+                                    {{-- <button type="button" class="btn" id="leavebtn" data-toggle="modal" data-target="#staticBackdrop" style="border: none">Leave Xtra</button> --}}
+                                    <form action="xtra.leave" method="POST">
+                                        <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
+                                        <input type="hidden" name="kdMember" value="{{ $xtra->kdExtracurricular }}">
+                                        <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
+                                    </form>
                                 </div>
                             </div>
-                        </div> --}}
-
+                            {{-- Untuk Leave Xtra --}}
+                            @else
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                    <div class="gambarhover">
+                                        <a href="/signup">
+                                            <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
+                                                onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
+                                                onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
+                                                JOIN NOW!!!
+                                            </div>
+                                        </a>
+                                        <div class="flex">
+                                            <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                     </div>
                 </div>
                 {{-- ===Segment Member=== --}}
             </div>
         </div>
 
-        <div class="presence" style="margin-top: 3vw;">
-            {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
-            <div class="containerbawah">
-                <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence" id="presenceCountNumber">{{ $xtra->latest_schedule?->presences->count() }}</span> </div>
-                <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn">Choose date <img class="gambarPanah"
-                            src="{{ asset('Assets/Xtrapageassets/chevrondown.png') }}" alt=""
-                            style="margin-left: 1vw; width: 2vw" /></button>
-                    {{-- <button onclick="myFunction()" class="dropbtn" id="panahdate2">Choose date </button> --}}
-                    <div id="myDropdown" class="dropdown-content">
-                        @foreach ($xtra->schedules as $schedule)
-                            <a>{{ date('M d, Y', strtotime($schedule->date)) }}</a>
-                        @endforeach
-                        {{-- <a href="#">March 12, 2023</a>
-                        <a href="#">March 12, 2023</a>
-                        <a href="#">March 12, 2023</a>
-                        <a href="#">March 12, 2023</a>
-                        <a href="#">March 12, 2023</a>
-                        <a href="#">March 12, 2023</a>
-                        <a href="#">March 12, 2023</a>
-                        <a href="#">March 12, 2023</a> --}}
+        @if ($flag == 1 || $flag == 0)
+            <div class="presence" style="margin-top: 3vw;">
+                {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
+                <div class="containerbawah">
+                    <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence" id="presenceCountNumber">{{ $xtra->latest_schedule?->presences->count() }}</span> </div>
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Choose date <img class="gambarPanah"
+                                src="{{ asset('Assets/Xtrapageassets/chevrondown.png') }}" alt=""
+                                style="margin-left: 1vw; width: 2vw" /></button>
+                        {{-- <button onclick="myFunction()" class="dropbtn" id="panahdate2">Choose date </button> --}}
+                        <div id="myDropdown" class="dropdown-content">
+                            @foreach ($xtra->schedules as $schedule)
+                                <a>{{ date('M d, Y', strtotime($schedule->date)) }}</a>
+                            @endforeach
+                            {{-- <a href="#">March 12, 2023</a>
+                            <a href="#">March 12, 2023</a>
+                            <a href="#">March 12, 2023</a>
+                            <a href="#">March 12, 2023</a>
+                            <a href="#">March 12, 2023</a>
+                            <a href="#">March 12, 2023</a>
+                            <a href="#">March 12, 2023</a>
+                            <a href="#">March 12, 2023</a> --}}
+                        </div>
                     </div>
-                </div>
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-                <script>
-                    $(document).ready(function(){
-                        $("#presenceChosen").hide();
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+                    <script>
+                        $(document).ready(function(){
+                            $("#presenceChosen").hide();
 
-                        $("#myDropdown a").click(function(){
-                            // var selectedDate = $(this).text();
-                            var selectedDate = moment($(this).text(), "MMM DD, YYYY").format("YYYY-MM-DD");
-                            var kd = "{{ $xtra->kdExtracurricular }}";
+                            $("#myDropdown a").click(function(){
+                                // var selectedDate = $(this).text();
+                                var selectedDate = moment($(this).text(), "MMM DD, YYYY").format("YYYY-MM-DD");
+                                var kd = "{{ $xtra->kdExtracurricular }}";
 
-                            if(selectedDate != ""){
-                                $('#presenceLatest').hide();
-                                $('#presenceChosen').show();
-                                $.ajax({
-                                    url: "{{ url('presence') }}",
-                                    type:"GET",
-                                    data: "date=" + selectedDate + "&kd=" + kd,
-                                    success: function(data){
-                                        console.log(data);
-                                        console.log(selectedDate);
-                                        if (data.empty) {
-                                            $("#presenceChosen").html(data.output);
-                                            $("#presenceCountNumber").html("0");
-                                        } else {
-                                            $("#presenceChosen").html(data.output);
-                                            $("#presenceCountNumber").html(data.totalPresence);
+                                if(selectedDate != ""){
+                                    $('#presenceLatest').hide();
+                                    $('#presenceChosen').show();
+                                    $.ajax({
+                                        url: "{{ url('presence') }}",
+                                        type:"GET",
+                                        data: "date=" + selectedDate + "&kd=" + kd,
+                                        success: function(data){
+                                            console.log(data);
+                                            console.log(selectedDate);
+                                            if (data.empty) {
+                                                $("#presenceChosen").html(data.output);
+                                                $("#presenceCountNumber").html("0");
+                                            } else {
+                                                $("#presenceChosen").html(data.output);
+                                                $("#presenceCountNumber").html(data.totalPresence);
+                                            }
                                         }
-                                    }
-                                })
-                            }else{
-                                $('#presenceLatest').show();
-                                $('#presenceChosen').hide();
-                            }
+                                    })
+                                }else{
+                                    $('#presenceLatest').show();
+                                    $('#presenceChosen').hide();
+                                }
+                            });
                         });
-                    });
-                </script>
-                <div class="luarPML">
-                    <h4 class="text-center font-weight-bold" style="color: white; font-size: 1.65vw; background-color: #1b2f45; margin-top: 1.8vw; margin-bottom: 0.6vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
-                        Presence Member List
-                    </h4>
-                    <div class="presence-list">
+                    </script>
+                    <div class="luarPML">
+                        <h4 class="text-center font-weight-bold" style="color: white; font-size: 1.65vw; background-color: #1b2f45; margin-top: 1.8vw; margin-bottom: 0.6vw; padding-top:0.2vw; padding-bottom: 0.3vw;margin-right: 2vw; margin-left: 2vw;">
+                            Presence Member List
+                        </h4>
+                        <div class="presence-list">
 
-                        <div class="kotakisiPME" id="presenceLatest">
-                            @if($xtra->latest_schedule?->presences->count() > 0)
-                                {{-- @dd($xtra->latest_schedule?->presences) --}}
-                                @foreach ($xtra->latest_schedule?->presences as $presence)
-                                    <span class="badge">{{ $presence->members->userXmas->name }}</span>
+                            <div class="kotakisiPME" id="presenceLatest">
+                                @if($xtra->latest_schedule?->presences->count() > 0)
+                                    {{-- @dd($xtra->latest_schedule?->presences) --}}
+                                    @foreach ($xtra->latest_schedule?->presences as $presence)
+                                        <span class="badge">{{ $presence->members?->userXmas?->name }}</span>
 
-                                @endforeach
-                                <span class="badgeMePML">Jevent Natthannael</span>
-                                {{-- <span class="badge">Jordan Cornelius</span>
-                                <span class="badge">Nathaniel Calvin</span>
-                                <span class="badge">Steven Felizion</span>
-                                <span class="badge">Michael Apen</span>
-                                <span class="badge">Harris Wahyudi</span>
-                                <span class="badge">Nathaniel Calvin</span>
-                                <span class="badge">Steven Felizion</span>
-                                <span class="badge">Michael Apen</span>
-                                <span class="badge">Harris Wahyudi</span> --}}
-                            @else
-                                <span class="NoPresence">No presence yet.</span>
-                            @endif
+                                    @endforeach
+                                    <span class="badgeMePML">Jevent Natthannael</span>
+                                    {{-- <span class="badge">Jordan Cornelius</span>
+                                    <span class="badge">Nathaniel Calvin</span>
+                                    <span class="badge">Steven Felizion</span>
+                                    <span class="badge">Michael Apen</span>
+                                    <span class="badge">Harris Wahyudi</span>
+                                    <span class="badge">Nathaniel Calvin</span>
+                                    <span class="badge">Steven Felizion</span>
+                                    <span class="badge">Michael Apen</span>
+                                    <span class="badge">Harris Wahyudi</span> --}}
+                                @else
+                                    <span class="NoPresence">No presence yet.</span>
+                                @endif
 
-                        </div>
-                        <div class="kotakisiPME" id="presenceChosen"></div>
-                    </div>
-                </div>
-                {{-- Button save --}}
-                <div class="kotakbtnsave">
-                    <a type="button" class="btnsave" id="savebtn">
-                        Save
-                    </a>
-                </div>
-                {{-- Button save --}}
-
-                {{-- Modal button save --}}
-                <div id="modalsave" class="modalsave">
-                    {{-- Modal Content --}}
-                    <div class="modal-contentsave">
-                        <div class="kotakisimodal">
-                            <div class="boxjudulclosesave">
-                                <span class="closesave">&times;</span>
                             </div>
-                            <div class="isisave">
-                                <div class="kalimatsave1">You have <span style="color: red;">edited</span> this page.
+                            <div class="kotakisiPME" id="presenceChosen"></div>
+                        </div>
+                    </div>
+                    {{-- Button save --}}
+                    <div class="kotakbtnsave">
+                        <a type="button" class="btnsave" id="savebtn">
+                            Save
+                        </a>
+                    </div>
+                    {{-- Button save --}}
+
+                    {{-- Modal button save --}}
+                    <div id="modalsave" class="modalsave">
+                        {{-- Modal Content --}}
+                        <div class="modal-contentsave">
+                            <div class="kotakisimodal">
+                                <div class="boxjudulclosesave">
+                                    <span class="closesave">&times;</span>
                                 </div>
-                                <div class="kalimatsave2">Do you want to save?</div>
-                            </div>
-                            <div class="boxsubmitsave">
-                                <a href=""><button class="btnyesmodal">Yes</button></a>
-                                <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
+                                <div class="isisave">
+                                    <div class="kalimatsave1">You have <span style="color: red;">edited</span> this page.
+                                    </div>
+                                    <div class="kalimatsave2">Do you want to save?</div>
+                                </div>
+                                <div class="boxsubmitsave">
+                                    <a href=""><button class="btnyesmodal">Yes</button></a>
+                                    <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                {{-- Modal button save --}}
+                    {{-- Modal button save --}}
 
+                </div>
+                {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
             </div>
-            {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
-        </div>
+        @endif
     </main>
 
     {{-- Modal Leave --}}
