@@ -107,21 +107,19 @@ class xtraController extends Controller
     }
 
     function leaveXtra(Request $request) {
-        $member = member::find($request->NIP);
+        // $member = member::find($request->NIP);
 
 
-        if (!Str::startsWith($request->phone, '62')) {
-            $user->phoneNumber = '62' . substr($request->phone, 1);
-        }
-        else {
-            $user->phoneNumber = $request->phone;
-        }
+        // if (!Str::startsWith($request->phone, '62')) {
+        //     $user->phoneNumber = '62' . substr($request->phone, 1);
+        // }
+        // else {
+        //     $user->phoneNumber = $request->phone;
+        // }
 
 
-        $user->save();
-        return redirect('/profile');
-
-
+        // $user->save();
+        // return redirect('/profile');
     }
 
     public function show(Extracurricular $xtra){

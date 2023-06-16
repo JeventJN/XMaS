@@ -408,7 +408,8 @@
                             <div class="btn-member">
                                 {{-- <button type="button" class="btn" id="leavebtn" data-toggle="modal" data-target="#staticBackdrop" style="border: none">Leave Xtra</button> --}}
                                 <form action="/xtra.leave" method="POST">
-                                    <input type="hidden" value="{{ $xtra->kdExtracurricular }}">
+                                    <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
+                                    <input type="hidden" name="kdMember" value="{{ $xtra->kdExtracurricular }}">
                                     <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
                                 </form>
                             </div>
