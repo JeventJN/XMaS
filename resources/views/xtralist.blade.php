@@ -26,6 +26,7 @@
     <div id="modalpopup" class="modal font-nunito">
 
         <form action="/xtralist" id="modal" method="GET">
+            @csrf
             @if (request('search'))
                     <input type="hidden" name="search" value={{ request('search') }}>
             @endif
@@ -94,6 +95,7 @@
                 {{-- search --}}
 
                 <form action="/xtralist" method="GET">
+                    @csrf
                     @if (request('Physique'))
                             <input type="hidden" name="Physique" value={{ request('Physique') }}>
                     @endif
@@ -138,10 +140,10 @@
                 @if ($xtras->count())
                     @foreach ($xtras as $xtra)
                         {{-- @dd($xtra->latest_schedule) --}}
-                        <form action="/xtrapage" method="POST" class="xtraboxform" onclick="submitForm()">
+                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm('{{ $xtra->kdExtracurricular }}')">
                             {{-- <a href="/xtrapage"> --}}
                                 @csrf
-                                <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
+                                {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
                                 <div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
                                         {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
@@ -174,13 +176,20 @@
                                 </div>
                             {{-- </a> --}}
                         </form>
-                        <script>
-                            function submitForm() {
-                                var form = document.querySelector('.xtraboxform');
-                                form.submit();
-                            }
-                        </script>
                     @endforeach
+                    <script>
+                        function submitForm(kdExtracurricular) {
+                            var form = document.querySelector('.xtraForm');
+
+                            var input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = 'kdXtra';
+                            input.value = kdExtracurricular;
+
+                            form.appendChild(input);
+                            form.submit();
+                        }
+                    </script>
                 @else
                     <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
                 @endif
