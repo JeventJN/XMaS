@@ -93,7 +93,7 @@
                 <form id="imageForm" action="/changeImage" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="iconcamera" id="iconcamera">
-                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profile assets/Edit Photo.svg') }}" alt>
+                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" alt>
                         <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
                         <input type="hidden" name="NIP" value="{{ Auth::user()->NIP }}">
                     </div>
@@ -320,11 +320,16 @@
             <div class="boxstatus1">
                 @if ($flag == 1)
                     {{-- ini untuk leader --}}
-                    <div class="boxstatus2leader">
-                        <div class="boxstatus3leader">
-                            Leader
+                    <form action="/editXtra" method="POST">
+                        @csrf
+                        <div class="boxstatus2leader">
+                            <button class="boxstatus3leader">
+                                Leader
+                            </button>
                         </div>
-                    </div>
+                        <input type="hidden" name="NIP" value="{{Auth::User()->NIP}}">
+                        <input type="hidden" name="kdXtra" value="1">
+                    </form>
                 @elseif ($flag == 0 or $flag == 3)
                     {{-- ini untuk member --}}
                     <div class="boxstatus2member">

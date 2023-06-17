@@ -7,6 +7,7 @@ use App\Http\Controllers\signUpController;
 use App\Http\Controllers\xtraController;
 use App\Http\Controllers\cameraController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\editXtraController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\reportController;
 use App\Http\Controllers\xtraregController;
@@ -59,6 +60,8 @@ Route::post(('/leave'), [xtraController::class, 'leaveXtra'])->name('xtra.leave'
 // halaman xtra satuan
 Route::post(('/xtrapage'), [xtraController::class, 'show']);
 Route::get(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapage');
+Route::post('/editXtra', [editXtraController::class, 'route']);
+Route::post('/addPhoto', [editXtraController::class, 'photo']);
 
 
 Route::post('/reportform', [reportController::class, 'reportKetua']);
