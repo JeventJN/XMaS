@@ -14,30 +14,30 @@
             <img class="w-[10vw] h-[5vw] ml-[1vw]" src="Assets/LogoXMaS.png" alt="">
         </div>
         <div class="content w-[70%] font-nunito text-[1.5vw] text-white flex justify-center justify-between mr-[3vw]">
-            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/home')) ? 'active' : '' }}" href="/home">
+            <a class="home w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/home')) ? 'hidden' : '' }}" href="/home">
                 Home
             </a>
-            {{-- <div class="w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/home">
+            <div class="home-active w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/home')) ? '' : 'hidden' }}" href="/home">
                 Home
-            </div> --}}
-            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/xtralistA')) ? 'active' : '' }}" href="/xtralistA">
+            </div>
+            <a class="xtralist w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/xtralistA')) ? 'hidden' : '' }}" href="/xtralistA">
                 Xtra List
             </a>
-            {{-- <div class="w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/xtralistA">
+            <div class="xtralist-active w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/xtralistA')) ? '' : 'hidden' }}" href="/xtralistA">
                 Xtra List
-            </div> --}}
-            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/reportlist')) ? 'active' : '' }}" href="/reportlist">
+            </div>
+            <a class="reports w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/reportlist')) ? 'hidden' : '' }}" href="/reportlist">
                 Reports
             </a>
-            {{-- <div class="w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw]" href="/reportlist">
+            <div class="reports-active w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/reportlist')) ? '' : 'hidden' }}" href="/reportlist">
                 Reports
-            </div> --}}
-            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/approval')) ? 'active' : '' }}" href="/approval">
+            </div>
+            <a class="approval w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/approval')) ? 'hidden' : '' }}" href="/approval">
                 Approval
             </a>
-            {{-- <div class="w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/approval">
+            <div class="approval-active w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/approval')) ? '' : 'hidden' }}" href="/approval">
                 Approval
-            </div> --}}
+            </div>
             <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" id="logoutbtn">
                 Log Out
             </a>

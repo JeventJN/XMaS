@@ -15,38 +15,38 @@
             <img class="w-[10vw] h-[5vw] ml-[1vw]" src="{{ asset('Assets/LogoXMaS.png') }}" alt="">
         </div>
         <div class="content w-[70%] font-nunito text-[1.5vw] text-white flex justify-between items-center mr-[3vw]">
-            <a class="w-[8vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/home')) ? 'active' : '' }}"
+            <a class="home w-[8vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/home')) ? 'hidden' : '' }}"
                 href="/home">
                 Home
             </a>
-            {{-- <div class="w-[8vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]"
+            <div class="home-active w-[8vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/home')) ? '' : 'hidden' }}"
                 href="/home">
                 Home
-            </div> --}}
-            <a class="w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/xtralist')) ? 'active' : '' }}"
+            </div>
+            <a class="xtralist w-[10vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/xtralist')) ? 'hidden' : '' }}"
                 href="/xtralist">
                 Xtra List
             </a>
-            {{-- <div class="w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]"
+            <div class="xtralist-active w-[10vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/xtralist')) ? '' : 'hidden' }}"
                 href="/xtralist">
                 Xtra List
-            </div> --}}
-            <a class="w-[16vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/xtrareg')) ? 'active' : '' }}"
+            </div>
+            <a class="xtrareg w-[16vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/xtrareg')) ? 'hidden' : '' }}"
                 href="/xtrareg">
                 Xtra Registration
             </a>
-            {{-- <div class="w-[16vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw]"
+            <div class="xtrareg-active w-[16vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw]  {{ (url()->current() == url('/xtrareg')) ? '' : 'hidden' }}"
                 href="/xtrareg">
                 Xtra Registration
-            </div> --}}
-            <a class="w-[8.75vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] mr-[1vw] {{ (url()->current() == url('/myclub')) ? 'active' : '' }}"
+            </div>
+            <a class="myclub w-[8.75vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] mr-[1vw] {{ (url()->current() == url('/myclub')) ? 'hidden' : '' }}"
                 href="/myclub">
                 MyClub
             </a>
-            {{-- <div class="w-[8.75vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] mr-[1vw]"
+            <div class="myclub-active w-[8.75vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] mr-[1vw] {{ (url()->current() == url('/myclub')) ? '' : 'hidden' }}"
                 href="/myclub">
                 MyClub
-            </div> --}}
+            </div>
             <a class="w-[5vw] h-[5vw] flex items-center justify-center rounded-[50%] bg-red-500" href="/profile">
                 @if (Auth::check() && Auth::user()->photo)
                     @if (Illuminate\Support\Str::contains(Auth::user()->photo, 'database-assets'))
