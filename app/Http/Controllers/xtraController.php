@@ -44,7 +44,7 @@ class xtraController extends Controller
                 if(count($data) > 0){
                     foreach ($data as $xtra){
                         $output .= '
-                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm("' . $xtra->kdExtracurricular . '")">'
+                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm(\'' . $xtra->kdExtracurricular . '\')">'
                                 . csrf_field() .
                                 '<div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
@@ -84,7 +84,7 @@ class xtraController extends Controller
                 if(count($data) > 0){
                     foreach ($data as $xtra){
                         $output .= '
-                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm("' . $xtra->kdExtracurricular . '")">'
+                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm(\'' . $xtra->kdExtracurricular . '\')">'
                             . csrf_field();
                         if($xtra->leader?->NIP == $nip){
                             $output .= '
