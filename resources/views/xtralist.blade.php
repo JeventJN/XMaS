@@ -23,7 +23,7 @@
     @endauth
 
     {{-- modal pop up xtralist user--}}
-    <div id="modalpopup" class="modal font-nunito">
+    <div id="modalpopup" class="modal font-nunito z-50">
 
         <form action="/xtralist" id="modal" method="GET">
             @csrf
@@ -231,7 +231,7 @@
                     $.ajax({
                         url: "{{ url('search') }}",
                         type:"GET",
-                        data: "search=" + query +'&Physique=' + Physique + '&NonPhysique=' + NonPhysique +'&Mon=' + Mon +'&Tue=' + Tue +'&Wed=' + Wed +'&Thu=' + Thu +'&Fri=' + Fri + '&Sat=' + Sat + '&Sun=' + Sun,
+                        data: "search=" + query +'&Physique=' + Physique + '&NonPhysique=' + NonPhysique +'&Mon=' + Mon +'&Tue=' + Tue +'&Wed=' + Wed +'&Thu=' + Thu +'&Fri=' + Fri + '&Sat=' + Sat + '&Sun=' + Sun + '&page=xtralist',
                         success: function(data){
                             console.log(data);
                             console.log(Physique);
