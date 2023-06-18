@@ -131,6 +131,21 @@
     @endif --}}
     {{-- popup --}}
 
+    {{-- Editable --}}
+    @if (isset($edits))
+        @php
+            // bisa edit
+            $edit = 1
+        @endphp
+    @else
+        @php
+            // bisa edit
+            $edit = 0
+        @endphp
+    @endif
+
+
+
     <!-- jumbotron (foto besar) -->
     <form method="GET" enctype="multipart/form-data">
 
@@ -146,6 +161,11 @@
         {{--uncomment --}}
         {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');"> --}}
             <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+
+        {{-- Untuk yang bisa input gambar ke jumbotron --}}
+
+        {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');"> --}}
+            <input type="file" name="fileupload" id="fileupload" style="display: none;" accept=".png, .jpg, .jpeg">
             <div class="box-jumbotron">
                 {{-- containerlogo itu container dari logo ekskul (Strava), hover (Xtra, Schedule, Leader), logo BCA --}}
                 <div class="containerlogo">
@@ -269,15 +289,28 @@
     <main in style="height: auto;">
         {{-- buat container di bagian tengah (Make Attendance, Add Schedule, Kotak 3 segment) --}}
         <div class="containertengah">
-
             <div class="button-make-advance float-right">
                 {{-- Untuk Make Attendance dan Add Schedule --}}
+                @if ($edit == 0)
                 <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
                 <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">Add Schedule</a>
                 {{-- Untuk Make Attendance dan Add Schedule --}}
 
                 {{-- Add Photo only --}}
-                {{-- <a type="button" class="btn" id="" style="padding-left: 4vw; padding-right: 4vw;">Add Photo</a> --}}
+                @else
+                    <form action="/addPhoto" method="POST" enctype="multipart/form-data" id="imageForm">
+                        @csrf
+                        <a type="button" class="btn" id="addPhotoBut" style="padding-left: 4vw; padding-right: 4vw;">Add Photo</a>
+                        <input type="file" class="btn absolute opacity-0 ml-[-15.8vw] mt-[-2.6vw] w-[15.8vw] h-[5.4vw] rounded-[1.85vw]" id="aduh" name="photo" accept=".png, .jpg, .jpeg" style="padding-left: 4vw; padding-right: 4vw;" onmouseover="this.previousElementSibling.style.backgroundColor = '#1B2F45'" onmouseout="this.previousElementSibling.style.backgroundColor = ''"></input>
+                        <input type="hidden" name="xtra" value="{{$xtra->kdExtracurricular}}">
+                    </form>
+
+                    <script>
+                        document.getElementById("aduh").addEventListener("change", function() {
+                            document.getElementById("imageForm").submit();
+                        });
+                    </script>
+                @endif
                 {{-- Add Photo only --}}
             </div>
 
@@ -303,7 +336,7 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
-                    {{-- <form action="" class="KotakForm">
+                    <form action="" class="KotakForm">
                         <div class="form-group" id="KotakDesc">
                             <div class="boxlabeledit">
                                 <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
@@ -319,7 +352,7 @@
                             </div>
                             <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw;"></textarea>
                         </div>
-                    </form> --}}
+                    </form>
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
 
                     {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
@@ -353,45 +386,14 @@
                             @foreach ($xtra->documentations as $doc)
                                 <div class="swiper-slide">
                                     <div class="card" style="width: 19vw">
-                                        <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
+                                        @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
+                                            <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;">
+                                        @else
+                                            <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach
-                            {{-- <div class="swiper-slide">
-                                <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapageassets/foto/2.png') }}" class="card-img-top" alt="..." />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapageassets/foto/3.png') }}" class="card-img-top" alt="..." />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card" style="width: 19vw">
-                                    <img src="{{ asset('Assets/Xtrapageassets/foto/1.png') }}" class="card-img-top" alt="..." />
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>

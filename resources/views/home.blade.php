@@ -233,7 +233,7 @@
                 </div>
                 @if(isset($kosong))
                 <div class="flex justify-center w-screen items-center h-[30vw]">
-                    <p class="text-[1.7vw] font-semibold justify-center items-center flex">No Incoming Report Yet.</p>
+                    <p class="text-[1.7vw] font-semibold justify-center items-center flex">No Extracurricular's Schedule Yet.</p>
                 </div>
                 <div class="h-[30vw] w-[100%] flex items-center justify-center ml-[1.8vw]">
                     <div class="carousel flex h-fit">
@@ -466,7 +466,7 @@
                                 @endforeach
                             @else
                                 {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 166 --}}
-                                <p class="text-center text-[1.7vw] font-semibold mb-[3vw] h-[20vw] justify-center items-center flex">No Extracurricular.</p>
+                                <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
                             @endif
                         </div>
                     </div>
