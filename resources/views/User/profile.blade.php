@@ -93,7 +93,7 @@
                 <form id="imageForm" action="/changeImage" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="iconcamera" id="iconcamera">
-                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profile assets/Edit Photo.svg') }}" alt>
+                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" alt>
                         <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
                         <input type="hidden" name="NIP" value="{{ Auth::user()->NIP }}">
                     </div>
