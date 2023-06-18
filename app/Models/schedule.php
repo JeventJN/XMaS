@@ -12,6 +12,7 @@ class schedule extends Model
     // protected $fillable = [''];
     protected $primaryKey = 'kdSchedule';
     protected $guarded = ['kdSchedule'];
+    // protected $with = ['xtras'];
 
     public function xtras(){
         return $this->belongsTo(extracurricular::class, 'kdExtracurricular', 'kdExtracurricular');
