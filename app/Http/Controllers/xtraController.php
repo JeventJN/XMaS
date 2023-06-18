@@ -38,46 +38,140 @@ class xtraController extends Controller
         // ddd(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']));
         if($request->ajax()){
             $output="";
-            $data = extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
+            if($request->page == 'xtralist'){
+                $data = extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
 
-            if(count($data) > 0){
-                foreach ($data as $xtra){
-                    $output .= '
-                        <a href="/xtralist/' . $xtra->kdExtracurricular . ' ">
-                            <div class="xtraboxcontainer flex justify-center items-center">
-                                <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                    <img src="' .  asset('/Assets/' . $xtra->logo ) . '" alt="' . $xtra->name . '">
-                                </div>
-                                <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                    <div class="text-[1.9vw] font-bold underline mb-[1vw]">' . Str::limit($xtra->name, 12, '...') .'</div>
-                                    <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) . '</div>';
-                                        if ($xtra->leader === NULL){
-                                            $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>';
-                                        }
+                if(count($data) > 0){
+                    foreach ($data as $xtra){
+                        $output .= '
+                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm("' . $xtra->kdExtracurricular . '")">'
+                                . csrf_field() .
+                                '<div class="xtraboxcontainer flex justify-center items-center">
+                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                        <img src="' .  asset('/Assets/' . $xtra->logo ) . '" alt="' . $xtra->name . '">
+                                    </div>
+                                    <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                        <div class="text-[1.9vw] font-bold underline mb-[1vw]">' . Str::limit($xtra->name, 12, '...') .'</div>
+                                        <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) . '</div>';
+                                            if ($xtra->leader === NULL){
+                                                $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>';
+                                            }
 
-                    $output .= '
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . ($xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) : '') . '</div>
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->latest_schedule?->location, 15, '...') . '</div>';
-                                        if ($xtra->latest_schedule === NULL){
-                                            $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>';
-                                        }
+                        $output .= '
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . ($xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) : '') . '</div>
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->latest_schedule?->location, 15, '...') . '</div>';
+                                            if ($xtra->latest_schedule === NULL){
+                                                $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>';
+                                            }
 
-                    $output .= '
+                        $output .= '
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    ';
+                            </form>
+                        ';
+                    }
+                } else{
+                    return response()->json([
+                        'empty' => true
+                    ]);
                 }
-            } else{
-                return response()->json([
-                    'empty' => true
-                ]);
+            } elseif ($request->page == 'myclub') {
+                $nip = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
+                $data = extracurricular::latest()->userclub($nip)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
 
+                if(count($data) > 0){
+                    foreach ($data as $xtra){
+                        $output .= '
+                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm("' . $xtra->kdExtracurricular . '")">'
+                            . csrf_field();
+                        if($xtra->leader?->NIP == $nip){
+                            $output .= '
+                                <div class="">
+                                    <div class="flex flex-col">
+                                        <div class="xtraboxcontainer flex justify-center items-center">
+                                            <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                                <img src="' .  asset('/Assets/' . $xtra->logo ) . '" alt="' . $xtra->name . '">
+                                            </div>
+                                            <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                                <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">' . Str::limit($xtra->name, 12, '...') . '</div>
+                                                <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) . '</div>';
+                                                    if ($xtra->leader === NULL){
+                                                        $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>';
+                                                    }
+                            $output .= '
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . $xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) : '' . '</div>
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->latest_schedule?->location, 15, '...') . '</div>';
+                                                    if ($xtra->latest_schedule === NULL){
+                                                        $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>';
+                                                    }
+                            $output .= '
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="absolute w-fit h-fit flex justify-end mt-[-6vw] ml-[29vw]">
+                                        <div class="w-fit h-fit">
+                                            <a href="">
+                                                <img class="w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="' . asset('Assets/edit.png') . '" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="w-[2.5vw] h-[2.5vw]">
+                                            <a href="/chat">
+                                                <img class="ml-[1.5vw] w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="' . asset('Assets/chat.png') . '" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                        } else{
+                            $output .= '
+                                <div class="">
+                                    <div class="flex flex-col">
+                                        <div class="xtraboxcontainer flex justify-center items-center">
+                                            <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                                <img src="' . asset('Assets/' . $xtra->logo)  . '" alt="' .  $xtra->name  . '">
+                                            </div>
+                                            <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                                <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">' .  Str::limit($xtra->name, 12, '...')  . '</div>
+                                                <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' .  implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2))  . '</div>';
+                                                    if ($xtra->leader === NULL){
+                                                        $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>';
+                                                    }
+                            $output .= '
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' .  date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd))  . '</div>
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' .  Str::limit($xtra->latest_schedule?->location, 15, '...')  . '</div>';
+                                                    if ($xtra->latest_schedule === NULL){
+                                                        $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>';
+
+                                                    }
+                            $output .= '
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="absolute w-fit h-fit flex justify-end ml-[33vw] mt-[-6vw]">
+                                        <div class="w-[2.5vw] h-[2.5vw]">
+                                            <a href="/chat">
+                                                <img class=" w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="' . asset('Assets/chat.png') . '" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>';
+                        }
+                        $output .= '</form>';
+                    }
+                } else{
+                    return response()->json([
+                        'empty' => true
+                    ]);
+                }
             }
+            return $output;
         }
-        return $output;
     }
 
     public function presenceChange(Request $request){
@@ -160,7 +254,7 @@ class xtraController extends Controller
 
     public function myclub(){
         $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
-        dd(Auth::user()->NIP);
+        // dd(Auth::user()->NIP);
         // dd(extracurricular::latest()->userclub()->get());
         return view('User.myclub', ['xtras' => extracurricular::latest()->userclub($NIP)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get(), 'nip' => $NIP]);
     }
