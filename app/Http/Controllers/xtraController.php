@@ -44,7 +44,7 @@ class xtraController extends Controller
                 if(count($data) > 0){
                     foreach ($data as $xtra){
                         $output .= '
-                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm("' . $xtra->kdExtracurricular . '")">'
+                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm(\'' . $xtra->kdExtracurricular . '\')">'
                                 . csrf_field() .
                                 '<div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
@@ -84,7 +84,7 @@ class xtraController extends Controller
                 if(count($data) > 0){
                     foreach ($data as $xtra){
                         $output .= '
-                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm("' . $xtra->kdExtracurricular . '")">'
+                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm(\'' . $xtra->kdExtracurricular . '\')">'
                             . csrf_field();
                         if($xtra->leader?->NIP == $nip){
                             $output .= '
@@ -113,11 +113,14 @@ class xtraController extends Controller
                                         </div>
                                     </div>
                                     <div class="absolute w-fit h-fit flex justify-end mt-[-6vw] ml-[29vw]">
-                                        <div class="w-fit h-fit">
-                                            <a href="">
+                                        <form action="/editXtra" method="POST">'
+                                            . csrf_field() .
+                                            '<button>
                                                 <img class="w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="' . asset('Assets/edit.png') . '" alt="">
-                                            </a>
-                                        </div>
+                                            </button>
+                                            <input type="hidden" name="NIP" value="' . $nip . '">
+                                            <input type="hidden" name="kdXtra" value="' .  $xtra->kdXtracurricular  . '">
+                                        </form>
                                         <div class="w-[2.5vw] h-[2.5vw]">
                                             <a href="/chat">
                                                 <img class="ml-[1.5vw] w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="' . asset('Assets/chat.png') . '" alt="">
