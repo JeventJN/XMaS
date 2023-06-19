@@ -174,12 +174,12 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="flex: 1;">
                             <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
                                 <div class="button-elips" onmouseover="hover()" onmouseout="out()">
-                                    <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
+                                    <a class="buttons" data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
                                     @php
                                         $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . ' (' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')'
                                     @endphp
-                                    <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $schedule }}" data-text="Schedule">Schedule</a>
-                                    <a class="buttons" href="/xtralist/{{ $xtra->kdExtracurricular }}" data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
+                                    <a class="buttons" data-value="{{ $schedule }}" data-text="Schedule">Schedule</a>
+                                    <a class="buttons" data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
                                     {{-- <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
                                     <a class="buttons" href="" data-value="Wed(17.00 - 19.00)" data-text="Schedule">Schedule</a>
                                     <a class="buttons" href="" data-value="Jevent Natthannael" data-text="Leader">Leader</a> --}}
@@ -467,6 +467,20 @@
                             </div>
                         @elseif ($flag == -2)
                             {{-- register now harusnya, tp codingan front end mana g nemu --}}
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                <div class="gambarhover">
+                                    <a href="/xtrareg">
+                                        <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
+                                            onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarRegisterHover.png') }}'"
+                                            onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}'">
+                                            REGISTER NOW!!!
+                                        </div>
+                                    </a>
+                                    <div class="flex">
+                                        <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                                    </div>
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>
