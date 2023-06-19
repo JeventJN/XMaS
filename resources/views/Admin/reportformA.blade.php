@@ -85,7 +85,7 @@
                     <div class="h-[31.2vw] w-[25.5vw] bg-[#1B2F45] outline outline-dotted outline-[0.2vw]  flex justify-center">
                         {{-- ganti gambar disini --}}
                         @if (Illuminate\Support\Str::contains($report->photo, 'database-assets'))
-                            <img class="max-h-[32.1vw] min-h-[32.1vw] max-w-[25.5vw] min-w-[25.5vw]" src="{{ asset('storage/' . $report->photo) }}" alt="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" style="object-fit: cover; width: 24.7vw; height: 27.65vw; border-radius: 1.95vw;">
+                            <img class="max-h-[31.1vw] min-h-[31.1vw] max-w-[25.5vw] min-w-[25.5vw]" src="{{ asset('storage/' . $report->photo) }}" alt="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" style="object-fit: cover;">
                         @else
                             <div class="bg-[#D9D9D9] h-[31.2vw] w-[25.5vw] flex">
                                 <p class="m-auto font-nunito font-semibold text-[1.5vw]">No Documentation</p>

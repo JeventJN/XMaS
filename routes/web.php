@@ -59,9 +59,17 @@ Route::post(('/leave'), [xtraController::class, 'leaveXtra'])->name('xtra.leave'
 
 // halaman xtra satuan
 Route::post(('/xtrapage'), [xtraController::class, 'show']);
+// Route::post(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapagepost');
 Route::get(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapage');
-Route::post('/editXtra', [editXtraController::class, 'route']);
-Route::post('/addPhoto', [editXtraController::class, 'photo']);
+Route::post('/editXtra', [editXtraController::class, 'route'])->name('editXtra');
+// Route::match(['get', 'post'], '/editXtra', [editXtraController::class, 'route']);
+// Route::post('/addPhoto', [editXtraController::class, 'photo']);
+// Route::post('/editActivity', [editXtraController::class, 'activity']);
+
+// Route::match(['GET', 'POST'], '/editXtra', [editXtraController::class, 'route'])->name('editXtra');
+Route::post('/addPhoto', [editXtraController::class, 'photo'])->name('editXtra.photo');
+Route::post('/editActivity', [editXtraController::class, 'activity'])->name('editXtra.activity');
+
 
 
 Route::post('/reportform', [reportController::class, 'reportKetua']);

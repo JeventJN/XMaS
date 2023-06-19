@@ -57,7 +57,7 @@
                     <div class="kalimatlogout1">This action will <span style="color: red;">log</span> you <span style="color: red;">out</span></div>
                     <div class="kalimatlogout2">Do you want to continue?</div>
                 </div>
-                <div class="boxsubmitlogout">
+                <div class="boxsubmitlogout font-nunito">
                     <form action="/logout" method="POST">
                         @csrf
                         <button class="btnyesmodal">Yes</button>

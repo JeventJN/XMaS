@@ -247,9 +247,16 @@ class xtraController extends Controller
             // non-member
             $userMember = -1;
         }
+
+        if($request->flag == 'hai'){
+            $edits = 'yes';
+        }
+        else{
+            $edits = 'no';
+        }
         session(['previousUrl' => $request->url()]);
         // ddd($userMember, $request->kdXtra);
-        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember]);
+        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
     }
 
     public function myclub(){

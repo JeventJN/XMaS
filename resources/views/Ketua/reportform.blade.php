@@ -23,7 +23,7 @@
         </div>
     </div>
     {{-- Modal Submit --}}
-    <form class="absolute z-0" action="/addReport" id="reportform" method="POST" autocomplete="off">
+    <form class="absolute z-0" action="/addReport" id="reportform" method="POST" autocomplete="off" enctype="multipart/form-data">
         @csrf
         <div class="modal z-10" id="modalpopup">
             <div class=" flex justify-around items-center flex-col">
@@ -83,7 +83,7 @@
                 <div class="flex flex-col items-center w-[25.5vw] h-[33vw]">
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
                         <div class="w-[23vw] h-[3vw] text-white text-[1.6vw] font-semibold">
-                            <div class="">Reportss's Title</div>
+                            <div class="">Reports's Title</div>
                         </div>
                         <div class="flex justify-start w-[23vw]">
                             <input type="text" name="title" id="reporttitle" placeholder="Report's Title..." class="text-[1.5vw] text-white focus:outline-none bg-[#395474] border-b-[0.1vw] w-[23vw] mb-[1vw]" value="{{ old('title') }}">
