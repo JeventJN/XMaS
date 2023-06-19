@@ -90,9 +90,7 @@ Route::get(('/contoh'), function (){
 
 Route::get(('/myclub'), [xtraController::class, 'myclub']);
 
-Route::get(('/reportlist'), function (){
-    return view(('/Admin.reportlist'));
-})->name('reportList');
+Route::get(('/reportlist'), [reportController::class, 'index'])->name('reportList');
 
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
 

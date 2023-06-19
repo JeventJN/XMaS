@@ -12,6 +12,7 @@ class report extends Model
     // protected $fillable = [''];
     protected $primaryKey = 'kdReport';
     protected $guarded = ['kdReport'];
+    protected $with = ['schedules'];
 
     public function state(){
         return $this->belongsTo(state::class, 'kdState', 'kdState');

@@ -151,6 +151,17 @@
 
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
             <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/image_jumbo.png'); cursor: pointer;">
+                <div class="image-overlay">
+                    <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" style="margin-top: -10vw;">
+                </div>
+            </div>
+
+        {{-- Untuk yang bisa input gambar ke jumbotron --}}
+
+        {{--uncomment --}}
+        {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');"> --}}
+            <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
 
         {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');"> --}}
@@ -245,15 +256,19 @@
                             {{-- JS untuk hover Xtra Schedule Leader --}}
 
                             {{-- elips untuk batas luar dari gambar logo ekskul --}}
-                            <form method="GET" enctype="multipart/form-data">
+                            <form id="imageForm" action="/changeImage" method="POST" enctype="multipart/form-data">
 
                                 {{-- untuk leader yang bisa ganti logo xtra --}}
                                 <div id="elipsganti" class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white; cursor: pointer;">
                                 {{-- untuk leader yang bisa ganti logo xtra --}}
 
                                 {{-- <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;"> --}}
+                                    <div class="iconcamera" id="iconcamera">
+                                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" alt>
+                                        <input type="file" name="fileupload1" id="fileupload1" style="display: none" accept=".png, .jpg, .jpeg">
+                                    </div>
                                     <img src="{{ asset('/Assets/Xtrapageassets/' . $xtra->logo) }}" alt="{{ $xtra->name }}" class="elips" style="height: 20.8vw; width: 20.8vw;" />
-                                    <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+                                    {{-- <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg"> --}}
                                 </div>
                             </form>
                         </div>
@@ -265,7 +280,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        {{-- </div> --}}
+        {{--uncomment --}}
     </form>
     {{-- div untuk spasi aja --}}
     <div class="SpJumbotronMain" style="height: 5.5vw;"> </div>
@@ -945,12 +961,23 @@
         });
 
         document.getElementById('elipsganti').addEventListener('click', function() {
-            document.getElementById('fileupload').click();
+            document.getElementById('fileupload1').click();
         });
 
         document.getElementById('fileupload').addEventListener('change', function() {
             var files = this.files;
             console.log(files);
+        });
+
+        document.getElementById('fileupload1').addEventListener('change', function() {
+            var files = this.files;
+            console.log(files);
+        });
+    </script>
+
+    <script>
+        document.getElementById("fileupload").addEventListener("change", function() {
+            document.getElementById("imageForm").submit();
         });
     </script>
 

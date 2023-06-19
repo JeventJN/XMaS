@@ -12,7 +12,13 @@ use Illuminate\Http\Request;
 
 class reportController extends Controller
 {
-    //
+    public function index() {
+        $reports = report::all();
+        // $reports = report::all()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
+
+        return view('Admin.reportlist', ['reports' => $reports]);
+    }
+
     public function reportKetua(Request $request) {
         // ambil xtra yang dia jadi ketua
         $members = member::where('NIP', "=", $request->NIP)->get();

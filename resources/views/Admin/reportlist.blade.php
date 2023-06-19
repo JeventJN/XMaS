@@ -84,7 +84,8 @@
     <div id="modalpopup" class="modal">
     {{-- jangan dikomen --}}
 
-        <form action="/xtralistNU" id="modal" method="GET">
+        <form action="{{ route('reportList') }}" id="modal" method="GET">
+            @csrf
             @if (request('search'))
                     <input type="hidden" name="search" value={{ request('search') }}>
             @endif
@@ -155,7 +156,8 @@
 
                 {{-- search --}}
 
-                <form action="/xtralistNU" method="GET">
+                <form action="{{ route('reportList') }}" method="GET">
+                    @csrf
                     @if (request('Physique'))
                             <input type="hidden" name="Physique" value={{ request('Physique') }}>
                     @endif
@@ -196,47 +198,53 @@
                     </div>
                 </form>
             </div>
-            <div class="rowcontainer">
-                {{-- @if ($xtras->count())
-                    {{-- @foreach ($xtras as $xtra)
-                        <a href="/xtralist/{{ $xtra->kdExtracurricular }}">
-                            <div class="xtraboxcontainer flex justify-center items-center">
-                                <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                    <img src="{{ asset('/Assets/$xtra->logo') }}" alt="{{ $xtra->name }}">
+            <div class="rowcontainer" id="all_reports">
+                @if ($reports->count())
+                    @foreach ($reports as $report)
+                        <form action="/reportformA" method="POST" class="reportForm" onclick="submitForm('{{ $report->kdReport }}')">
+                            @csrf
+                            <div class="flex flex-col">
+                                <div class="xtraboxcontainer flex justify-center items-center">
+                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                        {{-- <img src="{{ $report->photo }}" alt="{{ $report->title }}"> --}}
+                                        <img src="{{ asset('/Assets/' . $report->photo) }}" alt="{{ $report->title }}">
+                                    </div>
+                                    <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                        <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->schedules?->xtras->name, 12, '...') }}</div>
+                                        <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', $report->schedules?->xtras?->leader?->userXmas?->name), 0, 2)) }}</div>
+                                            @if ($report->schedules?->xtras?->leader?->userXmas?->name === NULL)
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader</div>
+                                            @endif
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $report->schedules ? date('d M Y', strtotime($report->schedules?->date)) : ''}}</div>
+                                            @if ($report->schedules === NULL)
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule</div>
+                                            @endif
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->title, 15, '...') }}</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                    <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ $xtra->name }}</div>
-                                    <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) }}</div>
-                                        @if ($xtra->leader === NULL)
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
-                                        @endif
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule?->location }}</div>
-                                        @if ($xtra->latest_schedule === NULL)
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
-                                        @endif
-                                    </div> --}}
-
-                                    {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
-                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->leader?->userXmas?->name }}</div>
-                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ date('D', strtotime($xtra->latest_schedule?->date)) . ',' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . '-' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) }}</div>
-                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ ($xtra->latest_schedule ? $xtra->latest_schedule->location : null) ?? 'No Schedule Yet' }}</div> --}}
-
-                                    {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div> --}}
-                                    {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div> --}}
-                                    {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB</div> --}}
-                                {{-- </div>
                             </div>
-                        </a>
-                    @endforeach --}}
+                        </form>
+                    @endforeach
+                    <script>
+                        function submitForm(kdReport) {
+                            var form = document.querySelector('.reportForm');
 
-                    {{-- @else
-                    <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
-                    @endif --}}
+                            var input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = 'report';
+                            input.value = kdReport;
 
-                <div class="flex flex-col">
+                            form.appendChild(input);
+                            form.submit();
+                        }
+                    </script>
+                @else
+                    <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Report.</p>
+                @endif
+
+                {{-- <div class="flex flex-col">
                     <div class="xtraboxcontainer flex justify-center items-center">
                         <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
                             <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
@@ -280,22 +288,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-col">
-                    <div class="xtraboxcontainer flex justify-center items-center">
-                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                            <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
-                        </div>
-                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
-                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
