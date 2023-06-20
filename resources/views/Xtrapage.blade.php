@@ -219,7 +219,7 @@
                                             e.target.style.width = '35vw';
                                             e.target.style.marginTop = '-0.05vw';
                                             // e.target.style.marginBottom = '-0.3vw';
-                                        } else if (value == @json($xtra->leader->userXmas->name)) {
+                                        } else if (value == @json($xtra->leader?->userXmas?->name)) {
                                             e.target.classList.add('LeaderXtra');
                                             e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
                                             // e.target.style.width = '40vw';
@@ -709,7 +709,7 @@
     {{-- Modal Add Schedule --}}
     <div id="modaladdschedule" class="modaladdschedule">
         {{-- Modal Content --}}
-        <form class="modal-contentaddschedule" name="formAddSchedule" method="POST" onsubmit="return validasiAddSchedule()" autocomplete="off">
+        <form class="modal-contentaddschedule" action="/addSchedule" name="formAddSchedule" method="POST" onsubmit="return validasiAddSchedule()" autocomplete="off">
             <div class="kotakisimodal">
                 <div class="boxjudulcloseaddschedule">
                     <div class="bungkuscalendar">
@@ -718,7 +718,7 @@
                             <div class="datepicker-trigger">
                               <img src="{{ asset('Assets/Xtrapageassets/calendar-month.svg') }}" alt="" style="cursor: pointer;"/>
                             </div>
-                            <input type="text" placeholder="Choose a date" class="datepicker" autocomplete="off">
+                            <input type="text" name="date" placeholder="Choose a date" class="datepicker" autocomplete="off">
                           </div>
                         </div>
                     </div>
@@ -744,17 +744,17 @@
                         </div>
                         <div class="isiform">
                             <input disabled placeholder="Running" type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
-                            <input placeholder="Input here" name="activityAS" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+                            <input placeholder="Input here" name="activity" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
                             <div class="boxjamaddschedule">
-                                <input type="time" id="appt1" name="appt" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
+                                <input type="time" id="appt1" name="timeStart" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
                                 <div style="color: white; font-size: 3vw; margin-left: 0.5vw; margin-right: 0.5vw"> - </div>
-                                <input type="time" id="appt2" name="appt" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
+                                <input type="time" id="appt2" name="timeEnd" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
                             </div>
 
-                            <input placeholder="Input here" name="locationAS" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
-
-                            <a href=""><button type="submit" class="btnconfirmmodal" id="confirmbtn">Confirm</button></a>
+                            <input placeholder="Input here" name="location" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+                            <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
+                            <button type="submit" class="btnconfirmmodal" id="confirmbtn">Confirm</button>
                         </div>
                     </div>
                 </div>
