@@ -77,7 +77,7 @@
                         </div>
                         <div class="flex justify-start items-end w-[23vw]">
                             <div class="select" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
-                                <select id="reportdate" name="reportdate" class="input bg-gray-50 text-gray-900 text-sm block max-w-[23vw] min-w-[23vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] overflow-scroll">
+                                <select id="reportdate" name="reportdate" class="input bg-gray-50 text-gray-900 text-sm block max-w-[23vw] min-w-[23vw] max-h-[2.5vw] min-h-[2.5vw] mb-[1vw] text-[2vw] overflow-scroll">
                                     <div id="select-box" class="max-w-[2vw] min-w-[2vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
                                         <option selected="false" class="hidden" value="">
                                             Choose one of your Xtra
