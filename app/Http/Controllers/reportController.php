@@ -35,9 +35,10 @@ class reportController extends Controller
     public function new(Request $request){
         $member = member::find($request->kdMember);
 
-        $xtra = extracurricular::find($member->kdExtracurricular);
+        // $xtra = extracurricular::find($member->kdExtracurricular);
 
-        $schedule = Schedule::where('kdExtracurricular', '=', $xtra->kdExtracurricular)->latest('date')->first();
+        $schedule = Schedule::where('date', '=', $request->reportdate)->first();
+        // dd($schedule);
 
         $data = [
             // kdschedule di report controller ambil dari schedule yang terakhir dari ketua ekskulnya
@@ -46,7 +47,7 @@ class reportController extends Controller
             'title' => $request->title,
             'explanation' => $request->explanation,
         ];
-
+        // dd($schedule);
         if ($request->hasFile('photo')) {
             $data['photo'] = $request->file('photo')->store('database-assets');
         }

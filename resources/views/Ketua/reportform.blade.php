@@ -80,23 +80,13 @@
                                 <select id="reportdate" name="reportdate" class="input bg-gray-50 text-gray-900 text-sm block max-w-[23vw] min-w-[23vw] max-h-[2.5vw] min-h-[2.5vw] mb-[1vw] text-[2vw] overflow-scroll">
                                     <div id="select-box" class="max-w-[2vw] min-w-[2vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
                                         <option selected="false" class="hidden" value="">
-                                            Choose one of your Xtra
+                                            Choose a date
                                         </option>
-                                        <option value="choose">
-                                            Tanggal 1
-                                        </option>
-                                        <option value="choose">
-                                            Tanggal 1
-                                        </option>
-                                        <option value="choose">
-                                            Tanggal 1
-                                        </option>
-                                        <option value="choose">
-                                            Tanggal 1
-                                        </option>
-                                        <option value="choose">
-                                            Tanggal 1
-                                        </option>
+                                        @foreach ($member->xtras?->schedules as $schedule)
+                                            <option value="{{$schedule->date}}">
+                                                {{ date('D', strtotime($schedule->date)) . ', ' . date('d', strtotime($schedule->date)) . ' '  . date('M', strtotime($schedule->date)) . ' ' . date('Y', strtotime($schedule->date)) }}
+                                            </option>
+                                        @endforeach
                                     </div>
                                 </select>
                             </div>
