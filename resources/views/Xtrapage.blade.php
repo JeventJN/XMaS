@@ -682,18 +682,18 @@
     {{-- Modal Add Schedule --}}
     <div id="modaladdschedule" class="modaladdschedule">
         {{-- Modal Content --}}
-        <div class="modal-contentaddschedule">
+        <form class="modal-contentaddschedule" name="formAddSchedule" method="POST" onsubmit="return validasiAddSchedule()" autocomplete="off">
             <div class="kotakisimodal">
                 <div class="boxjudulcloseaddschedule">
                     <div class="bungkuscalendar">
-                        <form class="inline" method="POST">
+                        <div class="inline">
                           <div class="input-icons">
                             <div class="datepicker-trigger">
                               <img src="{{ asset('Assets/Xtrapageassets/calendar-month.svg') }}" alt="" style="cursor: pointer;"/>
                             </div>
                             <input type="text" placeholder="Choose a date" class="datepicker" autocomplete="off">
                           </div>
-                        </form>
+                        </div>
                     </div>
 
 
@@ -715,25 +715,24 @@
                             <div class="">:</div>
                             <div class="">:</div>
                         </div>
-                        <form name="formAddSchedule" action="/addSchedule" method="POST" class="isiform" onsubmit="return validasiAddSchedule()" autocomplete="off">
-                            @csrf
+                        <div class="isiform">
                             <input disabled type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
                             <input placeholder="Input here" name="activityAS" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
                             <div class="boxjamaddschedule">
-                                <input type="time" id="appt1" name="appt" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw;">
+                                <input type="time" id="appt1" name="appt" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
                                 <div style="color: white; font-size: 3vw; margin-left: 0.5vw; margin-right: 0.5vw"> - </div>
-                                <input type="time" id="appt2" name="appt" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw;">
+                                <input type="time" id="appt2" name="appt" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
                             </div>
 
                             <input placeholder="Input here" name="locationAS" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
                             <a href=""><button type="submit" class="btnconfirmmodal" id="confirmbtn">Confirm</button></a>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     {{-- Modal Add Schedule --}}
 
