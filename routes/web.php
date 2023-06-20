@@ -61,14 +61,18 @@ Route::post(('/leave'), [xtraController::class, 'leaveXtra'])->name('xtra.leave'
 Route::post(('/xtrapage'), [xtraController::class, 'show']);
 // Route::post(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapagepost');
 Route::get(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapage');
+
 Route::post('/editXtra', [editXtraController::class, 'route'])->name('editXtra');
+Route::post('/editHeader', [editXtraController::class, 'header']);
+Route::post('/addPhoto', [editXtraController::class, 'photo'])->name('editXtra.photo');
+Route::post('/editActivity', [editXtraController::class, 'activity'])->name('editXtra.activity');
+
+
 // Route::match(['get', 'post'], '/editXtra', [editXtraController::class, 'route']);
 // Route::post('/addPhoto', [editXtraController::class, 'photo']);
 // Route::post('/editActivity', [editXtraController::class, 'activity']);
 
 // Route::match(['GET', 'POST'], '/editXtra', [editXtraController::class, 'route'])->name('editXtra');
-Route::post('/addPhoto', [editXtraController::class, 'photo'])->name('editXtra.photo');
-Route::post('/editActivity', [editXtraController::class, 'activity'])->name('editXtra.activity');
 
 
 

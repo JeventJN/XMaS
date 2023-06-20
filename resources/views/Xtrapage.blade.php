@@ -147,20 +147,37 @@
 
 
     <!-- jumbotron (foto besar) -->
-    <form method="GET" enctype="multipart/form-data">
 
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
-            <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/image_jumbo.png'); cursor: pointer;">
-                <div class="image-overlay">
-                    <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" style="margin-top: -10vw;">
+        @if ($edit == 1)
+            <form action="/editHeader" method="POST" enctype="multipart/form-data" id="changeHeader">
+                @csrf
+                @if (Illuminate\Support\Str::contains($xtra->backgroundImage, 'database-assets'))
+                    <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('{{ asset('storage/' . $xtra->backgroundImage) }}'); cursor: pointer;">
+                @else
+                    <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('{{ asset('Assets/Xtrapageassets/' . $xtra->backgroundImage) }}'); cursor: pointer;">
+                @endif
+                    <div class="image-overlay">
+                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" style="margin-top: -10vw;">
+                        <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+                    </div>
                 </div>
-            </div>
+                <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
+            </form>
+        @else
+            @if (Illuminate\Support\Str::contains($xtra->backgroundImage, 'database-assets'))
+                <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('{{ asset('storage/' . $xtra->backgroundImage) }}');">
+            @else
+                <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');">
+            @endif
+                </div>
+        @endif
 
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
 
         {{--uncomment --}}
         {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');"> --}}
-            <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+            {{-- <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg"> --}}
 
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
 
@@ -256,7 +273,7 @@
                             {{-- JS untuk hover Xtra Schedule Leader --}}
 
                             {{-- elips untuk batas luar dari gambar logo ekskul --}}
-                            <form id="imageForm" action="/changeImage" method="POST" enctype="multipart/form-data">
+                            <form id="imageForm" action="/a" method="POST" enctype="multipart/form-data" class="bg-red-300">
 
                                 {{-- untuk leader yang bisa ganti logo xtra --}}
                                 <div id="elipsganti" class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white; cursor: pointer;">
@@ -282,7 +299,6 @@
             </div>
         {{-- </div> --}}
         {{--uncomment --}}
-    </form>
     {{-- div untuk spasi aja --}}
     <div class="SpJumbotronMain" style="height: 5.5vw;"> </div>
 
@@ -977,7 +993,7 @@
 
     <script>
         document.getElementById("fileupload").addEventListener("change", function() {
-            document.getElementById("imageForm").submit();
+            document.getElementById("changeHeader").submit();
         });
     </script>
 

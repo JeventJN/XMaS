@@ -8,6 +8,8 @@ use App\Models\schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class editXtraController extends Controller
@@ -41,6 +43,41 @@ class editXtraController extends Controller
 
     }
 
+    public function header(Request $request){
+        $xtra = extracurricular::find($request->kdXtra);
+
+        $data = $request -> validate([
+            'fileupload' => 'image'
+        ]);
+        // dd('masuk header 1');
+
+        if ($request->fileupload) {
+            $old = null;
+            if ($xtra->backgroundImage) {
+                $old = $xtra->backgroundImage;
+                // dd('masuk headerHapus');
+            }
+
+            // dd('masuk header 2');
+            $data['fileupload'] = $request->file('fileupload')->store('database-assets');
+            $xtra->backgroundImage = $data['fileupload'];
+            $xtra->save();
+            Storage::delete($old);
+        }
+
+        $userMember = NULL;
+        $xtra = extracurricular::find(1);
+        if(Auth::user()){
+            // join jadi member
+            $userMember = $xtra?->members?->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();
+        }elseif(Auth::user() && !$userMember){
+            // non-member
+            $userMember = -1;
+        }
+
+        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => 'yes']);
+    }
+
     public function photo(Request $request){
         // dd('masuk photo');
         $data = [
@@ -54,8 +91,10 @@ class editXtraController extends Controller
         documentation::create($data);
 
         $xtra = extracurricular::find($request->xtra);
+        $xtra->load('documentations');
+
         $userMember = NULL;
-        $edits = null;
+        $edits = 'yes';
 
         if(Auth::user()){
             // join jadi member

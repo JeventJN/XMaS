@@ -335,7 +335,7 @@
                             </button>
                         </div>
                         <input type="hidden" name="NIP" value="{{Auth::User()->NIP}}">
-                        <input type="hidden" name="kdXtra" value="1">
+                        <input type="hidden" name="kdXtra" value="3">
                         <input type="hidden" name="flag" value="hai">
                     </form>
                 @elseif ($flag == 0 or $flag == 3)
