@@ -76,7 +76,30 @@
                             <div class="">Report Date</div>
                         </div>
                         <div class="flex justify-start items-end w-[23vw]">
-                            <input type="date" name="reportdate" id="reportdate" class="text-[1.5vw] text-white focus:outline-none bg-[#395474] fill-white underline border-b-[0.1vw] w-[23vw] mb-[1vw] cursor-text fill-white" value="{{ old('reportdate') }}">
+                            <div class="select" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
+                                <select id="reportdate" name="reportdate" class="input bg-gray-50 text-gray-900 text-sm block max-w-[23vw] min-w-[23vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] overflow-scroll">
+                                    <div id="select-box" class="max-w-[2vw] min-w-[2vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
+                                        <option selected="false" class="hidden" value="">
+                                            Choose one of your Xtra
+                                        </option>
+                                        <option value="choose">
+                                            Tanggal 1
+                                        </option>
+                                        <option value="choose">
+                                            Tanggal 1
+                                        </option>
+                                        <option value="choose">
+                                            Tanggal 1
+                                        </option>
+                                        <option value="choose">
+                                            Tanggal 1
+                                        </option>
+                                        <option value="choose">
+                                            Tanggal 1
+                                        </option>
+                                    </div>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
