@@ -62,7 +62,7 @@ Route::post(('/xtrapage'), [xtraController::class, 'show']);
 // Route::post(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapagepost');
 Route::get(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapage');
 
-Route::post('/addSchedule', [editXtraController::class, 'schedule'])->name('editXtra');
+Route::post('/addSchedule', [editXtraController::class, 'schedule']);
 
 Route::post('/editXtra', [editXtraController::class, 'route'])->name('editXtra');
 Route::post('/editHeader', [editXtraController::class, 'header']);
