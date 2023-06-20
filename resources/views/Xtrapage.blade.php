@@ -172,16 +172,6 @@
             @endif
                 </div>
         @endif
-
-        {{-- Untuk yang bisa input gambar ke jumbotron --}}
-
-        {{--uncomment --}}
-        {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');"> --}}
-            {{-- <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg"> --}}
-
-        {{-- Untuk yang bisa input gambar ke jumbotron --}}
-
-        {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');"> --}}
             <input type="file" name="fileupload" id="fileupload" style="display: none;" accept=".png, .jpg, .jpeg">
             <div class="box-jumbotron">
                 {{-- containerlogo itu container dari logo ekskul (Strava), hover (Xtra, Schedule, Leader), logo BCA --}}
@@ -197,9 +187,6 @@
                                     @endphp
                                     <a class="buttons" data-value="{{ $schedule }}" data-text="Schedule">Schedule</a>
                                     <a class="buttons" data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
-                                    {{-- <a class="buttons" href="#" data-value="Running" data-text="Xtra">Xtra</a>
-                                    <a class="buttons" href="" data-value="Wed(17.00 - 19.00)" data-text="Schedule">Schedule</a>
-                                    <a class="buttons" href="" data-value="Jevent Natthannael" data-text="Leader">Leader</a> --}}
                                 </div>
                             </div>
 
@@ -274,7 +261,7 @@
 
                             {{-- elips untuk batas luar dari gambar logo ekskul --}}
                             @if ($edit == 1)
-                                <form id="imageForm" action="/changeLogo" method="POST" enctype="multipart/form-data" class="bg-red-300">
+                                <form id="imageForm" action="/changeLogo" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     {{-- untuk leader yang bisa ganti logo xtra --}}
                                     <div id="elipsganti" class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white; cursor: pointer;">
@@ -453,8 +440,11 @@
                             @foreach ($xtra->documentations as $doc)
                                 <div class="swiper-slide">
                                     <div class="card" style="width: 19vw">
+                                        <div class="absolute w-[19vw] h-[25.5vw] bg-white/[0.4] flex rounded-[1.6vw]">
+                                            <span class="m-auto"><svg xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" viewBox="0 0 512 512"><path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320"/><path fill="black" stroke="black" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352"/><path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224"/></svg></span>
+                                        </div>
                                         @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
-                                            <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;">
+                                            <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" onmouseover="">
                                         @else
                                             <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
                                         @endif
@@ -725,7 +715,8 @@
                             <div class="">:</div>
                             <div class="">:</div>
                         </div>
-                        <form name="formAddSchedule" method="POST" class="isiform" onsubmit="return validasiAddSchedule()" autocomplete="off">
+                        <form name="formAddSchedule" action="/addSchedule" method="POST" class="isiform" onsubmit="return validasiAddSchedule()" autocomplete="off">
+                            @csrf
                             <input disabled type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
                             <input placeholder="Input here" name="activityAS" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
