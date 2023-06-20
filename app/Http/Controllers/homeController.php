@@ -7,6 +7,7 @@ use App\Models\extracurricular;
 use App\Models\User;
 use App\Models\userXmas;
 use App\Models\report;
+use App\Models\schedule;
 use Illuminate\Support\Facades\Auth;
 
 class homeController extends Controller
@@ -21,17 +22,18 @@ class homeController extends Controller
 
 
         foreach ($xtras as $xtra) {
-            $latestSchedule = $xtra->latest_schedule;
-            if($latestSchedule >= today()){
+            $latestSchedule = schedule::where('kdExtracurricular', '=', $xtra->kdExtracurricular)->latest('date')->first();
+            if($latestSchedule->date >= today()){
                 $flag = 0;
+                break;
             }
         }
 
         if ($flag == 0) {
-            return view('home', ['xtras' => extracurricular::latest()->get(), 'reports' => $reports]);
+            return view('home', ['xtras' => extracurricular::latest()->get(), 'reports' => $reports, 'kosong' => 'no']);
         }
         else{
-            return view('home', ['xtras' => $xtras, 'reports' => $reports, 'kosong' => 'we']);
+            return view('home', ['xtras' => $xtras, 'reports' => $reports, 'kosong' => 'yes']);
         }
     }
 }

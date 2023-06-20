@@ -33,35 +33,11 @@ class reportController extends Controller
     }
 
     public function new(Request $request){
-
-        // report::create([
-        //     'kdSchedule' => '1',
-        //     'kdState' => '3',
-        //     'title' => $request->title,
-        //     'explanation' => $request->explanation,
-        //     'photo' => $request->file('photo')->store('database-assets')
-        // ]);
-
-        // schedule::create
-        // $xtra = null;
-
-        // $members = member::where('NIP', '=', $request->NIP)->get(); //pkae where, lalu cek kdstatenya
-        // // dd($members);
-        // foreach($members as $member){
-        //     if($member->kdState == 2){
-        //         // ketua
-        //         break;
-        //     }
-        // }
-        // dd($request->kdMember);
         $member = member::find($request->kdMember);
 
         $xtra = extracurricular::find($member->kdExtracurricular);
 
-            // $schedules = schedule::where('kdExtracurricular', '=', $xtra->kdExtracurricular)->get();
-            // $schedule = $schedules->latest()->get();
-
-        $schedule = schedule::where('kdExtracurricular', '=', $xtra->kdExtracurricular)->latest()->first();
+        $schedule = Schedule::where('kdExtracurricular', '=', $xtra->kdExtracurricular)->latest('date')->first();
 
         $data = [
             // kdschedule di report controller ambil dari schedule yang terakhir dari ketua ekskulnya

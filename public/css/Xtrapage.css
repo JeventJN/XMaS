@@ -780,8 +780,8 @@ main .presence-list::-webkit-scrollbar {
 }
 
 .kotakbtnsave .btnsave:hover {
-    background-color: #1b2f45;
-    color: white;
+    background-color: white;
+    color: #1b2f45;
 }
 
 /* untuk modal add schedule */

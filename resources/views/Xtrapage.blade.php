@@ -132,7 +132,7 @@
     {{-- popup --}}
 
     {{-- Editable --}}
-    @if (isset($edits))
+    @if ($edits == 'yes')
         @php
             // bisa edit
             $edit = 1
@@ -147,20 +147,37 @@
 
 
     <!-- jumbotron (foto besar) -->
-    <form method="GET" enctype="multipart/form-data">
 
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
-            <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/image_jumbo.png'); cursor: pointer;">
-                <div class="image-overlay">
-                    <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" style="margin-top: -10vw;">
+        @if ($edit == 1)
+            <form action="/editHeader" method="POST" enctype="multipart/form-data" id="changeHeader">
+                @csrf
+                @if (Illuminate\Support\Str::contains($xtra->backgroundImage, 'database-assets'))
+                    <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('{{ asset('storage/' . $xtra->backgroundImage) }}'); cursor: pointer;">
+                @else
+                    <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('{{ asset('Assets/Xtrapageassets/' . $xtra->backgroundImage) }}'); cursor: pointer;">
+                @endif
+                    <div class="image-overlay">
+                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" style="margin-top: -10vw;">
+                        <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+                    </div>
                 </div>
-            </div>
+                <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
+            </form>
+        @else
+            @if (Illuminate\Support\Str::contains($xtra->backgroundImage, 'database-assets'))
+                <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('{{ asset('storage/' . $xtra->backgroundImage) }}');">
+            @else
+                <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');">
+            @endif
+                </div>
+        @endif
 
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
 
         {{--uncomment --}}
         {{-- <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');"> --}}
-            <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+            {{-- <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg"> --}}
 
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
 
@@ -256,7 +273,7 @@
                             {{-- JS untuk hover Xtra Schedule Leader --}}
 
                             {{-- elips untuk batas luar dari gambar logo ekskul --}}
-                            <form id="imageForm" action="/changeImage" method="POST" enctype="multipart/form-data">
+                            <form id="imageForm" action="/a" method="POST" enctype="multipart/form-data" class="bg-red-300">
 
                                 {{-- untuk leader yang bisa ganti logo xtra --}}
                                 <div id="elipsganti" class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white; cursor: pointer;">
@@ -282,7 +299,6 @@
             </div>
         {{-- </div> --}}
         {{--uncomment --}}
-    </form>
     {{-- div untuk spasi aja --}}
     <div class="SpJumbotronMain" style="height: 5.5vw;"> </div>
 
@@ -292,13 +308,14 @@
             <div class="button-make-advance float-right">
                 {{-- Untuk Make Attendance dan Add Schedule --}}
                 @if ($edit == 0)
-                <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
-                <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">Add Schedule</a>
+                    <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
+                    <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">Add Schedule</a>
                 {{-- Untuk Make Attendance dan Add Schedule --}}
 
                 {{-- Add Photo only --}}
                 @else
-                    <form action="/addPhoto" method="POST" enctype="multipart/form-data" id="imageForm">
+                    <form action="/addPhoto" method="POST" enctype="multipart/form-data" id="addPhotoForm">
+                    {{-- <form action="{{ route('editXtra.photo') }}" method="POST" enctype="multipart/form-data" id="addPhotoForm"> --}}
                         @csrf
                         <a type="button" class="btn" id="addPhotoBut" style="padding-left: 4vw; padding-right: 4vw;">Add Photo</a>
                         <input type="file" class="btn absolute opacity-0 ml-[-15.8vw] mt-[-2.6vw] w-[15.8vw] h-[5.4vw] rounded-[1.85vw]" id="aduh" name="photo" accept=".png, .jpg, .jpeg" style="padding-left: 4vw; padding-right: 4vw;" onmouseover="this.previousElementSibling.style.backgroundColor = '#1B2F45'" onmouseout="this.previousElementSibling.style.backgroundColor = ''"></input>
@@ -307,7 +324,7 @@
 
                     <script>
                         document.getElementById("aduh").addEventListener("change", function() {
-                            document.getElementById("imageForm").submit();
+                            document.getElementById("addPhotoForm").submit();
                         });
                     </script>
                 @endif
@@ -336,46 +353,82 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
-                    <form action="" class="KotakForm">
-                        <div class="form-group" id="KotakDesc">
-                            <div class="boxlabeledit">
-                                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
-                                <label for="exampleFormControlTextarea1" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapageassets/Vector.png') }}" alt=""/></label>
+                    @if ($edit == 1)
+                        <form action="/editActivity" method="POST" class="KotakForm" id="editActivityForm">
+                        {{-- <form action="{{ route('editXtra.activity') }}" method="POST" class="KotakForm" id="editActivityForm"> --}}
+                            @csrf
+                            <div class="form-group" id="KotakDesc">
+                                <div class="boxlabeledit">
+                                    <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
+                                    <label for="exampleFormControlTextarea1" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapageassets/Vector.png') }}" alt=""/></label>
+                                </div>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" placeholder="{{ $xtra->description }}" style="height: 15vw; border-radius: 2.5vw"></textarea>
                             </div>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw"></textarea>
-                        </div>
 
-                        <div class="form-group" id="KotakAct">
-                            <div class="boxlabeledit">
-                                <label for="exampleFormControlTextarea2" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
-                                <label for="exampleFormControlTextarea2" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapageassets/Vector.png') }}" alt=""/></label>
+                            <div class="form-group" id="KotakAct">
+                                <div class="boxlabeledit">
+                                    <label for="exampleFormControlTextarea2" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
+                                    <label for="exampleFormControlTextarea2" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapageassets/Vector.png') }}" alt=""/></label>
+                                </div>
+                                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" placeholder="{{ $xtra->latest_schedule?->activity }}" style="height: 9vw; border-radius: 2.5vw;"></textarea>
                             </div>
-                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw;"></textarea>
-                        </div>
-                    </form>
-                    {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
+                            <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
+                            {{-- Button save --}}
+                            <div class="kotakbtnsave mt-[2vw]">
+                                <a type="button" class="btnsave" id="savebtn">
+                                    Save
+                                </a>
+                            </div>
+                            {{-- Button save --}}
 
-                    {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
-                    <div class="KotakForm">
-                        <div class="form-group" id="KotakDesc">
-                            <div class="boxlabeledit">
-                                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
+                            {{-- Modal button save --}}
+                            <div id="modalsave" class="modalsave">
+                                {{-- Modal Content --}}
+                                <div class="modal-contentsave">
+                                    <div class="kotakisimodal">
+                                        <div class="boxjudulclosesave">
+                                            <span class="closesave">&times;</span>
+                                        </div>
+                                        <div class="isisave">
+                                            <div class="kalimatsave1 text-black">You have <span style="color: red;">edited</span> this page.
+                                            </div>
+                                            <div class="kalimatsave2 text-black">Do you want to save?</div>
+                                        </div>
+                                        <div class="boxsubmitsave">
+                                            <button class="btnyesmodal">Yes</button>
+                                            <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" disabled>
-                                {{ $xtra->description }}
-                            </textarea>
-                        </div>
+                            {{-- Modal button save --}}
+                        </form>
+                        {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
 
-                        <div class="form-group" id="KotakAct">
-                            <div class="boxlabeledit">
-                                <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
+                    @else
+                        {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
+                        <div class="KotakForm">
+                            <div class="form-group" id="KotakDesc">
+                                <div class="boxlabeledit">
+                                    <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
+                                </div>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" disabled>
+                                    {{ $xtra->description }}
+                                </textarea>
                             </div>
-                            <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" disabled>
-                                {{ $xtra->latest_schedule?->activity }}
-                            </textarea>
+
+                            <div class="form-group" id="KotakAct">
+                                <div class="boxlabeledit">
+                                    <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
+                                </div>
+                                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" disabled>
+                                    {{ $xtra->latest_schedule?->activity }}
+                                </textarea>
+                            </div>
                         </div>
-                    </div>
-                    {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
+                        {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
+                    @endif
+
                 </div>
                 {{-- ===Segment Description=== --}}
 
@@ -531,7 +584,6 @@
                                             @else
                                                 <span class="badge">{{ $presence->members?->userXmas?->name }}</span>
                                             @endif
-
                                     @endforeach
                                     {{-- <span class="badge">Jordan Cornelius</span>
                                     <span class="badge">Nathaniel Calvin</span>
@@ -585,35 +637,8 @@
                             });
                         });
                     </script>
-                    {{-- Button save --}}
-                    <div class="kotakbtnsave">
-                        <a type="button" class="btnsave" id="savebtn">
-                            Save
-                        </a>
-                    </div>
-                    {{-- Button save --}}
 
-                    {{-- Modal button save --}}
-                    <div id="modalsave" class="modalsave">
-                        {{-- Modal Content --}}
-                        <div class="modal-contentsave">
-                            <div class="kotakisimodal">
-                                <div class="boxjudulclosesave">
-                                    <span class="closesave">&times;</span>
-                                </div>
-                                <div class="isisave">
-                                    <div class="kalimatsave1">You have <span style="color: red;">edited</span> this page.
-                                    </div>
-                                    <div class="kalimatsave2">Do you want to save?</div>
-                                </div>
-                                <div class="boxsubmitsave">
-                                    <a href=""><button class="btnyesmodal">Yes</button></a>
-                                    <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- Modal button save --}}
+
 
                 </div>
                 {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
@@ -982,7 +1007,7 @@
 
     <script>
         document.getElementById("fileupload").addEventListener("change", function() {
-            document.getElementById("imageForm").submit();
+            document.getElementById("changeHeader").submit();
         });
     </script>
 
