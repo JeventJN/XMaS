@@ -438,18 +438,33 @@
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             @foreach ($xtra->documentations as $doc)
-                                <div class="swiper-slide">
-                                    <div class="card" style="width: 19vw">
-                                        <div class="absolute w-[19vw] h-[25.5vw] bg-white/[0.4] flex rounded-[1.6vw]">
-                                            <span class="m-auto"><svg xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" viewBox="0 0 512 512"><path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320"/><path fill="black" stroke="black" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352"/><path fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M192 112V72h0a23.93 23.93 0 0 1 24-24h80a23.93 23.93 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224"/></svg></span>
+                            <div class="swiper-slide">
+                                <div class="card" style="width: 19vw">
+                                    @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
+                                        <div class="image-container">
+                                            <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" />
+                                            <div class="hover-content">
+                                                <img class="hover-image" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" alt="" style="object-fit: cover; width: 11vw; height: 10vw; border-radius: 1.6vw;" />
+                                                <div class="hover-icon">
+                                                    <img class="hover-image" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" alt="" style="object-fit: cover; width: 11vw; height: 10vw; border-radius: 1.6vw;" />
+                                                    <input type="file" id="file-input" style="display: none;" />
+                                                </div>
+                                            </div>
                                         </div>
-                                        @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
-                                            <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" onmouseover="">
-                                        @else
+                                    @else
+                                        <div class="image-container">
                                             <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
-                                        @endif
-                                    </div>
+                                            <div class="hover-content">
+                                                <img class="hover-image" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." />
+                                                <div class="hover-icon">
+                                                    <img class="hover-image" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." />
+                                                    <input type="file" id="file-input" style="display: none;" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -716,7 +731,7 @@
                             <div class="">:</div>
                         </div>
                         <div class="isiform">
-                            <input disabled type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+                            <input disabled placeholder="Running" type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
                             <input placeholder="Input here" name="activityAS" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
                             <div class="boxjamaddschedule">
@@ -1039,6 +1054,21 @@
         var content = textarea.value;
         content = content.replace(/^\s+/gm, "");
         textarea.value = content;
+    </script>
+
+    <script>
+        // script untuk segment documentation
+        document.addEventListener('DOMContentLoaded', function() {
+        const hoverIcons = document.querySelectorAll('.hover-icon');
+        const fileInput = document.getElementById('file-input');
+
+        hoverIcons.forEach(function(icon) {
+            icon.addEventListener('click', function() {
+                fileInput.click();
+                });
+            });
+        });
+
     </script>
 </body>
 

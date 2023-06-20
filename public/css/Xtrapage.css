@@ -1162,6 +1162,11 @@ table {
     /* border: blue solid; */
 }
 
+#xtraAS::placeholder{
+    font-weight: 700;
+    color: black;
+}
+
 .boxjamaddschedule{
     display: flex;
     flex-direction: row;
@@ -1476,3 +1481,40 @@ table {
     font-weight: 700;
     color: white;
 }
+
+
+/* cobacoba */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hover-image {
+    object-fit: cover;
+    width: 19vw;
+    height: 25.5vw;
+    border-radius: 1.6vw;
+}
+
+.hover-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+}
+
+.image-container:hover .hover-content {
+    opacity: 1;
+}
+
+
