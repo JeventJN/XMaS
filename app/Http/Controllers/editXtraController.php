@@ -84,16 +84,13 @@ class editXtraController extends Controller
         $data = $request -> validate([
             'fileupload1' => 'image'
         ]);
-        // dd('masuk header 1');
 
         if ($request->fileupload1) {
             $old = null;
             if ($xtra->logo) {
                 $old = $xtra->logo;
-                // dd('masuk headerHapus');
             }
 
-            // dd('masuk header 2');
             $data['fileupload1'] = $request->file('fileupload1')->store('database-assets');
             $xtra->logo = $data['fileupload1'];
             $xtra->save();
@@ -114,7 +111,6 @@ class editXtraController extends Controller
     }
 
     public function photo(Request $request){
-        // dd('masuk photo');
         $data = [
             'kdExtracurricular' => $request->xtra
         ];
@@ -182,5 +178,9 @@ class editXtraController extends Controller
         // return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra])
         //     // ->withInput(['kdXtra' => $request->kdXtra])
         //     ->with('notif', 'Successfully left the Xtra');
+    }
+
+    public function schedule(Request $request){
+        
     }
 }
