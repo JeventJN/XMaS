@@ -10,6 +10,7 @@ class documentation extends Model
     use HasFactory;
 
     // protected $fillable = [''];
+    protected $primaryKey = 'kdDocumentation';
     protected $guarded = ['kdDocumentation'];
 
     public function xtras(){

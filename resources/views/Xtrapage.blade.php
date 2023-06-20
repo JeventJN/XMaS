@@ -315,15 +315,19 @@
 
                 {{-- Add Photo only --}}
                 @else
-                    <form action="/addPhoto" method="POST" enctype="multipart/form-data" id="addPhotoForm">
-                    {{-- <form action="{{ route('editXtra.photo') }}" method="POST" enctype="multipart/form-data" id="addPhotoForm"> --}}
+                    <form action="{{ route('editXtra.photo') }}" method="POST" enctype="multipart/form-data" id="addPhotoForm">
                         @csrf
                         <a type="button" class="btn" id="addPhotoBut" style="padding-left: 4vw; padding-right: 4vw;">Add Photo</a>
-                        <input type="file" class="btn absolute opacity-0 ml-[-15.8vw] mt-[-2.6vw] w-[15.8vw] h-[5.4vw] rounded-[1.85vw]" id="aduh" name="photo" accept=".png, .jpg, .jpeg" style="padding-left: 4vw; padding-right: 4vw;" onmouseover="this.previousElementSibling.style.backgroundColor = '#1B2F45'" onmouseout="this.previousElementSibling.style.backgroundColor = ''"></input>
+                        <input type="file" class="btn absolute opacity-0 ml-[-15.8vw] mt-[-2.6vw] w-[15.8vw] h-[5.4vw] rounded-[1.85vw]" id="aduh" name="photo" accept=".png, .jpg, .jpeg" style="padding-left: 4vw; padding-right: 4vw;" onmouseover="this.previousElementSibling.style.backgroundColor = '#1B2F45'" onmouseout="this.previousElementSibling.style.backgroundColor = ''">
                         <input type="hidden" name="xtra" value="{{$xtra->kdExtracurricular}}">
                     </form>
 
                     <script>
+                        window.addEventListener("load", function() {
+                            var fileInput = document.getElementById("aduh");
+                            fileInput.value = null;
+                        });
+
                         document.getElementById("aduh").addEventListener("change", function() {
                             document.getElementById("addPhotoForm").submit();
                         });
@@ -435,39 +439,47 @@
 
                 {{-- ===Segment Documentation=== --}}
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            @foreach ($xtra->documentations as $doc)
-                            <div class="swiper-slide">
-                                <div class="card" style="width: 19vw">
-                                    @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
-                                        <div class="image-container">
-                                            <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" />
-                                            <div class="hover-content">
-                                                <img class="hover-image" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" alt="" style="object-fit: cover; width: 11vw; height: 10vw; border-radius: 1.6vw;" />
-                                                <div class="hover-icon">
-                                                    <img class="hover-image" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" alt="" style="object-fit: cover; width: 11vw; height: 10vw; border-radius: 1.6vw;" />
-                                                    <input type="file" id="file-input" style="display: none;" />
+                    <form action="/deletePhoto" method="POST" id="deletePhoto">
+                        @csrf
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                @foreach ($xtra->documentations as $doc)
+                                    <div class="swiper-slide">
+                                        <div class="card" style="width: 19vw">
+                                            @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
+                                                <div class="image-container">
+                                                    <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" />
+                                                    <div class="hover-content">
+                                                        <div class="card-img-top hover-image bg-white/[0.4] flex">
+                                                            <div class="hover-icon">
+                                                                <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
+                                                                <input type="hidden" name="photo" class="photo-input" value="{{$doc->photo}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                            @else
+                                                <div class="image-container">
+                                                    <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
+                                                    <div class="hover-content">
+                                                        <div class="card-img-top hover-image bg-white/[0.4] flex">
+                                                            <div class="hover-icon">
+                                                                <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
+                                                                <input type="hidden" name="photo" class="photo-input" value="{{$doc->photo}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
-                                    @else
-                                        <div class="image-container">
-                                            <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
-                                            <div class="hover-content">
-                                                <img class="hover-image" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." />
-                                                <div class="hover-icon">
-                                                    <img class="hover-image" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." />
-                                                    <input type="file" id="file-input" style="display: none;" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
+                                    {{-- <input type="hidden" name="photo" value="{{$doc->photo}}"> --}}
+                                    {{-- <input type="hidden" name="photo" class="photo-input" data-photo="{{$doc->photo}}"> --}}
+                                    <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
-                    </div>
+                    </form>
                 </div>
                 {{-- ===Segment Documentation=== --}}
 
@@ -1056,20 +1068,26 @@
         textarea.value = content;
     </script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
-        // script untuk segment documentation
-        document.addEventListener('DOMContentLoaded', function() {
-        const hoverIcons = document.querySelectorAll('.hover-icon');
-        const fileInput = document.getElementById('file-input');
+      $(document).ready(function() {
+        $('.hover-content').click(function() {
+          var photo = $(this).find('.photo-input').val();
+          var kdXtra = $('input[name="kdXtra"]').val();
 
-        hoverIcons.forEach(function(icon) {
-            icon.addEventListener('click', function() {
-                fileInput.click();
-                });
-            });
+          if (photo) {
+            var form = $('#deletePhoto');
+            form.attr('action', '/deletePhoto');
+            form.find('input[name="photo"]').val(photo);
+            form.find('input[name="kdXtra"]').val(kdXtra);
+            form.submit();
+          }
         });
-
+      });
     </script>
+
+
 </body>
 
 </html>

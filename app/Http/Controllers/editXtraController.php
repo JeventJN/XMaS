@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -135,11 +136,47 @@ class editXtraController extends Controller
             $userMember = -1;
         }
 
+        $request->session()->put('photo', null);
+        $request->session()->save();
+
         return view('Xtrapage', compact('xtra', 'userMember', 'edits'));
+        // return redirect()->back();
 
         // $this->activity($request);
 
         // return redirect()->route('editXtra.activity');
+    }
+
+    public function deletePhoto(Request $request){
+        // dd($request->photo);
+        if ($request->photo) {
+            $doc = documentation::where('photo', '=', $request->photo)->first();
+            // $doc = documentation::where('photo', '=', $request->photo)->where('kdExtracurricular', '=', $request->kdXtra)->first();
+            // $schedule = Schedule::where('kdExtracurricular', '=', $request->kdXtra)->latest('date')->first();
+
+            // $doc = $xtra::where('photo', '=', $request->photo)->first();
+            // dd($doc);
+            if ($doc->photo) {
+                Storage::delete($doc->photo);
+            }
+            $doc->delete();
+        }
+
+        $xtra = extracurricular::find($request->kdXtra);
+
+        $userMember = NULL;
+        $edits = 'yes';
+
+        if(Auth::user()){
+            // join jadi member
+            $userMember = $xtra?->members?->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();
+        }elseif(Auth::user() && !$userMember){
+            // non-member
+            $userMember = -1;
+        }
+
+
+        return view('Xtrapage', compact('xtra', 'userMember', 'edits'));
     }
 
     public function activity(Request $request) {
@@ -181,6 +218,6 @@ class editXtraController extends Controller
     }
 
     public function schedule(Request $request){
-        
+
     }
 }
