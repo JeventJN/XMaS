@@ -232,7 +232,7 @@
                                             e.target.style.width = '35vw';
                                             e.target.style.marginTop = '-0.05vw';
                                             // e.target.style.marginBottom = '-0.3vw';
-                                        } else if (value == @json($xtra->leader?->userXmas?->name)) {
+                                        } else if (value == @json($xtra->leader->userXmas->name)) {
                                             e.target.classList.add('LeaderXtra');
                                             e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
                                             // e.target.style.width = '40vw';
@@ -273,21 +273,35 @@
                             {{-- JS untuk hover Xtra Schedule Leader --}}
 
                             {{-- elips untuk batas luar dari gambar logo ekskul --}}
-                            <form id="imageForm" action="/a" method="POST" enctype="multipart/form-data" class="bg-red-300">
+                            @if ($edit == 1)
+                                <form id="imageForm" action="/changeLogo" method="POST" enctype="multipart/form-data" class="bg-red-300">
+                                    @csrf
+                                    {{-- untuk leader yang bisa ganti logo xtra --}}
+                                    <div id="elipsganti" class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white; cursor: pointer;">
+                                    {{-- untuk leader yang bisa ganti logo xtra --}}
 
-                                {{-- untuk leader yang bisa ganti logo xtra --}}
-                                <div id="elipsganti" class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white; cursor: pointer;">
-                                {{-- untuk leader yang bisa ganti logo xtra --}}
-
-                                {{-- <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;"> --}}
                                     <div class="iconcamera" id="iconcamera">
                                         <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" alt>
                                         <input type="file" name="fileupload1" id="fileupload1" style="display: none" accept=".png, .jpg, .jpeg">
                                     </div>
-                                    <img src="{{ asset('/Assets/Xtrapageassets/' . $xtra->logo) }}" alt="{{ $xtra->name }}" class="elips" style="height: 20.8vw; width: 20.8vw;" />
-                                    {{-- <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg"> --}}
+                                    @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
+                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw;" />
+                                    @else
+                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw;" />
+                                    @endif
                                 </div>
+                                <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
                             </form>
+                            @else
+                                <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
+                                    @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
+                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw;" />
+                                    @else
+                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw;" />
+                                    @endif
+                                </div>
+                            @endif
+
                         </div>
 
                         {{-- untuk logo BCA --}}
@@ -1008,6 +1022,12 @@
     <script>
         document.getElementById("fileupload").addEventListener("change", function() {
             document.getElementById("changeHeader").submit();
+        });
+    </script>
+
+    <script>
+        document.getElementById("fileupload1").addEventListener("change", function() {
+            document.getElementById("imageForm").submit();
         });
     </script>
 

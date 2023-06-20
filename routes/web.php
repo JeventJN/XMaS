@@ -64,6 +64,7 @@ Route::get(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrap
 
 Route::post('/editXtra', [editXtraController::class, 'route'])->name('editXtra');
 Route::post('/editHeader', [editXtraController::class, 'header']);
+Route::post('/changeLogo', [editXtraController::class, 'logo']);
 Route::post('/addPhoto', [editXtraController::class, 'photo'])->name('editXtra.photo');
 Route::post('/editActivity', [editXtraController::class, 'activity'])->name('editXtra.activity');
 

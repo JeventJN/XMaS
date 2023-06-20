@@ -78,6 +78,41 @@ class editXtraController extends Controller
         return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => 'yes']);
     }
 
+    public function logo(Request $request){
+        $xtra = extracurricular::find($request->kdXtra);
+
+        $data = $request -> validate([
+            'fileupload1' => 'image'
+        ]);
+        // dd('masuk header 1');
+
+        if ($request->fileupload1) {
+            $old = null;
+            if ($xtra->logo) {
+                $old = $xtra->logo;
+                // dd('masuk headerHapus');
+            }
+
+            // dd('masuk header 2');
+            $data['fileupload1'] = $request->file('fileupload1')->store('database-assets');
+            $xtra->logo = $data['fileupload1'];
+            $xtra->save();
+            Storage::delete($old);
+        }
+
+        $userMember = NULL;
+        $xtra = extracurricular::find(1);
+        if(Auth::user()){
+            // join jadi member
+            $userMember = $xtra?->members?->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();
+        }elseif(Auth::user() && !$userMember){
+            // non-member
+            $userMember = -1;
+        }
+
+        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => 'yes']);
+    }
+
     public function photo(Request $request){
         // dd('masuk photo');
         $data = [
