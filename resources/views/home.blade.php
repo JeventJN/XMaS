@@ -307,7 +307,7 @@
                 <div id="segmentTitleA" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
                     Newest Reports
                 </div>
-                <h1 class="text-[#56B8E6] viewall font-nunito z-50">
+                <h1 class="text-[#56B8E6] viewall font-nunito z-10">
                     <a href="/reportlist">
                         view all
                     </a>
@@ -321,7 +321,33 @@
                                         <div class="report w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
                                             <div class="">
                                                 <div class="relative">
-                                                <img class="absolute rounded-[50%] min-w-[6vw] min-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
+                                                <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="mail1 min-w-[18vw] z-40">
+                                                <img class="w-[18vw]" src="{{asset('Assets/report1.png')}}">
+                                            </div>
+                                        </div>
+
+                                        <form action="/reportformA" method="post" class="relative report1 flex items-center z-50 hidden mt-[-5vw]" href="reportlist">
+                                            @csrf
+                                            <button class="absolute mail2 w-[18vw] z-40">
+                                                <img class="w-[18vw]" src="{{asset('Assets/report2.png')}}" alt="">
+                                            </button>
+                                            <button class="titleMail w-[18vw] text-[1vw] z-50">
+                                                <p>{{ Str::limit($report->title, 12, '...') }}</p>
+                                            </button>
+                                            <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] mt-[-2vw] ml-[-3vw] z-50">
+                                                <img class="w-[18vw] rounded-[50%]" class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
+                                            </button>
+
+                                            <input type="hidden" name="report" value="{{$report->kdReport}}">
+                                        </form>
+                                        <div class="w-[5vw]"></div>
+                                        <div class="report w-[18vw] h-fit flex items-center justify-center z-40 hover:cursor-pointer">
+                                            <div class="">
+                                                <div class="relative">
+                                                <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="Assets/{{ $report->schedules?->xtras?->logo }}" alt="">
                                                 </div>
                                             </div>
                                             <div class="mail1 min-w-[18vw] z-40">
