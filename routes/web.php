@@ -115,9 +115,9 @@ Route::get('/approval', [adminController::class, 'approval'])->name('approval');
 Route::post('/acceptReq', [adminController::class, 'accReq']);
 Route::post('/denyReq', [adminController::class, 'denyReq']);
 
-Route::get('xtralistA', function (){
-    return view('Admin.xtralistA');
-});
+Route::get('/xtralistA', [xtraController::class, 'xtraListA']);
+Route::post(('/deleteXtra'), [xtraController::class, 'deleteXtra'])->name('xtra.delete');
+Route::post(('/createXtra'), [xtraController::class, 'createXtra'])->name('xtra.create');
 
 Route::get('chat', function (){
     return view('chat');
