@@ -956,6 +956,7 @@
         // SCRIPT POP UP NOTIF========================================
     </script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
@@ -1068,7 +1069,7 @@
         textarea.value = content;
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <script>
       $(document).ready(function() {
