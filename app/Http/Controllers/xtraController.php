@@ -227,7 +227,7 @@ class xtraController extends Controller
     //     ->with('leaveXtra', 'Successfully left the Xtra');
     // }
 
-    public function leaveXtra(Request $request): RedirectResponse {
+    public function leaveXtra(Request $request) {
         $member = member::where('kdMember', $request->kdMember);
 
         $member->delete();
@@ -267,5 +267,31 @@ class xtraController extends Controller
         // dd(Auth::user()->NIP);
         // dd(extracurricular::latest()->userclub()->get());
         return view('User.myclub', ['xtras' => extracurricular::latest()->userclub($NIP)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get(), 'nip' => $NIP]);
+    }
+
+    public function xtraListA(){
+        return view('Admin.xtralistA', [
+            'xtras' => extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get()
+        ]);
+    }
+
+    public function deleteXtra(Request $request) {
+        // dd($request->kdXtra);
+        $xtra = extracurricular::where('kdExtracurricular', $request->kdXtra)->first();
+        $name = $xtra->name;
+        $xtra->delete();
+
+        return redirect('xtralistA')
+            ->with('notif', 'The Xtra "' . $name . '" is successfully deleted');
+    }
+
+    public function createXtra(Request $request) {
+        // dd($request->kdXtra);
+        // $xtra = extracurricular::where('kdExtracurricular', $request->kdXtra)->first();
+        // $name = $xtra->name;
+        // $xtra->delete();
+
+        // return redirect('xtralistA')
+        //     ->with('notif', 'The Xtra "' . $name . '" is successfully deleted');
     }
 }
