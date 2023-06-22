@@ -148,14 +148,8 @@ class editXtraController extends Controller
     }
 
     public function deletePhoto(Request $request){
-        // dd($request->photo);
         if ($request->photo) {
             $doc = documentation::where('photo', '=', $request->photo)->first();
-            // $doc = documentation::where('photo', '=', $request->photo)->where('kdExtracurricular', '=', $request->kdXtra)->first();
-            // $schedule = Schedule::where('kdExtracurricular', '=', $request->kdXtra)->latest('date')->first();
-
-            // $doc = $xtra::where('photo', '=', $request->photo)->first();
-            // dd($doc);
             if ($doc->photo) {
                 Storage::delete($doc->photo);
             }
@@ -174,7 +168,6 @@ class editXtraController extends Controller
             // non-member
             $userMember = -1;
         }
-
 
         return view('Xtrapage', compact('xtra', 'userMember', 'edits'));
     }
@@ -218,6 +211,16 @@ class editXtraController extends Controller
     }
 
     public function schedule(Request $request){
+        $data = $request -> validate([
+            'activity' => 'required',
+            'date' => 'required|date',
+            'timeStart' => 'required',
+            'timeEnd' => 'required',
+            'location' => 'required'
+        ]);
 
+        schedule::create($data);
+
+        return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra]);
     }
 }
