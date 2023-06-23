@@ -1159,6 +1159,7 @@ table {
     flex-direction: column;
     padding-left: 0.75vw;
     gap: 2vw;
+    height: 100%;
     /* border: blue solid; */
 }
 

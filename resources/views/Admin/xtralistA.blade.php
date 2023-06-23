@@ -21,8 +21,38 @@
     @include('Admin.navbarA')
 
     {{-- popup --}}
+    {{-- notif --}}
+    @if (session()->has('notif'))
+        <div id="modalpopupCR" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+            <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                    {{ session('notif') }}
+                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalCR"
+                        class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
+                        <path fill="currentColor"
+                            d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <script>
+            var modal2 = document.getElementById('modalpopupCR');
+            var hidemodal2 = document.getElementById('hidemodalCR');
+
+            hidemodal2.addEventListener('click', closePopup2);
+
+            function closePopup2() {
+                modal2.style.display = "none";
+            }
+
+            setTimeout(() => {
+                const modal = document.getElementById("modalpopupCR");
+                modal.style.display = 'none';
+            }, 3000);
+        </script>
+    @endif
     {{-- created --}}
-    <div id="modalpopupCR" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+    {{-- <div id="modalpopupCR" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
         <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
             <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
                 The Xtra is successfully created
@@ -48,10 +78,10 @@
             const modal = document.getElementById("modalpopupCR");
             modal.style.display = 'none';
         }, 3000);
-    </script>
+    </script> --}}
 
     {{-- deleted --}}
-    <div id="modalpopupDL" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+    {{-- <div id="modalpopupDL" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
         <div class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
             <div class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
                 The Xtra is successfully deleted
@@ -77,7 +107,7 @@
             const modal = document.getElementById("modalpopupDL");
             modal.style.display = 'none';
         }, 3000);
-    </script>
+    </script> --}}
     {{-- popup --}}
 
     {{-- modal pop up xtralist Admin --}}
@@ -109,6 +139,31 @@
             </div>
         </div>
     </form>
+
+    {{-- Modal Tempat Sampah --}}
+    <div id="modalsampah" class="modalsampah">
+        {{-- Modal Content --}}
+        <div class="modal-contentsampah">
+            <div class="kotakisimodal">
+                <div class="boxjudulclosesampah">
+                    <span class="closesampah">&times;</span>
+                </div>
+                <div class="isisampah">
+                    <div class="kalimatsampah1">This action will <span style="color: red;">delete</span> this Xtra.</div>
+                    <div class="kalimatsampah2">Do you want to continue?</div>
+                </div>
+                <div class="boxsubmitsampah">
+                    <form method="POST" action="{{ route('xtra.delete') }}" class="delConfirm">
+                        @csrf
+                        <button class="btnyesmodal" id="btnDeleteConfirm">Yes</button>
+                    </form>
+                    <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Modal Tempat Sampah --}}
+
     <form id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
         <div class="flex flex-col jutify-center items-center">
             <div class="flex w-[90%] items-center mt-[2.2vw] font-black">
@@ -149,9 +204,10 @@
         </div>
     </form>
 
-    {{-- modal pop up xtralist user --}}
+    {{-- modal pop up xtralist --}}
     <div id="modalpopup" class="modal font-nunito">
         <form action="/xtralistA" id="modal" method="GET">
+            @csrf
             @if (request('search'))
                 <input type="hidden" name="search" value={{ request('search') }}>
             @endif
@@ -292,7 +348,8 @@
                     </div>
                 </form>
             </div>
-            <div class="rowcontainer">
+
+            <div class="rowcontainer" id="all_xtra">
                 <div id="showmodalA"class="flex flex-col">
                     <div class="xtraboxcontainer flex justify-center items-center">
                         <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
@@ -306,101 +363,38 @@
                 </div>
                 @if ($xtras->count())
                     @foreach ($xtras as $xtra)
-                        {{-- @dd($xtra->latest_schedule) --}}
-                        <form action="/xtrapageA" method="POST" class="xtraForm" onclick="submitForm('{{ $xtra->kdExtracurricular }}')">
+                        {{-- ADMIN HAPUS XTRA -------------------------------------------------------------------------------------------------- --}}
+                        <div class="flex flex-col">
+                            <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm('{{ $xtra->kdExtracurricular }}')">
                                 @csrf
-                            <div class="xtraboxcontainer flex justify-center items-center">
-                                <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                    {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                    <img src="{{ asset('/Assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}">
-                                </div>
-                                <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                    <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ Str::limit($xtra->name, 12, '...') }}</div>
-                                    <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) }}</div>
-                                        @if ($xtra->leader === NULL)
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
-                                        @endif
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd))  : ''}}</div>
-                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($xtra->latest_schedule?->location, 15, '...') }}</div>
-                                        @if ($xtra->latest_schedule === NULL)
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
-                                        @endif
+                                <div class="xtraboxcontainer flex justify-center items-center">
+                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                        <img src="{{ asset('/Assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}">
                                     </div>
-
-                                {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">{{ $xtra->name }}</div>
-                                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->leader?->userXmas?->name }}</div>
-                                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ',' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . '-' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) : '' }}</div>
-                                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">{{ ($xtra->latest_schedule ? $xtra->latest_schedule->location : null) ?? 'No Schedule Yet' }}</div> --}}
-
-                                {{-- <div class="text-[1.7vw] underline font-extrabold mb-[1vw]">Running</div> --}}
-                                {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Jevent</div> --}}
-                                {{-- <div class="text-[1.7vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                                    <div class="text-[1.7vw] font-semibold mb-[0.5vw]">RTB</div> --}}
+                                    <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                        <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ Str::limit($xtra->name, 12, '...') }}</div>
+                                        <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) }}</div>
+                                            @if ($xtra->leader === NULL)
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>
+                                            @endif
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd))  : ''}}</div>
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($xtra->latest_schedule?->location, 15, '...') }}</div>
+                                            @if ($xtra->latest_schedule === NULL)
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="absolute w-fit h-fit flex justify-end mt-[17vw] ml-[33vw]">
+                                <div class="w-[2.5vw] h-[2.5vw]">
+                                    {{-- Delete disini --}}
+                                    <img class="w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" id="sampahbtn" src="{{ asset('Assets/delete.png') }}" alt="" onclick="del('{{ $xtra->kdExtracurricular }}')">
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     @endforeach
-                    <script>
-                        function submitForm(kdExtracurricular) {
-                            var form = document.querySelector('.xtraForm');
-
-                            var input = document.createElement('input');
-                            input.type = 'hidden';
-                            input.name = 'kdXtra';
-                            input.value = kdExtracurricular;
-
-                            form.appendChild(input);
-                            form.submit();
-                        }
-                    </script>
-
-                {{-- ADMIN HAPUS XTRA -------------------------------------------------------------------------------------------------- --}}
-                <div class="flex flex-col">
-                    <a href="/home" class="xtraboxcontainer flex justify-center items-center">
-                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                            <img src="{{ asset('Assets/RunningLogo.png') }}" alt="">
-                        </div>
-                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
-                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="absolute w-fit h-fit flex justify-end mt-[17vw] ml-[33vw]">
-                        <div class="w-[2.5vw] h-[2.5vw]">
-
-                            {{-- Delete disini --}}
-
-                            <img class="w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" id="sampahbtn" src="{{ asset('Assets/delete.png') }}" alt="">
-                            {{-- Modal Tempat Sampah --}}
-                            <div id="modalsampah" class="modalsampah">
-                                {{-- Modal Content --}}
-                                <div class="modal-contentsampah">
-                                    <div class="kotakisimodal">
-                                        <div class="boxjudulclosesampah">
-                                            <span class="closesampah">&times;</span>
-                                        </div>
-                                        <div class="isisampah">
-                                            <div class="kalimatsampah1">This action will <span style="color: red;">delete</span> this Xtra.</div>
-                                            <div class="kalimatsampah2">Do you want to continue?</div>
-                                        </div>
-                                        <div class="boxsubmitsampah">
-                                            <form>
-                                                <a href="/xtralistA"><button class="btnyesmodal">Yes</button></a>
-                                            </form>
-                                            <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- Modal Tempat Sampah --}}
-                        </div>
-                    </div>
-                </div>
                 @else
                 <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
                 @endif
@@ -420,40 +414,61 @@
     @include('footer')
 
     <script>
-        //SCRIPT MODAL TEMPAT SAMPAH======================================
+        function submitForm(kdExtracurricular) {
+            var form = document.querySelector('.xtraForm');
 
-        // Get modal
-        var modalsampah = document.getElementById("modalsampah")
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'kdXtra';
+            input.value = kdExtracurricular;
 
-        // Get button that opens modal
-        var btnsampah = document.getElementById("sampahbtn");
-
-        // Get the <span> element that closes the modal
-        var spansampah = document.getElementsByClassName("closesampah")[0];
-        var btncancel = document.getElementById("btncancelmodal1");
-
-        // When the user clicks the button, open the modal
-        btnsampah.onclick = function() {
-            modalsampah.style.display = "block";
+            form.appendChild(input);
+            form.submit();
         }
 
-        // When the user clicks on <span> (x), close the modal
-        spansampah.onclick = function() {
-            modalsampah.style.display = "none";
-        }
+        function del(kdExtracurricular) {
+            //SCRIPT MODAL TEMPAT SAMPAH======================================
 
-        btncancel.onclick = function() {
-            modalsampah.style.display = "none";
-        }
+            // Get modal
+            var modalsampah = document.getElementById("modalsampah")
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
+            // Get button that opens modal
+            var btnsampah = document.getElementById("sampahbtn");
+
+            // Get the <span> element that closes the modal
+            var spansampah = document.getElementsByClassName("closesampah")[0];
+            var btnyes = document.getElementById("btnDeleteConfirm");
+            var btncancel = document.getElementById("btncancelmodal1");
+
+            // When the user clicks the button, open the modal
+            // btnsampah.onclick = function() {
+                modalsampah.style.display = "block";
+            // }
+
+            // When the user clicks on yes
+            btnyes.onclick = function() {
+                var form = document.querySelector('.delConfirm');
+
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'kdXtra';
+                input.value = kdExtracurricular;
+
+                form.appendChild(input);
+                form.submit();
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            spansampah.onclick = function() {
                 modalsampah.style.display = "none";
             }
-        }
 
-        // SCRIPT MODAL TEMPAT SAMPAH========================================
+            btncancel.onclick = function() {
+                modalsampah.style.display = "none";
+            }
+
+            // SCRIPT MODAL TEMPAT SAMPAH========================================
+        }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

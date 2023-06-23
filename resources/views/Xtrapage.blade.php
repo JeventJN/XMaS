@@ -272,9 +272,9 @@
                                         <input type="file" name="fileupload1" id="fileupload1" style="display: none" accept=".png, .jpg, .jpeg">
                                     </div>
                                     @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
-                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw;" />
+                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
                                     @else
-                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw;" />
+                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
                                     @endif
                                 </div>
                                 <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
@@ -282,9 +282,9 @@
                             @else
                                 <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
                                     @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
-                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw;" />
+                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
                                     @else
-                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw;" />
+                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
                                     @endif
                                 </div>
                             @endif
@@ -449,26 +449,30 @@
                                             @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
                                                 <div class="image-container">
                                                     <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" />
-                                                    <div class="hover-content">
-                                                        <div class="card-img-top hover-image bg-white/[0.4] flex">
-                                                            <div class="hover-icon">
-                                                                <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
-                                                                <input type="hidden" name="photo" class="photo-input" value="{{$doc->photo}}">
+                                                    @if ($edit == 1)
+                                                        <div class="hover-content">
+                                                            <div class="card-img-top hover-image bg-white/[0.4] flex">
+                                                                <div class="hover-icon">
+                                                                    <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
+                                                                    <input type="hidden" name="photo" class="photo-input" value="{{$doc->photo}}">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    @endif
                                                 </div>
                                             @else
                                                 <div class="image-container">
                                                     <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
-                                                    <div class="hover-content">
-                                                        <div class="card-img-top hover-image bg-white/[0.4] flex">
-                                                            <div class="hover-icon">
-                                                                <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
-                                                                <input type="hidden" name="photo" class="photo-input" value="{{$doc->photo}}">
+                                                    @if ($edit == 1)
+                                                        <div class="hover-content">
+                                                            <div class="card-img-top hover-image bg-white/[0.4] flex">
+                                                                <div class="hover-icon">
+                                                                    <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
+                                                                    <input type="hidden" name="photo" class="photo-input" value="{{$doc->photo}}">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    @endif
                                                 </div>
                                                 @endif
                                             </div>
@@ -710,6 +714,7 @@
     <div id="modaladdschedule" class="modaladdschedule">
         {{-- Modal Content --}}
         <form class="modal-contentaddschedule" action="/addSchedule" name="formAddSchedule" method="POST" onsubmit="return validasiAddSchedule()" autocomplete="off">
+            @csrf
             <div class="kotakisimodal">
                 <div class="boxjudulcloseaddschedule">
                     <div class="bungkuscalendar">
@@ -747,9 +752,9 @@
                             <input placeholder="Input here" name="activity" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
                             <div class="boxjamaddschedule">
-                                <input type="time" id="appt1" name="timeStart" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
+                                <input type="time" id="appt1" name="timeStart" min="09:00" max="21:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
                                 <div style="color: white; font-size: 3vw; margin-left: 0.5vw; margin-right: 0.5vw"> - </div>
-                                <input type="time" id="appt2" name="timeEnd" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
+                                <input type="time" id="appt2" name="timeEnd" min="09:00" max="21:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
                             </div>
 
                             <input placeholder="Input here" name="location" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
@@ -956,6 +961,7 @@
         // SCRIPT POP UP NOTIF========================================
     </script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
@@ -1068,7 +1074,7 @@
         textarea.value = content;
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <script>
       $(document).ready(function() {
