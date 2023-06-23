@@ -95,7 +95,7 @@
                     <div class="iconcamera" id="iconcamera">
                         <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" alt>
                         <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
-                        <input type="hidden" name="NIP" value="{{ Auth::user()->NIP }}">
+                        <input type="hidden" name="NIP" value="{{str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT)}}">
                     </div>
                 </form>
 
@@ -140,7 +140,7 @@
                                     <form action="/changePhone" method="POST" onsubmit="return validate()" style="display: flex; align-items: center;">
                                         @csrf
                                         <input type="number" name="phone" placeholder="{{Auth::User()->phoneNumber}}" style="font-size: 1.8vw; padding-left: 1vw;" id="phoneinputform" autocomplete="off" value="{{ old('phone')}}">
-                                        <input type="hidden" name="NIP" value="{{Auth::User()->NIP}}">
+                                        <input type="hidden" name="NIP" value="{{str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT)}}">
                                         <button type="submit">
                                             <svg class="editphonenumbericonsubmit" xmlns="http://www.w3.org/2000/svg" width="2.2vw" height="2.2vw" viewBox="0 0 24 24"><path fill="" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z" /></svg>
                                         </button>
@@ -174,7 +174,9 @@
                                         <form action="/delete" method="POST">
                                             @csrf
                                             <button class="btnyesmodal">Yes</button>
-                                            <input type="hidden" name="NIP" value="{{Auth::User()->NIP}}">
+
+                                            <input type="hidden" name="NIP" value="{{str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT)}}">
+                                            <input type="hidden" name="photo" value="{{Auth::User()->photo}}">
                                         </form>
                                         <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
                                     </div>
@@ -187,11 +189,12 @@
                 <div class="spasi"></div>
                 <div class="boxtombol">
                     @php
-                        $members = App\Models\member::all()
+                        $members = App\Models\member::all();
+                        $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
                     @endphp
 
                     @foreach ($members as $member)
-                        @if ($member->NIP == Auth::User()->NIP)
+                        @if ($member->NIP == $NIP)
                             @if ($member->kdState == 2)
                                 @php
                                     // ketua
@@ -211,7 +214,7 @@
                                     // member
                                     $flag = 0;
                                 @endphp
-                                {{-- @break --}}
+                                @break
                             @endif
                         @else
                             @php
@@ -246,7 +249,8 @@
                                                         <option selected="false" disabled class="hidden" value="">Choose one of your Xtra</option>
                                                         <div class=" max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw]">
                                                             @php
-                                                                $anggota = App\Models\userXmas::find(Auth::User()->NIP)->members;
+                                                                $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
+                                                                $anggota = App\Models\userXmas::find($NIP)->members;
                                                             @endphp
 
                                                             @foreach ($anggota as $member)
@@ -259,7 +263,7 @@
                                         </div>
                                         <div class="spasi1" style="height: 8.5vw;"></div>
 
-                                        <input type="hidden" name="NIP" id="NIP" value="{{Auth::User()->NIP}}" >
+                                        <input type="hidden" name="NIP" id="NIP" value="{{ $NIP }}" >
 
                                         <div class="boxsubmitrequest">
                                             <button type="submit" class="btnsubmitmodal">Submit</button>
@@ -281,7 +285,7 @@
                     @if ($flag == 1)
                         <form action="/reportform" method="POST">
                             @csrf
-                            <input type="hidden" name="NIP" id="NIP" value="{{Auth::User()->NIP}}">
+                            <input type="hidden" name="NIP" id="NIP" value="{{str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT)}}">
                             <button type="submit" class="request">Extracurricular Report</button>
                         </form>
                     @endif
