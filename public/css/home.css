@@ -53,7 +53,11 @@
     margin-top: 0.75vw;
     margin-left: 3.75vw;
     width: 7.5vw;
+    min-width: 7.5vw;
+    max-width: 7.5vw;
     height: 7.5vw;
+    min-height: 7.5vw;
+    max-height: 7.5vw;
     border-radius: 50%;
 }
 
