@@ -130,25 +130,19 @@
                     </div>
 
                     <script>
-                        var modal1 = document.getElementById('modalpopupLI');
-                        var hidemodal1 = document.getElementById('hidemodalLI');
+                        var modal3 = document.getElementById('modalpopupLI');
+                        var hidemodal3 = document.getElementById('hidemodalLI');
 
-                        if (!localStorage.getItem('loginSuccessDisplayed')) {
-                            hidemodal1.addEventListener('click', closePopup1);
+                        hidemodal3.addEventListener('click', closePopup3);
 
-                            function closePopup1() {
-                                modal1.style.display = "none";
-                                localStorage.setItem('loginSuccessDisplayed', true);
-                            }
-
-                            setTimeout(() => {
-                                const modal = document.getElementById("modalpopupLI");
-                                modal.style.display = 'none';
-                                localStorage.setItem('loginSuccessDisplayed', true);
-                            }, 3000);
-                        } else {
-                            modal1.style.display = 'none';
+                        function closePopup3(){
+                            modal3.style.display="none";
                         }
+
+                        setTimeout(() => {
+                            const modal = document.getElementById("modalpopupLI");
+                            modal.style.display = 'none';
+                        }, 3000);
                     </script>
                 @endif
         @endauth
@@ -263,7 +257,7 @@
                                                     @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
                                                     <form action="/xtrapage" method="POST" id="xtraPage">
                                                         @csrf
-                                                        <div id="boxLuar">
+                                                        <div id="boxLuar" class="cursor-pointer">
                                                             <div class="carousel-item">
                                                                 <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
                                                                     <div class="upcomingxtra">
@@ -532,9 +526,9 @@
                                 <div class="carousel1-items ml-[1vw]">
                                     @if ($xtras->count())
                                         @foreach ($xtras as $xtr)
-                                            <form action="/xtrapage" method="POST" id="xtraSegment">
+                                            <form action="/xtrapage" method="POST" id="xtraSegment" >
                                                 @csrf
-                                                <div id="sectionBox" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
+                                                <div id="sectionBox" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw] cursor-pointer">
                                                     <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
                                                         <div class="carousel-item">
                                                             <div class="xtra">
