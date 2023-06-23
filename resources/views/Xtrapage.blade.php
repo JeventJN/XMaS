@@ -714,6 +714,7 @@
     <div id="modaladdschedule" class="modaladdschedule">
         {{-- Modal Content --}}
         <form class="modal-contentaddschedule" action="/addSchedule" name="formAddSchedule" method="POST" onsubmit="return validasiAddSchedule()" autocomplete="off">
+            @csrf
             <div class="kotakisimodal">
                 <div class="boxjudulcloseaddschedule">
                     <div class="bungkuscalendar">
@@ -751,9 +752,9 @@
                             <input placeholder="Input here" name="activity" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
 
                             <div class="boxjamaddschedule">
-                                <input type="time" id="appt1" name="timeStart" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
+                                <input type="time" id="appt1" name="timeStart" min="09:00" max="21:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
                                 <div style="color: white; font-size: 3vw; margin-left: 0.5vw; margin-right: 0.5vw"> - </div>
-                                <input type="time" id="appt2" name="timeEnd" min="09:00" max="18:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
+                                <input type="time" id="appt2" name="timeEnd" min="09:00" max="21:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
                             </div>
 
                             <input placeholder="Input here" name="location" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />

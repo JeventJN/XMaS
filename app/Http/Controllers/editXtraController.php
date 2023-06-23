@@ -219,6 +219,9 @@ class editXtraController extends Controller
             'location' => 'required'
         ]);
 
+        // dd($data);
+        $data['kdExtracurricular'] = $request->kdXtra;
+
         schedule::create($data);
 
         return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra]);
