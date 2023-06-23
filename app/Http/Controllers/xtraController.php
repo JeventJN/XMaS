@@ -251,12 +251,10 @@ class xtraController extends Controller
             $userMember = -1;
         }
 
-        if($request->flag == 'hai'){
-            $edits = 'yes';
-        }
-        else{
+        // if($request->flag == 'hai'){
+        //     $edits = 'yes';
+        // }
             $edits = 'no';
-        }
         session(['previousUrl' => $request->url()]);
         // ddd($userMember, $request->kdXtra);
         return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
