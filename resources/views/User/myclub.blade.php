@@ -169,13 +169,14 @@
                         {{-- @dd($xtra->latest_schedule) --}}
                         {{-- {{ optional(optional($xtra->leader)->userXmas)->name }} --}}
                         {{-- {{ $xtra->leader?->NIP . '...' . $nip }} --}}
-                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm('{{ $xtra->kdExtracurricular }}')">
-                            {{-- <a href="/xtrapage"> --}}
-                                @csrf
-                                {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
                                 @if($xtra->leader?->NIP == $nip)
                                     <div class="">
-                                        {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
+                                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm('{{ $xtra->kdExtracurricular }}')">
+                                            {{-- <a href="/xtrapage"> --}}
+                                            @csrf
+                                            {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
+
+                                            {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
                                             {{-- INI TEMPLATE KALAU KETUA (ADA EDITNYA) --}}
                                             <div class="flex flex-col">
                                                 <div class="xtraboxcontainer flex justify-center items-center">
@@ -198,7 +199,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        {{-- </a> --}}
+                                            {{-- </a> --}}
+                                        </form>
                                         <div class="absolute w-fit h-fit flex justify-end mt-[-6vw] ml-[29vw]">
                                             <div class="w-fit h-fit">
                                                 {{-- TEMBAK LINK EDIT (KE EXTRAPAGE VRERSI EDIT) --}}
@@ -221,8 +223,11 @@
                                     </div>
                                 @else
                                     <div class="">
-
-                                        {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
+                                        <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm('{{ $xtra->kdExtracurricular }}')">
+                                            {{-- <a href="/xtrapage"> --}}
+                                            @csrf
+                                            {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
+                                            {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
                                             {{-- INI TEMPLATE KALAU CUMA ANGGOTA ESKUL --}}
                                             <div class="flex flex-col">
                                                 <div class="xtraboxcontainer flex justify-center items-center">
@@ -245,7 +250,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        {{-- </a> --}}
+                                            {{-- </a> --}}
+                                        </form>
                                         <div class="absolute w-fit h-fit flex justify-end ml-[33vw] mt-[-6vw]">
                                             <div class="w-[2.5vw] h-[2.5vw]">
                                                 {{-- TEMBAK LINK CHAT DISINI --}}
@@ -256,7 +262,6 @@
                                         </div>
                                     </div>
                                 @endif
-                        </form>
                     @endforeach
                     <script>
                         function submitForm(kdExtracurricular) {
