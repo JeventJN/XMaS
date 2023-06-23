@@ -128,20 +128,27 @@
                             </div>
                         </div>
                     </div>
+
                     <script>
                         var modal1 = document.getElementById('modalpopupLI');
                         var hidemodal1 = document.getElementById('hidemodalLI');
 
-                        hidemodal1.addEventListener('click', closePopup1);
+                        if (!localStorage.getItem('loginSuccessDisplayed')) {
+                            hidemodal1.addEventListener('click', closePopup1);
 
-                        function closePopup1(){
-                            modal1.style.display="none";
+                            function closePopup1() {
+                                modal1.style.display = "none";
+                                localStorage.setItem('loginSuccessDisplayed', true);
+                            }
+
+                            setTimeout(() => {
+                                const modal = document.getElementById("modalpopupLI");
+                                modal.style.display = 'none';
+                                localStorage.setItem('loginSuccessDisplayed', true);
+                            }, 3000);
+                        } else {
+                            modal1.style.display = 'none';
                         }
-
-                        setTimeout(() => {
-                            const modal = document.getElementById("modalpopupLI");
-                            modal.style.display = 'none';
-                        }, 3000);
                     </script>
                 @endif
         @endauth
@@ -381,9 +388,9 @@
 
                                     @endforeach
                                 @else
-                                <div class="w-screen flex justify-center h-[20vw] items-center">
-                                    <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
-                                </div>
+                                    <div class="w-screen flex justify-center h-[20vw] items-center">
+                                        <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
+                                    </div>
                                 @endif
 
                             </div>
@@ -526,7 +533,8 @@
                                     @if ($xtras->count())
                                         @foreach ($xtras as $xtr)
                                             <form action="/xtrapage" method="POST" id="xtraSegment">
-                                                <div class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
+                                                @csrf
+                                                <div id="sectionBox" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
                                                     <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
                                                         <div class="carousel-item">
                                                             <div class="xtra">
@@ -546,6 +554,12 @@
                                                 </div>
                                                 <input type="hidden" name="kdXtra" value="{{$xtr->kdExtracurricular}}">
                                             </form>
+
+                                            <script>
+                                                document.getElementById("sectionBox").addEventListener("click", function () {
+                                                    document.getElementById("xtraSegment").submit();
+                                                });
+                                            </script>
                                             <div class="w-[5vw]"></div>
                                         @endforeach
                                     @else

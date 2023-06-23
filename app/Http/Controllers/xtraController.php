@@ -254,8 +254,8 @@ class xtraController extends Controller
         // if($request->flag == 'hai'){
         //     $edits = 'yes';
         // }
-            $edits = 'no';
-        session(['previousUrl' => $request->url()]);
+        $edits = 'no';
+        // session(['previousUrl' => $request->url()]);
         // ddd($userMember, $request->kdXtra);
         return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
     }
