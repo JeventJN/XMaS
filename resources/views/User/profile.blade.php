@@ -209,17 +209,19 @@
                                 @endphp
                                 @break
 
-                            @elseif($member->kdState == 1)
+                            {{-- @elseif($member->kdState == 1)
                                 @php
                                     // member
                                     $flag = 0;
+                                    dd('masuk 1')
+
                                 @endphp
-                                @break
+                                @break --}}
                             @endif
                         @else
                             @php
                                 // not member
-                                $flag = -1;
+                                $flag = 0;
                             @endphp
                         @endif
                     @endforeach

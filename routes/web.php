@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\attendanceController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\logInController;
 use App\Http\Controllers\signUpController;
@@ -63,6 +64,8 @@ Route::post(('/xtrapage'), [xtraController::class, 'show']);
 Route::get(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapage');
 
 Route::post('/addSchedule', [editXtraController::class, 'schedule']);
+Route::get('/attendanceLeader/{kdXtra}', [attendanceController::class, 'attendancePage'])->middleware('auth');
+Route::POST('/attendance', [attendanceController::class, 'attendance'])->middleware('auth');
 
 Route::post('/editXtra', [editXtraController::class, 'route'])->name('editXtra');
 Route::post('/editHeader', [editXtraController::class, 'header']);
@@ -121,7 +124,7 @@ Route::get('chat', function (){
     return view('chat');
 });
 
-Route::get('attendance', function (){
-    return view('Ketua.attendance');
-});
+// Route::get('attendance', function (){
+//     return view('Ketua.attendance');
+// });
 
