@@ -46,7 +46,14 @@
     @endguest
 
     @auth
-        @include('User.navbarUser')
+        @if (Auth()->User()->can('admin'))
+            {{-- Admin --}}
+            @include('Admin.navbarA')
+        @else
+            {{-- Authenticated User Non Admin --}}
+            @include('User/navbarUser')
+        @endif
+        
         @if(!$userMember)
             @php
                 // non-member

@@ -42,7 +42,14 @@ class attendanceController extends Controller
         $attendanceKd = $request->input('attendanceKd');
         $membersKd = json_decode($attendanceKd, true);
 
-        // dd($membersKd);
+        $presences = presence::all();
+
+        foreach ($presences as $presence) {
+            if ($presence->kdSchedule == $request->kdSchedule) {
+                $presence->delete();
+            }
+        }
+
         foreach ($membersKd as $kdMember) {
             presence::create([
                 'kdSchedule' => $request->kdSchedule,
@@ -50,11 +57,12 @@ class attendanceController extends Controller
             ]);
         }
 
-        $data = [
-            'kdExtracurricular' => $request->kdXtra
-        ];
 
         if ($request->hasFile('photoXtra')) {
+            dd('masuk dokum');
+            $data = [
+                'kdExtracurricular' => $request->kdXtra
+            ];
             $data['photoXtra'] = $request->file('photoXtra')->store('database-assets');
 
             documentation::create($data);

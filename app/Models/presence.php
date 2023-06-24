@@ -10,6 +10,7 @@ class presence extends Model
     use HasFactory;
 
     // protected $fillable = [''];
+    protected $primaryKey = 'kdPresence';
     protected $guarded = ['kdPresence'];
 
     public function members(){

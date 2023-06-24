@@ -224,6 +224,6 @@ class editXtraController extends Controller
 
         schedule::create($data);
 
-        return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra])->with('scheduleAdded', 'yes');
+        return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra])->with('notif', 'Schedule added successfully');
     }
 }

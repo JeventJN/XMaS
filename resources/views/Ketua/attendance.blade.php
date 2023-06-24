@@ -93,8 +93,6 @@
                             }
                         }
                         document.getElementById('attendanceCount').textContent = `Presence ${presentCount}/${totalMembers}`;
-
-                        // console.log(attendanceKd);
                     }
                 </script>
             </div>
