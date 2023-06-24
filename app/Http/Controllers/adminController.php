@@ -37,8 +37,10 @@ class adminController extends Controller
             }
         }
 
+        $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
+
         foreach ($members as $member) {
-            if ($member->NIP == $request->NIP) {
+            if ($member->NIP == $NIP) {
                 if ($member->kdState == 3) {
                     $member->kdState = 2;
 
@@ -53,8 +55,9 @@ class adminController extends Controller
     public function denyReq(Request $request){
         $members = extracurricular::find($request->xtra)->members;
 
+        $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
         foreach ($members as $member) {
-            if ($member->NIP == $request->NIP) {
+            if ($member->NIP == $NIP) {
                 if ($member->kdState == 3) {
                     $member->kdState = 1;
 

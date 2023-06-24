@@ -66,7 +66,7 @@
                                     @foreach ($xtras as $xtr)
                                         <option class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[1.2vw] border-none" name="choose" value="{{ $xtr->kdExtracurricular }}" {{ old('choose') == $xtr->name ? 'selected' : '' }}>{{$xtr->name}}</option>
                                     @endforeach
-                                    <input type="hidden" name="user" value="{{Auth::User()->NIP}}">
+                                    <input type="hidden" name="user" value="{{str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT)}}">
                                 </div>
                             </select>
                         </div>
