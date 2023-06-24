@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class isAdmin
 {
@@ -16,7 +17,7 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || auth()->user()->NIP !== "0000"){
+        if(!auth()->check() || str_pad(Auth()->user()->NIP, 4, '0', STR_PAD_LEFT) !== "0000"){
             abort(403);
         }
         return $next($request);
