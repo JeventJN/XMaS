@@ -128,14 +128,15 @@
                             </div>
                         </div>
                     </div>
+
                     <script>
-                        var modal1 = document.getElementById('modalpopupLI');
-                        var hidemodal1 = document.getElementById('hidemodalLI');
+                        var modal3 = document.getElementById('modalpopupLI');
+                        var hidemodal3 = document.getElementById('hidemodalLI');
 
-                        hidemodal1.addEventListener('click', closePopup1);
+                        hidemodal3.addEventListener('click', closePopup3);
 
-                        function closePopup1(){
-                            modal1.style.display="none";
+                        function closePopup3(){
+                            modal3.style.display="none";
                         }
 
                         setTimeout(() => {
@@ -170,58 +171,58 @@
                                     <div class="carousel-items select-none ml-[1vw]">
                                             @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
                                                 @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
-                                                    <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
-                                                        <div class="carousel-item">
-                                                            <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
-                                                                <div class="upcomingxtra">
-                                                                    <div class="logo">
-                                                                        <div class="photo">
-                                                                            {{-- Pass Xtra BG Here --}}
-                                                                            @if (Illuminate\Support\Str::contains($xtr->backgroundImage, 'database-assets'))
-                                                                                <img src="{{ asset('storage/' . $xtr->backgroundImage) }}" alt="{{ asset('Assets/RunningBg.jpeg')}}" style="object-fit: cover;"/>
-                                                                            @else
-                                                                                <img src="{{ asset('Assets/' . $xtr->backgroundImage) }}" alt="{{ asset('Assets/RunningBg.jpeg')}}" style="object-fit: cover;"/>
-                                                                            @endif
-                                                                        </div>
-                                                                        <div class="logoxtra mt-[-9vw]">
-                                                                            @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                                <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
-                                                                            @else
-                                                                                <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
-                                                                            @endif
-                                                                        </div>
+                                                <a href="/xtrapage/{{ $xtr->kdExtracurricular }}">
+                                                    <div class="carousel-item">
+                                                        <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
+                                                            <div class="upcomingxtra">
+                                                                <div class="logo">
+                                                                    <div class="photo">
+                                                                        {{-- Pass Xtra BG Here --}}
+                                                                        @if (Illuminate\Support\Str::contains($xtr->backgroundImage, 'database-assets'))
+                                                                            <img src="{{ asset('storage/' . $xtr->backgroundImage) }}" alt="{{ asset('Assets/RunningBg.jpeg')}}" style="object-fit: cover;"/>
+                                                                        @else
+                                                                            <img src="{{ asset('Assets/' . $xtr->backgroundImage) }}" alt="{{ asset('Assets/RunningBg.jpeg')}}" style="object-fit: cover;"/>
+                                                                        @endif
                                                                     </div>
-                                                                    <div class="title text-[1.5vw] font-nunito font-semibold">
-                                                                        {{-- {{ $xtr->name }} --}}
-                                                                        {{ Str::limit($xtr->name, 12, '...') }}
+                                                                    <div class="logoxtra mt-[-9vw]">
+                                                                        @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
+                                                                            <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                        @else
+                                                                            <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                        @endif
                                                                     </div>
-                                                                    <div class="content text-white text-[1.5vw]">
-                                                                        <h3>
-                                                                            @if ($xtr->latest_schedule?->location === NULL)
-                                                                                <p>No location</p>
-                                                                            @else
-                                                                                {{$xtr->latest_schedule?->location}}
-                                                                            @endif
-                                                                        </h3>
-                                                                        <h3>
-                                                                            @if ($xtr->latest_schedule?->date === NULL)
-                                                                                <p>No schedule</p>
-                                                                            @else
-                                                                                {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . ' '  . date('M', strtotime($xtr->latest_schedule?->date)) . ' ' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
-                                                                            @endif
-                                                                        </h3>
-                                                                        <h3>
-                                                                            @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
-                                                                                <p>No phone number</p>
-                                                                            @else
-                                                                                {{ substr_replace($xtr->leader?->userXmas?->phoneNumber, "0", 0, 2) }}
-                                                                            @endif
-                                                                        </h3>
-                                                                    </div>
+                                                                </div>
+                                                                <div class="title text-[1.5vw] font-nunito font-semibold">
+                                                                    {{-- {{ $xtr->name }} --}}
+                                                                    {{ Str::limit($xtr->name, 12, '...') }}
+                                                                </div>
+                                                                <div class="content text-white text-[1.5vw]">
+                                                                    <h3>
+                                                                        @if ($xtr->latest_schedule?->location === NULL)
+                                                                            <p>No location</p>
+                                                                        @else
+                                                                            {{$xtr->latest_schedule?->location}}
+                                                                        @endif
+                                                                    </h3>
+                                                                    <h3>
+                                                                        @if ($xtr->latest_schedule?->date === NULL)
+                                                                            <p>No schedule</p>
+                                                                        @else
+                                                                            {{ date('D', strtotime($xtr->latest_schedule?->date)) . ', ' . date('d', strtotime($xtr->latest_schedule?->date)) . ' '  . date('M', strtotime($xtr->latest_schedule?->date)) . ' ' . date('Y', strtotime($xtr->latest_schedule?->date)) }}
+                                                                        @endif
+                                                                    </h3>
+                                                                    <h3>
+                                                                        @if ($xtr->leader?->userXmas?->phoneNumber === NULL)
+                                                                            <p>No phone number</p>
+                                                                        @else
+                                                                            {{ substr_replace($xtr->leader?->userXmas?->phoneNumber, "0", 0, 2) }}
+                                                                        @endif
+                                                                    </h3>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </a>
+                                                    </div>
+                                                </a>
                                                 <div class="w-[5vw]"></div>
                                             @endif
                                         @endforeach
@@ -254,7 +255,9 @@
                                         <div class="carousel-items select-none ml-[1vw]">
                                                 @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
                                                     @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
-                                                        <a href="/xtralist/{{ $xtr->kdExtracurricular }}">
+                                                    <form action="/xtrapage" method="POST" id="xtraPage">
+                                                        @csrf
+                                                        <div id="boxLuar" class="cursor-pointer">
                                                             <div class="carousel-item">
                                                                 <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
                                                                     <div class="upcomingxtra">
@@ -305,7 +308,15 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                            <input type="hidden" name="kdXtra" value="{{$xtr->kdExtracurricular}}">
+                                                        </div>
+                                                    </form>
+
+                                                    <script>
+                                                        document.getElementById("boxLuar").addEventListener("click", function () {
+                                                            document.getElementById("xtraPage").submit();
+                                                        });
+                                                    </script>
                                                     <div class="w-[5vw]"></div>
                                                 @endif
                                             @endforeach
@@ -371,9 +382,9 @@
 
                                     @endforeach
                                 @else
-                                <div class="w-screen flex justify-center h-[20vw] items-center">
-                                    <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
-                                </div>
+                                    <div class="w-screen flex justify-center h-[20vw] items-center">
+                                        <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
+                                    </div>
                                 @endif
 
                             </div>
@@ -446,51 +457,167 @@
 
 
     {{-- Extracurricular Segment --}}
-    <div class="segment">
-        <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
-            Extracurriculars
-        </div>
-        <h1 class="text-[#56B8E6] viewall font-nunito">
-            <a href="/xtralistNU">
-                view all
-            </a>
-        </h1>
-        <div class="h-[30vw] w-[100%] flex items-center overflow-scroll scrollbar-hide ml-[1.8vw]" id="carousel1">
-            <div class="flex h-fit">
-                <div class="h-[30vw] w-[100%] flex items-center mr-[2vw]">
-                    <div class="flex h-fit">
-                        <div class="carousel1-items ml-[1vw]">
-                            @if ($xtras->count())
-                                @foreach ($xtras as $xtr)
-                                    <a href="/xtralist/{{ $xtr->kdExtracurricular }}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
-                                        <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
-                                            <div class="carousel-item">
-                                                <div class="xtra">
-                                                    <div class="xtralogo">
-                                                        @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                            <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
-                                                        @else
-                                                            <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
-                                                        @endif
+    @guest
+        <div class="segment">
+            <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
+                Extracurriculars
+            </div>
+            <h1 class="text-[#56B8E6] viewall font-nunito">
+                <a href="/xtralistNU">
+                    view all
+                </a>
+            </h1>
+            <div class="h-[30vw] w-[100%] flex items-center overflow-scroll scrollbar-hide ml-[1.8vw]" id="carousel1">
+                <div class="flex h-fit">
+                    <div class="h-[30vw] w-[100%] flex items-center mr-[2vw]">
+                        <div class="flex h-fit">
+                            <div class="carousel1-items ml-[1vw]">
+                                @if ($xtras->count())
+                                    @foreach ($xtras as $xtr)
+                                        <a href="/xtralist/{{ $xtr->kdExtracurricular }}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
+                                            <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
+                                                <div class="carousel-item">
+                                                    <div class="xtra">
+                                                        <div class="xtralogo">
+                                                            @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
+                                                                <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                            @else
+                                                                <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                            @endif
+                                                        </div>
+                                                        <h3 class="mt-[1vw]">
+                                                            {{$xtr->name}}
+                                                        </h3>
                                                     </div>
-                                                    <h3 class="mt-[1vw]">
-                                                        {{$xtr->name}}
-                                                    </h3>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                    <div class="w-[5vw]"></div>
-                                @endforeach
-                            @else
-                                {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 166 --}}
-                                <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
-                            @endif
+                                        </a>
+                                        <div class="w-[5vw]"></div>
+                                    @endforeach
+                                @else
+                                    {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 166 --}}
+                                    <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    @endguest
+
+
+    @auth
+        @if (Auth::User()->NIP !== 0)
+            {{-- Sudah login --}}
+            <div class="segment">
+                <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
+                    Extracurriculars
+                </div>
+                <h1 class="text-[#56B8E6] viewall font-nunito">
+                    <a href="/xtralistNU">
+                        view all
+                    </a>
+                </h1>
+                <div class="h-[30vw] w-[100%] flex items-center overflow-scroll scrollbar-hide ml-[1.8vw]" id="carousel1">
+                    <div class="flex h-fit">
+                        <div class="h-[30vw] w-[100%] flex items-center mr-[2vw]">
+                            <div class="flex h-fit">
+                                <div class="carousel1-items ml-[1vw]">
+                                    @if ($xtras->count())
+                                        @foreach ($xtras as $xtr)
+                                            <form action="/xtrapage" method="POST" id="xtraSegment" >
+                                                @csrf
+                                                <div id="sectionBox" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw] cursor-pointer">
+                                                    <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
+                                                        <div class="carousel-item">
+                                                            <div class="xtra">
+                                                                <div class="xtralogo">
+                                                                    @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
+                                                                        <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                    @else
+                                                                        <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                    @endif
+                                                                </div>
+                                                                <h3 class="mt-[1vw]">
+                                                                    {{$xtr->name}}
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="kdXtra" value="{{$xtr->kdExtracurricular}}">
+                                            </form>
+
+                                            <script>
+                                                document.getElementById("sectionBox").addEventListener("click", function () {
+                                                    document.getElementById("xtraSegment").submit();
+                                                });
+                                            </script>
+                                            <div class="w-[5vw]"></div>
+                                        @endforeach
+                                    @else
+                                        {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 166 --}}
+                                        <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @else
+            {{-- Admin --}}
+            <div class="segment">
+                <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
+                    Extracurriculars
+                </div>
+                <h1 class="text-[#56B8E6] viewall font-nunito">
+                    <a href="/xtralistNU">
+                        view all
+                    </a>
+                </h1>
+                <div class="h-[30vw] w-[100%] flex items-center overflow-scroll scrollbar-hide ml-[1.8vw]" id="carousel1">
+                    <div class="flex h-fit">
+                        <div class="h-[30vw] w-[100%] flex items-center mr-[2vw]">
+                            <div class="flex h-fit">
+                                <div class="carousel1-items ml-[1vw]">
+                                    @if ($xtras->count())
+                                        @foreach ($xtras as $xtr)
+                                            <a href="/xtralist/{{ $xtr->kdExtracurricular }}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
+                                                <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
+                                                    <div class="carousel-item">
+                                                        <div class="xtra">
+                                                            <div class="xtralogo">
+                                                                @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
+                                                                    <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                @else
+                                                                    <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                @endif
+                                                            </div>
+                                                            <h3 class="mt-[1vw]">
+                                                                {{$xtr->name}}
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="w-[5vw]"></div>
+                                        @endforeach
+                                    @else
+                                        {{-- Ga ada xtra, yang bawah boleh dihapus ya peng, copy dari line 166 --}}
+                                        <p class="text-[1.7vw] font-semibold mb-[3vw] w-full justify-center items-center flex">No Incoming Report Yet.</p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+    @endauth
+
     <script src="{{asset('js/home.js')}}"></script>
     @include('footer')
 </body>

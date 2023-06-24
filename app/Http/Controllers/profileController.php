@@ -15,7 +15,8 @@ class profileController extends Controller
     //
 
     function updateImage(Request $request){
-        $user = userXmas::find($request->NIP);
+        $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
+        $user = userXmas::find($NIP);
 
         $data = $request -> validate([
             'fileupload' => 'image'
@@ -35,7 +36,8 @@ class profileController extends Controller
     }
 
     function updatePhone(Request $request) {
-        $user = userXmas::find($request->NIP);
+        $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
+        $user = userXmas::find($NIP);
 
 
         if (!Str::startsWith($request->phone, '62')) {
@@ -53,7 +55,8 @@ class profileController extends Controller
     }
 
     function xtras(Request $request){
-        $anggota = userXmas::find($request->NIP)->members;
+        $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
+        $anggota = userXmas::find($NIP)->members;
 
         return view('User.profile', compact('anggota'));
 
@@ -63,16 +66,18 @@ class profileController extends Controller
         $members = extracurricular::find($request->xtrachs)->members;
         $anggota = member::all();
 
+        $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
+
         foreach($anggota as $member){
             if($member->kdState == 2){
-                if($member->NIP == $request->NIP){
+                if($member->NIP == $NIP){
                     return redirect('profile')->with('alrLeader', 'Gaboleh lagi');
                 }
             }
         }
 
         foreach ($members as $member) {
-            if ($member->NIP == $request->NIP) {
+            if ($member->NIP == $NIP) {
                 if ($member->kdState == 1) {
                     $member->kdState = 3;
 

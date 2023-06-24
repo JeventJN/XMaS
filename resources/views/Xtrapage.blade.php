@@ -307,33 +307,35 @@
         {{-- buat container di bagian tengah (Make Attendance, Add Schedule, Kotak 3 segment) --}}
         <div class="containertengah">
             <div class="button-make-advance float-right">
-                {{-- Untuk Make Attendance dan Add Schedule --}}
-                @if ($edit == 0)
-                    <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
-                    <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">Add Schedule</a>
-                {{-- Untuk Make Attendance dan Add Schedule --}}
+                @if ($flag == 1)
+                    {{-- Untuk Make Attendance dan Add Schedule --}}
+                    @if ($edit == 0)
+                        <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
+                        <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">Add Schedule</a>
+                    {{-- Untuk Make Attendance dan Add Schedule --}}
 
-                {{-- Add Photo only --}}
-                @else
-                    <form action="{{ route('editXtra.photo') }}" method="POST" enctype="multipart/form-data" id="addPhotoForm">
-                        @csrf
-                        <a type="button" class="btn" id="addPhotoBut" style="padding-left: 4vw; padding-right: 4vw;">Add Photo</a>
-                        <input type="file" class="btn absolute opacity-0 ml-[-15.8vw] mt-[-2.6vw] w-[15.8vw] h-[5.4vw] rounded-[1.85vw]" id="aduh" name="photo" accept=".png, .jpg, .jpeg" style="padding-left: 4vw; padding-right: 4vw;" onmouseover="this.previousElementSibling.style.backgroundColor = '#1B2F45'" onmouseout="this.previousElementSibling.style.backgroundColor = ''">
-                        <input type="hidden" name="xtra" value="{{$xtra->kdExtracurricular}}">
-                    </form>
+                    {{-- Add Photo only --}}
+                    @else
+                        <form action="{{ route('editXtra.photo') }}" method="POST" enctype="multipart/form-data" id="addPhotoForm">
+                            @csrf
+                            <a type="button" class="btn" id="addPhotoBut" style="padding-left: 4vw; padding-right: 4vw;">Add Photo</a>
+                            <input type="file" class="btn absolute opacity-0 ml-[-15.8vw] mt-[-2.6vw] w-[15.8vw] h-[5.4vw] rounded-[1.85vw]" id="aduh" name="photo" accept=".png, .jpg, .jpeg" style="padding-left: 4vw; padding-right: 4vw;" onmouseover="this.previousElementSibling.style.backgroundColor = '#1B2F45'" onmouseout="this.previousElementSibling.style.backgroundColor = ''">
+                            <input type="hidden" name="xtra" value="{{$xtra->kdExtracurricular}}">
+                        </form>
 
-                    <script>
-                        window.addEventListener("load", function() {
-                            var fileInput = document.getElementById("aduh");
-                            fileInput.value = null;
-                        });
+                        <script>
+                            window.addEventListener("load", function() {
+                                var fileInput = document.getElementById("aduh");
+                                fileInput.value = null;
+                            });
 
-                        document.getElementById("aduh").addEventListener("change", function() {
-                            document.getElementById("addPhotoForm").submit();
-                        });
-                    </script>
+                            document.getElementById("aduh").addEventListener("change", function() {
+                                document.getElementById("addPhotoForm").submit();
+                            });
+                        </script>
+                    @endif
+                    {{-- Add Photo only --}}
                 @endif
-                {{-- Add Photo only --}}
             </div>
 
             {{-- hanya buat spasi --}}
