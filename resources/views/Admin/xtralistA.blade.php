@@ -110,8 +110,8 @@
     </script> --}}
     {{-- popup --}}
 
-    {{-- modal pop up xtralist Admin --}}
-    <form action="/xtralistA" id="modal" method="GET" autocomplete="off">
+    {{-- modal pop up create new xtra Admin --}}
+    {{-- <form action="/xtralistA" id="modal" method="GET" autocomplete="off"> --}}
         <div class="fixed modal z-50 h-[15vw] w-[40vw] ml-[29.5vw] mb-[20vw] mt-[0vw] font-nunito" id="popupA">
             <div class=" flex justify-around items-center flex-col">
                 <div class="w-[36vw] flex justify-end">
@@ -127,7 +127,7 @@
                     Do you want to continue?
                 </div>
                 <div class="w-[36vw] h-[2.5vw] flex justify-end text-[1.2vw] mb-[1vw]">
-                    <button type="submit">
+                    <button type="button" onclick="submitCreate()">
                         <div class="w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] flex justify-center items-center mr-[1vw] text-white hover:bg-[#145003] hover:cursor-pointer hover:font-bold">
                             Yes
                         </div>
@@ -138,7 +138,12 @@
                 </div>
             </div>
         </div>
-    </form>
+        <script>
+            function submitCreate(){
+                document.getElementById('modalpopupA').submit();
+            }
+        </script>
+    {{-- </form> --}}
 
     {{-- Modal Tempat Sampah --}}
     <div id="modalsampah" class="modalsampah">
@@ -164,7 +169,8 @@
     </div>
     {{-- Modal Tempat Sampah --}}
 
-    <form id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
+    <form method="POST" action="{{ route('xtra.create') }}" id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
+        @csrf
         <div class="flex flex-col jutify-center items-center">
             <div class="flex w-[90%] items-center mt-[2.2vw] font-black">
                 <div class="text-[1.8vw]">
@@ -185,17 +191,17 @@
                         class="outline-none text-[1.8vw] m-[0.5vw]" autocomplete="off">
                 </div>
                 <div class="text-[1.8vw] mt-[1.5vw] font-bold">
-                    Categories
+                    Category
                 </div>
                 <div class="flex text-[1.5vw] items-center mt-[0.5vw]">
-                    <input type="radio" id="category" name="category" value="Physique"
+                    <input type="radio" id="PhysiqueC" name="category" value="Physique"
                         class="w-[2vw] h-[2vw] hover:cursor-pointer">
-                    <label class="ml-[1.5vw]">Physique</label>
+                    <label class="ml-[1.5vw]" for="PhysiqueC">Physique</label>
                 </div>
                 <div class="flex text-[1.5vw] items-center">
-                    <input type="radio" id="category" name="category" value="Non-Physique"
+                    <input type="radio" id="Non-Physique" name="category" value="Non-Physique"
                         class="w-[2vw] h-[2vw] hover:cursor-pointer">
-                    <label class="ml-[1.5vw]">Non-Physique</label>
+                    <label class="ml-[1.5vw]" for="Non-Physique">Non-Physique</label>
                 </div>
             </div>
             <div id="showmodalA1" class="text-[1.8vw] absolute mt-[20.5vw] ml-[32vw] font-bold hover:cursor-pointer hover:text-[#A1A9B2]">
@@ -369,7 +375,11 @@
                                 @csrf
                                 <div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                        <img src="{{ asset('/Assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}">
+                                        @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
+                                            <img src="{{ asset('storage/' . $xtra->logo) }}" alt="{{ $xtra->name }}"/>
+                                        @else
+                                            <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}"/>
+                                        @endif
                                     </div>
                                     <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                         <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ Str::limit($xtra->name, 12, '...') }}</div>
@@ -395,8 +405,8 @@
                             </div>
                         </div>
                     @endforeach
-                @else
-                <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
+                {{-- @else
+                    <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p> --}}
                 @endif
             </div>
             <div class="rowcontainer" id="list_xtra"></div>
@@ -499,7 +509,7 @@
                     $.ajax({
                         url: "{{ url('search') }}",
                         type:"GET",
-                        data: "search=" + query +'&Physique=' + Physique + '&NonPhysique=' + NonPhysique +'&Mon=' + Mon +'&Tue=' + Tue +'&Wed=' + Wed +'&Thu=' + Thu +'&Fri=' + Fri + '&Sat=' + Sat + '&Sun=' + Sun + '&page=xtralist',
+                        data: "search=" + query +'&Physique=' + Physique + '&NonPhysique=' + NonPhysique +'&Mon=' + Mon +'&Tue=' + Tue +'&Wed=' + Wed +'&Thu=' + Thu +'&Fri=' + Fri + '&Sat=' + Sat + '&Sun=' + Sun + '&page=xtralistA',
                         success: function(data){
                             console.log(data);
                             console.log(Physique);
