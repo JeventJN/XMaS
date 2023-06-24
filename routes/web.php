@@ -123,3 +123,7 @@ Route::get('chat', function (){
     return view('chat');
 });
 
+Route::get('attendance', function (){
+    return view('Ketua.attendance');
+});
+

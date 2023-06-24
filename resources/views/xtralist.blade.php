@@ -135,7 +135,7 @@
                         </button>
                     </div>
                 </form>
-            </div>
+            </div>  
             <div class="rowcontainer" id="all_xtra">
                 @if ($xtras->count())
                     @foreach ($xtras as $xtra)
