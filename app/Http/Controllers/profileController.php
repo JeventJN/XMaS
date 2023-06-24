@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\extracurricular;
 use App\Models\member;
+use App\Models\report;
+use App\Models\schedule;
 use App\Models\userXmas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -14,7 +17,37 @@ class profileController extends Controller
 {
     //
 
-    function updateImage(Request $request){
+    public function index(){
+        $NIP = str_pad(Auth::User()->NIP, 4, '0', STR_PAD_LEFT);
+        if ($NIP === '0000') {
+            $reports = report::latest()->get()->filter(function ($report) {
+                return $report->kdState == 3;})->values();
+
+                $xtras = extracurricular::all();
+                $flag = 1;
+
+
+                foreach ($xtras as $xtra) {
+                    $latestSchedule = schedule::where('kdExtracurricular', '=', $xtra->kdExtracurricular)->latest('date')->first();
+                    if($latestSchedule->date >= today()){
+                        $flag = 0;
+                        break;
+                    }
+                }
+
+                if ($flag == 0) {
+                    return redirect()->route('home')->with(['xtras' => extracurricular::latest()->get(), 'reports' => $reports, 'kosong' => 'no']);
+                }
+                else{
+                    return redirect()->route('home')->with(['xtras' => $xtras, 'reports' => $reports, 'kosong' => 'yes']);
+                }
+        }
+        else {
+            return view('User.profile');
+        }
+    }
+
+    public function updateImage(Request $request){
         $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
         $user = userXmas::find($NIP);
 

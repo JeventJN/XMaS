@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/home', [Controller::class, 'index']);
 // Route::get('/home', [homeController::class, 'showXtraSchedule'], [Controller::class, 'index']);
-Route::get('/home', [homeController::class, 'showXtraSchedule']);
+Route::get('/home', [homeController::class, 'showXtraSchedule'])->name('home');
 // Route::resource('/home', adminController::class);
 Route::redirect('/', '/home');
 
@@ -102,9 +102,7 @@ Route::get(('/reportlist'), [reportController::class, 'index'])->name('reportLis
 
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
 
-Route::get('profile', function (){
-    return view('user/profile');
-})->name('profile')->middleware('auth');
+Route::get('profile', [profileController::class, 'index'])->name('profile')->middleware('auth');
 
 Route::post('/changeImage', [profileController::class, 'updateImage']);
 Route::post('/changePhone', [profileController::class, 'updatePhone']);

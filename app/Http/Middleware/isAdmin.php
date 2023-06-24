@@ -18,7 +18,7 @@ class isAdmin
     public function handle(Request $request, Closure $next)
     {
         if(!auth()->check() || str_pad(Auth()->user()->NIP, 4, '0', STR_PAD_LEFT) !== "0000"){
-            abort(403);
+            abort(403, 'Unauthorized access');
         }
         return $next($request);
     }
