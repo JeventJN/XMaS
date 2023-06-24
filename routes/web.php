@@ -83,7 +83,7 @@ Route::post('/editActivity', [editXtraController::class, 'activity'])->name('edi
 Route::post('/reportform', [reportController::class, 'reportKetua']);
 Route::post('/addReport', [reportController::class, 'new']);
 
-Route::post('/reportformA', [adminController::class, 'report']);
+Route::post('/reportformA', [adminController::class, 'report'])->middleware('admin');
 Route::post('/subReport', [adminController::class, 'accDenyReport']);
 
 
@@ -98,24 +98,24 @@ Route::get(('/contoh'), function (){
 
 Route::get(('/myclub'), [xtraController::class, 'myclub']);
 
-Route::get(('/reportlist'), [reportController::class, 'index'])->name('reportList');
+Route::get(('/reportlist'), [reportController::class, 'index'])->name('reportList')->middleware('admin');
 
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
 
 Route::get('profile', function (){
     return view('user/profile');
-})->name('profile');
+})->name('profile')->middleware('auth');
 
 Route::post('/changeImage', [profileController::class, 'updateImage']);
 Route::post('/changePhone', [profileController::class, 'updatePhone']);
 Route::post('/showXtratoLead', [profileController::class, 'xtras']);
 Route::post('/reqLead', [profileController::class, 'requestLead']);
 
-Route::get('/approval', [adminController::class, 'approval'])->name('approval');
+Route::get('/approval', [adminController::class, 'approval'])->name('approval')->middleware('admin');
 Route::post('/acceptReq', [adminController::class, 'accReq']);
 Route::post('/denyReq', [adminController::class, 'denyReq']);
 
-Route::get('/xtralistA', [xtraController::class, 'xtraListA']);
+Route::get('/xtralistA', [xtraController::class, 'xtraListA'])->middleware('admin');
 Route::post(('/deleteXtra'), [xtraController::class, 'deleteXtra'])->name('xtra.delete');
 Route::post(('/createXtra'), [xtraController::class, 'createXtra'])->name('xtra.create');
 

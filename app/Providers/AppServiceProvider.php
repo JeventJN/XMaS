@@ -27,7 +27,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Gate::define('admin', function(){
-            return auth()->user()->NIP === "0000";
+            $NIP = str_pad(Auth()->user()->NIP, 4, '0', STR_PAD_LEFT);
+            return $NIP === "0000";
         });
     }
 }
