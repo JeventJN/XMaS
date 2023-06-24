@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('logo');
             $table->string('backgroundImage');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('category');
             $table->timestamps();
         });
