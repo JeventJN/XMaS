@@ -50,7 +50,9 @@ class logInController extends Controller
 
         $request->session()->regenerateToken();
 
-        $user = userXmas::find($request->NIP);
+        $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
+
+        $user = userXmas::find($NIP);
 
         if ($user->photo) {
             Storage::delete($user->photo);
