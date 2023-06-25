@@ -169,8 +169,8 @@
                             <div class="h-[30vw] w-[100%] flex items-center justify-center mr-[2vw]">
                                 <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
                                     <div class="carousel-items select-none ml-[1vw]">
-                                            @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
-                                                @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
+                                        @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
+                                            @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
                                                 <a href="/xtrapage/{{ $xtr->kdExtracurricular }}">
                                                     <div class="carousel-item">
                                                         <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
@@ -253,11 +253,11 @@
                                 <div class="h-[30vw] w-[100%] flex items-center justify-center mr-[2vw]">
                                     <div class="carousel flex h-fit overflow-scroll scrollbar-hide" id="carousel">
                                         <div class="carousel-items select-none ml-[1vw]">
-                                                @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
-                                                    @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
-                                                    <form action="/xtrapage" method="POST" id="xtraPage">
+                                            @foreach ($xtras->sortBy('latest_schedule.date') as $xtr)
+                                                @if ($xtr->latest_schedule?->date > Illuminate\Support\Carbon::yesterday())
+                                                    <form action="/xtrapage" method="POST" id="xtraPage{{$loop->index}}">
                                                         @csrf
-                                                        <div id="boxLuar" class="cursor-pointer">
+                                                        <div id="boxLuar{{$loop->index}}" class="cursor-pointer">
                                                             <div class="carousel-item">
                                                                 <div class="upcomingxtrahover h-[25vw] flex items-center font-noto">
                                                                     <div class="upcomingxtra">
@@ -311,21 +311,20 @@
                                                             <input type="hidden" name="kdXtra" value="{{$xtr->kdExtracurricular}}">
                                                         </div>
                                                     </form>
-
                                                     <script>
-                                                        document.getElementById("boxLuar").addEventListener("click", function () {
-                                                            document.getElementById("xtraPage").submit();
+                                                        document.getElementById("boxLuar{{$loop->index}}").addEventListener("click", function () {
+                                                            document.getElementById("xtraPage{{$loop->index}}").submit();
                                                         });
                                                     </script>
                                                     <div class="w-[5vw]"></div>
                                                 @endif
                                             @endforeach
-                                        @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @endif
             </div>
         @else
@@ -526,9 +525,9 @@
                                 <div class="carousel1-items ml-[1vw]">
                                     @if ($xtras->count())
                                         @foreach ($xtras as $xtr)
-                                            <form action="/xtrapage" method="POST" id="xtraSegment" >
+                                            <form action="/xtrapage" method="POST" id="xtraSegment{{$loop->index}}" >
                                                 @csrf
-                                                <div id="sectionBox" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw] cursor-pointer">
+                                                <div id="sectionBox{{$loop->index}}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw] cursor-pointer">
                                                     <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
                                                         <div class="carousel-item">
                                                             <div class="xtra">
