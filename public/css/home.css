@@ -142,26 +142,6 @@
     color:red;
 }
 
-/* #mail1{
-    display: block;
-}
-
-#mail2{
-    display: none;
-}
-
-#logo1{
-    display: block;
-}
-
-#logo2{
-    display: none;
-}
-
-#titleMail{
-    display: none;
-} */
-
 input[type="file"]:hover,
 input[type="file"]::-webkit-file-upload-button:hover {
   cursor: pointer;

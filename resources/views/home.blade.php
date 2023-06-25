@@ -369,9 +369,9 @@
                                             </button>
                                             <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] mt-[-2vw] ml-[-3vw] z-50">
                                                 @if (Illuminate\Support\Str::contains($report->schedules?->xtras?->logo, 'database-assets'))
-                                                        <img class="w-[18vw] rounded-[50%]" class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
+                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
                                                     @else
-                                                        <img class="w-[18vw] rounded-[50%]" class="logo2 rounded-[50%] w-[6vw] h-[6vw] z-50" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
+                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
                                                     @endif
                                             </button>
 

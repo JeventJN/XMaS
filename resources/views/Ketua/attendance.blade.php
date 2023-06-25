@@ -12,7 +12,7 @@
     <form action="/attendance" method="POST">
         @csrf
         <div class="flex w-screen">
-            <div class="w-[72.5%] h-[47vw] bg-[#395474]">
+            <div class="w-[72.5%] h-[100vh] bg-[#395474]">
                 <div class="w-[100%] h-[6vw] flex justify-center items-center">
                     <a href="/xtrapage/{{$xtra->kdExtracurricular}}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="ml-[1vw]" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" style="fill: white; font-weight:1vw"><path d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
@@ -62,7 +62,22 @@
                         {{-- Masukin attribute eskul disini --}}
                         <div class="text-[2vw] text-white font-nunito font-bold "> Leader &nbsp &nbsp : {{Auth()->User()->name}}</div>
                         <div class="text-[2vw] text-white font-nunito font-bold "> Location &nbsp: {{$schedule->location}}</div>
-                        <div class="text-[2vw] text-white font-nunito font-bold "> Schedule :  {{ date('D, d M Y', strtotime($schedule->date)) }}</div>
+                        <div class="flex">
+                            {{-- <div class="text-[2vw] text-white font-nunito font-bold "> Schedule :  {{ date('D, d M Y', strtotime($schedule->date)) }}</div> --}}
+                            <div class="text-[2vw] text-white font-nunito font-bold "> Schedule :  </div>
+                            <select id="schedule" name="schedule" class="ml-[0.5vw] input bg-gray-50 text-gray-900 text-sm block max-w-[10vw] min-w-[10vw] max-h-[2.5vw] min-h-[2.5vw] mb-[1vw] text-[2vw] overflow-scroll">
+                                <div id="select-box" class="max-w-[2vw] min-w-[2vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
+                                    <option selected="false" class="hidden" value="">
+                                        Choose a date
+                                    </option>
+                                    @foreach ($member->xtras?->schedules as $schedule)
+                                        <option value="{{$schedule->date}}">
+                                            {{ date('D', strtotime($schedule->date)) . ', ' . date('d', strtotime($schedule->date)) . ' '  . date('M', strtotime($schedule->date)) . ' ' . date('Y', strtotime($schedule->date)) }}
+                                        </option>
+                                    @endforeach
+                                </div>
+                            </select>
+                        </div>
                     </div>
                     <div class="w-[30%] flex flex-col justify-center items-center">
                         {{-- masukin total anggot --}}

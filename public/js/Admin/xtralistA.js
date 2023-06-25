@@ -50,7 +50,7 @@ function openModal1(){
 
     if (form.category.value != 'Physique' && form.category.value != 'Non-Physique')
     {
-        alert ("Please select one program");
+        alert ("Please select one category");
         return false;
     }
 

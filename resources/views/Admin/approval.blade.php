@@ -89,7 +89,7 @@
 
     @include('Admin.navbarA')
     <div class="w-screen flex justify-center items-center font-nunito">
-        <div class="w-[80%] bg-[#E5E5E5] h-fit mt-[12vw] flex flex-col items-center justify-center rounded-[1vw]">
+        <div class="w-[80%] bg-[#E5E5E5] h-fit mt-[12vw] h-[100vh] flex flex-col items-center justify-center rounded-[1vw]">
             <div class="w-screen h-[2vw]"></div>
             {{-- FOR EACH DARI SINI --}}
             @if ($members->count())
@@ -173,7 +173,7 @@
             <div class="w-screen h-[2vw]"></div>
         </div>
     </div>
-    <div class="mt-[5.8vw]"></div>
+    <div class="mt-[6vw]"></div>
     @include('footer')
 
     <script>
