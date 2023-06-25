@@ -17,7 +17,6 @@ return new class extends Migration
             $table->increments('kdPresence');
             $table->unsignedInteger('kdSchedule');
             $table->unsignedInteger('kdMember');
-            $table->time('time');
             $table->timestamps();
             $table->foreign('kdSchedule')
                 ->references('kdSchedule')->on('schedules')->cascadeOnDelete()->cascadeOnUpdate();

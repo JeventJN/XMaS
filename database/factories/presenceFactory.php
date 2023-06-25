@@ -19,7 +19,6 @@ class presenceFactory extends Factory
         return [
             'kdSchedule' => mt_rand(1,45),
             'kdMember' => mt_rand(1,20),
-            'Time' => fake()->time(),
         ];
     }
 }

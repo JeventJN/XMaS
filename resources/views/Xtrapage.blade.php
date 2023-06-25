@@ -46,7 +46,14 @@
     @endguest
 
     @auth
-        @include('User.navbarUser')
+        @if (Auth()->User()->can('admin'))
+            {{-- Admin --}}
+            @include('Admin.navbarA')
+        @else
+            {{-- Authenticated User Non Admin --}}
+            @include('User/navbarUser')
+        @endif
+        
         @if(!$userMember)
             @php
                 // non-member
@@ -267,7 +274,7 @@
                                     <div id="elipsganti" class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white; cursor: pointer;">
                                     {{-- untuk leader yang bisa ganti logo xtra --}}
 
-                                    <div class="iconcamera" id="iconcamera">
+                                    <div class="iconcamera z-40" id="iconcamera">
                                         <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" alt>
                                         <input type="file" name="fileupload1" id="fileupload1" style="display: none" accept=".png, .jpg, .jpeg">
                                     </div>
@@ -310,7 +317,7 @@
                 @if ($flag == 1)
                     {{-- Untuk Make Attendance dan Add Schedule --}}
                     @if ($edit == 0)
-                        <a href="{{ asset('absensiketua') }}" class="btn">Make Attendance</a>
+                        <a href="/attendanceLeader/{{$xtra->kdExtracurricular}}" class="btn">Make Attendance</a>
                         <a type="button" class="btn" data-toggle="modal" data-target="#add" id="addschedulebtn">Add Schedule</a>
                     {{-- Untuk Make Attendance dan Add Schedule --}}
 
@@ -771,14 +778,16 @@
     {{-- Modal Add Schedule --}}
 
     {{-- Modal Pop Up Notif --}}
+    @if (session()->has('scheduleAdded'))
     <div id="modalconfirm" class="modalconfirm">
         {{-- Modal Content --}}
-        <div class="modal-contentconfirm">
-            <div class="kotakisimodalconfirm">
-                <div class="isipopupconfirm">Schedule Updated</div>
+            <div class="modal-contentconfirm">
+                <div class="kotakisimodalconfirm">
+                    <div class="isipopupconfirm">Schedule Updated</div>
+                </div>
             </div>
         </div>
-    </div>
+    @endif
     {{-- Modal Pop Up Notif --}}
 
     <!-- footer -->
@@ -948,7 +957,7 @@
     <script>
         //SCRIPT POP UP NOTIF======================================
         // Get modal
-        var modalconfirm = document.getElementById("modalconfirm")
+        var modalconfirm = document.getElementById("modalconfirm");
 
         // Get button that opens modal
         var btnconfirm = document.getElementById("confirmbtn");
