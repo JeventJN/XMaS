@@ -63,7 +63,7 @@
                         </div>
                         <div class="flex justify-start w-[23vw]">
                             <div class="min-w-[100%] text-[1.5vw] border-b-[0.1vw] mb-[1vw] text-white">
-                                {{ Str::limit($report->title, 40, '...') }}
+                                {{ Str::limit($report->title, 30, '...') }}
                             </div>
                         </div>
                     </div>
