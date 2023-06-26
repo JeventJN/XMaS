@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/Non-User/xtralistNU.css') }}">
     <link rel="stylesheet" href="{{ asset('css/Admin/approval.css') }}">
-    <title>Aproval</title>
+    <title>Approval</title>
     @vite('resources/css/app.css')
 </head>
 

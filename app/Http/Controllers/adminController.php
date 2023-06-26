@@ -21,8 +21,6 @@ class adminController extends Controller
 
     public function approval(){
         $members = member::where('kdState', '=', '3')->get();
-        
-        $this->authorize('admin');
 
         return view('Admin.approval', compact('members'));
     }
