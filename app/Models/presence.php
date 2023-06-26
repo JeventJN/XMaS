@@ -12,6 +12,7 @@ class presence extends Model
     // protected $fillable = [''];
     protected $primaryKey = 'kdPresence';
     protected $guarded = ['kdPresence'];
+    protected $with = ['members'];
 
     public function members(){
         return $this->belongsTo(member::class, 'kdMember', 'kdMember');
