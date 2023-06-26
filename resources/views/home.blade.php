@@ -14,41 +14,6 @@
   @vite('resources/css/app.css')
 </head>
 <body class="overflow-x-hidden scrollbar-hide">
-    {{-- Navbar Options --}}
-
-    {{-- @php
-        dd(Auth::check());
-    @endphp --}}
-
-    {{-- @if(request()->query('auth'))
-        <p>User terautentikasi</p>
-    @else
-        <p>User tidak terautentikasi</p>
-    @endif --}}
-
-
-    {{-- @if(session()->get('auth'))
-        <p>User terautentikasi</p>
-    @else
-        <p>User tidak terautentikasi</p>
-    @endif --}}
-
-    {{-- {{Auth::userXmas()->NIP}} --}}
-
-    {{-- {{Auth::User()}} --}}
-    {{-- {{gettype(Auth::User()->NIP)}} --}}
-    {{-- {{sprintf("%04d", Auth::User()->NIP)}} --}}
-
-    {{-- @if ($flag == 1)
-        <p>hai</p>
-    @endif --}}
-
-    {{-- Ini jalan --}}
-    {{-- @if (Auth::User()->NIP == '0000')
-        <p>hai</p>
-    @endif --}}
-
-
     @guest
         @include('Non-User.navbarNU')
             @if (session()->has('logoutSuccess'))
@@ -111,12 +76,12 @@
 
 
     @auth
-        @if (Auth::User()->NIP !== 0)
+        @if (!Auth()->User()->can('admin'))
+            {{-- Authenticated User Non Admin --}}
             @include('User/navbarUser')
         @else
+            {{-- Admin --}}
             @include('Admin.navbarA')
-            {{-- @can('admin')
-            @endcan --}}
         @endif
             {{-- Ini pop-up kalau log-in berhasil {href=login} (Ini saya hidden dulu, bukan saya comment ya) --}}
                 @if (session()->has('loginSuccess'))
@@ -237,7 +202,7 @@
     @endguest
 
     @auth
-        @if (Auth::User()->NIP !== 0)
+        @if (!Auth()->User()->can('admin'))
             <div class="segment">
                 <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
                     Upcoming Extracurriculars
@@ -435,7 +400,7 @@
     @endguest
 
     @auth
-        @if (Auth::User()->NIP !== 0)
+        @if (!Auth()->User()->can('admin'))
             {{-- Banner Home User --}}
             <img class="min-w-[100%]" src="{{asset('Assets/UserBanner.png')}}" alt="">
         @else
@@ -507,7 +472,7 @@
 
 
     @auth
-        @if (Auth::User()->NIP !== 0)
+        @if (!Auth()->User()->can('admin'))
             {{-- Sudah login --}}
             <div class="segment">
                 <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
