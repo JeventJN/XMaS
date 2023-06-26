@@ -61,7 +61,6 @@
                     <div class="w-[70%] flex flex-col justify-center items-start ml-[1vw]">
                         {{-- Masukin attribute eskul disini --}}
                         <div class="text-[2vw] text-white font-nunito font-bold "> Leader &nbsp &nbsp : {{Auth()->User()->name}}</div>
-                        <div class="text-[2vw] text-white font-nunito font-bold "> Location &nbsp: {{$schedule->location}}</div>
                         <div class="flex">
                             {{-- <div class="text-[2vw] text-white font-nunito font-bold "> Schedule :  {{ date('D, d M Y', strtotime($schedule->date)) }}</div> --}}
                             <div class="text-[2vw] text-white font-nunito font-bold "> Schedule :  </div>
@@ -70,14 +69,15 @@
                                     <option selected="false" class="hidden" value="">
                                         Choose a date
                                     </option>
-                                    @foreach ($member->xtras?->schedules as $schedule)
-                                        <option value="{{$schedule->date}}">
-                                            {{ date('D', strtotime($schedule->date)) . ', ' . date('d', strtotime($schedule->date)) . ' '  . date('M', strtotime($schedule->date)) . ' ' . date('Y', strtotime($schedule->date)) }}
-                                        </option>
+                                    @foreach ($schedules as $schedule)
+                                    <option value="{{$schedule->kdSchedule}}">
+                                        {{ date('D', strtotime($schedule->date)) . ', ' . date('d', strtotime($schedule->date)) . ' '  . date('M', strtotime($schedule->date)) . ' ' . date('Y', strtotime($schedule->date)) }}
+                                    </option>
                                     @endforeach
                                 </div>
                             </select>
                         </div>
+                        {{-- <div class="text-[2vw] text-white font-nunito font-bold "> Location &nbsp: {{$schedule->location}}</div> --}}
                     </div>
                     <div class="w-[30%] flex flex-col justify-center items-center">
                         {{-- masukin total anggot --}}
