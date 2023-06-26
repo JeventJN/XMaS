@@ -84,9 +84,9 @@
             <div class="boxluarfoto flex">
                 @if (Auth::check() && Auth::user()->photo)
                     @if (Illuminate\Support\Str::contains(Auth::user()->photo, 'database-assets'))
-                        <img class="m-auto mt-[-0.15vw] min-w-[24.7vw] max-w-[24.7vw] min-h-[27.65vw] max-h-[27.65vw]" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ asset('Assets/UserDP.png') }}" style="object-fit: cover; width: 24.7vw; height: 27.65vw; border-radius: 1.95vw;">
+                        <img class="m-auto mt-[-0.15vw] min-w-[24.7vw] max-w-[24.7vw] min-h-[27.65vw] max-h-[27.65vw]" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ Auth::User()->name }}" style="object-fit: cover; width: 24.7vw; height: 27.65vw; border-radius: 1.95vw;">
                     @else
-                        <img class="" src="{{ asset('Assets/UserDP.png') }}" alt="{{ asset('Assets/UserDP.png') }}">
+                        <img class="" src="{{ asset('Assets/UserDP.png') }}" alt="{{Auth::User()->name}}">
                     @endif
                 @endif
 
