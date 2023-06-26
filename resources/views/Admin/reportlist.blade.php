@@ -81,7 +81,7 @@
 
     {{-- modal pop up xtralist user--}}
     {{-- jangan dikomen --}}
-    <div id="modalpopup" class="modal">
+    <div id="modalpopup" class="modal z-50">
     {{-- jangan dikomen --}}
 
         <form action="{{ route('reportList') }}" id="modal" method="GET">
@@ -119,6 +119,9 @@
                 </div>
             </div>
             <div class="flex justify-end mr-[2vw] mt-[0.5vw] text-[2vw]">
+                <div id="reset" class="hover:text-[#A1A9B2] mr-[2vw] hover:cursor-pointer" onclick="resetfun()">
+                    Reset
+                </div>
                 <button type="submit" class="hover:text-[#A1A9B2]">
                     Apply
                 </button>
@@ -187,33 +190,98 @@
             <div class="rowcontainer" id="all_reports">
                 @if ($reports->count())
                     @foreach ($reports as $report)
-                        <form action="/reportformA" method="POST" class="reportForm" onclick="submitForm('{{ $report->kdReport }}')">
-                            @csrf
-                            <div class="flex flex-col">
-                                <div class="xtraboxcontainer flex justify-center items-center">
-                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                        {{-- <img src="{{ $report->photo }}" alt="{{ $report->title }}"> --}}
-                                        <img src="{{ asset('/Assets/' . $report->photo) }}" alt="{{ $report->title }}">
+                        @if ($report->kdState == "4") {{-- Accepted Report --}}
+                            <form action="/reportformA" method="POST" class="reportForm" onclick="submitForm('{{ $report->kdReport }}')">
+                                @csrf
+                                <div class="flex flex-col">
+                                    <div class="decborder absolute w-[10vw] h-[3vw] flex justify-center items-center rounded-[5vw] border border-[0.2vw] border-black mt-[3vw] ml-[27vw]">
+                                        <div class="text-[2vw] text-green-600 font-nunito font-bold">Accepted</div>
                                     </div>
-                                    <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                        <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->schedules?->xtras->name, 12, '...') }}</div>
-                                        <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', $report->schedules?->xtras?->leader?->userXmas?->name), 0, 2)) }}</div>
-                                            @if ($report->schedules?->xtras?->leader?->userXmas?->name === NULL)
-                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader</div>
-                                            @endif
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $report->schedules ? date('d M Y', strtotime($report->schedules?->date)) : ''}}</div>
-                                            @if ($report->schedules === NULL)
-                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule</div>
-                                            @endif
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->title, 15, '...') }}</div>
+                                    <div class="xtraboxcontainer flex justify-center items-center" onmouseover="changeBorderColor(this.parentNode, 'white')" onmouseout="changeBorderColor(this.parentNode, 'black')">
+                                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                            {{-- <img src="{{ $report->photo }}" alt="{{ $report->title }}"> --}}
+                                            <img src="{{ asset('/Assets/' . $report->photo) }}" alt="{{ $report->title }}">
+                                        </div>
+                                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->schedules?->xtras->name, 12, '...') }}</div>
+                                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', $report->schedules?->xtras?->leader?->userXmas?->name), 0, 2)) }}</div>
+                                                @if ($report->schedules?->xtras?->leader?->userXmas?->name === NULL)
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader</div>
+                                                @endif
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $report->schedules ? date('d M Y', strtotime($report->schedules?->date)) : ''}}</div>
+                                                @if ($report->schedules === NULL)
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule</div>
+                                                @endif
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->title, 15, '...') }}</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        @elseif ($report->kdState == "5") {{-- Declined Report --}}
+                            <form action="/reportformA" method="POST" class="reportForm" onclick="submitForm('{{ $report->kdReport }}')">
+                                @csrf
+                                <div class="flex flex-col">
+                                    <div class="decborder absolute w-[10vw] h-[3vw] flex justify-center items-center rounded-[5vw] border border-[0.2vw] border-black mt-[3vw] ml-[27vw]">
+                                        <div class="text-[2vw] text-red-500 font-nunito font-bold">Declined</div>
+                                    </div>
+                                    <div class="xtraboxcontainer flex justify-center items-center" onmouseover="changeBorderColor(this.parentNode, 'white')" onmouseout="changeBorderColor(this.parentNode, 'black')">
+                                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                            <img src="{{ asset('/Assets/' . $report->photo) }}" alt="{{ $report->title }}">
+                                        </div>
+                                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->schedules?->xtras->name, 12, '...') }}</div>
+                                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', $report->schedules?->xtras?->leader?->userXmas?->name), 0, 2)) }}</div>
+                                                @if ($report->schedules?->xtras?->leader?->userXmas?->name === NULL)
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader</div>
+                                                @endif
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $report->schedules ? date('d M Y', strtotime($report->schedules?->date)) : ''}}</div>
+                                                @if ($report->schedules === NULL)
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule</div>
+                                                @endif
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->title, 15, '...') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        @else {{-- No Respond Yet --}}
+                            <form action="/reportformA" method="POST" class="reportForm" onclick="submitForm('{{ $report->kdReport }}')">
+                                @csrf
+                                <div class="flex flex-col">
+                                    <div class="xtraboxcontainer flex justify-center items-center">
+                                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                            {{-- <img src="{{ $report->photo }}" alt="{{ $report->title }}"> --}}
+                                            <img src="{{ asset('/Assets/' . $report->photo) }}" alt="{{ $report->title }}">
+                                        </div>
+                                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
+                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->schedules?->xtras->name, 12, '...') }}</div>
+                                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ implode(' ', array_slice(explode(' ', $report->schedules?->xtras?->leader?->userXmas?->name), 0, 2)) }}</div>
+                                                @if ($report->schedules?->xtras?->leader?->userXmas?->name === NULL)
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader</div>
+                                                @endif
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ $report->schedules ? date('d M Y', strtotime($report->schedules?->date)) : ''}}</div>
+                                                @if ($report->schedules === NULL)
+                                                    <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule</div>
+                                                @endif
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->title, 15, '...') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        @endif
                     @endforeach
                     <script>
+                        function changeBorderColor(element, color) {
+                            const decBorder = element.querySelector('.decborder');
+                            if (decBorder) {
+                                decBorder.style.borderColor = color;
+                            }
+                        }
                         function submitForm(kdReport) {
                             var form = document.querySelector('.reportForm');
 
@@ -229,52 +297,6 @@
                 @else
                     <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Report.</p>
                 @endif
-
-                {{-- <div class="flex flex-col">
-                    <div class="xtraboxcontainer flex justify-center items-center">
-                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                            <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
-                        </div>
-                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
-                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col">
-                    <div class="xtraboxcontainer flex justify-center items-center">
-                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                            <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
-                        </div>
-                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
-                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col">
-                    <div class="xtraboxcontainer flex justify-center items-center">
-                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                            <img src="{{asset('Assets/RunningLogo.png')}}" alt="">
-                        </div>
-                        <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">Running</div>
-                            <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Zakaria</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">Wed, 17.00 - 19.00</div>
-                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">RTB</div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>
