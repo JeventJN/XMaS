@@ -63,7 +63,7 @@
                         <div class="text-[2vw] text-white font-nunito font-bold "> Leader &nbsp &nbsp : {{Auth()->User()->name}}</div>
                         <div class="flex">
                             <div class="text-[2vw] text-white font-nunito font-bold "> Schedule :  </div>
-                            <select id="schedule" name="schedule" class="ml-[0.5vw] input bg-gray-50 text-gray-900 text-sm block max-w-[10vw] min-w-[10vw] max-h-[2.5vw] min-h-[2.5vw] mb-[1vw] text-[2vw] overflow-scroll">
+                            <select id="schedule" name="schedule" required class="ml-[0.5vw] input bg-gray-50 text-gray-900 text-sm block max-w-[10vw] min-w-[10vw] max-h-[2.5vw] min-h-[2.5vw] mb-[1vw] text-[2vw] overflow-scroll">
                                 <div id="select-box" class="max-w-[2vw] min-w-[2vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
                                     <option selected="false" class="hidden" value="">
                                         Choose a date
@@ -84,9 +84,8 @@
                         <button class="ml-[3vw] w-[17vw] h-[5vw] text-[2vw] font-nunito font-bold rounded-[1vw] bg-[#D9D9D9] flex justify-center items-center hover:bg-[#1B2F45] hover:text-white" onclick="prepareAttendanceArray()">Submit</button>
                     </div>
                 </div>
-
                 <script>
-                    var totalMembers = <?php echo $totalMembers; ?>;
+                    var totalMembers = @php echo $totalMembers;@endphp;
                     var presentCount = 0;
                     var attendanceKd = [];
 
