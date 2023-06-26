@@ -9,6 +9,7 @@ use App\Models\member;
 use App\Models\report;
 use App\Models\schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class reportController extends Controller
 {
@@ -21,7 +22,8 @@ class reportController extends Controller
 
     public function reportKetua(Request $request) {
         // ambil xtra yang dia jadi ketua
-        $members = member::where('NIP', "=", $request->NIP)->get();
+        $NIP = str_pad(Auth::User()->NIP, 4, '0', STR_PAD_LEFT);
+        $members = member::where('NIP', "=", $NIP)->get();
         // dd($members);
 
         foreach ($members as $member) {
