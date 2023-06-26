@@ -473,7 +473,7 @@
                             <div class="carousel1-items ml-[1vw]">
                                 @if ($xtras->count())
                                     @foreach ($xtras as $xtr)
-                                        <a href="/xtralist/{{ $xtr->kdExtracurricular }}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
+                                        <a href="/xtrapage/{{ $xtr->kdExtracurricular }}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
                                             <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
                                                 <div class="carousel-item">
                                                     <div class="xtra">
@@ -583,7 +583,7 @@
                                 <div class="carousel1-items ml-[1vw]">
                                     @if ($xtras->count())
                                         @foreach ($xtras as $xtr)
-                                            <a href="/xtralist/{{ $xtr->kdExtracurricular }}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
+                                            <a href="/xtrapage/{{ $xtr->kdExtracurricular }}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw]">
                                                 <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
                                                     <div class="carousel-item">
                                                         <div class="xtra">
