@@ -144,16 +144,16 @@
                                                                     <div class="photo">
                                                                         {{-- Pass Xtra BG Here --}}
                                                                         @if (Illuminate\Support\Str::contains($xtr->backgroundImage, 'database-assets'))
-                                                                            <img src="{{ asset('storage/' . $xtr->backgroundImage) }}" alt="{{ asset('Assets/RunningBg.jpeg')}}" style="object-fit: cover;"/>
+                                                                            <img src="{{ asset('storage/' . $xtr->backgroundImage) }}" alt="{{$xtr->name}}" style="object-fit: cover;"/>
                                                                         @else
-                                                                            <img src="{{ asset('Assets/' . $xtr->backgroundImage) }}" alt="{{ asset('Assets/RunningBg.jpeg')}}" style="object-fit: cover;"/>
+                                                                            <img src="{{ asset('Assets/' . $xtr->backgroundImage) }}" alt="{{$xtr->name}}" style="object-fit: cover;"/>
                                                                         @endif
                                                                     </div>
                                                                     <div class="logoxtra mt-[-9vw]">
                                                                         @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                            <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                            <img src="{{ asset('storage/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                                         @else
-                                                                            <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                            <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -230,16 +230,16 @@
                                                                             <div class="photo">
                                                                                 {{-- Pass Xtra BG Here --}}
                                                                                 @if (Illuminate\Support\Str::contains($xtr->backgroundImage, 'database-assets'))
-                                                                                    <img src="{{ asset('storage/' . $xtr->backgroundImage) }}" alt="{{ asset('Assets/RunningBg.jpeg')}}" style="object-fit: cover;"/>
+                                                                                    <img src="{{ asset('storage/' . $xtr->backgroundImage) }}" alt="{{$xtr->name}}" style="object-fit: cover;"/>
                                                                                 @else
-                                                                                    <img src="{{ asset('Assets/' . $xtr->backgroundImage) }}" alt="{{ asset('Assets/RunningBg.jpeg')}}" style="object-fit: cover;"/>
+                                                                                    <img src="{{ asset('Assets/' . $xtr->backgroundImage) }}" alt="{{$xtr->name}}" style="object-fit: cover;"/>
                                                                                 @endif
                                                                             </div>
                                                                             <div class="logoxtra mt-[-9vw]">
                                                                                 @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                                    <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                                    <img src="{{ asset('storage/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                                                 @else
-                                                                                    <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                                    <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                                                 @endif
                                                                             </div>
                                                                         </div>
@@ -313,9 +313,9 @@
                                             <div class="">
                                                 <div class="relative">
                                                     @if (Illuminate\Support\Str::contains($report->schedules?->xtras?->logo, 'database-assets'))
-                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover"/>
+                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="{{$report->name}}" style="object-fit: cover"/>
                                                     @else
-                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="{{$report->name}}" style="object-fit: cover" />
                                                     @endif
                                                 </div>
                                             </div>
@@ -334,9 +334,9 @@
                                             </button>
                                             <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] mt-[-2vw] ml-[-3vw] z-50">
                                                 @if (Illuminate\Support\Str::contains($report->schedules?->xtras?->logo, 'database-assets'))
-                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="{{$report->name}}" style="object-fit: cover" />
                                                     @else
-                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="{{$report->name}}" style="object-fit: cover" />
                                                     @endif
                                             </button>
 
@@ -444,9 +444,9 @@
                                                     <div class="xtra">
                                                         <div class="xtralogo">
                                                             @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                <img src="{{ asset('storage/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                             @else
-                                                                <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                             @endif
                                                         </div>
                                                         <h3 class="mt-[1vw]">
@@ -498,9 +498,9 @@
                                                             <div class="xtra">
                                                                 <div class="xtralogo">
                                                                     @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                        <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                        <img src="{{ asset('storage/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                                     @else
-                                                                        <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                        <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                                     @endif
                                                                 </div>
                                                                 <h3 class="mt-[1vw]">
@@ -559,9 +559,9 @@
                                                         <div class="xtra">
                                                             <div class="xtralogo">
                                                                 @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                    <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                    <img src="{{ asset('storage/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                                 @else
-                                                                    <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
+                                                                    <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="{{$xtr->name}}" style="object-fit: cover" />
                                                                 @endif
                                                             </div>
                                                             <h3 class="mt-[1vw]">

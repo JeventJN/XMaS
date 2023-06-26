@@ -19,6 +19,10 @@ class userXmas extends Model
         'photo'
     ];
 
+    // protected $with=[
+    //     'members'
+    // ];
+
     public function getKeyType()
     {
         return 'string';

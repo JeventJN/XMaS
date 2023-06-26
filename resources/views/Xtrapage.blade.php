@@ -288,9 +288,9 @@
                                         <input type="file" name="fileupload1" id="fileupload1" style="display: none" accept=".png, .jpg, .jpeg">
                                     </div>
                                     @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
-                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
+                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="{{$xtra->name}}" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
                                     @else
-                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
+                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="{{$xtra->name}}" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
                                     @endif
                                 </div>
                                 <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
@@ -298,9 +298,9 @@
                             @else
                                 <div class="elips" style="border-radius: 50%; height: 20.8vw; width: 20.8vw; margin-left: -4vw; background-color: white;">
                                     @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
-                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
+                                        <img src="{{ asset('storage/' . $xtra->logo) }}" alt="{{$xtra->name}}" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
                                     @else
-                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
+                                        <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="{{$xtra->name}}" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
                                     @endif
                                 </div>
                             @endif
