@@ -67,7 +67,6 @@ class editXtraController extends Controller
         }
 
         $userMember = NULL;
-        $xtra = extracurricular::find(1);
         if(Auth::user()){
             // join jadi member
             $userMember = $xtra?->members?->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();
@@ -80,6 +79,8 @@ class editXtraController extends Controller
     }
 
     public function logo(Request $request){
+        // dd($request);
+
         $xtra = extracurricular::find($request->kdXtra);
 
         $data = $request -> validate([
@@ -99,7 +100,6 @@ class editXtraController extends Controller
         }
 
         $userMember = NULL;
-        $xtra = extracurricular::find(1);
         if(Auth::user()){
             // join jadi member
             $userMember = $xtra?->members?->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();

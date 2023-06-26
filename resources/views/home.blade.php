@@ -14,41 +14,6 @@
   @vite('resources/css/app.css')
 </head>
 <body class="overflow-x-hidden scrollbar-hide">
-    {{-- Navbar Options --}}
-
-    {{-- @php
-        dd(Auth::check());
-    @endphp --}}
-
-    {{-- @if(request()->query('auth'))
-        <p>User terautentikasi</p>
-    @else
-        <p>User tidak terautentikasi</p>
-    @endif --}}
-
-
-    {{-- @if(session()->get('auth'))
-        <p>User terautentikasi</p>
-    @else
-        <p>User tidak terautentikasi</p>
-    @endif --}}
-
-    {{-- {{Auth::userXmas()->NIP}} --}}
-
-    {{-- {{Auth::User()}} --}}
-    {{-- {{gettype(Auth::User()->NIP)}} --}}
-    {{-- {{sprintf("%04d", Auth::User()->NIP)}} --}}
-
-    {{-- @if ($flag == 1)
-        <p>hai</p>
-    @endif --}}
-
-    {{-- Ini jalan --}}
-    {{-- @if (Auth::User()->NIP == '0000')
-        <p>hai</p>
-    @endif --}}
-
-
     @guest
         @include('Non-User.navbarNU')
             @if (session()->has('logoutSuccess'))
@@ -111,12 +76,12 @@
 
 
     @auth
-        @if (Auth::User()->NIP !== 0)
+        @if (!Auth()->User()->can('admin'))
+            {{-- Authenticated User Non Admin --}}
             @include('User/navbarUser')
         @else
+            {{-- Admin --}}
             @include('Admin.navbarA')
-            {{-- @can('admin')
-            @endcan --}}
         @endif
             {{-- Ini pop-up kalau log-in berhasil {href=login} (Ini saya hidden dulu, bukan saya comment ya) --}}
                 @if (session()->has('loginSuccess'))
@@ -186,9 +151,9 @@
                                                                     </div>
                                                                     <div class="logoxtra mt-[-9vw]">
                                                                         @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                            <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                            <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                                         @else
-                                                                            <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                            <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -201,7 +166,7 @@
                                                                         @if ($xtr->latest_schedule?->location === NULL)
                                                                             <p>No location</p>
                                                                         @else
-                                                                            {{$xtr->latest_schedule?->location}}
+                                                                            {{ Str::limit($xtr->latest_schedule?->location, 12, '...') }}
                                                                         @endif
                                                                     </h3>
                                                                     <h3>
@@ -237,7 +202,7 @@
     @endguest
 
     @auth
-        @if (Auth::User()->NIP !== 0)
+        @if (!Auth()->User()->can('admin'))
             <div class="segment">
                 <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
                     Upcoming Extracurriculars
@@ -272,9 +237,9 @@
                                                                             </div>
                                                                             <div class="logoxtra mt-[-9vw]">
                                                                                 @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                                    <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                                    <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                                                 @else
-                                                                                    <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                                    <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                                                 @endif
                                                                             </div>
                                                                         </div>
@@ -287,7 +252,7 @@
                                                                                 @if ($xtr->latest_schedule?->location === NULL)
                                                                                     <p>No location</p>
                                                                                 @else
-                                                                                    {{$xtr->latest_schedule?->location}}
+                                                                                    {{ Str::limit($xtr->latest_schedule?->location, 12, '...') }}
                                                                                 @endif
                                                                             </h3>
                                                                             <h3>
@@ -348,9 +313,9 @@
                                             <div class="">
                                                 <div class="relative">
                                                     @if (Illuminate\Support\Str::contains($report->schedules?->xtras?->logo, 'database-assets'))
-                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
+                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover"/>
                                                     @else
-                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
+                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                     @endif
                                                 </div>
                                             </div>
@@ -369,9 +334,9 @@
                                             </button>
                                             <button class="logo2 rounded-[50%] w-[6vw] h-[6vw] mt-[-2vw] ml-[-3vw] z-50">
                                                 @if (Illuminate\Support\Str::contains($report->schedules?->xtras?->logo, 'database-assets'))
-                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
+                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                     @else
-                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('Assets/PhotoUploaded.png') }}" alt="Assets/RunningLogo.png" />
+                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                     @endif
                                             </button>
 
@@ -435,7 +400,7 @@
     @endguest
 
     @auth
-        @if (Auth::User()->NIP !== 0)
+        @if (!Auth()->User()->can('admin'))
             {{-- Banner Home User --}}
             <img class="min-w-[100%]" src="{{asset('Assets/UserBanner.png')}}" alt="">
         @else
@@ -479,9 +444,9 @@
                                                     <div class="xtra">
                                                         <div class="xtralogo">
                                                             @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                             @else
-                                                                <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                             @endif
                                                         </div>
                                                         <h3 class="mt-[1vw]">
@@ -507,7 +472,7 @@
 
 
     @auth
-        @if (Auth::User()->NIP !== 0)
+        @if (!Auth()->User()->can('admin'))
             {{-- Sudah login --}}
             <div class="segment">
                 <div id="segmentTitle" class="bg-[#49596A] rounded-r-[1vw] text-white font-nunito font-bold flex text-[1.75vw] items-center justify-center">
@@ -533,9 +498,9 @@
                                                             <div class="xtra">
                                                                 <div class="xtralogo">
                                                                     @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                        <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                        <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                                     @else
-                                                                        <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                        <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                                     @endif
                                                                 </div>
                                                                 <h3 class="mt-[1vw]">
@@ -589,9 +554,9 @@
                                                         <div class="xtra">
                                                             <div class="xtralogo">
                                                                 @if (Illuminate\Support\Str::contains($xtr->logo, 'database-assets'))
-                                                                    <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                    <img src="{{ asset('storage/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                                 @else
-                                                                    <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" />
+                                                                    <img src="{{ asset('Assets/' . $xtr->logo) }}" alt="Assets/RunningLogo.png" style="object-fit: cover" />
                                                                 @endif
                                                             </div>
                                                             <h3 class="mt-[1vw]">
