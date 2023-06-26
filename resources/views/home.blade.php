@@ -166,7 +166,7 @@
                                                                         @if ($xtr->latest_schedule?->location === NULL)
                                                                             <p>No location</p>
                                                                         @else
-                                                                            {{ Str::limit($xtr->latest_schedule?->location, 15, '...') }}
+                                                                            {{ Str::limit($xtr->latest_schedule?->location, 12, '...') }}
                                                                         @endif
                                                                     </h3>
                                                                     <h3>
@@ -252,7 +252,7 @@
                                                                                 @if ($xtr->latest_schedule?->location === NULL)
                                                                                     <p>No location</p>
                                                                                 @else
-                                                                                    {{ Str::limit($xtr->latest_schedule?->location, 15, '...') }}
+                                                                                    {{ Str::limit($xtr->latest_schedule?->location, 12, '...') }}
                                                                                 @endif
                                                                             </h3>
                                                                             <h3>
