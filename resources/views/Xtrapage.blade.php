@@ -53,7 +53,7 @@
             {{-- Authenticated User Non Admin --}}
             @include('User/navbarUser')
         @endif
-        
+
         @if(!$userMember)
             @php
                 // non-member
@@ -188,12 +188,21 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6" style="flex: 1;">
                             <div class="cursor-default" style="position: absolute; margin-top: 6.5vw;">
                                 <div class="button-elips" onmouseover="hover()" onmouseout="out()">
-                                    <a class="buttons" data-value="{{ $xtra->name }}" data-text="Xtra">Xtra</a>
+                                    <a class="buttons" data-value="{{ Str::limit($xtra->name, 12, '...') }}" data-text="Xtra">Xtra</a>
                                     @php
-                                        $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . ' (' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')'
+                                        if($xtra->latest_schedule != NULL){
+                                            $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . ' (' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')';
+                                        } else{
+                                            $schedule = 'No Schedule Yet';
+                                        }
+                                        if($xtra->leader != NULL){
+                                            $leader = $xtra->leader?->userXmas?->name;
+                                        } else{
+                                            $leader = 'No Leader Yet';
+                                        }
                                     @endphp
                                     <a class="buttons" data-value="{{ $schedule }}" data-text="Schedule">Schedule</a>
-                                    <a class="buttons" data-value="{{ $xtra->leader?->userXmas?->name }}" data-text="Leader">Leader</a>
+                                    <a class="buttons" data-value="{{ $leader }}" data-text="Leader">Leader</a>
                                 </div>
                             </div>
 
@@ -215,18 +224,18 @@
                                         e.target.style.paddingBottom = '4.1vw';
 
 
-                                        if (value == @json($xtra->name)) {
+                                        if (value == '<?php echo Str::limit($xtra->name, 12, '...'); ?>') {
                                             e.target.classList.add('JudulXtra');
                                             e.target.style.padding = '1.3vw 4vw 3.5vw 16vw';
                                             // e.target.style.width = '30vw';
                                             // e.target.style.marginBottom = '-0.2vw';
-                                        } else if (value == @json($schedule)) {
+                                        } else if (value == '<?php echo $schedule; ?>') {
                                             e.target.classList.add('ScheduleXtra');
                                             e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
                                             e.target.style.width = '35vw';
                                             e.target.style.marginTop = '-0.05vw';
                                             // e.target.style.marginBottom = '-0.3vw';
-                                        } else if (value == @json($xtra->leader?->userXmas?->name)) {
+                                        } else if (value == '<?php echo $leader; ?>') {
                                             e.target.classList.add('LeaderXtra');
                                             e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
                                             // e.target.style.width = '40vw';
@@ -597,7 +606,7 @@
                         {{-- <button onclick="myFunction()" class="dropbtn" id="panahdate2">Choose date </button> --}}
                         <div id="myDropdown" class="dropdown-content">
                             @foreach ($xtra->schedules as $schedule)
-                                <a>{{ date('M d, Y', strtotime($schedule->date)) }}</a>
+                                <a>{{ date('D, d M Y', strtotime($schedule->date)) }}</a>
                             @endforeach
                             {{-- <a href="#">March 12, 2023</a>
                             <a href="#">March 12, 2023</a>
@@ -653,7 +662,7 @@
 
                             $("#myDropdown a").click(function(){
                                 // var selectedDate = $(this).text();
-                                var selectedDate = moment($(this).text(), "MMM DD, YYYY").format("YYYY-MM-DD");
+                                var selectedDate = moment($(this).text(), "ddd, DD MMM YYYY").format("YYYY-MM-DD");
 
                                 if(selectedDate != ""){
                                     $('#presenceLatest').hide();

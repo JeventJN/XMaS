@@ -135,7 +135,7 @@
                         </button>
                     </div>
                 </form>
-            </div>  
+            </div>
             <div class="rowcontainer" id="all_xtra">
                 @if ($xtras->count())
                     @foreach ($xtras as $xtra)
@@ -146,8 +146,11 @@
                                 {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
                                 <div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                        {{-- <img src="{{ $xtra->logo }}" alt="{{ $xtra->name }}"> --}}
-                                        <img src="{{ asset('/Assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}">
+                                        @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
+                                            <img src="{{ asset('storage/' . $xtra->logo) }}" alt="{{ $xtra->name }}"/>
+                                        @else
+                                            <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="{{ $xtra->name }}"/>
+                                        @endif
                                     </div>
                                     <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                         <div class="text-[1.9vw] font-bold underline mb-[1vw]">{{ Str::limit($xtra->name, 12, '...') }}</div>
