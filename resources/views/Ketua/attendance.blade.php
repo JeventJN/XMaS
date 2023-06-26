@@ -9,7 +9,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="overflow-hidden">
-    <form action="/attendance" method="POST">
+    <form action="/attendance" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="flex w-screen">
             <div class="w-[72.5%] h-[100vh] bg-[#395474]">
@@ -62,7 +62,6 @@
                         {{-- Masukin attribute eskul disini --}}
                         <div class="text-[2vw] text-white font-nunito font-bold "> Leader &nbsp &nbsp : {{Auth()->User()->name}}</div>
                         <div class="flex">
-                            {{-- <div class="text-[2vw] text-white font-nunito font-bold "> Schedule :  {{ date('D, d M Y', strtotime($schedule->date)) }}</div> --}}
                             <div class="text-[2vw] text-white font-nunito font-bold "> Schedule :  </div>
                             <select id="schedule" name="schedule" class="ml-[0.5vw] input bg-gray-50 text-gray-900 text-sm block max-w-[10vw] min-w-[10vw] max-h-[2.5vw] min-h-[2.5vw] mb-[1vw] text-[2vw] overflow-scroll">
                                 <div id="select-box" class="max-w-[2vw] min-w-[2vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
@@ -70,24 +69,19 @@
                                         Choose a date
                                     </option>
                                     @foreach ($schedules as $schedule)
-                                    <option value="{{$schedule->kdSchedule}}">
-                                        {{ date('D', strtotime($schedule->date)) . ', ' . date('d', strtotime($schedule->date)) . ' '  . date('M', strtotime($schedule->date)) . ' ' . date('Y', strtotime($schedule->date)) }}
-                                    </option>
+                                        <option value="{{$schedule->kdSchedule}}">
+                                            {{ date('D, d M Y', strtotime($schedule->date)) }}
+                                        </option>
                                     @endforeach
                                 </div>
                             </select>
                         </div>
-                        {{-- <div class="text-[2vw] text-white font-nunito font-bold "> Location &nbsp: {{$schedule->location}}</div> --}}
                     </div>
                     <div class="w-[30%] flex flex-col justify-center items-center">
                         {{-- masukin total anggot --}}
                         <div id="attendanceCount" class="ml-[3vw] text-white text-[1.5vw]">Presence 0/{{$totalMembers}}</div>
-                        {{-- <div id="attendanceCount" class="ml-[3vw] text-white text-[1.5vw] mt-[-5vw] fixed">Presence 0/{{$totalMembers}}</div> --}}
-                        {{-- <form action="" method="POST"> --}}
                         <input type="hidden" name="attendanceKd" id="attendanceInput">
                         <button class="ml-[3vw] w-[17vw] h-[5vw] text-[2vw] font-nunito font-bold rounded-[1vw] bg-[#D9D9D9] flex justify-center items-center hover:bg-[#1B2F45] hover:text-white" onclick="prepareAttendanceArray()">Submit</button>
-                        {{-- <div class="ml-[3vw] w-[17vw] h-[5vw] text-[2vw] opacity-0"></div> --}}
-                        {{-- </form> --}}
                     </div>
                 </div>
 
@@ -112,20 +106,11 @@
                 </script>
             </div>
             <div class="w-[27.5%] flex justify-end">
-                <img class="scale-[1] hover:cursor-pointer" id="photoContainer" src="{{asset('Assets/UploadPhoto.png')}}" alt="">
-                <input class="hidden h-[26vw] w-[15vw] mt-[-26vw] opacity-0 hover:cursor-pointer" type="file" name="photoXtra" id="photoXtra" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded.png')}}'">
-                <script>
-                    const photoContainer = document.getElementById('photoContainer');
-                    const photoXtra = document.getElementById('photoXtra');
-
-                    photoContainer.addEventListener('click', function() {
-                        photoXtra.click();
-                    });
-                </script>
+                <img class="scale-[1]" id="photoContainer" src="{{asset('Assets/UploadPhoto.png')}}" alt="">
+                <input class="absolute w-[27.5%] h-[100vh] opacity-0 hover:cursor-pointer" type="file" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded.png')}}'">
             </div>
         </div>
         <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
-        <input type="hidden" name="kdSchedule" value="{{$schedule->kdSchedule}}">
     </form>
 
     <script>

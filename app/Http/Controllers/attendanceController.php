@@ -39,6 +39,7 @@ class attendanceController extends Controller
     }
 
     public function attendance(Request $request) {
+        // dd($request);
         $attendanceKd = $request->input('attendanceKd');
         $membersKd = json_decode($attendanceKd, true);
 
@@ -58,12 +59,12 @@ class attendanceController extends Controller
         }
 
 
-        if ($request->hasFile('photoXtra')) {
-            dd('masuk dokum');
+        if ($request->hasFile('photo')) {
+            // dd('masuk dokum');
             $data = [
                 'kdExtracurricular' => $request->kdXtra
             ];
-            $data['photoXtra'] = $request->file('photoXtra')->store('database-assets');
+            $data['photo'] = $request->file('photo')->store('database-assets');
 
             documentation::create($data);
         }
