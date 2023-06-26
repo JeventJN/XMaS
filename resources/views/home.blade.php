@@ -348,9 +348,9 @@
                                             <div class="">
                                                 <div class="relative">
                                                     @if (Illuminate\Support\Str::contains($report->schedules?->xtras?->logo, 'database-assets'))
-                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
+                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
                                                     @else
-                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
+                                                        <img class="z-10 absolute rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50 ml-[6vw] mt-[-3vw]" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
                                                     @endif
                                                 </div>
                                             </div>
@@ -371,7 +371,7 @@
                                                 @if (Illuminate\Support\Str::contains($report->schedules?->xtras?->logo, 'database-assets'))
                                                         <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('storage/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
                                                     @else
-                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('Assets/' . $report->schedules?->xtras?->logo) }}" alt="Assets/RunningLogo.png" />
+                                                        <img class="w-[18vw] rounded-[50%] min-w-[6vw] min-h-[6vw] max-w-[6vw] max-h-[6vw] z-50" src="{{ asset('Assets/PhotoUploaded.png') }}" alt="Assets/RunningLogo.png" />
                                                     @endif
                                             </button>
 
