@@ -196,7 +196,7 @@
                                             $schedule = 'No Schedule Yet';
                                         }
                                         if($xtra->leader != NULL){
-                                            $leader = $xtra->leader?->userXmas?->name;
+                                            $leader = Str::limit($xtra->leader?->userXmas?->name, 12, '...');
                                         } else{
                                             $leader = 'No Leader Yet';
                                         }
