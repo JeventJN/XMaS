@@ -359,7 +359,7 @@
                                             </div>
                                         </div>
 
-                                        <form action="/reportformA" method="post" class="relative report1 flex items-center z-50 hidden mt-[-5vw]" href="reportlist">
+                                        <form action="/reportformA" method="post" class="relative report1 flex items-center z-50 hidden mt-[-5vw]">
                                             @csrf
                                             <button class="absolute mail2 w-[18vw] z-40">
                                                 <img class="w-[18vw]" src="{{asset('Assets/report2.png')}}" alt="">
@@ -527,7 +527,7 @@
                                         @foreach ($xtras as $xtr)
                                             <form action="/xtrapage" method="POST" id="xtraSegment{{$loop->index}}" >
                                                 @csrf
-                                                <div id="sectionBox{{$loop->index}}" class="w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw] cursor-pointer">
+                                                <div class="sectionBox sectionBox{{$loop->index}} w-[15vw] h-[20vw] bg-yellow-500 mt-[2.5vw] rounded-[2vw] mb-[2vw] cursor-pointer">
                                                     <div class="xtrahover h-[20vw] flex items-center justify-center font-nunito font-bold text-[2vw] carousel-items select-none">
                                                         <div class="carousel-item">
                                                             <div class="xtra">
@@ -547,12 +547,6 @@
                                                 </div>
                                                 <input type="hidden" name="kdXtra" value="{{$xtr->kdExtracurricular}}">
                                             </form>
-
-                                            <script>
-                                                document.getElementById("sectionBox").addEventListener("click", function () {
-                                                    document.getElementById("xtraSegment").submit();
-                                                });
-                                            </script>
                                             <div class="w-[5vw]"></div>
                                         @endforeach
                                     @else
@@ -564,6 +558,17 @@
                         </div>
                     </div>
                 </div>
+
+                <script>
+                    var sectionBoxes = document.getElementsByClassName("sectionBox");
+
+                    // Add click event listener to each sectionBox element
+                    Array.from(sectionBoxes).forEach(function(sectionBox) {
+                        sectionBox.addEventListener("click", function () {
+                            this.parentNode.submit();
+                        });
+                    });
+                </script>
             </div>
         @else
             {{-- Admin --}}
