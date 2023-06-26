@@ -47,20 +47,26 @@ class xtraController extends Controller
                         <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm(\'' . $xtra->kdExtracurricular . '\')">'
                                 . csrf_field() .
                                 '<div class="xtraboxcontainer flex justify-center items-center">
-                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                        <img src="' .  asset('Assets/' . $xtra->logo ) . '" alt="' . $xtra->name . '">
+                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">';
+                                        if (Str::contains($xtra->logo, 'database-assets')){
+                                            $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+
+                                        }else{
+                                            $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                        }
+                        $output .= '
                                     </div>
                                     <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                         <div class="text-[1.9vw] font-bold underline mb-[1vw]">' . Str::limit($xtra->name, 12, '...') .'</div>
                                         <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) . '</div>';
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->leader?->userXmas?->name, 14, '...') . '</div>';
                                             if ($xtra->leader === NULL){
                                                 $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>';
                                             }
 
                         $output .= '
                                             <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . ($xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) : '') . '</div>
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->latest_schedule?->location, 15, '...') . '</div>';
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->latest_schedule?->location, 14, '...') . '</div>';
                                             if ($xtra->latest_schedule === NULL){
                                                 $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>';
                                             }
@@ -94,7 +100,7 @@ class xtraController extends Controller
                                         '<div class="flex flex-col">
                                             <div class="xtraboxcontainer flex justify-center items-center">
                                                 <div class="mr-[0.5vw] xtrabox flex justify-center items-center">';
-                                                    if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets')){
+                                                    if (Str::contains($xtra->logo, 'database-assets')){
                                                         $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
 
                                                     }else{
@@ -105,13 +111,13 @@ class xtraController extends Controller
                                                 <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                                     <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">' . Str::limit($xtra->name, 12, '...') . '</div>
                                                     <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) . '</div>';
+                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->leader?->userXmas?->name, 14, '...') . '</div>';
                                                         if ($xtra->leader === NULL){
                                                             $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>';
                                                         }
                             $output .= '
                                                         <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . ($xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) : '') . '</div>
-                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->latest_schedule?->location, 15, '...') . '</div>';
+                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->latest_schedule?->location, 14, '...') . '</div>';
                                                         if ($xtra->latest_schedule === NULL){
                                                             $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>';
                                                         }
@@ -145,19 +151,25 @@ class xtraController extends Controller
                                         . csrf_field() .
                                         '<div class="flex flex-col">
                                             <div class="xtraboxcontainer flex justify-center items-center">
-                                                <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                                    <img src="' . asset('Assets/' . $xtra->logo)  . '" alt="' .  $xtra->name  . '">
+                                                <div class="mr-[0.5vw] xtrabox flex justify-center items-center">';
+                                                    if (Str::contains($xtra->logo, 'database-assets')){
+                                                        $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+
+                                                    }else{
+                                                        $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                                    }
+                            $output .= '
                                                 </div>
                                                 <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                                     <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">' .  Str::limit($xtra->name, 12, '...')  . '</div>
                                                     <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' .  implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2))  . '</div>';
+                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' .  Str::limit($xtra->leader?->userXmas?->name, 14, '...')  . '</div>';
                                                         if ($xtra->leader === NULL){
                                                             $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>';
                                                         }
                             $output .= '
-                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' .  date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd))  . '</div>
-                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' .  Str::limit($xtra->latest_schedule?->location, 15, '...')  . '</div>';
+                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' .  ($xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) : '')  . '</div>
+                                                        <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' .  Str::limit($xtra->latest_schedule?->location, 14, '...')  . '</div>';
                                                         if ($xtra->latest_schedule === NULL){
                                                             $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>';
 
@@ -207,20 +219,26 @@ class xtraController extends Controller
                             <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm(\'' . $xtra->kdExtracurricular . '\')">'
                                 . csrf_field() .
                                 '<div class="xtraboxcontainer flex justify-center items-center">
-                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                                        <img src="' .  asset('Assets/' . $xtra->logo ) . '" alt="' . $xtra->name . '">
+                                    <div class="mr-[0.5vw] xtrabox flex justify-center items-center">';
+                                        if (Str::contains($xtra->logo, 'database-assets')){
+                                            $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+
+                                        }else{
+                                            $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                        }
+                        $output .= '
                                     </div>
                                     <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
                                         <div class="text-[1.9vw] font-bold underline mb-[1vw]">' . Str::limit($xtra->name, 12, '...') .'</div>
                                         <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . implode(' ', array_slice(explode(' ', optional(optional($xtra->leader)->userXmas)->name), 0, 2)) . '</div>';
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->leader?->userXmas?->name, 14, '...') . '</div>';
                                             if ($xtra->leader === NULL){
                                                 $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader Yet</div>';
                                             }
 
                         $output .= '
                                             <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . ($xtra->latest_schedule ? date('D', strtotime($xtra->latest_schedule?->date)) . ', ' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) : '') . '</div>
-                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->latest_schedule?->location, 15, '...') . '</div>';
+                                            <div class="text-[1.6vw] font-semibold mb-[0.5vw]">' . Str::limit($xtra->latest_schedule?->location, 14, '...') . '</div>';
                                             if ($xtra->latest_schedule === NULL){
                                                 $output .= '<div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Schedule Yet</div>';
                                             }
