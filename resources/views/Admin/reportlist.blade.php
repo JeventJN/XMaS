@@ -91,44 +91,30 @@
             @endif
             <svg xmlns="http://www.w3.org/2000/svg" id="hidemodal" class="mt-[1.5vw] ml-[43vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256"><path fill="currentColor" d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"/></svg>
             <div class="flex flex-col ml-[4vw]">
-                <p class="text-[2vw] font-semibold">Categories</p>
-                <div class="flex items-center">
-                    <input type="checkbox" id="Physique" name="Physique" value="Physique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('Physique') === NULL) ? '' : 'checked' }} >
-                    <label class="ml-[1vw] text-[2vw]" for="Physique">Physique</label>
+                <p class="text-[2vw] font-semibold">Respond</p>
+                <div class="grid grid-cols-2">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="pending" name="pending" value="pending" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('pending') === NULL) ? '' : 'checked' }} >
+                        <label class="ml-[1vw] text-[2vw]" for="pending">Pending</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="accepted" name="accepted" value="accepted" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('accepted') === NULL) ? '' : 'checked' }} >
+                        <label class="ml-[1vw] text-[2vw]" for="accepted">Accepted</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="denied" name="denied" value="denied" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('denied') === NULL) ? '' : 'checked' }} >
+                        <label class="ml-[1vw] text-[2vw]" for="denied">Denied</label>
+                    </div>
                 </div>
-                <div class="flex items-center">
-                    <input type="checkbox" id="NonPhysique" name="NonPhysique" value="NonPhysique" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('NonPhysique') === NULL) ? '' : 'checked' }} >
-                    <label class="ml-[1vw] text-[2vw]" for="NonPhysique">Non-Physique</label>
-                </div>
-                <p class="mt-[1vw] text-[2vw] font-semibold">Days</p>
-                <div class="flex flex-wrap w-[40vw]">
-                    <div class="flex items-center w-[8vw] h-[3vw]">
-                        <input type="checkbox" id="Mon" name="Mon" value="Mon" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('Mon') === NULL) ? '' : 'checked' }}>
-                        <label class="ml-[1vw] text-[2vw]" for="Mon">Mon</label>
+                <p class="mt-[1vw] text-[2vw] font-semibold">Sort by Date</p>
+                <div class="flex flex-col justify-center items-start">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="asc" name="asc" value="asc" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('Mon') === NULL) ? '' : 'checked' }}>
+                        <label class="ml-[1vw] text-[2vw]" for="asc">Ascending</label>
                     </div>
-                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
-                        <input type="checkbox" id="Tue" name="Tue" value="Tue" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Tue') === NULL) ? '' : 'checked' }}>
-                        <label class="ml-[1vw] text-[2vw]" for="Tue">Tue</label>
-                    </div>
-                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
-                        <input type="checkbox" id="Wed" name="Wed" value="Wed" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Wed') === NULL) ? '' : 'checked' }}>
-                        <label class="ml-[1vw] text-[2vw]" for="Wed">Wed</label>
-                    </div>
-                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
-                        <input type="checkbox" id="Thu" name="Thu" value="Thu" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Thu') === NULL) ? '' : 'checked' }}>
-                        <label class="ml-[1vw] text-[2vw]" for="Thu">Thu</label>
-                    </div>
-                    <div class="flex items-center w-[8vw] h-[3vw] ml-[0.7vw]">
-                        <input type="checkbox" id="Fri" name="Fri" value="Fri" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer" {{ (request('Fri') === NULL) ? '' : 'checked' }}>
-                        <label class="ml-[1vw] text-[2vw]" for="Fri">Fri</label>
-                    </div>
-                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
-                        <input type="checkbox" id="Sat" name="Sat" value="Sat" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer" {{ (request('Sat') === NULL) ? '' : 'checked' }}>
-                        <label class="ml-[1vw] text-[2vw]" for="Sat">Sat</label>
-                    </div>
-                    <div class="flex items-center w-[8vw] h-[3vw] ml-[2vw]">
-                        <input type="checkbox" id="Sun" name="Sun" value="Sun" class="checkbox w-[1.5vw] h-[1.5vw] ml-[-0.7vw] underline italic cursor-pointer" {{ (request('Sun') === NULL) ? '' : 'checked' }}>
-                        <label class="ml-[1vw] text-[2vw]" for="Sun">Sun</label>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="desc" name="desc" value="desc" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('Tue') === NULL) ? '' : 'checked' }}>
+                        <label class="ml-[1vw] text-[2vw]" for="desc">Descending</label>
                     </div>
                 </div>
             </div>
