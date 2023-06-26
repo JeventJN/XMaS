@@ -27,10 +27,10 @@ class attendanceController extends Controller
             }
         }
 
-        $schedule = $xtra->latest_schedule()->first();
+        $schedules = $xtra->schedules()->get();
 
         if ($flag == 1) {
-            return view('Ketua.attendance', compact('xtra', 'members', 'schedule'));
+            return view('Ketua.attendance', compact('xtra', 'members', 'schedules'));
         }
         else {
             return redirect()->route('xtrapage', ['kdXtra' => $kdXtra]);
@@ -39,31 +39,32 @@ class attendanceController extends Controller
     }
 
     public function attendance(Request $request) {
+        // dd($request);
         $attendanceKd = $request->input('attendanceKd');
         $membersKd = json_decode($attendanceKd, true);
 
         $presences = presence::all();
 
         foreach ($presences as $presence) {
-            if ($presence->kdSchedule == $request->kdSchedule) {
+            if ($presence->kdSchedule == $request->schedule) {
                 $presence->delete();
             }
         }
 
         foreach ($membersKd as $kdMember) {
             presence::create([
-                'kdSchedule' => $request->kdSchedule,
+                'kdSchedule' => $request->schedule,
                 'kdMember' => $kdMember
             ]);
         }
 
 
-        if ($request->hasFile('photoXtra')) {
-            dd('masuk dokum');
+        if ($request->hasFile('photo')) {
+            // dd('masuk dokum');
             $data = [
                 'kdExtracurricular' => $request->kdXtra
             ];
-            $data['photoXtra'] = $request->file('photoXtra')->store('database-assets');
+            $data['photo'] = $request->file('photo')->store('database-assets');
 
             documentation::create($data);
         }
