@@ -49,10 +49,10 @@ class xtraController extends Controller
                                 '<div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">';
                                         if (Str::contains($xtra->logo, 'database-assets')){
-                                            $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                            $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '" style="object-fit: cover">';
 
                                         }else{
-                                            $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                            $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '" style="object-fit: cover">';
                                         }
                         $output .= '
                                     </div>
@@ -101,10 +101,10 @@ class xtraController extends Controller
                                             <div class="xtraboxcontainer flex justify-center items-center">
                                                 <div class="mr-[0.5vw] xtrabox flex justify-center items-center">';
                                                     if (Str::contains($xtra->logo, 'database-assets')){
-                                                        $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                                        $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '" style="object-fit: cover">';
 
                                                     }else{
-                                                        $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                                        $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '" style="object-fit: cover">';
                                                     }
                             $output .= '
                                                 </div>
@@ -153,10 +153,10 @@ class xtraController extends Controller
                                             <div class="xtraboxcontainer flex justify-center items-center">
                                                 <div class="mr-[0.5vw] xtrabox flex justify-center items-center">';
                                                     if (Str::contains($xtra->logo, 'database-assets')){
-                                                        $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                                        $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '" style="object-fit: cover">';
 
                                                     }else{
-                                                        $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                                        $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '" style="object-fit: cover">';
                                                     }
                             $output .= '
                                                 </div>
@@ -221,10 +221,10 @@ class xtraController extends Controller
                                 '<div class="xtraboxcontainer flex justify-center items-center">
                                     <div class="mr-[0.5vw] xtrabox flex justify-center items-center">';
                                         if (Str::contains($xtra->logo, 'database-assets')){
-                                            $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                            $output .= '<img src="' . asset('storage/' . $xtra->logo) . '" alt="' . $xtra->name . '" style="object-fit: cover">';
 
                                         }else{
-                                            $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '"/>';
+                                            $output .= '<img src="' . asset('Assets/' . $xtra->logo) . '" alt="' . $xtra->name . '" style="object-fit: cover">';
                                         }
                         $output .= '
                                     </div>
