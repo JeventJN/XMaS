@@ -194,9 +194,9 @@
                                             @endif
                                         </div>
                                         <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->title, 14, '...') }}</div>
+                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->title, 12, '...') }}</div>
                                             <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->schedules?->xtras->name, 12, '...') }}</div>
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->schedules?->xtras->name, 14, '...') }}</div>
                                                 <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->schedules?->xtras?->leader?->userXmas?->name, 14, '...') }}</div>
                                                 @if ($report->schedules?->xtras?->leader?->userXmas?->name === NULL)
                                                     <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader</div>
@@ -226,9 +226,9 @@
                                             @endif
                                         </div>
                                         <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->title, 14, '...') }}</div>
+                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->title, 12, '...') }}</div>
                                             <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->schedules?->xtras->name, 12, '...') }}</div>
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->schedules?->xtras->name, 14, '...') }}</div>
                                                 <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->schedules?->xtras?->leader?->userXmas?->name, 14, '...') }}</div>
                                                 @if ($report->schedules?->xtras?->leader?->userXmas?->name === NULL)
                                                     <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader</div>
@@ -255,9 +255,9 @@
                                             @endif
                                         </div>
                                         <div class="ml-[0.5vw] xtrabox flex flex-col items-start justify-center font-nunito leading-[3vw]">
-                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->title, 14, '...') }}</div>
+                                            <div class="text-[1.9vw] underline font-extrabold mb-[1vw]">{{ Str::limit($report->title, 12, '...') }}</div>
                                             <div class="leading-[2vw] text-[1.65vw] font-semibold">
-                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->schedules?->xtras->name, 12, '...') }}</div>
+                                                <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->schedules?->xtras->name, 14, '...') }}</div>
                                                 <div class="text-[1.6vw] font-semibold mb-[0.5vw]">{{ Str::limit($report->schedules?->xtras?->leader?->userXmas?->name, 14, '...') }}</div>
                                                 @if ($report->schedules?->xtras?->leader?->userXmas?->name === NULL)
                                                     <div class="text-[1.6vw] font-semibold mb-[0.5vw]">No Leader</div>
