@@ -205,24 +205,33 @@
                                             </div>
                                             {{-- </a> --}}
                                         </form>
-                                        <div class="absolute w-fit h-fit flex justify-end mt-[-6vw] ml-[29vw]">
-                                            <div class="w-fit h-fit">
-                                                {{-- TEMBAK LINK EDIT (KE EXTRAPAGE VRERSI EDIT) --}}
-                                                <form action="/editXtra/{{ $xtra->kdExtracurricular }}" method="GET">
-                                                    @csrf
-                                                    {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
-                                                    <button type="submit">
-                                                        <img class="w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/edit.png')}}" alt="">
-                                                    </button>
-                                                </form>
+                                            <div class="absolute w-fit h-fit flex justify-end mt-[-6vw] ml-[29vw]">
+                                                <div class="w-fit h-fit">
+                                                    {{-- TEMBAK LINK EDIT (KE EXTRAPAGE VRERSI EDIT) --}}
+                                                    <form action="/editXtra/{{ $xtra->kdExtracurricular }}" method="GET">
+                                                        @csrf
+                                                        {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
+                                                            <img id="btnsubmit" class="w-[2.5vw] h-[2.5vw] hover:scale-[1.1] hover:cursor-pointer" src="{{asset('Assets/edit.png')}}" alt="">
+                                                            <button type="submit" id="btnsbmt" class="hidden"></button>
+                                                    </form>
+                                                </div>
+                                                <script>
+                                                    // Get references to the btnsubmit and btnsbmt elements
+                                                    const btnsubmit = document.getElementById('btnsubmit');
+                                                    const btnsbmt = document.getElementById('btnsbmt');
+
+                                                    // Add click event listener to btnsubmit
+                                                    btnsubmit.addEventListener('click', function() {
+                                                        btnsbmt.click(); // Trigger the click event on btnsbmt
+                                                    });
+                                                </script>
+                                                <div class="w-[2.5vw] h-[2.5vw]">
+                                                    {{-- TEMBAK CHAT --}}
+                                                    <a href="/chat">
+                                                        <img class="ml-[1.5vw] w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/chat.png')}}" alt="">
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="w-[2.5vw] h-[2.5vw]">
-                                                {{-- TEMBAK CHAT --}}
-                                                <a href="/chat">
-                                                    <img class="ml-[1.5vw] w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/chat.png')}}" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
                                     </div>
                                 @else
                                     <div class="">
