@@ -212,22 +212,10 @@
                                                     @csrf
                                                     {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
                                                     <button type="submit">
-                                                    <div id="btnsbmt" class="hover:cursor-pointer">
                                                         <img class="w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/edit.png')}}" alt="">
-                                                    </div>
-                                                    <button type="submit" class="hidden btnsumbit"></button>
+                                                    </button>
                                                 </form>
                                             </div>
-                                            <script>
-                                                document.addEventListener('DOMContentLoaded', function() {
-                                                    var btnsbmt = document.getElementById('btnsbmt');
-                                                    var btnsubmit = document.querySelector('.btnsumbit');
-
-                                                    btnsbmt.addEventListener('click', function() {
-                                                        btnsubmit.click();
-                                                    });
-                                                });
-                                            </script>
                                             <div class="w-[2.5vw] h-[2.5vw]">
                                                 {{-- TEMBAK CHAT --}}
                                                 <a href="/chat">
