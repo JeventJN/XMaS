@@ -61,25 +61,25 @@
                         <div class="copyright">
                             &copy;<strong><span>2023 Sneakys</span></strong>.
                         </div>
-                        <div class="tengah">
+                        <div class="tengah flex flex-col">
                             <div class="judul">
                                 Extracurricular
                             </div>
-                            <div class="isi">
-                                <div class="isikiri">
-                                    <a class="linktext" href="">Running<br></a>
-                                    <a class="linktext" href="">Dance<br></a>
-                                    <a class="linktext" href="">Badminton<br></a>
-                                    <a class="linktext" href="">Basketball<br></a>
-                                    <a class="linktext" href="">Ping-Pong<br></a>
-                                    <a class="linktext" href="">Soccer<br></a>
-                                    <a class="linktext" href="">Chess<br></a>
-                                </div>
-                                <div class="isitengah"></div>
-                                <div class="isikanan">
-                                    <a class="linktext" href="">Choir<br></a>
-                                    <a class="linktext" href="">Band<br></a>
-                                </div>
+
+                            @php
+                                $xtras = App\Models\extracurricular::all()
+                            @endphp
+
+                            <div class="border-[0.1vw] w-[0.1vw] h-[11.8vw] absolute ml-[24.5vw] mt-[5.5vw] leading-[-3vw]"></div>
+
+                            <div class="w-[30vw] h-[12vw] m-auto border-2 grid grid-cols-2">
+                                @foreach ($xtras as $xtra)
+                                    @if ($xtra->kdExtracurricular % 2 == 1)
+                                        <a href="/xtrapage/{{$xtra->kdExtracurricular}}" class="text-right  hover:no-underline hover:font-semibold hover:text-white mr-[0.5vw]">{{$xtra->name}}</a>
+                                    @else
+                                        <a href="/xtrapage/{{$xtra->kdExtracurricular}}" class="text-left hover:no-underline hover:font-semibold hover:text-white ml-[0.5vw]">{{$xtra->name}}</a>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         <div class="kanan">

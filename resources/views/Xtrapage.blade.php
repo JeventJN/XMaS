@@ -1049,7 +1049,7 @@
             } else if (end.value == "") {
                 alert("End time must be filled out");
                 return false;
-            } else if(start.value > end.value) {
+            } else if(start.value >= end.value) {
                 alert("Start time must be greater than end time");
                 return false;
             } else if (location.value == ""){
