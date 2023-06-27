@@ -208,10 +208,9 @@
                                         <div class="absolute w-fit h-fit flex justify-end mt-[-6vw] ml-[29vw]">
                                             <div class="w-fit h-fit">
                                                 {{-- TEMBAK LINK EDIT (KE EXTRAPAGE VRERSI EDIT) --}}
-                                                <form action="/editXtra" method="POST">
+                                                <form action="/editXtra/{{ $xtra->kdExtracurricular }}" method="GET">
                                                     @csrf
-                                                    <input type="hidden" name="NIP" value="{{ $nip }}">
-                                                    <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
+                                                    {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
                                                     <button type="submit">
                                                         <img class="w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/edit.png')}}" alt="">
                                                     </button>

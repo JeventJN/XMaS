@@ -17,31 +17,40 @@ class editXtraController extends Controller
 {
     //
     public function route(Request $request){
-        // dd('route');
-        // dd($request->NIP);
-        // $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
         $userMember = NULL;
-        // dd($NIP);
 
-        // $xtra = extracurricular::find($request->kdXtra);
         $xtra = extracurricular::find($request->kdXtra);
+
+
         if(Auth::user()){
             // join jadi member
-            $userMember = $xtra?->members?->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();
+            $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
+            $userMember = $xtra?->members?->where('NIP', '=', $NIP)->first();
+
+            $members = $xtra->members()->get();
+            foreach ($members as $member) {
+                if ($member->NIP == $NIP) {
+                    if ($userMember->kdState == 2) {
+                        // ketua
+                        $edits = 'yes';
+                        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
+                    }
+                    else {
+                        // bukan ketua
+                        $edits = 'no';
+                        return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra]);
+                    }
+                }
+            }
         }elseif(Auth::user() && !$userMember){
             // non-member
             $userMember = -1;
+            $edits = 'no';
+
+            return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra]);
         }
-
-        // dd($xtra);
-
-        // return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => 'yes']);
-        // return redirect()->route('xtrapage', $request->kdXtra)->with(['xtra' => $xtra, 'userMember' => $userMember, 'edits' => 'yes']);
-
-
-        // return redirect()->route('xtrapage')
-        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => 'yes']);
-
+        // member biasa
+        return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra]);
     }
 
     public function header(Request $request){
@@ -74,11 +83,12 @@ class editXtraController extends Controller
             $userMember = -1;
         }
 
-        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => 'yes']);
+        $edits = 'yes';
+
+        return redirect()->route('editXtra', ['kdXtra' => $request->kdXtra])->with(['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
     }
 
     public function logo(Request $request){
-        // dd($request);
 
         $xtra = extracurricular::find($request->kdXtra);
 
@@ -107,7 +117,10 @@ class editXtraController extends Controller
             $userMember = -1;
         }
 
-        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => 'yes']);
+        $edits = 'yes';
+
+        return redirect()->route('editXtra', ['kdXtra' => $request->kdXtra])->with(['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
+
     }
 
     public function photo(Request $request){
@@ -135,21 +148,7 @@ class editXtraController extends Controller
             $userMember = -1;
         }
 
-        // $request->session()->put('photo', null);
-        // $request->session()->save();
-
-        // $request->session()->forget('photo');
-
-        // if ($request->route()->getName() === 'addPhoto') {
-        //     $request->session()->forget('photo_path'); // Clear the stored photo path from the session when returning to /addPhoto route
-        // }
-
-        return view('Xtrapage', compact('xtra', 'userMember', 'edits'));
-        // return redirect()->back();
-
-        // $this->activity($request);
-
-        // return redirect()->route('editXtra.activity');
+        return redirect()->route('editXtra', ['kdXtra' => $request->xtra])->with(['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
     }
 
     public function deletePhoto(Request $request){
@@ -174,7 +173,8 @@ class editXtraController extends Controller
             $userMember = -1;
         }
 
-        return view('Xtrapage', compact('xtra', 'userMember', 'edits'));
+        return redirect()->route('editXtra', ['kdXtra' => $request->kdXtra])->with(['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
+
     }
 
     public function activity(Request $request) {
@@ -201,18 +201,7 @@ class editXtraController extends Controller
             $userMember = -1;
         }
 
-        return view('Xtrapage', compact('xtra', 'userMember', 'edits'));
-
-        // return redirect()->route('editXtra');
-
-        // return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra]);
-        // return redirect()->route('xtrapage', ['kdXtra' => $request->xtra])
-        //     // ->withInput(['kdXtra' => $request->kdXtra])
-        //     ->with('notif', 'Successfully left the Xtra');
-
-        // return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra])
-        //     // ->withInput(['kdXtra' => $request->kdXtra])
-        //     ->with('notif', 'Successfully left the Xtra');
+        return redirect()->route('editXtra', ['kdXtra' => $request->kdXtra])->with(['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
     }
 
     public function schedule(Request $request){
@@ -224,7 +213,6 @@ class editXtraController extends Controller
             'location' => 'required'
         ]);
 
-        // dd($data);
         $data['kdExtracurricular'] = $request->kdXtra;
 
         schedule::create($data);

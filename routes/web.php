@@ -68,22 +68,13 @@ Route::post('/addSchedule', [editXtraController::class, 'schedule']);
 Route::get('/attendanceLeader/{kdXtra}', [attendanceController::class, 'attendancePage'])->middleware('auth');
 Route::POST('/attendance', [attendanceController::class, 'attendance'])->middleware('auth');
 
-Route::post('/editXtra', [editXtraController::class, 'route'])->name('editXtra');
+Route::get('/editXtra/{kdXtra}', [editXtraController::class, 'route'])->name('editXtra')->middleware('auth');
+
 Route::post('/editHeader', [editXtraController::class, 'header']);
 Route::post('/changeLogo', [editXtraController::class, 'logo']);
 Route::post('/addPhoto', [editXtraController::class, 'photo'])->name('editXtra.photo');
-// Route::post('/addPhoto', [photoController::class, 'photo'])->name('editXtra.photo');
 Route::post('/deletePhoto', [editXtraController::class, 'deletePhoto']);
 Route::post('/editActivity', [editXtraController::class, 'activity'])->name('editXtra.activity');
-
-
-// Route::match(['get', 'post'], '/editXtra', [editXtraController::class, 'route']);
-// Route::post('/addPhoto', [editXtraController::class, 'photo']);
-// Route::post('/editActivity', [editXtraController::class, 'activity']);
-
-// Route::match(['GET', 'POST'], '/editXtra', [editXtraController::class, 'route'])->name('editXtra');
-
-
 
 Route::post('/reportform', [reportController::class, 'reportKetua']);
 Route::post('/addReport', [reportController::class, 'new']);
