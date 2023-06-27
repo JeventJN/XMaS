@@ -50,7 +50,6 @@ class editXtraController extends Controller
         $data = $request -> validate([
             'fileupload' => 'image'
         ]);
-        // dd('masuk header 1');
 
         if ($request->fileupload) {
             $old = null;
@@ -136,8 +135,14 @@ class editXtraController extends Controller
             $userMember = -1;
         }
 
-        $request->session()->put('photo', null);
-        $request->session()->save();
+        // $request->session()->put('photo', null);
+        // $request->session()->save();
+
+        // $request->session()->forget('photo');
+
+        // if ($request->route()->getName() === 'addPhoto') {
+        //     $request->session()->forget('photo_path'); // Clear the stored photo path from the session when returning to /addPhoto route
+        // }
 
         return view('Xtrapage', compact('xtra', 'userMember', 'edits'));
         // return redirect()->back();
@@ -149,7 +154,7 @@ class editXtraController extends Controller
 
     public function deletePhoto(Request $request){
         if ($request->photo) {
-            $doc = documentation::where('photo', '=', $request->photo)->first();
+            $doc = documentation::find($request->photo);
             if ($doc->photo) {
                 Storage::delete($doc->photo);
             }

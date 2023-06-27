@@ -94,7 +94,7 @@
                     @csrf
                     <div class="iconcamera" id="iconcamera">
                         <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" alt>
-                        <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+                        <input type="file" name="fileupload" id="fileupload" style="display: none" accept="image/*">
                         <input type="hidden" name="NIP" value="{{str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT)}}">
                     </div>
                 </form>

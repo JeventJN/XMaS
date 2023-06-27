@@ -9,6 +9,7 @@ use App\Http\Controllers\xtraController;
 use App\Http\Controllers\cameraController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\editXtraController;
+use App\Http\Controllers\photoController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\reportController;
 use App\Http\Controllers\xtraregController;
@@ -71,6 +72,7 @@ Route::post('/editXtra', [editXtraController::class, 'route'])->name('editXtra')
 Route::post('/editHeader', [editXtraController::class, 'header']);
 Route::post('/changeLogo', [editXtraController::class, 'logo']);
 Route::post('/addPhoto', [editXtraController::class, 'photo'])->name('editXtra.photo');
+// Route::post('/addPhoto', [photoController::class, 'photo'])->name('editXtra.photo');
 Route::post('/deletePhoto', [editXtraController::class, 'deletePhoto']);
 Route::post('/editActivity', [editXtraController::class, 'activity'])->name('editXtra.activity');
 

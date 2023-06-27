@@ -166,7 +166,7 @@
                 @endif
                     <div class="image-overlay">
                         <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" style="margin-top: -10vw;">
-                        <input type="file" name="fileupload" id="fileupload" style="display: none" accept=".png, .jpg, .jpeg">
+                        <input type="file" name="fileupload" id="fileupload" style="display: none" accept="image/*">
                     </div>
                 </div>
                 <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
@@ -179,7 +179,7 @@
             @endif
                 </div>
         @endif
-            <input type="file" name="fileupload" id="fileupload" style="display: none;" accept=".png, .jpg, .jpeg">
+            <input type="file" name="fileupload" id="fileupload" style="display: none;" accept="image/*">
             <div class="box-jumbotron">
                 {{-- containerlogo itu container dari logo ekskul (Strava), hover (Xtra, Schedule, Leader), logo BCA --}}
                 <div class="containerlogo">
@@ -285,7 +285,7 @@
 
                                     <div class="iconcamera z-40" id="iconcamera">
                                         <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" alt>
-                                        <input type="file" name="fileupload1" id="fileupload1" style="display: none" accept=".png, .jpg, .jpeg">
+                                        <input type="file" name="fileupload1" id="fileupload1" style="display: none" accept="image/*">
                                     </div>
                                     @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
                                         <img src="{{ asset('storage/' . $xtra->logo) }}" alt="{{$xtra->name}}" class="elips" style="height: 20.8vw; width: 20.8vw; object-fit:cover" />
@@ -335,8 +335,9 @@
                         <form action="{{ route('editXtra.photo') }}" method="POST" enctype="multipart/form-data" id="addPhotoForm">
                             @csrf
                             <a type="button" class="btn" id="addPhotoBut" style="padding-left: 4vw; padding-right: 4vw;">Add Photo</a>
-                            <input type="file" class="btn absolute opacity-0 ml-[-15.8vw] mt-[-2.6vw] w-[15.8vw] h-[5.4vw] rounded-[1.85vw]" id="aduh" name="photo" accept=".png, .jpg, .jpeg" style="padding-left: 4vw; padding-right: 4vw;" onmouseover="this.previousElementSibling.style.backgroundColor = '#1B2F45'" onmouseout="this.previousElementSibling.style.backgroundColor = ''">
+                            <input type="file" class="btn absolute opacity-0 ml-[-15.8vw] mt-[-2.6vw] w-[15.8vw] h-[5.4vw] rounded-[1.85vw]" id="aduh" name="photo" accept="image/*" style="padding-left: 4vw; padding-right: 4vw;" onmouseover="this.previousElementSibling.style.backgroundColor = '#1B2F45'" onmouseout="this.previousElementSibling.style.backgroundColor = ''">
                             <input type="hidden" name="xtra" value="{{$xtra->kdExtracurricular}}">
+                            <input type="hidden" name="photo_path" value="{{ old('photo_path', $photoPath ?? '') }}">
                         </form>
 
                         <script>
@@ -378,7 +379,6 @@
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
                     @if ($edit == 1)
                         <form action="/editActivity" method="POST" class="KotakForm" id="editActivityForm">
-                        {{-- <form action="{{ route('editXtra.activity') }}" method="POST" class="KotakForm" id="editActivityForm"> --}}
                             @csrf
                             <div class="form-group" id="KotakDesc">
                                 <div class="boxlabeledit">
@@ -396,8 +396,9 @@
                                 <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" placeholder="{{ $xtra->latest_schedule?->activity }}" style="height: 9vw; border-radius: 2.5vw;"></textarea>
                             </div>
                             <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
+
                             {{-- Button save --}}
-                            <div class="kotakbtnsave mt-[2vw]">
+                            <div class="kotakbtnsave mt-[2vw]" id="saveKotak">
                                 <a type="button" class="btnsave" id="savebtn">
                                     Save
                                 </a>
@@ -419,7 +420,9 @@
                                         </div>
                                         <div class="boxsubmitsave">
                                             <button class="btnyesmodal">Yes</button>
-                                            <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
+                                            <div class="btncancelmodal flex" id="btncancelmodal2">
+                                                <p class="m-auto">Cancel</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -456,52 +459,58 @@
                 {{-- ===Segment Description=== --}}
 
                 {{-- ===Segment Documentation=== --}}
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <form action="/deletePhoto" method="POST" id="deletePhoto">
-                        @csrf
-                        <div class="swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                @foreach ($xtra->documentations as $doc)
-                                    <div class="swiper-slide">
-                                        <div class="card" style="width: 19vw">
-                                            @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
-                                                <div class="image-container">
-                                                    <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" />
-                                                    @if ($edit == 1)
-                                                        <div class="hover-content">
-                                                            <div class="card-img-top hover-image bg-white/[0.4] flex">
-                                                                <div class="hover-icon">
-                                                                    <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
-                                                                    <input type="hidden" name="photo" class="photo-input" value="{{$doc->photo}}">
+                <div class="tab-pane fade flex" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    @if ($xtra->documentations->count())
+                        <form action="/deletePhoto" method="POST" id="deletePhoto">
+                            @csrf
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    @foreach ($xtra->documentations as $doc)
+                                        <div class="swiper-slide">
+                                            <div class="card" style="width: 19vw">
+                                                @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
+                                                    <div class="image-container">
+                                                        <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" />
+                                                        @if ($edit == 1)
+                                                            <div class="hover-content">
+                                                                <div class="card-img-top hover-image bg-white/[0.4] flex">
+                                                                    <div class="hover-icon">
+                                                                        <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
+                                                                        <input type="hidden" name="photo" class="photo-input" value="{{$doc->kdDocumentation}}">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            @else
-                                                <div class="image-container">
-                                                    <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
-                                                    @if ($edit == 1)
-                                                        <div class="hover-content">
-                                                            <div class="card-img-top hover-image bg-white/[0.4] flex">
-                                                                <div class="hover-icon">
-                                                                    <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
-                                                                    <input type="hidden" name="photo" class="photo-input" value="{{$doc->photo}}">
+                                                        @endif
+                                                    </div>
+                                                @else
+                                                    <div class="image-container">
+                                                        <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
+                                                        @if ($edit == 1)
+                                                            <div class="hover-content">
+                                                                <div class="card-img-top hover-image bg-white/[0.4] flex">
+                                                                    <div class="hover-icon">
+                                                                        <img class="hover-image m-auto" src="{{ asset('Assets/Xtrapageassets/trash.svg') }}" class="card-img-top" alt="..." style="width: 10vw; height: 10vw;" />
+                                                                        <input type="hidden" name="photo" class="photo-input" value="{{$doc->kdDocumentation}}">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        @endif
+                                                    </div>
                                                     @endif
                                                 </div>
-                                                @endif
                                             </div>
-                                        </div>
-                                    {{-- <input type="hidden" name="photo" value="{{$doc->photo}}"> --}}
-                                    {{-- <input type="hidden" name="photo" class="photo-input" data-photo="{{$doc->photo}}"> --}}
-                                    <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
-                                @endforeach
+                                        {{-- <input type="hidden" name="photo" value="{{$doc->photo}}"> --}}
+                                        {{-- <input type="hidden" name="photo" class="photo-input" data-photo="{{$doc->photo}}"> --}}
+                                        <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
+                                    @endforeach
+                                </div>
                             </div>
+                        </form>
+                    @else
+                        <div class="flex w-screen h-[25vw]">
+                            <p class="text-[1.7vw] text-white font-semibold m-auto">No Extracurricular's Documentation Yet.</p>
                         </div>
-                    </form>
+                    @endif
                 </div>
                 {{-- ===Segment Documentation=== --}}
 
@@ -906,8 +915,24 @@
         var btncancel = document.getElementById("btncancelmodal2");
 
         // When the user clicks the button, open the modal
-        btnsave.onclick = function() {
-            modalsave.style.display = "block";
+        var save = document.getElementById('saveKotak');
+        save.addEventListener('click', validate);
+
+        function validate(){
+            const activity = document.getElementById('exampleFormControlTextarea2')
+            const description = document.getElementById('exampleFormControlTextarea1')
+
+            if (description.value.length < 1){
+                alert("Description must be filled")
+                return false;
+            }
+
+            if (activity.value.length < 1){
+                alert("Activity must be filled")
+                return false;
+            }
+
+            return modalsave.style.display="block";
         }
 
         // When the user clicks on <span> (x), close the modal
@@ -1112,7 +1137,6 @@
         });
       });
     </script>
-
 
 </body>
 

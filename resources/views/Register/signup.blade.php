@@ -95,9 +95,15 @@
                             </div>
                         </div>
                         @error('NIP')
-                        <div class="flex ml-[1vw] text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-bold">
-                            NIP is already registered
-                        </div>
+                            <div class="flex ml-[1vw] text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold">
+                                NIP is already registered
+                            </div>
+                        @enderror
+
+                        @error('photo')
+                            <div class="flex ml-[1vw] text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold">
+                                File must be an image
+                            </div>
                         @enderror
                     </div>
 
@@ -105,7 +111,7 @@
                         <p class="text-white font-nunito text-[1.2vw] mt-[5vw]">Upload your photo</p>
                         <div class="upload" >
                             <img class="h-[26vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto.png')}}" alt="">
-                            <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0 hover:cursor-pointer" type="file" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded.png')}}'">
+                            <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0 hover:cursor-pointer" accept="image/*" type="file" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded.png')}}'">
                         </div>
                         <div class="buttonsignup mt-[0.5vw]">
                             <input type="checkbox" id="checkbox" class="w-[1vw] h-[1vw] underline italic ml-[-3vw]">
