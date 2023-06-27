@@ -15,9 +15,12 @@ use Illuminate\Support\Str;
 class reportController extends Controller
 {
     public function index() {
-        $reports = report::all()->sortBy('kdState');
-        // $reports = report::all()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
+        // $reports = report::all()->sortBy('kdState');
+        $reports = report::latest()->filter(request(['search', 'pending', 'accepted', 'denied', 'asc', 'desc']))->get()->sortBy('kdState');
 
+        if(isset(request('asc'))){
+
+        }
         return view('Admin.reportlist', ['reports' => $reports]);
     }
 
