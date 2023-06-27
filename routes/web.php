@@ -95,6 +95,7 @@ Route::get(('/contoh'), function (){
 Route::get(('/myclub'), [xtraController::class, 'myclub']);
 
 Route::get(('/reportlist'), [reportController::class, 'index'])->name('reportList')->middleware('admin');
+Route::get(('/searchReport'), [reportController::class, 'searchLive']);
 
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
 
