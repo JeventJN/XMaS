@@ -19,10 +19,22 @@
             </a>
         </div>
         <div class="font-nunito text-[2.8vw] text-white font-bold">
-            Xtra Report Form
+            Xtra Report
         </div>
+
+            {{$report->kdState}}
+
+        @if ($report->kdState == 4)
+            <div class="decborder absolute w-[7.8vw] h-[2.4vw] flex justify-center items-center rounded-[5vw] bg-green-600 mt-[10.5vw] ml-[-87.5vw]">
+                <div class="text-[1.4vw] text-white font-nunito font-semibold">Accepted</div>
+            </div>
+        @elseif ($report->kdState == 5)
+            <div class="decborder absolute w-[7.8vw] h-[2.4vw] flex justify-center items-center rounded-[5vw] bg-red-500 mt-[10.5vw] ml-[-87.5vw]">
+                <div class="text-[1.4vw] text-white font-nunito font-semibold">Denied</div>
+            </div>
+        @endif
     </div>
-        <div class="flex w-screen h-[33vw] justify-center items-center mt-[9vw] ">
+        <div class="flex w-screen h-[33vw] justify-center items-center mt-[5.5vw] ">
             <div class="w-fit flex font-nunito">
                 <div class="flex flex-col items-center justify-between w-[25.5vw] h-[33vw] mr-[6vw]">
                     <div class="w-[25.5vw] h-[9vw] bg-[#395474] rounded-[1vw] flex justify-around items-center flex-col">
@@ -101,19 +113,21 @@
         <form action="subReport" method="post">
             @csrf
             <div class="flex justify-center w-screen h-fit font-nunito">
-                <button id="Accept">
-                    <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
-                        Accept
+                @if ($report->kdState == 3)
+                    <button id="Accept">
+                        <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
+                            Accept
+                        </div>
+                    </button>
+                    <div class="flex items-center justify-center w-[3.5vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white text-[1.3vw] hover:bg-black hover:cursor-pointer opacity-0">
+                        Submit
                     </div>
-                </button>
-                <div class="flex items-center justify-center w-[3.5vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white text-[1.3vw] hover:bg-black hover:cursor-pointer opacity-0">
-                    Submit
-                </div>
-                <button id="Deny">
-                    <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
-                        Deny
-                    </div>
-                </button>
+                    <button id="Deny">
+                        <div class="flex items-center font-semibold justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
+                            Deny
+                        </div>
+                    </button>
+                @endif
                 {{-- ini inputnya ya bos, saya masukin valuenya dari js --}}
                 <input type="radio" class="hidden" id="report" name="report">
                 <input type="hidden" name="kdReport" value="{{$report->kdReport}}">
