@@ -26,7 +26,7 @@ class report extends Model
     public function scopeFilter($query, array $filters){
         $query->when($filters['search'] ?? false, fn($query, $search) =>
             $query->where(fn($query) =>
-                $query->where('name', 'like', '%' . $search . '%')
+                $query->where('title', 'like', '%' . $search . '%')
             // )->orWhereIn('kdExtracurricular', fn($query) =>
             //             $query->select('kdExtracurricular')
             //                 ->from(fn($query) =>
@@ -61,19 +61,18 @@ class report extends Model
             // FROM `schedules`
             // INNER JOIN (SELECT `schedules`.`kdExtracurricular`, MAX(`schedules`.`DATE`) AS `data`, DATE_FORMAT(MAX(`schedules`.`date`), '%a') FROM `schedules` GROUP BY `schedules`.`kdExtracurricular`  ) AS `a` ON `schedules`.`kdExtracurricular` = `a`.`kdExtracurricular` AND `schedules`.`date` = `a`.`data`
             ->orWhere(fn($query) =>
-                $query->orWhereIn(DB::raw('`extracurriculars`.kdExtracurricular'), fn($query) =>
+                $query->orWhereIn(DB::raw('`reports`.kdSchedule'), fn($query) =>
                 //     ->from('schedules')
                 //     ->whereIn('kdschedule', fn($query) =>
-                        $query->select('kdExtracurricular')
+                        $query->select('kdSchedule')
                             ->from('schedules')
                             ->JOIN(DB::raw("(SELECT `kdExtracurricular` AS `kd`, MAX(`DATE`) AS `recent_date` FROM `schedules` GROUP BY `kdExtracurricular`) AS `recent_sched`"), fn($join) =>
                                       $join->on(DB::raw("`recent_sched`.`kd`"), '=', DB::raw("`schedules`.`kdExtracurricular`")))
                             ->where(DB::raw("`recent_sched`.`recent_date`"),  '=', DB::raw("`schedules`.`date`"))
                             ->where(fn($query) =>
-                                        $query->where('location', 'like', '%'.$search.'%')
-                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%D')"), 'like', '%'.$search.'%')
-                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
-                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%'))
+                                        $query->Where(DB::raw("DATE_FORMAT(`schedules`.`date`, '%d')"), 'like', '%'.$search.'%')
+                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%M')"), 'like', '%'.$search.'%')
+                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%Y')"), 'like', '%'.$search.'%'))
                         ))
 
                 // ->orwhereHas('latest_schedule', fn($query) =>
@@ -110,12 +109,30 @@ class report extends Model
         //                                                     GROUP BY `extracurriculars`.kdextracurricular DESC) AS `sched_max`"))
         //                                         ->where('date_max', '=', 'mon');
         $day = [];
-        if((isset($filters['Mon']) || isset($filters['Tue']) || isset($filters['Wed']) || isset($filters['Thu']) || isset($filters['Fri']) || isset($filters['Sat']) || isset($filters['Sun'])) === true){
-            if(isset($filters['Mon']) === true){
-                $day[] = ['Mon'];
+        if((isset($filters['asc']))){
+            $query->whereIn(DB::raw('`reports`.kdSchedule'), fn($query) =>
+                $query->select('kdSchedule')
+                    ->from(fn($query) =>
+                            $query->select(DB::raw(" `schedules`.kdextracurricular, DATE_FORMAT(MAX(schedules.date), '%a') AS date_max"))
+                                ->from('schedules')
+                                // ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
+                                ->groupBy('schedules.kdExtracurricular')
+                    )->whereIn('date_max', $day)->reorder('kdExtracurricular')
+            );
+            $query->when($filters['asc'] ?? false, fn($query) =>
+                $query->where('category', 'like', 'asc')
+            );
+
+            $query->when($filters['NonPhysique'] ?? false, fn($query) =>
+                $query->where('category', 'like', 'Non-Physique')
+            );
+        }
+        if((isset($filters['asc']) || isset($filters['desc']))){
+            if(isset($filters['asc']) === true){
+                $day[] = ['asc'];
             }
-            if(isset($filters['Tue']) === true){
-                $day[] = ['Tue'];
+            if(isset($filters['desc']) === true){
+                $day[] = ['desc'];
             }
             if(isset($filters['Wed']) === true){
                 $day[] = ['Wed'];
