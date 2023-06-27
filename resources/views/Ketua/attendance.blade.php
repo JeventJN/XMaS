@@ -17,21 +17,21 @@
                     <a href="/xtrapage/{{$xtra->kdExtracurricular}}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="ml-[1vw]" width="4.5vw" height="4.5vw" viewBox="0 0 24 24" style="fill: white; font-weight:1vw"><path d="M11.8 13H15q.425 0 .713-.288T16 12q0-.425-.288-.713T15 11h-3.2l.9-.9q.275-.275.275-.7t-.275-.7q-.275-.275-.7-.275t-.7.275l-2.6 2.6q-.3.3-.3.7t.3.7l2.6 2.6q.275.275.7.275t.7-.275q.275-.275.275-.7t-.275-.7l-.9-.9Zm.2 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
                     </a>
-                    <div class="w-[100%] h-[6vw] text-white font-nunito font-bold text-[3.6vw] flex justify-center items-center">Attendance System</div>
+                    <div class="w-[100%] h-[6vw] text-white font-nunito font-bold text-[3vw] flex items-center ml-[1vw]">Attendance System</div>
                     <div class="w-[5.5vw]"></div>
                 </div>
                 {{-- Nama Eskul --}}
-                <div class="w-[100%] h-[3vw] text-white font-nunito font-bold text-[3vw] flex justify-center items-center">{{$xtra->name}}</div>
-                <div class="w-[100%] flex justify-center items-center h-[29vw]">
-                    <div class="w-[40vw] h-[27vw] bg-[#D9D9D9] rounded-[3vw] flex flex-col items-center justify-center">
+                {{-- <div class="w-[100%] h-[3vw] text-white font-nunito font-bold text-[3vw] flex justify-center items-center">{{$xtra->name}}</div> --}}
+                <div class="w-[100%] mt-[2vw] flex justify-center items-center h-[31vw]">
+                    <div class="w-[40vw] h-[34vw] bg-[#D9D9D9] rounded-[3vw] flex flex-col items-center justify-center">
                         @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
-                            <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png"  class="absolute max-w-[10vw] min-w-[10vw] max-h-[10vw] min-h-[10vw] mb-[27vw] ml-[40vw] rounded-[50%]" style="object-fit: cover"/>
+                            <img src="{{ asset('storage/' . $xtra->logo) }}" alt="Assets/RunningLogo.png"  class="absolute max-w-[10vw] min-w-[10vw] max-h-[10vw] min-h-[10vw] mb-[32vw] border-[0.2vw] border-[#1B2F45] ml-[40vw] rounded-[50%]" style="object-fit: cover"/>
                         @else
-                            <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png"  class="absolute max-w-[10vw] min-w-[10vw] max-h-[10vw] min-h-[10vw] mb-[27vw] ml-[40vw] rounded-[50%]" style="object-fit: cover" />
+                            <img src="{{ asset('Assets/' . $xtra->logo) }}" alt="Assets/RunningLogo.png"  class="absolute max-w-[10vw] min-w-[10vw] max-h-[10vw] min-h-[10vw] mb-[32vw] border-[0.2vw] border-[#1B2F45] ml-[40vw] rounded-[50%]" style="object-fit: cover" />
                         @endif
-                        <p class="text-[1.8vw] font-nunito font-semibold">Attendance List</p>
-                        <div class="mt-[0.5vw]"></div>
-                        <div class="w-[80%] h-[22vw] mb-[1vw] overflow-scroll scrollbar-hide">
+                        <p class="text-[2vw] font-nunito font-bold">{{$xtra->name}}</p>
+                        <div class="mt-[1vw]"></div>
+                        <div class="w-[80%] h-[26vw] mb-[1vw] overflow-scroll scrollbar-hide">
                             {{-- foreach nama anggota di sini --}}
                             <?php
                                 $totalMembers = count($members);
@@ -42,7 +42,7 @@
                                         <div class="flex w-[100%] h-[2.5vw] items-center justify-start">
                                             {{-- label isi nama anggota --}}
                                             <div class="w-[90%] h-[2.2vw] flex items-center">
-                                                <label class="ml-[2vw] text-[2vw] text-white font-light">{{$member->userXmas?->name}}</label>
+                                                <label class="ml-[2vw] text-[1.5vw] text-white font-light">{{$member->userXmas?->name}}</label>
                                             </div>
                                             {{-- value isi nama anggota --}}
                                             <div class="w-[10%] flex justify-center items-center">
@@ -60,11 +60,11 @@
                 <div class="w-[100%] flex h-[9vw]">
                     <div class="w-[70%] flex flex-col justify-center items-start ml-[1vw]">
                         {{-- Masukin attribute eskul disini --}}
-                        <div class="text-[2vw] text-white font-nunito font-bold "> Leader &nbsp &nbsp : {{Auth()->User()->name}}</div>
+                        <div class="text-[1.8vw] text-white font-nunito font-bold "> Leader &nbsp &nbsp : {{Auth()->User()->name}}</div>
                         <div class="flex">
-                            <div class="text-[2vw] text-white font-nunito font-bold "> Schedule :  </div>
-                            <select id="schedule" name="schedule" required class="ml-[0.5vw] input bg-gray-50 text-gray-900 text-sm block max-w-[10vw] min-w-[10vw] max-h-[2.5vw] min-h-[2.5vw] mb-[1vw] text-[2vw] overflow-scroll">
-                                <div id="select-box" class="max-w-[2vw] min-w-[2vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
+                            <div class="text-[1.8vw] text-white font-nunito font-bold "> Schedule :  </div>
+                            <select id="schedule" name="schedule" required class= "ml-[0.5vw] input bg-gray-50 text-gray-900 text-sm block max-w-[10vw] min-w-[10vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] overflow-scroll">
+                                <div id="select-box" class="max-w-[1.8vw] min-w-[1.8vw] max-h-[2.5vw] min-h-[2.5vw] mt-[1vw] border-none">
                                     <option selected="false" class="hidden" value="">
                                         Choose a date
                                     </option>
@@ -79,9 +79,9 @@
                     </div>
                     <div class="w-[30%] flex flex-col justify-center items-center">
                         {{-- masukin total anggot --}}
-                        <div id="attendanceCount" class="ml-[3vw] text-white text-[1.5vw]">Presence 0/{{$totalMembers}}</div>
+                        <div id="attendanceCount" class="ml-[3vw] text-white text-[1.2vw]">Presence 0/{{$totalMembers}}</div>
                         <input type="hidden" name="attendanceKd" id="attendanceInput">
-                        <button class="ml-[3vw] w-[17vw] h-[5vw] text-[2vw] font-nunito font-bold rounded-[1vw] bg-[#D9D9D9] flex justify-center items-center hover:bg-[#1B2F45] hover:text-white" onclick="prepareAttendanceArray()">Submit</button>
+                        <button class="ml-[3vw] w-[12vw] h-[3vw] text-[1.5vw] font-nunito font-bold rounded-[1vw] bg-[#D9D9D9] flex justify-center items-center hover:bg-[#1B2F45] hover:text-white" onclick="prepareAttendanceArray()">Submit</button>
                     </div>
                 </div>
                 <script>
