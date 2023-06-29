@@ -515,9 +515,7 @@
                             // console.log(Physique);
                             // console.log($('#Physique:checked').val());
                             // console.log($('#NonPhysique:checked').val());
-                            // console.log($('#Mon:checked').val());
-                            // console.log($('#Tue:checked').val());
-                            // console.log(($('#Mon:checked').val()) ? true: false);
+
                             if (data.empty) {
                                 $("#search_query").text(query);
                                 $("#empty_xtra").show();
