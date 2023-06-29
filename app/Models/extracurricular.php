@@ -73,12 +73,6 @@ class extracurricular extends Model
                                             ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
                                             ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%'))
                         ))
-
-                // ->orwhereHas('latest_schedule', fn($query) =>
-                // $query->where('location', 'like', '%' . $search . '%')->first()
-                    // ->orWhere('date', 'like', '%' . $search . '%')
-                    // ->orWhere('timeStart', 'like', '%' . $search . '%')
-                    // ->orWhere('timeEnd', 'like', '%' . $search . '%')
             ->orwhereHas('leader', fn($query) =>
                 $query->whereHas('userXmas', fn($query) =>
                     $query->where('name', 'like', '%' . $search . '%')
@@ -95,6 +89,7 @@ class extracurricular extends Model
             );
         }
 
+        // FILTER BY DAYS
         // SELECT *
         // FROM
         //     (SELECT  `extracurriculars`.kdextracurricular,`extracurriculars`.name, DATE_FORMAT(MAX(`schedules`.`date`), '%a') AS `date_max`
