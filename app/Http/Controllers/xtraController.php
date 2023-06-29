@@ -270,7 +270,7 @@ class xtraController extends Controller
         // ddd(request(['date', 'kd']));
         if($request->ajax()){
             $output="";
-            $data = presence::where('kdSchedule', fn($query) =>
+            $data = presence::with(['members.userXmas'])->where('kdSchedule', fn($query) =>
                 $query->select('kdSchedule')
                       ->from('schedules')
                       ->where('kdExtracurricular', $request->kd)
