@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 class reportController extends Controller
 {
     public function index() {
-        $reports = report::latest()->filter(request(['search', 'pending', 'accepted', 'denied']))->get()->sortBy('kdState');
+        $reports = report::with('schedules.xtras.leader.userXmas')->latest()->filter(request(['search', 'pending', 'accepted', 'denied']))->get()->sortBy('kdState');
 
         if(request('sort') == 'asc'){
             $reports = $reports->sortBy('schedules.date');
@@ -26,7 +26,7 @@ class reportController extends Controller
     public function searchLive(Request $request){
         if($request->ajax()){
             $output="";
-            $data = report::latest()->filter(request(['search', 'pending', 'accepted', 'denied']))->get()->sortBy('kdState');
+            $data = report::with('schedules.xtras.leader.userXmas')->latest()->filter(request(['search', 'pending', 'accepted', 'denied']))->get()->sortBy('kdState');
             if(request('sort') == 'asc'){
                 $data = $data->sortBy('schedules.date');
             } elseif(request('sort') == 'desc'){

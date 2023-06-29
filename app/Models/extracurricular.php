@@ -13,12 +13,12 @@ class extracurricular extends Model
     protected $primaryKey = 'kdExtracurricular';
     // protected $fillable = [''];
     protected $guarded = ['kdExtracurricular'];
-    protected $with = [
-        'members',
-        'schedules',
-        'latest_schedule',
-        'leader'
-    ];
+    // protected $with = [
+    //     'members',
+    //     // 'schedules',
+    //     // 'latest_schedule',
+    //     'leader'
+    // ];
 
 
     public function scopeFilter($query, array $filters){
