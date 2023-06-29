@@ -317,7 +317,6 @@ class xtraController extends Controller
         $member->delete();
 
         return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra])
-            // ->withInput(['kdXtra' => $request->kdXtra])
             ->with('notif', 'Successfully left the Xtra');
     }
 
