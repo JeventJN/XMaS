@@ -12,9 +12,9 @@ class member extends Model
     // protected $fillable = [''];
     protected $guarded = ['kdMember'];
     protected $primaryKey = 'kdMember';
-    protected $with=[
-        'userXmas'
-    ];
+    // protected $with=[
+    //     'userXmas'
+    // ];
 
     public function userXmas(){
         return $this->belongsTo(userXmas::class, 'NIP', 'NIP');
