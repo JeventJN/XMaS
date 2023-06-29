@@ -14,7 +14,7 @@
                 <img id="imageLink" class="cursor-pointer w-[10vw] h-[5vw] ml-[1vw]" src="{{asset('Assets/LogoXMaS.png')}}" alt="">
             <script>
                 document.getElementById("imageLink").addEventListener("click", function() {
-                    window.location.href = "/home"; // Replace with the desired URL
+                    window.location.href = "/home";
                 });
             </script>
         </div>
