@@ -172,10 +172,7 @@
                                 @if($xtra->leader?->NIP == $nip)
                                     <div class="">
                                         <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm('{{ $xtra->kdExtracurricular }}')">
-                                            {{-- <a href="/xtrapage"> --}}
                                             @csrf
-                                            {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
-
                                             {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
                                             {{-- INI TEMPLATE KALAU KETUA (ADA EDITNYA) --}}
                                             <div class="flex flex-col">
@@ -236,9 +233,7 @@
                                 @else
                                     <div class="">
                                         <form action="/xtrapage" method="POST" class="xtraForm" onclick="submitForm('{{ $xtra->kdExtracurricular }}')">
-                                            {{-- <a href="/xtrapage"> --}}
                                             @csrf
-                                            {{-- <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}"> --}}
                                             {{-- <a href="/xtralist/{{ $xtra->kdExtracurricular }}"> --}}
                                             {{-- INI TEMPLATE KALAU CUMA ANGGOTA ESKUL --}}
                                             <div class="flex flex-col">
