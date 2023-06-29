@@ -318,7 +318,6 @@
                 var accepted = urlParams.get('accepted') ? urlParams.get('accepted') : '';
                 var denied = urlParams.get('denied') ? urlParams.get('denied') : '';
                 var sort = urlParams.get('sort') ? urlParams.get('sort') : '';
-                // var desc = urlParams.get('desc') ? urlParams.get('desc') : '';
 
                 if(query != ""){
                     $('#all_report').hide();
