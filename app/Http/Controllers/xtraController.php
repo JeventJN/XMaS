@@ -342,7 +342,7 @@ class xtraController extends Controller
 
 
         $edits = 'no';
-        return view('xtrapage', ['xtra' => $xtra, 'userMember' => $userMember, 'edits' => $edits]);
+        return view('xtrapage', ['xtra' => $xtra->load('documentations', 'members', 'leader.userXmas', 'schedules', 'latest_schedule'), 'userMember' => $userMember, 'edits' => $edits]);
     }
 
     public function myclub(){
