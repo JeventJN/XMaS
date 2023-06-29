@@ -513,8 +513,6 @@
                         success: function(data){
                             // console.log(data);
                             // console.log(Physique);
-                            // console.log($('#Physique:checked').val());
-                            // console.log($('#NonPhysique:checked').val());
 
                             if (data.empty) {
                                 $("#search_query").text(query);
