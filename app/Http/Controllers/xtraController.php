@@ -328,7 +328,7 @@ class xtraController extends Controller
 
     public function show(Request $request){
         // ddd($request->kdXtra);
-        $xtra = extracurricular::find($request->kdXtra);
+        $xtra = extracurricular::with(['members', 'leader.userXmas', 'leader.userXmas', 'documentations'])->find($request->kdXtra);
         $userMember = NULL;
 
         // merupakan user
@@ -342,7 +342,7 @@ class xtraController extends Controller
 
 
         $edits = 'no';
-        return view('xtrapage', ['xtra' => $xtra->load('documentations', 'members', 'leader.userXmas', 'schedules', 'latest_schedule'), 'userMember' => $userMember, 'edits' => $edits]);
+        return view('xtrapage', ['xtra' => $xtra->load('documentations', 'schedules', 'latest_schedule'), 'userMember' => $userMember, 'edits' => $edits]);
     }
 
     public function myclub(){
