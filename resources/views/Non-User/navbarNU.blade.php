@@ -10,7 +10,7 @@
 <body class="scrollbar-hide">
     <div class="z-50 fixed w-screen h-[5.25vw] bg-[#1B2F45] flex items-center opacity-80">
         <div class="content w-[48%]">
-                <img id="imageLink" class="w-[10vw] h-[5vw] ml-[1vw]" src="{{asset('Assets/LogoXMaS.png')}}" alt="">
+                <img id="imageLink" class="cursor-pointer w-[10vw] h-[5vw] ml-[1vw]" src="{{asset('Assets/LogoXMaS.png')}}" alt="">
             <script>
                 document.getElementById("imageLink").addEventListener("click", function() {
                     window.location.href = "/home"; // Replace with the desired URL
