@@ -27,7 +27,6 @@ class reportController extends Controller
     }
 
     public function searchLive(Request $request){
-        // ddd(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']));
         if($request->ajax()){
             $output="";
             $data = report::latest()->filter(request(['search', 'pending', 'accepted', 'denied']))->get()->sortBy('kdState');
