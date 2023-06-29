@@ -43,10 +43,10 @@ class report extends Model
                 )
         );
 
-        $query->when($filters['asc'] ?? false, fn($query) =>
-            $query->whereHas('schedules', fn($query) =>
-                    $query->orderBy(`schedules`.`date`)
-        ));
+        // $query->when($filters['asc'] ?? false, fn($query) =>
+        //     $query->whereHas('schedules', fn($query) =>
+        //             $query->orderBy(`schedules`.`date`)
+        // ));
 
         // if((isset($filters['Physique']) && isset($filters['NonPhysique'])) === false){
         //     $query->when($filters['Physique'] ?? false, fn($query) =>

@@ -18,9 +18,12 @@ class reportController extends Controller
         // $reports = report::all()->sortBy('kdState');
         $reports = report::latest()->filter(request(['search', 'pending', 'accepted', 'denied', 'asc', 'desc']))->get()->sortBy('kdState');
 
-        if(isset(request('asc'))){
-
+        if(request('asc')){
+            $reports = $reports->sortBy('schedules.date');
+        } elseif(request('desc')){
+            $reports = $reports->sortByDesc('schedules.date');
         }
+
         return view('Admin.reportlist', ['reports' => $reports]);
     }
 
