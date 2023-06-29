@@ -159,9 +159,6 @@
                     @if (request('sort'))
                             <input type="hidden" name="sort" value={{ request('sort') }}>
                     @endif
-                    {{-- @if (request('desc'))
-                        <input type="hidden" name="desc" value={{ request('desc') }}>
-                    @endif --}}
                     <div class="bg-neutral-100 ml-[1vw] w-[25.5vw] h-[4vw] rounded-[1vw] shadow flex items-center justify-end">
                         <div class="flex items-center justify-center w-[19vw] h-[3.5vw] mr-[1vw] font-nunito text-[1.5vw]">
                             <input class="bg-neutral-100 h-[3.5vw] w-[19vw] no-outline" autocomplete="off" type="text" name="search" placeholder="Search..." value="{{ request('search') }}" id="inputSearch">
