@@ -518,8 +518,6 @@
                             // console.log($('#Mon:checked').val());
                             // console.log($('#Tue:checked').val());
                             // console.log(($('#Mon:checked').val()) ? true: false);
-                            // console.log($('#Wed:checked').val());
-                            // console.log($('#Thu:checked').val());
                             if (data.empty) {
                                 $("#search_query").text(query);
                                 $("#empty_xtra").show();
