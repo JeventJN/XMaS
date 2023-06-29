@@ -522,7 +522,6 @@
                             // console.log($('#Thu:checked').val());
                             // console.log($('#Fri:checked').val());
                             // console.log($('#Sat:checked').val());
-                            // console.log($('#Sun:checked').val());
                             if (data.empty) {
                                 $("#search_query").text(query);
                                 $("#empty_xtra").show();
