@@ -153,9 +153,6 @@
                     @if (request('accepted'))
                         <input type="hidden" name="accepted" value={{ request('accepted') }}>
                     @endif
-                    @if (request('pending'))
-                            <input type="hidden" name="pending" value={{ request('pending') }}>
-                    @endif
                     @if (request('denied'))
                         <input type="hidden" name="denied" value={{ request('denied') }}>
                     @endif
