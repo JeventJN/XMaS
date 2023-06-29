@@ -79,7 +79,7 @@
     @endif
     {{-- popup --}}
 
-    {{-- modal pop up xtralist user--}}
+    {{-- modal pop up reportlist --}}
     {{-- jangan dikomen --}}
     <div id="modalpopup" class="modal z-50">
     {{-- jangan dikomen --}}
