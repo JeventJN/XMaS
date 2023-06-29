@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\extracurricular;
-
-use App\Models\extracurricular;
 use App\Models\member;
 use App\Models\report;
 use App\Models\schedule;
@@ -191,7 +188,6 @@ class reportController extends Controller
         foreach ($members as $member) {
             if($member->kdState == 2){
                 return view('Ketua.reportform', compact('member'));
-                break;
             }
         }
     }
