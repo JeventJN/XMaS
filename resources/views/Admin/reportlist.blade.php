@@ -109,11 +109,11 @@
                 <p class="mt-[1vw] text-[2vw] font-semibold">Sort by Date</p>
                 <div class="flex flex-col justify-center items-start">
                     <div class="flex items-center">
-                        <input type="checkbox" id="asc" name="asc" value="asc" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('denied') === NULL) ? '' : 'checked' }}>
+                        <input type="checkbox" id="asc" name="asc" value="asc" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('asc') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="asc">Ascending</label>
                     </div>
                     <div class="flex items-center">
-                        <input type="checkbox" id="desc" name="desc" value="desc" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('asc') === NULL) ? '' : 'checked' }}>
+                        <input type="checkbox" id="desc" name="desc" value="desc" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('desc') === NULL) ? '' : 'checked' }}>
                         <label class="ml-[1vw] text-[2vw]" for="desc">Descending</label>
                     </div>
                 </div>

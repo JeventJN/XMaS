@@ -16,13 +16,13 @@ class reportController extends Controller
 {
     public function index() {
         // $reports = report::all()->sortBy('kdState');
-        $reports = report::latest()->filter(request(['search', 'pending', 'accepted', 'denied', 'asc', 'desc']))->get()->sortBy('kdState');
+        $reports = report::latest()->filter(request(['search', 'pending', 'accepted', 'denied', 'asc']))->get()->sortBy('kdState');
 
-        if(request('asc')){
-            $reports = $reports->sortBy('schedules.date');
-        } elseif(request('desc')){
-            $reports = $reports->sortByDesc('schedules.date');
-        }
+        // if(request('asc')){
+        //     $reports = $reports->sortBy('schedules.date');
+        // } elseif(request('desc')){
+        //     $reports = $reports->sortByDesc('schedules.date');
+        // }
 
         return view('Admin.reportlist', ['reports' => $reports]);
     }
