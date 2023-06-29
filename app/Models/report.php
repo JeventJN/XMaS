@@ -24,24 +24,25 @@ class report extends Model
     }
 
     public function scopeFilter($query, array $filters){
-        $query->when($filters['search'] ?? false, fn($query, $search) =>
-            $query->where('title', 'like', '%' . $search . '%')
-                ->orwhereHas('schedules', fn($query) =>
-                    $query->whereHas('xtras', fn($query) =>
-                                $query->where('name', 'like', '%' . $search . '%')
-                ))
-                ->orwhereHas('schedules', fn($query) =>
-                    $query->whereHas('xtras', fn($query) =>
-                        $query->whereHas('leader', fn($query) =>
-                            $query->whereHas('userXmas', fn($query) =>
-                                $query->where('name', 'like', '%' . $search . '%')
-                ))))
-                ->orwhereHas('schedules', fn($query) =>
-                    $query->Where(DB::raw("DATE_FORMAT(`schedules`.`date`, '%d')"), 'like', '%'.$search.'%')
-                        ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%M')"), 'like', '%'.$search.'%')
-                        ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%Y')"), 'like', '%'.$search.'%')
-                )
-        );
+        $query->where(fn($query) =>
+            $query->when($filters['search'] ?? false, fn($query, $search) =>
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orwhereHas('schedules', fn($query) =>
+                        $query->whereHas('xtras', fn($query) =>
+                                    $query->where('name', 'like', '%' . $search . '%')
+                    ))
+                    ->orwhereHas('schedules', fn($query) =>
+                        $query->whereHas('xtras', fn($query) =>
+                            $query->whereHas('leader', fn($query) =>
+                                $query->whereHas('userXmas', fn($query) =>
+                                    $query->where('name', 'like', '%' . $search . '%')
+                    ))))
+                    ->orwhereHas('schedules', fn($query) =>
+                        $query->Where(DB::raw("DATE_FORMAT(`schedules`.`date`, '%d')"), 'like', '%'.$search.'%')
+                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%M')"), 'like', '%'.$search.'%')
+                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%Y')"), 'like', '%'.$search.'%')
+                    )
+        ));
 
         $state = [];
         if(isset($filters['pending']) || isset($filters['accepted']) || isset($filters['denied'])){
