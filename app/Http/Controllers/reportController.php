@@ -18,9 +18,9 @@ class reportController extends Controller
         // $reports = report::all()->sortBy('kdState');
         $reports = report::latest()->filter(request(['search', 'pending', 'accepted', 'denied']))->get()->sortBy('kdState');
 
-        if(request('asc')){
+        if(request('sort') == 'asc'){
             $reports = $reports->sortBy('schedules.date');
-        } elseif(request('desc')){
+        } elseif(request('sort') == 'desc'){
             $reports = $reports->sortByDesc('schedules.date');
         }
 
@@ -32,9 +32,9 @@ class reportController extends Controller
         if($request->ajax()){
             $output="";
             $data = report::latest()->filter(request(['search', 'pending', 'accepted', 'denied']))->get()->sortBy('kdState');
-            if(request('asc')){
+            if(request('sort') == 'asc'){
                 $data = $data->sortBy('schedules.date');
-            } elseif(request('desc')){
+            } elseif(request('sort') == 'desc'){
                 $data = $data->sortByDesc('schedules.date');
             }
 
