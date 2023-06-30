@@ -511,18 +511,6 @@
                         type:"GET",
                         data: "search=" + query +'&Physique=' + Physique + '&NonPhysique=' + NonPhysique +'&Mon=' + Mon +'&Tue=' + Tue +'&Wed=' + Wed +'&Thu=' + Thu +'&Fri=' + Fri + '&Sat=' + Sat + '&Sun=' + Sun + '&page=xtralistA',
                         success: function(data){
-                            console.log(data);
-                            console.log(Physique);
-                            console.log($('#Physique:checked').val());
-                            console.log($('#NonPhysique:checked').val());
-                            console.log($('#Mon:checked').val());
-                            console.log($('#Tue:checked').val());
-                            console.log(($('#Mon:checked').val()) ? true: false);
-                            console.log($('#Wed:checked').val());
-                            console.log($('#Thu:checked').val());
-                            console.log($('#Fri:checked').val());
-                            console.log($('#Sat:checked').val());
-                            console.log($('#Sun:checked').val());
                             if (data.empty) {
                                 $("#search_query").text(query);
                                 $("#empty_xtra").show();

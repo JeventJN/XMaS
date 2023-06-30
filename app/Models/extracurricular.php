@@ -13,76 +13,40 @@ class extracurricular extends Model
     protected $primaryKey = 'kdExtracurricular';
     // protected $fillable = [''];
     protected $guarded = ['kdExtracurricular'];
-    protected $with = [
-        'members',
-        'schedules',
-        'latest_schedule',
-        'leader'
-    ];
+    // protected $with = [
+    //     'members',
+    //     // 'schedules',
+    //     // 'latest_schedule',
+    //     'leader'
+    // ];
 
 
     public function scopeFilter($query, array $filters){
         $query->when($filters['search'] ?? false, fn($query, $search) =>
             $query->where(fn($query) =>
                 $query->where('name', 'like', '%' . $search . '%')
-            // )->orWhereIn('kdExtracurricular', fn($query) =>
-            //             $query->select('kdExtracurricular')
-            //                 ->from(fn($query) =>
-            //                         $query->select(DB::raw("'extracurriculars.kdExtracurricular' as `kd`, MAX(`schedules`.`DATE`)"))
-            //                             ->from('schedules')
-            //                             ->JOIN('extracurriculars', 'extracurriculars.kdExtracurricular', '=', 'schedules.kdExtracurricular')
-            //                             ->groupBy('extracurriculars.kdExtracurricular')
-            //                             , 'recent_sched')
-            //                 )->where(fn($query) =>
-            //                             $query->where('location', 'like', '%'.$search.'%')
-            //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%a')"), 'like', '%'.$search.'%')
-            //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
-            //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%')
-                                    // )
-            // )->orWhereIn('kdExtracurricular', fn($query) =>
-            //     $query->select('kdExtracurricular')
-            //         ->from('schedules')
-            //         ->whereIn('kdschedule', fn($query) =>
-            //             $query->select('kd')
-            //                 ->from(fn($query) =>
-            //                         $query->select(DB::raw("`schedules`.`kdschedule` as `kd`, MAX(`schedules`.`DATE`)"))
-            //                             ->from('schedules')
-            //                             ->groupBy('schedules.kdExtracurricular'), 'recent_sched')
-            //                 )->where(fn($query) =>
-            //                             $query->where('location', 'like', '%'.$search.'%')
-            //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%a')"), 'like', '%'.$search.'%')
-            //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
-            //                                 ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%')
-            //                         )
-
-            // SELECT `schedules`.`kdExtracurricular`, `schedules`.`location`,`schedules`.`kdschedule` as `kd`, `date`
-            // FROM `schedules`
-            // INNER JOIN (SELECT `schedules`.`kdExtracurricular`, MAX(`schedules`.`DATE`) AS `data`, DATE_FORMAT(MAX(`schedules`.`date`), '%a') FROM `schedules` GROUP BY `schedules`.`kdExtracurricular`  ) AS `a` ON `schedules`.`kdExtracurricular` = `a`.`kdExtracurricular` AND `schedules`.`date` = `a`.`data`
-            ->orWhere(fn($query) =>
-                $query->orWhereIn(DB::raw('`extracurriculars`.kdExtracurricular'), fn($query) =>
-                //     ->from('schedules')
-                //     ->whereIn('kdschedule', fn($query) =>
-                        $query->select('kdExtracurricular')
-                            ->from('schedules')
-                            ->JOIN(DB::raw("(SELECT `kdExtracurricular` AS `kd`, MAX(`DATE`) AS `recent_date` FROM `schedules` GROUP BY `kdExtracurricular`) AS `recent_sched`"), fn($join) =>
-                                      $join->on(DB::raw("`recent_sched`.`kd`"), '=', DB::raw("`schedules`.`kdExtracurricular`")))
-                            ->where(DB::raw("`recent_sched`.`recent_date`"),  '=', DB::raw("`schedules`.`date`"))
-                            ->where(fn($query) =>
-                                        $query->where('location', 'like', '%'.$search.'%')
-                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%D')"), 'like', '%'.$search.'%')
-                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
-                                            ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%'))
-                        ))
-
-                // ->orwhereHas('latest_schedule', fn($query) =>
-                // $query->where('location', 'like', '%' . $search . '%')->first()
-                    // ->orWhere('date', 'like', '%' . $search . '%')
-                    // ->orWhere('timeStart', 'like', '%' . $search . '%')
-                    // ->orWhere('timeEnd', 'like', '%' . $search . '%')
-            ->orwhereHas('leader', fn($query) =>
-                $query->whereHas('userXmas', fn($query) =>
-                    $query->where('name', 'like', '%' . $search . '%')
-            ))
+                // SELECT `schedules`.`kdExtracurricular`, `schedules`.`location`,`schedules`.`kdschedule` as `kd`, `date`
+                // FROM `schedules`
+                // INNER JOIN (SELECT `schedules`.`kdExtracurricular`, MAX(`schedules`.`DATE`) AS `data`, DATE_FORMAT(MAX(`schedules`.`date`), '%a') FROM `schedules` GROUP BY `schedules`.`kdExtracurricular`  ) AS `a` ON `schedules`.`kdExtracurricular` = `a`.`kdExtracurricular` AND `schedules`.`date` = `a`.`data`
+                ->orWhere(fn($query) =>
+                    $query->orWhereIn(DB::raw('`extracurriculars`.kdExtracurricular'), fn($query) =>
+                    //     ->from('schedules')
+                    //     ->whereIn('kdschedule', fn($query) =>
+                            $query->select('kdExtracurricular')
+                                ->from('schedules')
+                                ->JOIN(DB::raw("(SELECT `kdExtracurricular` AS `kd`, MAX(`DATE`) AS `recent_date` FROM `schedules` GROUP BY `kdExtracurricular`) AS `recent_sched`"), fn($join) =>
+                                        $join->on(DB::raw("`recent_sched`.`kd`"), '=', DB::raw("`schedules`.`kdExtracurricular`")))
+                                ->where(DB::raw("`recent_sched`.`recent_date`"),  '=', DB::raw("`schedules`.`date`"))
+                                ->where(fn($query) =>
+                                            $query->where('location', 'like', '%'.$search.'%')
+                                                ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`date`, '%D')"), 'like', '%'.$search.'%')
+                                                ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeStart`, '%H.%i')"), 'like', '%'.$search.'%')
+                                                ->orWhere(DB::raw("DATE_FORMAT(`schedules`.`timeEnd`, '%H.%i')"), 'like', '%'.$search.'%'))
+                            ))
+                ->orwhereHas('leader', fn($query) =>
+                    $query->whereHas('userXmas', fn($query) =>
+                        $query->where('name', 'like', '%' . $search . '%')
+                ))
         ));
 
         if((isset($filters['Physique']) && isset($filters['NonPhysique'])) === false){
@@ -95,6 +59,7 @@ class extracurricular extends Model
             );
         }
 
+        // FILTER BY DAYS
         // SELECT *
         // FROM
         //     (SELECT  `extracurriculars`.kdextracurricular,`extracurriculars`.name, DATE_FORMAT(MAX(`schedules`.`date`), '%a') AS `date_max`

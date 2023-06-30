@@ -79,7 +79,7 @@
     @endif
     {{-- popup --}}
 
-    {{-- modal pop up xtralist user--}}
+    {{-- modal pop up reportlist --}}
     {{-- jangan dikomen --}}
     <div id="modalpopup" class="modal z-50">
     {{-- jangan dikomen --}}
@@ -109,11 +109,11 @@
                 <p class="mt-[1vw] text-[2vw] font-semibold">Sort by Date</p>
                 <div class="flex flex-col justify-center items-start">
                     <div class="flex items-center">
-                        <input type="checkbox" id="asc" name="asc" value="asc" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('denied') === NULL) ? '' : 'checked' }}>
+                        <input type="radio" id="asc" name="sort" value="asc" class="w-[1.5vw] h-[1.5vw] underline italic cursor-pointer" {{ (request('sort') === 'asc') ? 'checked' : '' }}>
                         <label class="ml-[1vw] text-[2vw]" for="asc">Ascending</label>
                     </div>
                     <div class="flex items-center">
-                        <input type="checkbox" id="desc" name="desc" value="desc" class="checkbox w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('asc') === NULL) ? '' : 'checked' }}>
+                        <input type="radio" id="desc" name="sort" value="desc" class="w-[1.5vw] h-[1.5vw] underline italic cursor-pointer"  {{ (request('sort') === 'desc') ? 'checked' : '' }}>
                         <label class="ml-[1vw] text-[2vw]" for="desc">Descending</label>
                     </div>
                 </div>
@@ -156,15 +156,12 @@
                     @if (request('denied'))
                         <input type="hidden" name="denied" value={{ request('denied') }}>
                     @endif
-                    @if (request('asc'))
-                            <input type="hidden" name="asc" value={{ request('asc') }}>
-                    @endif
-                    @if (request('desc'))
-                        <input type="hidden" name="desc" value={{ request('desc') }}>
+                    @if (request('sort'))
+                            <input type="hidden" name="sort" value={{ request('sort') }}>
                     @endif
                     <div class="bg-neutral-100 ml-[1vw] w-[25.5vw] h-[4vw] rounded-[1vw] shadow flex items-center justify-end">
                         <div class="flex items-center justify-center w-[19vw] h-[3.5vw] mr-[1vw] font-nunito text-[1.5vw]">
-                            <input class="bg-neutral-100 h-[3.5vw] w-[19vw] no-outline" autocomplete="off" type="text" name="search" placeholder="Search..." value="{{ request('search') }}">
+                            <input class="bg-neutral-100 h-[3.5vw] w-[19vw] no-outline" autocomplete="off" type="text" name="search" placeholder="Search..." value="{{ request('search') }}" id="inputSearch">
                         </div>
                         <button type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" class="svg mr-[1vgw]" viewBox="0 0 24 24"><path fill="currentColor" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.612 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3l-1.4 1.4ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z"/></svg>
@@ -317,8 +314,7 @@
                 var pending = urlParams.get('pending') ? urlParams.get('pending') : '';
                 var accepted = urlParams.get('accepted') ? urlParams.get('accepted') : '';
                 var denied = urlParams.get('denied') ? urlParams.get('denied') : '';
-                var asc = urlParams.get('asc') ? urlParams.get('asc') : '';
-                var desc = urlParams.get('desc') ? urlParams.get('desc') : '';
+                var sort = urlParams.get('sort') ? urlParams.get('sort') : '';
 
                 if(query != ""){
                     $('#all_report').hide();
@@ -326,7 +322,7 @@
                     $.ajax({
                         url: "{{ url('searchReport') }}",
                         type:"GET",
-                        data: "search=" + query +'&pending=' + pending + '&accepted=' + accepted +'&denied=' + denied +'&asc=' + asc +'&desc=' + desc,
+                        data: "search=" + query +'&pending=' + pending + '&accepted=' + accepted +'&denied=' + denied +'&sort=' + sort,
                         success: function(data){
                             if (data.empty) {
                                 $("#search_query").text(query);

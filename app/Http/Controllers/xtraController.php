@@ -14,15 +14,10 @@ use Illuminate\Support\Str;
 class xtraController extends Controller
 {
     public function index(){
-        // $data_sched = \Illuminate\Support\Facades\DB::table("extracurriculars")->select(\Illuminate\Support\Facades\DB::raw("(SELECT  *, DATE_FORMAT(MAX(`schedules`.`date`), '%a') AS `date_max`
-        //                                                                                                                     FROM  `schedules`
-        //                                                                                                                     JOIN `extracurriculars` ON `extracurriculars`.`kdExtracurricular` = `schedules`.`kdExtracurricular`
-        //                                                                                                                     GROUP BY `extracurriculars`.kdextracurricular) AS `sched_max`"))
-        //                                                                         ->where('date_max', '=', 'mon')->get();
         // dd($data_sched);
         // dd(extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'mon']))->get());
         return view('xtralist', [
-            'xtras' => extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get()
+            'xtras' => extracurricular::with(['leader.userXmas', 'latest_schedule'])->latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get()
         ]);
         // return view('xtralist', [
         //     'xtras' => extracurricular::with('schedules',
@@ -39,7 +34,7 @@ class xtraController extends Controller
         if($request->ajax()){
             $output="";
             if($request->page == 'xtralist'){
-                $data = extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
+                $data = extracurricular::with(['leader.userXmas', 'latest_schedule'])->latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
 
                 if(count($data) > 0){
                     foreach ($data as $xtra){
@@ -85,7 +80,7 @@ class xtraController extends Controller
                 }
             } elseif ($request->page == 'myclub') {
                 $nip = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
-                $data = extracurricular::latest()->userclub($nip)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
+                $data = extracurricular::with(['leader.userXmas', 'latest_schedule'])->latest()->userclub($nip)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
 
                 if(count($data) > 0){
                     foreach ($data as $xtra){
@@ -196,7 +191,7 @@ class xtraController extends Controller
                     ]);
                 }
             } elseif ($request->page == 'xtralistA') {
-                $data = extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
+                $data = extracurricular::with(['leader.userXmas', 'latest_schedule'])->latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get();
 
                 if(count($data) > 0){
                     $output .= '
@@ -270,7 +265,7 @@ class xtraController extends Controller
         // ddd(request(['date', 'kd']));
         if($request->ajax()){
             $output="";
-            $data = presence::where('kdSchedule', fn($query) =>
+            $data = presence::with(['members.userXmas'])->where('kdSchedule', fn($query) =>
                 $query->select('kdSchedule')
                       ->from('schedules')
                       ->where('kdExtracurricular', $request->kd)
@@ -322,13 +317,12 @@ class xtraController extends Controller
         $member->delete();
 
         return redirect()->route('xtrapage', ['kdXtra' => $request->kdXtra])
-            // ->withInput(['kdXtra' => $request->kdXtra])
             ->with('notif', 'Successfully left the Xtra');
     }
 
     public function show(Request $request){
         // ddd($request->kdXtra);
-        $xtra = extracurricular::find($request->kdXtra);
+        $xtra = extracurricular::with(['latest_schedule.presences.members.userXmas', 'members.userXmas', 'leader.userXmas', 'documentations', 'schedules'])->find($request->kdXtra);
         $userMember = NULL;
 
         // merupakan user
@@ -349,12 +343,12 @@ class xtraController extends Controller
         $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
         // dd(Auth::user()->NIP);
         // dd(extracurricular::latest()->userclub()->get());
-        return view('User.myclub', ['xtras' => extracurricular::latest()->userclub($NIP)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get(), 'nip' => $NIP]);
+        return view('User.myclub', ['xtras' => extracurricular::with(['leader.userXmas', 'latest_schedule'])->latest()->userclub($NIP)->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get(), 'nip' => $NIP]);
     }
 
     public function xtraListA(){
         return view('Admin.xtralistA', [
-            'xtras' => extracurricular::latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get()
+            'xtras' => extracurricular::with(['leader.userXmas', 'latest_schedule'])->latest()->filter(request(['search', 'Physique', 'NonPhysique', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']))->get()
         ]);
     }
 

@@ -12,7 +12,7 @@ class documentation extends Model
     // protected $fillable = [''];
     protected $primaryKey = 'kdDocumentation';
     protected $guarded = ['kdDocumentation'];
-    protected $with = ['xtras'];
+    // protected $with = ['xtras'];
 
     public function xtras(){
         return $this->belongsTo(extracurricular::class, 'kdExtracurricular', 'kdExtracurricular');
