@@ -70,9 +70,9 @@
                                 $xtras = App\Models\extracurricular::all()
                             @endphp
 
-                            <div class="border-[0.1vw] w-[0.1vw] h-[11.8vw] absolute ml-[24.5vw] mt-[5.5vw] leading-[-3vw]"></div>
+                            <div class="border-[0.1vw] w-[0.1vw] h-[11.8vw] absolute ml-[24.6vw] mt-[5.5vw] leading-[-3vw]"></div>
 
-                            <div class="w-[30vw] h-[12vw] m-auto border-2 grid grid-cols-2">
+                            <div class="w-[30vw] h-[auto] mt-[0.1vw] m-auto grid grid-cols-2">
                                 @foreach ($xtras as $xtra)
                                     @if ($xtra->kdExtracurricular % 2 == 1)
                                         <a href="/xtrapage/{{$xtra->kdExtracurricular}}" class="text-right  hover:no-underline hover:font-semibold hover:text-white mr-[0.5vw]">{{$xtra->name}}</a>
