@@ -36,7 +36,6 @@
 
 <body>
     <button class="cursor-default" onmouseover ="hover()" onmouseout="out()">
-        {{-- <div class="pembungkussemua"> --}}
             <div id="smallFooter">
                 <footer id="footerA">
                     <div class="spasipengisi" style="background: white; height: 13vw; border: white 3vw solid;"></div>
