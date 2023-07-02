@@ -99,7 +99,7 @@ Route::get(('/searchReport'), [reportController::class, 'searchLive']);
 
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
 
-Route::get('profile', [profileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('/profile', [profileController::class, 'index'])->name('profile')->middleware('auth');
 
 Route::post('/changeImage', [profileController::class, 'updateImage']);
 Route::post('/changePhone', [profileController::class, 'updatePhone']);

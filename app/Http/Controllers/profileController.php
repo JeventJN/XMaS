@@ -83,8 +83,6 @@ class profileController extends Controller
 
         $user->save();
         return redirect('/profile');
-
-
     }
 
     function xtras(Request $request){
@@ -92,7 +90,6 @@ class profileController extends Controller
         $anggota = userXmas::find($NIP)->members;
 
         return view('User.profile', compact('anggota'));
-
     }
 
     function requestLead(Request $request){

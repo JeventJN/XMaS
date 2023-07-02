@@ -21,7 +21,6 @@
                     <div class="w-[5.5vw]"></div>
                 </div>
                 {{-- Nama Eskul --}}
-                {{-- <div class="w-[100%] h-[3vw] text-white font-nunito font-bold text-[3vw] flex justify-center items-center">{{$xtra->name}}</div> --}}
                 <div class="w-[100%] mt-[2vw] flex justify-center items-center h-[31vw]">
                     <div class="w-[40vw] h-[34vw] bg-[#D9D9D9] rounded-[3vw] flex flex-col items-center justify-center">
                         @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
@@ -78,7 +77,7 @@
                         </div>
                     </div>
                     <div class="w-[30%] flex flex-col justify-center items-center">
-                        {{-- masukin total anggot --}}
+                        {{-- masukin total anggota --}}
                         <div id="attendanceCount" class="ml-[3vw] text-white text-[1.2vw]">Presence 0/{{$totalMembers}}</div>
                         <input type="hidden" name="attendanceKd" id="attendanceInput">
                         <button class="ml-[3vw] w-[12vw] h-[3vw] text-[1.5vw] font-nunito font-bold rounded-[1vw] bg-[#D9D9D9] flex justify-center items-center hover:bg-[#1B2F45] hover:text-white" onclick="prepareAttendanceArray()">Submit</button>
