@@ -21,7 +21,6 @@
                     <div class="w-[5.5vw]"></div>
                 </div>
                 {{-- Nama Eskul --}}
-                {{-- <div class="w-[100%] h-[3vw] text-white font-nunito font-bold text-[3vw] flex justify-center items-center">{{$xtra->name}}</div> --}}
                 <div class="w-[100%] mt-[2vw] flex justify-center items-center h-[31vw]">
                     <div class="w-[40vw] h-[34vw] bg-[#D9D9D9] rounded-[3vw] flex flex-col items-center justify-center">
                         @if (Illuminate\Support\Str::contains($xtra->logo, 'database-assets'))
