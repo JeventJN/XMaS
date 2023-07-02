@@ -20,7 +20,7 @@ class adminController extends Controller
     // }
 
     public function approval(){
-        $members = member::where('kdState', '=', '3')->get();
+        $members = member::with(['userXmas', 'xtras'])->where('kdState', '=', '3')->get();
 
         return view('Admin.approval', compact('members'));
     }
