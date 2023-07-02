@@ -252,7 +252,7 @@
                                                         <div class=" max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw]">
                                                             @php
                                                                 $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
-                                                                $anggota = App\Models\userXmas::find($NIP)->members;
+                                                                $anggota = App\Models\userXmas::with('members.xtras')->find($NIP)->members;
                                                             @endphp
 
                                                             @foreach ($anggota as $member)
