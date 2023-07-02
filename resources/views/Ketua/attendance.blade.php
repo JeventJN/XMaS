@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="w-[30%] flex flex-col justify-center items-center">
-                        {{-- masukin total anggot --}}
+                        {{-- masukin total anggota --}}
                         <div id="attendanceCount" class="ml-[3vw] text-white text-[1.2vw]">Presence 0/{{$totalMembers}}</div>
                         <input type="hidden" name="attendanceKd" id="attendanceInput">
                         <button class="ml-[3vw] w-[12vw] h-[3vw] text-[1.5vw] font-nunito font-bold rounded-[1vw] bg-[#D9D9D9] flex justify-center items-center hover:bg-[#1B2F45] hover:text-white" onclick="prepareAttendanceArray()">Submit</button>

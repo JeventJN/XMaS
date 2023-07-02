@@ -9,16 +9,6 @@ use Illuminate\Http\Request;
 
 class adminController extends Controller
 {
-    //
-    // public function index()
-    // {
-    //     //
-    //     $flag = 1;
-
-    //     $this->authorize('admin');
-    //     return view('home')->with('flag', $flag);
-    // }
-
     public function approval(){
         $members = member::with(['userXmas', 'xtras'])->where('kdState', '=', '3')->get();
 
@@ -66,13 +56,11 @@ class adminController extends Controller
             }
         }
 
-
         return redirect()->route('approval')->with('denyAcc', 'we');
     }
 
     public function report(Request $request){
-        $report = report::find($request->report);
-        // dd($report);
+        $report = report::with(['schedules', 'schedules.xtras', 'schedules.xtras.members'])->find($request->report);
 
         return view('Admin.reportformA', compact('report'));
     }
