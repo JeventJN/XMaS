@@ -25,7 +25,6 @@ class xtraregController extends Controller
                 $flag = 1;
             }
         }
-        // dd($flag);
 
         if ($flag != 1) {
             $NIP = str_pad($request->user, 4, '0', STR_PAD_LEFT);
