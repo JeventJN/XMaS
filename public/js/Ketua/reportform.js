@@ -40,12 +40,6 @@ function openModal(){
         return false;
     }
 
-    // if (photo.value == '')
-    // {
-    //     alert ("Please choose photo to be uploaded.");
-    //     return false;
-    // }
-
     return modal.style.display="block";
 }
 
