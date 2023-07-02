@@ -73,7 +73,6 @@
             @endif
         @endif
     @endauth
-    {{-- @dd($userMember) --}}
     <!-- navbar -->
 
     {{-- popup --}}
@@ -103,39 +102,6 @@
             }, 3000);
         </script>
     @endif
-
-    {{-- edit --}}
-    {{-- @if (session()->has('edited'))
-        <div id="modalpopupEDIT" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
-            <div
-                class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
-                <div
-                    class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
-                    The Xtra is successfully edited
-                    <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalEDIT"
-                        class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
-                        <path fill="currentColor"
-                            d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <script>
-            var modal3 = document.getElementById('modalpopupEDIT');
-            var hidemodal3 = document.getElementById('hidemodalEDIT');
-
-            hidemodal3.addEventListener('click', closePopup3);
-
-            function closePopup3() {
-                modal3.style.display = "none";
-            }
-
-            setTimeout(() => {
-                const modal = document.getElementById("modalpopupEDIT");
-                modal.style.display = 'none';
-            }, 3000);
-        </script>
-    @endif --}}
     {{-- popup --}}
 
     {{-- Editable --}}
@@ -150,10 +116,6 @@
             $edit = 0
         @endphp
     @endif
-
-
-
-    <!-- jumbotron (foto besar) -->
 
         {{-- Untuk yang bisa input gambar ke jumbotron --}}
         @if ($edit == 1)
@@ -181,7 +143,6 @@
         @endif
             <input type="file" name="fileupload" id="fileupload" style="display: none;" accept="image/*">
             <div class="box-jumbotron">
-                {{-- containerlogo itu container dari logo ekskul (Strava), hover (Xtra, Schedule, Leader), logo BCA --}}
                 <div class="containerlogo">
                     <div class="row">
                         {{-- component hover (Xtra, Schedule, dan Leader) sebelah logo --}}
@@ -227,19 +188,14 @@
                                         if (value == '<?php echo Str::limit($xtra->name, 12, '...'); ?>') {
                                             e.target.classList.add('JudulXtra');
                                             e.target.style.padding = '1.3vw 4vw 3.5vw 16vw';
-                                            // e.target.style.width = '30vw';
-                                            // e.target.style.marginBottom = '-0.2vw';
                                         } else if (value == '<?php echo $schedule; ?>') {
                                             e.target.classList.add('ScheduleXtra');
                                             e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
                                             e.target.style.width = '35vw';
                                             e.target.style.marginTop = '-0.05vw';
-                                            // e.target.style.marginBottom = '-0.3vw';
                                         } else if (value == '<?php echo $leader; ?>') {
                                             e.target.classList.add('LeaderXtra');
                                             e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
-                                            // e.target.style.width = '40vw';
-                                            // e.target.style.marginTop = '-0.58vw';
                                         }
                                     });
                                     button.addEventListener('mouseout', (e) => {
@@ -249,12 +205,9 @@
                                         e.target.style.backgroundColor = '#d9d9d9';
                                         e.target.style.color = '#1B2F45';
                                         e.target.style.fontSize = '1.7vw';
-                                        //   e.target.style.width = '25.5vw';
 
                                         if (text == 'Xtra') {
                                             e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
-                                            // e.target.style.marginBottom = '-0.08vw';
-                                            // e.target.style.marginBottom = '0vw';
                                             e.target.style.width = '25.2vw';
                                             e.target.classList.remove('JudulXtra');
                                         } else if (text == 'Schedule') {
@@ -266,8 +219,6 @@
                                         } else if (text == 'Leader') {
                                             e.target.style.padding = '1.3vw 1vw 3.5vw 17vw';
                                             e.target.style.width = '27.6vw';
-                                            // e.target.style.marginTop = '-0.08vw';
-                                            // e.target.style.marginTop = '0vw';
                                             e.target.classList.remove('LeaderXtra');
                                         }
                                     });
@@ -315,7 +266,7 @@
                 </div>
             </div>
         {{-- </div> --}}
-        {{--uncomment --}}
+
     {{-- div untuk spasi aja --}}
     <div class="SpJumbotronMain" style="height: 5.5vw;"> </div>
 
@@ -499,8 +450,6 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                        {{-- <input type="hidden" name="photo" value="{{$doc->photo}}"> --}}
-                                        {{-- <input type="hidden" name="photo" class="photo-input" data-photo="{{$doc->photo}}"> --}}
                                         <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
                                     @endforeach
                                 </div>
@@ -537,16 +486,6 @@
                                             @else
                                                 <span class="badge">{{ $member->userXmas?->name }}</span>
                                             @endif
-                                            {{-- <span class="badge">Jevent Natthannael</span>
-                                            <span class="badge">Jevent Natthannael</span>
-                                            <span class="badge">Michael Apen</span>
-                                            <span class="badge">Harris Wahyudi</span>
-                                            <span class="badge">Jevent Natthannael</span>
-                                            <span class="badge">Michael Apen</span>
-                                            <span class="badge">Harris Wahyudi</span>
-                                            <span class="badge">Jevent Natthannael</span>
-                                            <span class="badge">Michael Apen</span>
-                                            <span class="badge">Harris Wahyudi</span> --}}
                                         @endforeach
                                     @else
                                         <span class="badgeNoMember">No Member Yet.</span>
@@ -560,7 +499,6 @@
                             <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
                                 <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
                                 <div class="btn-member">
-                                    {{-- <button type="button" class="btn" id="leavebtn" data-toggle="modal" data-target="#staticBackdrop" style="border: none">Leave Xtra</button> --}}
                                     <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
                                 </div>
                             </div>
@@ -617,14 +555,6 @@
                             @foreach ($xtra->schedules as $schedule)
                                 <a>{{ date('D, d M Y', strtotime($schedule->date)) }}</a>
                             @endforeach
-                            {{-- <a href="#">March 12, 2023</a>
-                            <a href="#">March 12, 2023</a>
-                            <a href="#">March 12, 2023</a>
-                            <a href="#">March 12, 2023</a>
-                            <a href="#">March 12, 2023</a>
-                            <a href="#">March 12, 2023</a>
-                            <a href="#">March 12, 2023</a>
-                            <a href="#">March 12, 2023</a> --}}
                         </div>
                     </div>
                     <div class="luarPML">
@@ -647,15 +577,6 @@
                                                 <span class="badge">{{ $presence->members?->userXmas?->name }}</span>
                                             @endif
                                     @endforeach
-                                    {{-- <span class="badge">Jordan Cornelius</span>
-                                    <span class="badge">Nathaniel Calvin</span>
-                                    <span class="badge">Steven Felizion</span>
-                                    <span class="badge">Michael Apen</span>
-                                    <span class="badge">Harris Wahyudi</span>
-                                    <span class="badge">Nathaniel Calvin</span>
-                                    <span class="badge">Steven Felizion</span>
-                                    <span class="badge">Michael Apen</span>
-                                    <span class="badge">Harris Wahyudi</span> --}}
                                 @else
                                     <span class="NoPresence">No presence yet.</span>
                                 @endif
@@ -670,7 +591,6 @@
                             $("#presenceChosen").hide();
 
                             $("#myDropdown a").click(function(){
-                                // var selectedDate = $(this).text();
                                 var selectedDate = moment($(this).text(), "ddd, DD MMM YYYY").format("YYYY-MM-DD");
 
                                 if(selectedDate != ""){
@@ -699,9 +619,6 @@
                             });
                         });
                     </script>
-
-
-
                 </div>
                 {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
             </div>
@@ -823,10 +740,6 @@
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3.5,
             spaceBetween: 30,
-            // navigation: {
-            //   nextEl: ".swiper-button-next",
-            //   prevEl: ".swiper-button-prev",
-            // },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -837,9 +750,6 @@
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>-->
     <script>
         /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
         var rotated = false;
