@@ -1,19 +1,20 @@
 <?php
 
-use App\Http\Controllers\adminController;
-use App\Http\Controllers\attendanceController;
-use App\Http\Controllers\homeController;
-use App\Http\Controllers\logInController;
-use App\Http\Controllers\signUpController;
-use App\Http\Controllers\xtraController;
-use App\Http\Controllers\cameraController;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\editXtraController;
-use App\Http\Controllers\photoController;
-use App\Http\Controllers\profileController;
-use App\Http\Controllers\reportController;
-use App\Http\Controllers\xtraregController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\xtraController;
+use App\Http\Controllers\adminController;
+use App\Http\Controllers\logInController;
+use App\Http\Controllers\photoController;
+use App\Http\Controllers\cameraController;
+use App\Http\Controllers\reportController;
+use App\Http\Controllers\signUpController;
+use App\Http\Controllers\profileController;
+use App\Http\Controllers\xtraregController;
+use App\Http\Controllers\editXtraController;
+use App\Http\Controllers\FirebaseController;
+use App\Http\Controllers\attendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,7 +113,8 @@ Route::post('/denyReq', [adminController::class, 'denyReq']);
 
 Route::get('/xtralistA', [xtraController::class, 'xtraListA'])->middleware('admin');
 Route::post(('/deleteXtra'), [xtraController::class, 'deleteXtra'])->name('xtra.delete');
-Route::post(('/createXtra'), [xtraController::class, 'createXtra'])->name('xtra.create');
+// Route::post(('/createXtra'), [xtraController::class, 'createXtra'])->name('xtra.create');
+Route::post(('/createXtra'), [FirebaseController::class, 'addExtra'])->name('xtra.create');
 
 Route::get('chat', function (){
     return view('chat');
