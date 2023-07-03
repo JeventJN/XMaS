@@ -49,7 +49,7 @@ class signUpController extends Controller
     }
 
     public function confirmPhoneNumber(Request $request){
-        dd($request->data);
+        // dd($request->data);
         userXmas::create($request->data);
         return redirect('/login');
     }
