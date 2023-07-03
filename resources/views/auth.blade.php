@@ -13,7 +13,7 @@
          <p>Phone Number Authentication using Firebase In Laravel 8</p>
       </div>
       </div>
-
+         
          <div class="alert alert-danger" id="error" style="display: none;"></div>
          <div class="card">
             <div class="card-header">
