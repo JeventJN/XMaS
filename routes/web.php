@@ -1,6 +1,15 @@
 <?php
 
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\editXtraController;
+use App\Http\Controllers\phoneController;
+use App\Http\Controllers\photoController;
+use App\Http\Controllers\profileController;
+use App\Http\Controllers\reportController;
+use App\Http\Controllers\xtraregController;
+>>>>>>> eab8f9f6b18277e2998bc9bde52e1f28db631898
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\xtraController;
@@ -27,11 +36,10 @@ use App\Http\Controllers\attendanceController;
 |
 */
 
-// Route::get('/home', [Controller::class, 'index']);
-// Route::get('/home', [homeController::class, 'showXtraSchedule'], [Controller::class, 'index']);
 Route::get('/home', [homeController::class, 'showXtraSchedule'])->name('home');
-// Route::resource('/home', adminController::class);
 Route::redirect('/', '/home');
+
+Route::get('/test', [phoneController::class, 'index']);
 
 
 Route::get('/signup', [signUpController::class, 'index'])->middleware('guest');
@@ -40,7 +48,6 @@ Route::post('/signup', [signUpController::class, 'store']);
 
 Route::get('/login', [logInController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [logInController::class, 'masuk']);
-// Route::get('/logout', [logInController::class, 'keluar'])->middleware('auth');
 Route::post('/logout', [logInController::class, 'keluar'])->middleware('auth');
 Route::post('/delete', [logInController::class, 'delete'])->middleware('auth');
 
@@ -62,7 +69,6 @@ Route::post(('/leave'), [xtraController::class, 'leaveXtra'])->name('xtra.leave'
 
 // halaman xtra satuan
 Route::post(('/xtrapage'), [xtraController::class, 'show']);
-// Route::post(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapagepost');
 Route::get(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapage');
 
 Route::post('/addSchedule', [editXtraController::class, 'schedule']);
@@ -119,8 +125,3 @@ Route::post(('/createXtra'), [FirebaseController::class, 'addExtra'])->name('xtr
 Route::get('chat', function (){
     return view('chat');
 });
-
-// Route::get('attendance', function (){
-//     return view('Ketua.attendance');
-// });
-

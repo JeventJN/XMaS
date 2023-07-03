@@ -21,7 +21,6 @@ class editXtraController extends Controller
 
         $xtra = extracurricular::with(['latest_schedule.presences.members.userXmas', 'members.userXmas', 'leader.userXmas', 'documentations', 'schedules', 'members'])->find($request->kdXtra);
 
-
         if(Auth::user()){
             // join jadi member
             $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
@@ -64,10 +63,8 @@ class editXtraController extends Controller
             $old = null;
             if ($xtra->backgroundImage) {
                 $old = $xtra->backgroundImage;
-                // dd('masuk headerHapus');
             }
 
-            // dd('masuk header 2');
             $data['fileupload'] = $request->file('fileupload')->store('database-assets');
             $xtra->backgroundImage = $data['fileupload'];
             $xtra->save();
