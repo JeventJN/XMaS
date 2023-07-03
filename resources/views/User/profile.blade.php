@@ -154,7 +154,6 @@
                         </div>
                     </div>
                     <div class="boxtempatsampah">
-                        {{-- <img class="icontempatsampah" id="sampahbtn" src="{{ asset('Assets/Profileassets/tempatsampah.png') }}" alt=""> --}}
                         <img class="icontempatsampah w-[2.5vw] h-[3vw] scale-[0.8] hover:scale-[1]" id="sampahbtn"
                             src="{{ asset('Assets/delete.png') }}" alt="">
                         {{-- Modal Tempat Sampah --}}
@@ -208,15 +207,6 @@
                                     $flag = 3;
                                 @endphp
                                 @break
-
-                            {{-- @elseif($member->kdState == 1)
-                                @php
-                                    // member
-                                    $flag = 0;
-                                    dd('masuk 1')
-
-                                @endphp
-                                @break --}}
                             @endif
                         @else
                             @php
@@ -244,7 +234,6 @@
                                     <form id="xtrareg" action="/reqLead" method="POST" onsubmit="return eventsubmits()" autocomplete="off">
                                         @csrf
                                         <div class="mt-[0.2vw] w-[25vw] rounded-[0.3vw] border-none">
-                                            {{-- <select name="xtrachs" class="bg-gray-50 border border-gray-300 border-[0.1vw] rounded-[0.3vw] text-gray-900 text-sm focus:border-blue-500 block w-[25vw] h-[2.5vw] p-[0.2vw] focus:text-black text-[2vw]" required> --}}
                                             <div class="select-wrap" class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none">
                                                 <select name="xtrachs" id="xtrachs" class="input bg-gray-50 text-gray-900 text-sm block max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] text-[2vw] scrollbar-hide" style="border: #1B2F45 0.2vw solid">
                                                     <div class="max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw] border-none bg-red-500">
@@ -252,7 +241,7 @@
                                                         <div class=" max-w-[25vw] min-w-[25vw] max-h-[2.5vw] min-h-[2.5vw]">
                                                             @php
                                                                 $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
-                                                                $anggota = App\Models\userXmas::find($NIP)->members;
+                                                                $anggota = App\Models\userXmas::with('members.xtras')->find($NIP)->members;
                                                             @endphp
 
                                                             @foreach ($anggota as $member)
@@ -446,13 +435,10 @@
 
     <script>
         //SCRIPT DROPDOWN=============================================
-        /* When the user clicks on the button,
-        toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
 
-        // Close the dropdown if the user clicks outside of it
         window.onclick = function(event) {
             if (!event.target.matches('.dropbtn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -475,7 +461,6 @@
 
         document.getElementById('fileupload').addEventListener('change', function() {
             var files = this.files;
-            // Handle uploaded files here
             console.log(files);
         });
     </script>
@@ -508,12 +493,10 @@
         // untuk validasi pilihan ekstra
         function eventsubmits() {
             const xtrachs = document.getElementById('xtrachs');
-            // alert(xtrachs.value)
             if (xtrachs.value == "") {
                 alert("Choose one xtra");
                 return false;
             }
-
 
             return true;
 

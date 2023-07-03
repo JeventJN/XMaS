@@ -180,10 +180,8 @@ class reportController extends Controller
     }
 
     public function reportKetua(Request $request) {
-        // ambil xtra yang dia jadi ketua
         $NIP = str_pad(Auth::User()->NIP, 4, '0', STR_PAD_LEFT);
-        $members = member::where('NIP', "=", $NIP)->get();
-        // dd($members);
+        $members = member::with(['xtras', 'xtras.schedules', 'userXmas'])->where('NIP', "=", $NIP)->get();
 
         foreach ($members as $member) {
             if($member->kdState == 2){
@@ -193,21 +191,15 @@ class reportController extends Controller
     }
 
     public function new(Request $request){
-        $member = member::find($request->kdMember);
-
-        // $xtra = extracurricular::find($member->kdExtracurricular);
-
         $schedule = Schedule::where('date', '=', $request->reportdate)->first();
-        // dd($schedule);
 
         $data = [
-            // kdschedule di report controller ambil dari schedule yang terakhir dari ketua ekskulnya
             'kdSchedule' => $schedule->kdSchedule,
             'kdState' => '3',
             'title' => $request->title,
             'explanation' => $request->explanation,
         ];
-        // dd($schedule);
+
         if ($request->hasFile('photo')) {
             $data['photo'] = $request->file('photo')->store('database-assets');
         }

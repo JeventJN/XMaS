@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
-{{-- @dd(url()->current(), url('/home')) --}}
 <body class="scrollbar-hide">
     <div class="z-50 fixed w-screen h-[5.25vw] bg-[#1B2F45] flex items-center opacity-80">
         <div class="content w-[48%]">

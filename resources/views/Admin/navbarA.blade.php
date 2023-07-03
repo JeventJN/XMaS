@@ -67,7 +67,6 @@
                         @csrf
                         <button class="btnyesmodal">Yes</button>
                     </form>
-                    {{-- <a href="/logout"><button class="btnyesmodal">Yes</button></a> --}}
                     <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
                 </div>
             </div>

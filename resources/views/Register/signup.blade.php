@@ -32,16 +32,6 @@
             </div>
         </div>
 
-        {{-- FORM SIGN UP --}}
-        {{-- Ini variabelnya --}}
-        {{--
-        username
-        nip
-        program
-        phone
-        password
-        imageprofile --}}
-
         <div class="flex flex-row">
             <img class="mt-[3vw] w-[35vw]" src="{{asset('Assets/LogoXMaSBlack.png')}}" alt="">
             <form action="/signup" id="signupvalid" method="POST" autocomplete="off" onsubmit="return eventsubmits(this)" enctype="multipart/form-data">

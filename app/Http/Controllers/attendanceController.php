@@ -13,8 +13,8 @@ class attendanceController extends Controller
     //
 
     public function attendancePage($kdXtra){
-        $xtra = extracurricular::find($kdXtra);
-        $members = $xtra->members()->get();
+        $xtra = extracurricular::with(['members.userXmas', 'schedules'])->find($kdXtra);
+        $members = $xtra->members()->with('userXmas')->get();
 
         $flag = 0;
 
@@ -39,7 +39,6 @@ class attendanceController extends Controller
     }
 
     public function attendance(Request $request) {
-        // dd($request);
         $attendanceKd = $request->input('attendanceKd');
         $membersKd = json_decode($attendanceKd, true);
 
@@ -60,7 +59,6 @@ class attendanceController extends Controller
 
 
         if ($request->hasFile('photo')) {
-            // dd('masuk dokum');
             $data = [
                 'kdExtracurricular' => $request->kdXtra
             ];

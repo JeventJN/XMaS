@@ -20,10 +20,10 @@ class profileController extends Controller
     public function index(){
         $NIP = str_pad(Auth::User()->NIP, 4, '0', STR_PAD_LEFT);
         if ($NIP === '0000') {
-            $reports = report::latest()->get()->filter(function ($report) {
+            $reports = report::with('schedules.xtras')->latest()->get()->filter(function ($report) {
                 return $report->kdState == 3;})->values();
 
-                $xtras = extracurricular::all();
+                $xtras = extracurricular::with(['latest_schedule', 'leader.userXmas'])->get();
                 $flag = 1;
 
 
@@ -36,7 +36,7 @@ class profileController extends Controller
                 }
 
                 if ($flag == 0) {
-                    return redirect()->route('home')->with(['xtras' => extracurricular::latest()->get(), 'reports' => $reports, 'kosong' => 'no']);
+                    return view('home', ['xtras' => extracurricular::with(['latest_schedule', 'leader.userXmas'])->latest()->get(), 'reports' => $reports, 'kosong' => 'no']);
                 }
                 else{
                     return redirect()->route('home')->with(['xtras' => $xtras, 'reports' => $reports, 'kosong' => 'yes']);
@@ -83,8 +83,6 @@ class profileController extends Controller
 
         $user->save();
         return redirect('/profile');
-
-
     }
 
     function xtras(Request $request){
@@ -92,7 +90,6 @@ class profileController extends Controller
         $anggota = userXmas::find($NIP)->members;
 
         return view('User.profile', compact('anggota'));
-
     }
 
     function requestLead(Request $request){

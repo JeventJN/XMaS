@@ -9,6 +9,7 @@ use App\Http\Controllers\xtraController;
 use App\Http\Controllers\cameraController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\editXtraController;
+use App\Http\Controllers\phoneController;
 use App\Http\Controllers\photoController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\reportController;
@@ -26,11 +27,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/home', [Controller::class, 'index']);
-// Route::get('/home', [homeController::class, 'showXtraSchedule'], [Controller::class, 'index']);
 Route::get('/home', [homeController::class, 'showXtraSchedule'])->name('home');
-// Route::resource('/home', adminController::class);
 Route::redirect('/', '/home');
+
+Route::get('/test', [phoneController::class, 'index']);
 
 
 Route::get('/signup', [signUpController::class, 'index'])->middleware('guest');
@@ -39,7 +39,6 @@ Route::post('/signup', [signUpController::class, 'store']);
 
 Route::get('/login', [logInController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [logInController::class, 'masuk']);
-// Route::get('/logout', [logInController::class, 'keluar'])->middleware('auth');
 Route::post('/logout', [logInController::class, 'keluar'])->middleware('auth');
 Route::post('/delete', [logInController::class, 'delete'])->middleware('auth');
 
@@ -61,7 +60,6 @@ Route::post(('/leave'), [xtraController::class, 'leaveXtra'])->name('xtra.leave'
 
 // halaman xtra satuan
 Route::post(('/xtrapage'), [xtraController::class, 'show']);
-// Route::post(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapagepost');
 Route::get(('/xtrapage/{kdXtra}'), [xtraController::class, 'show'])->name('xtrapage');
 
 Route::post('/addSchedule', [editXtraController::class, 'schedule']);
@@ -99,7 +97,7 @@ Route::get(('/searchReport'), [reportController::class, 'searchLive']);
 
 Route::get('/run-script', [cameraController::class, 'runScript'])->name('run-script');
 
-Route::get('profile', [profileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('/profile', [profileController::class, 'index'])->name('profile')->middleware('auth');
 
 Route::post('/changeImage', [profileController::class, 'updateImage']);
 Route::post('/changePhone', [profileController::class, 'updatePhone']);
@@ -117,8 +115,3 @@ Route::post(('/createXtra'), [xtraController::class, 'createXtra'])->name('xtra.
 Route::get('chat', function (){
     return view('chat');
 });
-
-// Route::get('attendance', function (){
-//     return view('Ketua.attendance');
-// });
-

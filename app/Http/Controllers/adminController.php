@@ -9,24 +9,14 @@ use Illuminate\Http\Request;
 
 class adminController extends Controller
 {
-    //
-    // public function index()
-    // {
-    //     //
-    //     $flag = 1;
-
-    //     $this->authorize('admin');
-    //     return view('home')->with('flag', $flag);
-    // }
-
     public function approval(){
-        $members = member::where('kdState', '=', '3')->get();
+        $members = member::with(['userXmas', 'xtras'])->where('kdState', '=', '3')->get();
 
         return view('Admin.approval', compact('members'));
     }
 
     public function accReq(Request $request){
-        $members = extracurricular::find($request->xtra)->members;
+        $members = extracurricular::with('members')->find($request->xtra)->members;
 
         // hapus yang lama
         foreach ($members as $member) {
@@ -53,7 +43,7 @@ class adminController extends Controller
     }
 
     public function denyReq(Request $request){
-        $members = extracurricular::find($request->xtra)->members;
+        $members = extracurricular::with('members')->find($request->xtra)->members;
 
         $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
         foreach ($members as $member) {
@@ -66,13 +56,11 @@ class adminController extends Controller
             }
         }
 
-
         return redirect()->route('approval')->with('denyAcc', 'we');
     }
 
     public function report(Request $request){
-        $report = report::find($request->report);
-        // dd($report);
+        $report = report::with(['schedules', 'schedules.xtras', 'schedules.xtras.members'])->find($request->report);
 
         return view('Admin.reportformA', compact('report'));
     }

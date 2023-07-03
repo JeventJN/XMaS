@@ -103,7 +103,6 @@
                                 <p class="m-auto font-nunito font-semibold text-[1.5vw]">No Documentation</p>
                             </div>
                         @endif
-                        {{-- <img class="h-[31.2vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto1.png')}}" alt=""> --}}
                     </div>
                 </div>
             </div>
