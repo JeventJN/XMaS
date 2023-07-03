@@ -9,6 +9,7 @@ use App\Http\Controllers\xtraController;
 use App\Http\Controllers\cameraController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\editXtraController;
+use App\Http\Controllers\phoneController;
 use App\Http\Controllers\photoController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\reportController;
@@ -28,6 +29,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [homeController::class, 'showXtraSchedule'])->name('home');
 Route::redirect('/', '/home');
+
+Route::get('/test', [phoneController::class, 'index']);
 
 
 Route::get('/signup', [signUpController::class, 'index'])->middleware('guest');
