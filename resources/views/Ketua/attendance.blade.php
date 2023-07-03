@@ -105,7 +105,7 @@
             </div>
             <div class="w-[27.5%] flex justify-end">
                 <img class="scale-[1]" id="photoContainer" src="{{asset('Assets/UploadPhoto.png')}}" alt="">
-                <input class="absolute w-[27.5%] h-[100vh] opacity-0 hover:cursor-pointer" type="file" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded.png')}}'">
+                <input class="absolute w-[27.5%] h-[100vh] opacity-0 hover:cursor-pointer" type="file" name="photo" id="photo" accept="image/*" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded.png')}}'">
             </div>
         </div>
         <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">

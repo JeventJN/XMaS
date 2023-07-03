@@ -33,21 +33,12 @@
             <a class="xtrareg w-[16vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw]" href="/signup">
                 Xtra Registration
             </a>
-            {{-- <div class="xtrareg-active w-[16vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45]  flex items-center justify-center rounded-[1.6vw]" href="/signup">
-                Xtra Registration
-            </div> --}}
             <a class="myclub w-[8.75vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/signup">
                 MyClub
             </a>
-            {{-- <div class="myclub-active w-[8.75vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/signup">
-                MyClub
-            </div> --}}
             <a class="w-[8.75vw] h-[3.25vw] hover:bg-[#A1A9B2] hover:text-[#1B2F45] flex items-center justify-center rounded-[1.6vw] {{ (url()->current() == url('/login') || url()->current() == url('/signup'))  ? 'active' : '' }}" href="/login">
                 Log In
             </a>
-            {{-- <div class="w-[8.75vw] h-[3.25vw] bg-[#A1A9B2] text-[#1B2F45] flex items-center justify-center rounded-[1.6vw]" href="/login">
-                Log In
-            </div> --}}
         </div>
     </div>
 </body>
