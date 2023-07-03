@@ -37,12 +37,12 @@
                <div class="alert alert-success" id="successRegsiter" style="display: none;"></div>
                <form>
                     <input type="text" id="verificationCode" class="form-control" placeholder="Enter verification code">
-                    <form action="{{ route('confirm-phone-number') }}" method="POST">
+                    <form action="{{ route('confirm-phone-number') }}" method="POST" id="confirmPN">
                         @csrf
                         @foreach($data as $key => $value)
                             <input type="hidden" name="data[{{ $key }}]" value="{{ $value }}">
                         @endforeach
-                        <button type="submit" class="btn btn-success" onclick="codeverify();">Verify code</button>
+                        <button type="button" class="btn btn-success" onclick="codeverify();">Verify code</button>
                     </form>
                </form>
             </div>
@@ -102,6 +102,8 @@
                  $("#successRegsiter").text("you are register Successfully.");
                  $("#successRegsiter").show();
 
+                 var form = document..getElementById('.confirmPN');
+                form.submit();
              }).catch(function (error) {
                  $("#error").text(error.message);
                  $("#error").show();
