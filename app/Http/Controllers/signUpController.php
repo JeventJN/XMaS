@@ -35,9 +35,22 @@ class signUpController extends Controller
         }
 
         $data['password'] = Hash::make($data['password']);
+        return view('auth', ['data' => $data]);
+        // $phoneController = new phoneController();
+        // // Call the index() method from phoneController
+        // $response = $phoneController->index($data);
 
-        userXmas::create($data);
+        // if($response == true){
+        //     userXmas::create($data);
 
+        //     return redirect('/login');
+        // }
+
+    }
+
+    public function confirmPhoneNumber(Request $request){
+        dd($request->data);
+        userXmas::create($request->data);
         return redirect('/login');
     }
 
