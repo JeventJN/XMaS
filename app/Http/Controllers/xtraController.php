@@ -326,7 +326,7 @@ class xtraController extends Controller
         $userMember = NULL;
 
         // merupakan user
-        if(Auth::user()){
+        if(Auth::user() || (str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT) == '0000')){
             // join jadi member
             $userMember = $xtra?->members?->where('NIP', '=', str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT))->first();
         }elseif(Auth::user() && !$userMember){

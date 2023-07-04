@@ -49,15 +49,17 @@
         @if (Auth()->User()->can('admin'))
             {{-- Admin --}}
             @include('Admin.navbarA')
-            @php
-                $flag = -3;
-            @endphp
         @else
             {{-- Authenticated User Non Admin --}}
             @include('User/navbarUser')
         @endif
 
-        @if(!$userMember)
+        @if(Auth()->User()->can('admin'))
+            @php
+            // admin
+                $flag = -3;
+            @endphp
+        @elseif(!$userMember)
             @php
                 // non-member
                 $flag = -1;
@@ -77,7 +79,6 @@
         @endif
     @endauth
     <!-- navbar -->
-
     {{-- Modal Tempat Sampah --}}
     <div id="modalsampah" class="modalsampah">
         {{-- Modal Content --}}
@@ -101,7 +102,7 @@
         </div>
     </div>
     {{-- Modal Tempat Sampah --}}
-    
+
     {{-- popup --}}
     {{-- left --}}
     @if (session()->has('notif'))
