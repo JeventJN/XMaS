@@ -19,6 +19,12 @@
     @endguest
 
     @auth
+        @if (Auth()->User()->can('admin'))
+            {{-- Admin --}}
+            <script>
+                window.location.href = "/home";
+            </script>
+        @endif
         @include('User.navbarUser')
     @endauth
 
