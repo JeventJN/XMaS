@@ -13,7 +13,7 @@
          <p>Phone Number Authentication using Firebase In Laravel 8</p>
       </div>
       </div>
-         
+
          <div class="alert alert-danger" id="error" style="display: none;"></div>
          <div class="card">
             <div class="card-header">
@@ -23,7 +23,7 @@
                <div class="alert alert-success" id="sentSuccess" style="display: none;"></div>
                <form>
                   <label>Phone Number:</label>
-                  <input type="text" id="number" class="form-control" placeholder="+91********">
+                  <input type="text" id="number" class="form-control" placeholder="+91********" value="{{ '+' . $data['phoneNumber'] }}">
                   <div id="recaptcha-container"></div>
                   <button type="button" class="btn btn-success" onclick="phoneSendAuth();">SendCode</button>
                </form>
@@ -32,12 +32,18 @@
          <div class="card" style="margin-top: 10px">
             <div class="card-header">
                Enter Verification code
-            </div>
+        </div>
             <div class="card-body">
                <div class="alert alert-success" id="successRegsiter" style="display: none;"></div>
                <form>
-                  <input type="text" id="verificationCode" class="form-control" placeholder="Enter verification code">
-                  <button type="button" class="btn btn-success" onclick="codeverify();">Verify code</button>
+                    <input type="text" id="verificationCode" class="form-control" placeholder="Enter verification code">
+                    <form action="{{ route('confirm-phone-number') }}" method="POST" id="confirmPN">
+                        @csrf
+                        @foreach($data as $key => $value)
+                            <input type="hidden" name="data[{{ $key }}]" value="{{ $value }}">
+                        @endforeach
+                        <button type="button" class="btn btn-success" onclick="codeverify();">Verify code</button>
+                    </form>
                </form>
             </div>
          </div>
@@ -96,6 +102,8 @@
                  $("#successRegsiter").text("you are register Successfully.");
                  $("#successRegsiter").show();
 
+                 var form = document..getElementById('.confirmPN');
+                form.submit();
              }).catch(function (error) {
                  $("#error").text(error.message);
                  $("#error").show();

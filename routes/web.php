@@ -35,6 +35,8 @@ Route::get('/test', [phoneController::class, 'index']);
 
 Route::get('/signup', [signUpController::class, 'index'])->middleware('guest');
 Route::post('/signup', [signUpController::class, 'store']);
+Route::post('/confirmPhoneNumber', [signUpController::class, 'confirmPhoneNumber'])->name('confirm-phone-number');
+
 
 
 Route::get('/login', [logInController::class, 'index'])->name('login')->middleware('guest');

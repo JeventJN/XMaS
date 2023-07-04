@@ -8,7 +8,7 @@ class phoneController extends Controller
 {
     //
 
-    public function index() {
-        return view('auth');
+    public function index($data) {
+        return view('auth', ['data' => $data]);
     }
 }
