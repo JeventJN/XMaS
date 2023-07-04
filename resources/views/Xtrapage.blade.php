@@ -78,6 +78,30 @@
     @endauth
     <!-- navbar -->
 
+    {{-- Modal Tempat Sampah --}}
+    <div id="modalsampah" class="modalsampah">
+        {{-- Modal Content --}}
+        <div class="modal-contentsampah">
+            <div class="kotakisimodal">
+                <div class="boxjudulclosesampah">
+                    <span class="closesampah">&times;</span>
+                </div>
+                <div class="isisampah">
+                    <div class="kalimatsampah1">This action will <span style="color: red;">delete</span> this Xtra.</div>
+                    <div class="kalimatsampah2">Do you want to continue?</div>
+                </div>
+                <div class="boxsubmitsampah">
+                    <form method="POST" action="{{ route('xtra.delete') }}" class="delConfirm">
+                        @csrf
+                        <button class="btnyesmodal" id="btnDeleteConfirm">Yes</button>
+                    </form>
+                    <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Modal Tempat Sampah --}}
+    
     {{-- popup --}}
     {{-- left --}}
     @if (session()->has('notif'))
@@ -504,62 +528,56 @@
                             </div>
                         </div>
 
-                        @auth
-                            @if (Auth()->User()->can('admin'))
-                                {{-- Untuk Delete Xtra --}}
-                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                    <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
-                                    <div class="btn-member">
-                                        <button type="button" class="delete" id="deletebtn" style="border: none">Delete Xtra</button>
-                                    </div>
+                        @if ($flag == 1 || $flag == 0)
+                            {{-- Untuk Leave Xtra --}}
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
+                                <div class="btn-member">
+                                    <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
                                 </div>
-                                {{-- Untuk Delete Xtra --}}
-                            @endif
-                        @endauth
-
-                        @guest
-                            @if ($flag == 1 || $flag == 0)
-                                {{-- Untuk Leave Xtra --}}
-                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                    <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
-                                    <div class="btn-member">
-                                        <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
-                                    </div>
-                                </div>
-                                {{-- Untuk Leave Xtra --}}
-                            @elseif($flag == -1)
-                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                    <div class="gambarhover">
-                                        <a href="/xtrareg">
-                                            <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
-                                                onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
-                                                onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
-                                                JOIN NOW!!!
-                                            </div>
-                                        </a>
-                                        <div class="flex">
-                                            <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                            </div>
+                            {{-- Untuk Leave Xtra --}}
+                        @elseif($flag == -1)
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                <div class="gambarhover">
+                                    <a href="/xtrareg">
+                                        <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
+                                            onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
+                                            onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
+                                            JOIN NOW!!!
                                         </div>
+                                    </a>
+                                    <div class="flex">
+                                        <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
                                     </div>
                                 </div>
-                            @elseif ($flag == -2)
-                                {{-- register now harusnya, tp codingan front end mana g nemu --}}
-                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                    <div class="gambarhover">
-                                        <a href="/xtrareg">
-                                            <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
-                                                onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarRegisterHover.png') }}'"
-                                                onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}'">
-                                                REGISTER NOW!!!
-                                            </div>
-                                        </a>
-                                        <div class="flex">
-                                            <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                            </div>
+                        @elseif ($flag == -2)
+                            {{-- register now harusnya, tp codingan front end mana g nemu --}}
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                <div class="gambarhover">
+                                    <a href="/xtrareg">
+                                        <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
+                                            onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarRegisterHover.png') }}'"
+                                            onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}'">
+                                            REGISTER NOW!!!
                                         </div>
+                                    </a>
+                                    <div class="flex">
+                                        <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
                                     </div>
                                 </div>
-                            @endif
-                        @endguest
+                            </div>
+                        @elseif ($flag == -3)
+                            {{-- Untuk Delete Xtra --}}
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
+                                <div class="btn-member">
+                                    <button type="button" class="delete" id="deletebtn" style="border: none" onclick="del('{{ $xtra->kdExtracurricular }}')">Delete Xtra</button>
+                                </div>
+                            </div>
+                            {{-- Untuk Delete Xtra --}}
+                        @endif
                     </div>
                 </div>
                 {{-- ===Segment Member=== --}}
@@ -649,6 +667,52 @@
             </div>
         @endif
     </main>
+
+    <script>
+        function del(kdExtracurricular) {
+            //SCRIPT MODAL TEMPAT SAMPAH======================================
+
+            // Get modal
+            var modalsampah = document.getElementById("modalsampah")
+
+            // Get button that opens modal
+            var btndelete = document.getElementById("deletebtn");
+
+            // Get the <span> element that closes the modal
+            var spansampah = document.getElementsByClassName("closesampah")[0];
+            var btnyes = document.getElementById("btnDeleteConfirm");
+            var btncancel = document.getElementById("btncancelmodal1");
+
+            // When the user clicks the button, open the modal
+            // btndelete.onclick = function() {
+                modalsampah.style.display = "block";
+            // }
+
+            // When the user clicks on yes
+            btnyes.onclick = function() {
+                var form = document.querySelector('.delConfirm');
+
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'kdXtra';
+                input.value = kdExtracurricular;
+
+                form.appendChild(input);
+                form.submit();
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            spansampah.onclick = function() {
+                modalsampah.style.display = "none";
+            }
+
+            btncancel.onclick = function() {
+                modalsampah.style.display = "none";
+            }
+
+            // SCRIPT MODAL TEMPAT SAMPAH========================================
+        }
+    </script>
 
     {{-- Modal Leave --}}
     @if ($userMember != NULL)
