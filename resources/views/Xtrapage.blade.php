@@ -79,29 +79,6 @@
         @endif
     @endauth
     <!-- navbar -->
-    {{-- Modal Tempat Sampah --}}
-    <div id="modalsampah" class="modalsampah">
-        {{-- Modal Content --}}
-        <div class="modal-contentsampah">
-            <div class="kotakisimodal">
-                <div class="boxjudulclosesampah">
-                    <span class="closesampah">&times;</span>
-                </div>
-                <div class="isisampah">
-                    <div class="kalimatsampah1">This action will <span style="color: red;">delete</span> this Xtra.</div>
-                    <div class="kalimatsampah2">Do you want to continue?</div>
-                </div>
-                <div class="boxsubmitsampah">
-                    <form method="POST" action="{{ route('xtra.delete') }}" class="delConfirm">
-                        @csrf
-                        <button class="btnyesmodal" id="btnDeleteConfirm">Yes</button>
-                    </form>
-                    <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- Modal Tempat Sampah --}}
 
     {{-- popup --}}
     {{-- left --}}
@@ -589,7 +566,7 @@
             <div class="presence" style="margin-top: 3vw;">
                 {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
                 <div class="containerbawah">
-                    <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence" id="presenceCountNumber">{{ $xtra->latest_schedule?->presences->count() }}</span> </div>
+                    <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence" id="presenceCountNumber">{{ $xtra->latest_schedule?->presences->count() ? $xtra->latest_schedule?->presences->count():'0' }}</span> </div>
                     <div class="dropdown">
                         <button onclick="myFunction()" class="dropbtn">Choose date <img class="gambarPanah"
                                 src="{{ asset('Assets/Xtrapageassets/chevrondown.png') }}" alt=""
@@ -606,7 +583,7 @@
                             Presence Member List
                         </h4>
                         <div class="presence-list">
-
+                            <div id="flag" value="{{ $flag }}">
                             <div class="kotakisiPME" id="presenceLatest">
                                 @if($xtra->latest_schedule?->presences?->count() > 0)
                                     @if ($xtra->latest_schedule?->presences->where('kdMember', '=', $userMember->kdMember)->first() != NULL)
@@ -632,38 +609,20 @@
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
                     <script>
                         $(document).ready(function(){
+                            var flag = '<?php echo json_encode($flag, JSON_HEX_TAG); ?>';
+                            console.log(flag);
                             $("#presenceChosen").hide();
 
                             $("#myDropdown a").click(function(){
                                 var selectedDate = moment($(this).text(), "ddd, DD MMM YYYY").format("YYYY-MM-DD");
-                                var flag = <?php echo json_encode($flag, JSON_HEX_TAG); ?>;
-                                console.log(flag);
-                                if(selectedDate != "" && flag != -3){
+
+                                if(selectedDate != ""){
                                     $('#presenceLatest').hide();
                                     $('#presenceChosen').show();
                                     $.ajax({
                                         url: "{{ url('presence') }}",
                                         type:"GET",
-                                        data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }} + "&kdMember=" + {{ $userMember->kdMember }},
-                                        success: function(data){
-                                            console.log(data);
-                                            console.log(selectedDate);
-                                            if (data.empty) {
-                                                $("#presenceChosen").html(data.output);
-                                                $("#presenceCountNumber").html("0");
-                                            } else {
-                                                $("#presenceChosen").html(data.output);
-                                                $("#presenceCountNumber").html(data.totalPresence);
-                                            }
-                                        }
-                                    })
-                                }elseif(selectedDate != "" && flag == -3){
-                                    $('#presenceLatest').hide();
-                                    $('#presenceChosen').show();
-                                    $.ajax({
-                                        url: "{{ url('presence') }}",
-                                        type:"GET",
-                                        data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }},
+                                        data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }} + "&kdMember=" + {{ $flag != -3 ? $userMember?->kdMember : -1 }},
                                         success: function(data){
                                             console.log(data);
                                             console.log(selectedDate);
@@ -688,52 +647,6 @@
             </div>
         @endif
     </main>
-
-    <script>
-        function del(kdExtracurricular) {
-            //SCRIPT MODAL TEMPAT SAMPAH======================================
-
-            // Get modal
-            var modalsampah = document.getElementById("modalsampah")
-
-            // Get button that opens modal
-            var btndelete = document.getElementById("deletebtn");
-
-            // Get the <span> element that closes the modal
-            var spansampah = document.getElementsByClassName("closesampah")[0];
-            var btnyes = document.getElementById("btnDeleteConfirm");
-            var btncancel = document.getElementById("btncancelmodal1");
-
-            // When the user clicks the button, open the modal
-            // btndelete.onclick = function() {
-                modalsampah.style.display = "block";
-            // }
-
-            // When the user clicks on yes
-            btnyes.onclick = function() {
-                var form = document.querySelector('.delConfirm');
-
-                var input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'kdXtra';
-                input.value = kdExtracurricular;
-
-                form.appendChild(input);
-                form.submit();
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            spansampah.onclick = function() {
-                modalsampah.style.display = "none";
-            }
-
-            btncancel.onclick = function() {
-                modalsampah.style.display = "none";
-            }
-
-            // SCRIPT MODAL TEMPAT SAMPAH========================================
-        }
-    </script>
 
     {{-- Modal Leave --}}
     @if ($userMember != NULL)
@@ -779,7 +692,8 @@
                     <div class="kalimatdelete2">Do you want to continue?</div>
                 </div>
                 <div class="boxsubmitdelete">
-                    <form class="yesresponsive">
+                    <form method="POST" action="{{ route('xtra.delete') }}" class="delConfirm">
+                        @csrf
                         <button class="btnyesmodal">Yes</button>
                     </form>
                     <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
@@ -1034,38 +948,54 @@
     </script>
 
     <script>
-        //SCRIPT MODAL DELETE======================================
-        // Get modal
-        var modaldelete = document.getElementById("modaldelete")
+        function del(kdExtracurricular) {
+            //SCRIPT MODAL DELETE======================================
+            // Get modal
+            var modaldelete = document.getElementById("modaldelete")
 
-        // Get button that opens modal
-        var btndelete = document.getElementById("deletebtn");
+            // Get button that opens modal
+            var btndelete = document.getElementById("deletebtn");
 
-        // Get the <span> element that closes the modal
-        var spandelete = document.getElementsByClassName("closedelete")[0];
-        var btncancel = document.getElementById("btncancelmodal2");
+            // Get the <span> element that closes the modal
+            var spandelete = document.getElementsByClassName("closedelete")[0];
+            var btncancel = document.getElementById("btncancelmodal2");
+            var btnyes = document.getElementById("btnyesmodal");
 
-        // When the user clicks the button, open the modal
-        btndelete.onclick = function() {
-            modaldelete.style.display = "block";
-        }
+            // When the user clicks the button, open the modal
+            // btndelete.onclick = function() {
+                modaldelete.style.display = "block";
+            // }
 
-        // When the user clicks on <span> (x), close the modal
-        spandelete.onclick = function() {
-            modaldelete.style.display = "none";
-        }
+            // When the user clicks on yes
+            btnyes.onclick = function() {
+                var form = document.querySelector('.delConfirm');
 
-        btncancel.onclick = function() {
-            modaldelete.style.display = "none";
-        }
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'kdXtra';
+                input.value = kdExtracurricular;
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modaldelete) {
+                form.appendChild(input);
+                form.submit();
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            spandelete.onclick = function() {
                 modaldelete.style.display = "none";
             }
+
+            btncancel.onclick = function() {
+                modaldelete.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modaldelete) {
+                    modaldelete.style.display = "none";
+                }
+            }
+            // SCRIPT MODAL DELETE========================================
         }
-        // SCRIPT MODAL DELETE========================================
     </script>
 
     <script>
