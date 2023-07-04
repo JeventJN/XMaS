@@ -536,7 +536,7 @@
                     Extracurriculars
                 </div>
                 <h1 class="text-[#56B8E6] viewall font-nunito">
-                    <a href="/xtralist">
+                    <a href="/xtralistA ">
                         view all
                     </a>
                 </h1>

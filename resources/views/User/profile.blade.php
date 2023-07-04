@@ -207,11 +207,17 @@
                                     $flag = 3;
                                 @endphp
                                 @break
+                            @elseif ($member->kdState == 1)
+                                @php
+                                    // member
+                                    $flag = 0;
+                                @endphp
+                                @break
                             @endif
                         @else
                             @php
                                 // not member
-                                $flag = 0;
+                                $flag = -1;
                             @endphp
                         @endif
                     @endforeach

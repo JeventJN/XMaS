@@ -36,7 +36,7 @@ class profileController extends Controller
                 }
 
                 if ($flag == 0) {
-                    return view('home', ['xtras' => extracurricular::with(['latest_schedule', 'leader.userXmas'])->latest()->get(), 'reports' => $reports, 'kosong' => 'no']);
+                    return redirect()->route('home')->with(['xtras' => extracurricular::with(['latest_schedule', 'leader.userXmas'])->latest()->get(), 'reports' => $reports, 'kosong' => 'no']);
                 }
                 else{
                     return redirect()->route('home')->with(['xtras' => $xtras, 'reports' => $reports, 'kosong' => 'yes']);
