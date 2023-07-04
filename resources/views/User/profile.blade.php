@@ -190,10 +190,22 @@
                     @php
                         $members = App\Models\member::all();
                         $NIP = str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT);
+
+                        //Ga join ekskul samsek
+                        $flag = -1
                     @endphp
 
                     @foreach ($members as $member)
                         @if ($member->NIP == $NIP)
+                            @php
+                                //setidaknya join ekskul
+                                $flag = 0
+                            @endphp
+                        @endif
+                    @endforeach
+
+                    @foreach ($members as $member)
+                        @if ($member->NIP == $NIP && $flag == 0)
                             @if ($member->kdState == 2)
                                 @php
                                     // ketua
@@ -207,18 +219,8 @@
                                     $flag = 3;
                                 @endphp
                                 @break
-                            @elseif ($member->kdState == 1)
-                                @php
-                                    // member
-                                    $flag = 0;
-                                @endphp
-                                @break
+
                             @endif
-                        @else
-                            @php
-                                // not member
-                                $flag = -1;
-                            @endphp
                         @endif
                     @endforeach
 
