@@ -514,7 +514,7 @@
                             @endif
                         @endauth
 
-                        @if (!Auth()->User()->can('admin'))
+                        @guest
                             @if ($flag == 1 || $flag == 0)
                                 {{-- Untuk Leave Xtra --}}
                                 <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
@@ -556,7 +556,7 @@
                                     </div>
                                 </div>
                             @endif
-                        @endif
+                        @endguest
                     </div>
                 </div>
                 {{-- ===Segment Member=== --}}
