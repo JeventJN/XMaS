@@ -63,7 +63,7 @@
                     <div class="kalimatlogout2">Do you want to continue?</div>
                 </div>
                 <div class="boxsubmitlogout font-nunito">
-                    <form action="/logout" method="POST">
+                    <form action="/logout" method="POST" class="yesresponsive">
                         @csrf
                         <button class="btnyesmodal">Yes</button>
                     </form>

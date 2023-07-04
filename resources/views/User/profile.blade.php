@@ -170,7 +170,7 @@
                                         <div class="kalimatsampah2">Do you want to continue?</div>
                                     </div>
                                     <div class="boxsubmitsampah">
-                                        <form action="/delete" method="POST">
+                                        <form action="/delete" method="POST" class="yesresponsive">
                                             @csrf
                                             <button class="btnyesmodal">Yes</button>
 
@@ -296,7 +296,7 @@
                                     <div class="kalimatlogout2">Do you want to continue?</div>
                                 </div>
                                 <div class="boxsubmitlogout">
-                                    <form action="/logout" method="POST">
+                                    <form action="/logout" method="POST" class="yesresponsive">
                                         @csrf
                                         <button class="btnyesmodal">Yes</button>
                                     </form>

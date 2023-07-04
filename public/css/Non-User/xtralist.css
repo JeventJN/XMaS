@@ -182,6 +182,12 @@ input[type="checkbox"]:checked {
     background-color: #155003;
 }
 
+.delConfirm{
+    display: flex;
+    flex-direction: row;
+    /* border: red solid; */
+}
+
 .btncancelmodal {
     font-size: 1.2vw;
     height: 2.4vw;

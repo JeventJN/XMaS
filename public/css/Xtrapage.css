@@ -961,9 +961,9 @@ section p {
 
 .input-field {
     width: 100%;
-    padding: 10px;
+    padding: 0.6vw;
     text-align: center;
-    margin-bottom: 3px;
+    margin-bottom: 0.16vw;
     /* border: red solid; */
 }
 
@@ -1511,7 +1511,7 @@ table {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 24px;
+    font-size: 1.5vw;
 }
 
 .image-container:hover .hover-content {
