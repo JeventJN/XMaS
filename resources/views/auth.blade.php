@@ -49,10 +49,7 @@
          </div>
       </div>
         <script>
-            // function submitForm() {
-            //     var form = document.getElementById('.confirmPN');
-            //     form.submit();
-            // }
+
         </script>
       <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
       <script>
