@@ -501,56 +501,61 @@
                             </div>
                         </div>
 
-                        @if ($flag == 1 || $flag == 0)
-                            {{-- Untuk Leave Xtra --}}
-                            {{-- <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
-                                <div class="btn-member">
-                                    <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
-                                </div>
-                            </div> --}}
-                            {{-- Untuk Leave Xtra --}}
-
-                            {{-- Untuk Delete Xtra --}}
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
-                                <div class="btn-member">
-                                    <button type="button" class="delete" id="deletebtn" style="border: none">Delete Xtra</button>
-                                </div>
-                            </div>
-                            {{-- Untuk Delete Xtra --}}
-
-                        @elseif($flag == -1)
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                <div class="gambarhover">
-                                    <a href="/xtrareg">
-                                        <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
-                                            onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
-                                            onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
-                                            JOIN NOW!!!
-                                        </div>
-                                    </a>
-                                    <div class="flex">
-                                        <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                        @auth
+                            @if (Auth()->User()->can('admin'))
+                                {{-- Untuk Delete Xtra --}}
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                    <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
+                                    <div class="btn-member">
+                                        <button type="button" class="delete" id="deletebtn" style="border: none">Delete Xtra</button>
                                     </div>
                                 </div>
-                            </div>
-                        @elseif ($flag == -2)
-                            {{-- register now harusnya, tp codingan front end mana g nemu --}}
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                <div class="gambarhover">
-                                    <a href="/xtrareg">
-                                        <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
-                                            onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarRegisterHover.png') }}'"
-                                            onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}'">
-                                            REGISTER NOW!!!
-                                        </div>
-                                    </a>
-                                    <div class="flex">
-                                        <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                                {{-- Untuk Delete Xtra --}}
+                            @endif
+                        @endauth
+
+                        @if (!Auth()->User()->can('admin'))
+                            @if ($flag == 1 || $flag == 0)
+                                {{-- Untuk Leave Xtra --}}
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                    <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
+                                    <div class="btn-member">
+                                        <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
                                     </div>
                                 </div>
-                            </div>
+                                {{-- Untuk Leave Xtra --}}
+                            @elseif($flag == -1)
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                    <div class="gambarhover">
+                                        <a href="/xtrareg">
+                                            <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
+                                                onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarJoinHover.png') }}'"
+                                                onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}'">
+                                                JOIN NOW!!!
+                                            </div>
+                                        </a>
+                                        <div class="flex">
+                                            <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                                        </div>
+                                    </div>
+                                </div>
+                            @elseif ($flag == -2)
+                                {{-- register now harusnya, tp codingan front end mana g nemu --}}
+                                <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                    <div class="gambarhover">
+                                        <a href="/xtrareg">
+                                            <div class="registernow absolute ml-[13vw] h-[7.3vw] mt-[7.5vw] w-[24.7vw] flex flex-col justify-center items-center font-nunito font-bold text-[2.5vw] z-50 bg-red-500 rounded-[1vw] opacity-0"
+                                                onmouseover="join.src='{{ asset('Assets/Xtrapageassets/GambarRegisterHover.png') }}'"
+                                                onmouseout="join.src='{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}'">
+                                                REGISTER NOW!!!
+                                            </div>
+                                        </a>
+                                        <div class="flex">
+                                            <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         @endif
                     </div>
                 </div>
