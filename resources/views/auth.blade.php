@@ -89,7 +89,6 @@
 
                 $("#sentSuccess").text("Message Sent Successfully.");
                 $("#sentSuccess").show();
-                $("#confirmPN").submit();
             }).catch(function (error) {
                 $("#error").text(error.message);
                 $("#error").show();
@@ -104,7 +103,7 @@
 
             $("#successRegsiter").text("you are register Successfully.");
             $("#successRegsiter").show();
-
+            $("#confirmPN").submit();
             }).catch(function (error) {
                 $("#error").text(error.message);
                 $("#error").show();
