@@ -609,8 +609,6 @@
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
                     <script>
                         $(document).ready(function(){
-                            var flag = '<?php echo json_encode($flag, JSON_HEX_TAG); ?>';
-                            console.log(flag);
                             $("#presenceChosen").hide();
 
                             $("#myDropdown a").click(function(){
@@ -622,7 +620,7 @@
                                     $.ajax({
                                         url: "{{ url('presence') }}",
                                         type:"GET",
-                                        data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }} + "&kdMember=" + {{ $flag != -3 ? $userMember?->kdMember : -1 }},
+                                        data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }} + "&kdMember=" + {{ $flag != -3 ? $userMember->kdMember : -1 }},
                                         success: function(data){
                                             console.log(data);
                                             console.log(selectedDate);
@@ -694,7 +692,7 @@
                 <div class="boxsubmitdelete">
                     <form method="POST" action="{{ route('xtra.delete') }}" class="delConfirm">
                         @csrf
-                        <button class="btnyesmodal">Yes</button>
+                        <button class="btnyesmodal" id="confirmDeleteYes">Yes</button>
                     </form>
                     <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
                 </div>
@@ -959,7 +957,7 @@
             // Get the <span> element that closes the modal
             var spandelete = document.getElementsByClassName("closedelete")[0];
             var btncancel = document.getElementById("btncancelmodal2");
-            var btnyes = document.getElementById("btnyesmodal");
+            var btnyes = document.getElementById("confirmDeleteYes");
 
             // When the user clicks the button, open the modal
             // btndelete.onclick = function() {

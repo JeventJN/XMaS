@@ -353,7 +353,6 @@ class xtraController extends Controller
     }
 
     public function deleteXtra(Request $request) {
-        // dd($request->kdXtra);
         $xtra = extracurricular::where('kdExtracurricular', $request->kdXtra)->first();
         $name = $xtra->name;
         $xtra->delete();
