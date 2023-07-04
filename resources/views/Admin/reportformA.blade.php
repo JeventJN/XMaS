@@ -22,8 +22,6 @@
             Xtra Report
         </div>
 
-            {{$report->kdState}}
-
         @if ($report->kdState == 4)
             <div class="decborder absolute w-[7.8vw] h-[2.4vw] flex justify-center items-center rounded-[5vw] bg-green-600 mt-[10.5vw] ml-[-87.5vw]">
                 <div class="text-[1.4vw] text-white font-nunito font-semibold">Accepted</div>
