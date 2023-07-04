@@ -636,14 +636,34 @@
 
                             $("#myDropdown a").click(function(){
                                 var selectedDate = moment($(this).text(), "ddd, DD MMM YYYY").format("YYYY-MM-DD");
-
-                                if(selectedDate != ""){
+                                var flag = <?php echo json_encode($flag, JSON_HEX_TAG); ?>;
+                                console.log(flag);
+                                if(selectedDate != "" && flag != -3){
                                     $('#presenceLatest').hide();
                                     $('#presenceChosen').show();
                                     $.ajax({
                                         url: "{{ url('presence') }}",
                                         type:"GET",
                                         data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }} + "&kdMember=" + {{ $userMember->kdMember }},
+                                        success: function(data){
+                                            console.log(data);
+                                            console.log(selectedDate);
+                                            if (data.empty) {
+                                                $("#presenceChosen").html(data.output);
+                                                $("#presenceCountNumber").html("0");
+                                            } else {
+                                                $("#presenceChosen").html(data.output);
+                                                $("#presenceCountNumber").html(data.totalPresence);
+                                            }
+                                        }
+                                    })
+                                }elseif(selectedDate != "" && flag == -3){
+                                    $('#presenceLatest').hide();
+                                    $('#presenceChosen').show();
+                                    $.ajax({
+                                        url: "{{ url('presence') }}",
+                                        type:"GET",
+                                        data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }},
                                         success: function(data){
                                             console.log(data);
                                             console.log(selectedDate);
