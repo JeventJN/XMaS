@@ -156,7 +156,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="title text-[1.5vw] font-nunito font-semibold">
-                                                                    {{ Str::limit($xtr->name, 12, '...') }}
+                                                                    {{ Str::limit($xtr->name, 10, '...') }}
                                                                 </div>
                                                                 <div class="content text-white text-[1.5vw]">
                                                                     <h3>
@@ -241,7 +241,7 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="title text-[1.5vw] font-nunito font-semibold">
-                                                                            {{ Str::limit($xtr->name, 12, '...') }}
+                                                                            {{ Str::limit($xtr->name, 10, '...') }}
                                                                         </div>
                                                                         <div class="content text-white text-[1.5vw]">
                                                                             <h3>
@@ -423,7 +423,7 @@
                 Extracurriculars
             </div>
             <h1 class="text-[#56B8E6] viewall font-nunito">
-                <a href="/xtralistNU">
+                <a href="/xtralist">
                     view all
                 </a>
             </h1>
@@ -446,7 +446,7 @@
                                                             @endif
                                                         </div>
                                                         <h3 class="mt-[1vw]">
-                                                            {{$xtr->name}}
+                                                            {{ Str::limit($xtr->name, 10, '...') }}
                                                         </h3>
                                                     </div>
                                                 </div>
@@ -474,7 +474,7 @@
                     Extracurriculars
                 </div>
                 <h1 class="text-[#56B8E6] viewall font-nunito">
-                    <a href="/xtralistNU">
+                    <a href="/xtralist">
                         view all
                     </a>
                 </h1>
@@ -499,7 +499,7 @@
                                                                     @endif
                                                                 </div>
                                                                 <h3 class="mt-[1vw]">
-                                                                    {{$xtr->name}}
+                                                                    {{ Str::limit($xtr->name, 10, '...') }}
                                                                 </h3>
                                                             </div>
                                                         </div>
@@ -536,7 +536,7 @@
                     Extracurriculars
                 </div>
                 <h1 class="text-[#56B8E6] viewall font-nunito">
-                    <a href="/xtralistNU">
+                    <a href="/xtralist">
                         view all
                     </a>
                 </h1>
@@ -559,7 +559,7 @@
                                                                 @endif
                                                             </div>
                                                             <h3 class="mt-[1vw]">
-                                                                {{$xtr->name}}
+                                                                {{ Str::limit($xtr->name, 10, '...') }}
                                                             </h3>
                                                         </div>
                                                     </div>
