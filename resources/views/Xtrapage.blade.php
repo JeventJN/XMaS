@@ -694,7 +694,7 @@
                         @csrf
                         <button class="btnyesmodal" id="confirmDeleteYes">Yes</button>
                     </form>
-                    <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
+                    <button class="btncancelmodal" id="btncancelmodal3">Cancel</button>
                 </div>
             </div>
         </div>
@@ -956,7 +956,7 @@
 
             // Get the <span> element that closes the modal
             var spandelete = document.getElementsByClassName("closedelete")[0];
-            var btncancel = document.getElementById("btncancelmodal2");
+            var btncancel = document.getElementById("btncancelmodal3");
             var btnyes = document.getElementById("confirmDeleteYes");
 
             // When the user clicks the button, open the modal
