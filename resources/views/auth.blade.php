@@ -48,9 +48,6 @@
             </div>
          </div>
       </div>
-        <script>
-
-        </script>
       <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
       <script>
          var firebaseConfig = {
