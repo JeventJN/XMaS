@@ -54,7 +54,12 @@
             @include('User/navbarUser')
         @endif
 
-        @if(!$userMember)
+        @if(Auth()->User()->can('admin'))
+            @php
+            // admin
+                $flag = -3;
+            @endphp
+        @elseif(!$userMember)
             @php
                 // non-member
                 $flag = -1;
@@ -503,23 +508,13 @@
 
                         @if ($flag == 1 || $flag == 0)
                             {{-- Untuk Leave Xtra --}}
-                            {{-- <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
                                 <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
                                 <div class="btn-member">
                                     <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
                                 </div>
-                            </div> --}}
-                            {{-- Untuk Leave Xtra --}}
-
-                            {{-- Untuk Delete Xtra --}}
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
-                                <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
-                                <div class="btn-member">
-                                    <button type="button" class="delete" id="deletebtn" style="border: none">Delete Xtra</button>
-                                </div>
                             </div>
-                            {{-- Untuk Delete Xtra --}}
-
+                            {{-- Untuk Leave Xtra --}}
                         @elseif($flag == -1)
                             <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
                                 <div class="gambarhover">
@@ -551,6 +546,15 @@
                                     </div>
                                 </div>
                             </div>
+                        @elseif ($flag == -3)
+                            {{-- Untuk Delete Xtra --}}
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
+                                <div class="btn-member">
+                                    <button type="button" class="delete" id="deletebtn" style="border: none" onclick="del('{{ $xtra->kdExtracurricular }}')">Delete Xtra</button>
+                                </div>
+                            </div>
+                            {{-- Untuk Delete Xtra --}}
                         @endif
                     </div>
                 </div>
@@ -558,11 +562,11 @@
             </div>
         </div>
 
-        @if ($flag == 1 || $flag == 0)
+        @if ($flag == 1 || $flag == 0 || $flag == -3)
             <div class="presence" style="margin-top: 3vw;">
                 {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
                 <div class="containerbawah">
-                    <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence" id="presenceCountNumber">{{ $xtra->latest_schedule?->presences->count() }}</span> </div>
+                    <div class="TulisanPresenceMember" style="">Presence Member : <span class="numpresence" id="presenceCountNumber">{{ $xtra->latest_schedule?->presences->count() ? $xtra->latest_schedule?->presences->count():'0' }}</span> </div>
                     <div class="dropdown">
                         <button onclick="myFunction()" class="dropbtn">Choose date <img class="gambarPanah"
                                 src="{{ asset('Assets/Xtrapageassets/chevrondown.png') }}" alt=""
@@ -579,7 +583,7 @@
                             Presence Member List
                         </h4>
                         <div class="presence-list">
-
+                            <div id="flag" value="{{ $flag }}">
                             <div class="kotakisiPME" id="presenceLatest">
                                 @if($xtra->latest_schedule?->presences?->count() > 0)
                                     @if ($xtra->latest_schedule?->presences->where('kdMember', '=', $userMember->kdMember)->first() != NULL)
@@ -616,7 +620,7 @@
                                     $.ajax({
                                         url: "{{ url('presence') }}",
                                         type:"GET",
-                                        data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }} + "&kdMember=" + {{ $userMember->kdMember }},
+                                        data: "date=" + selectedDate + "&kd=" + {{ $xtra->kdExtracurricular }} + "&kdMember=" + {{ $flag != -3 ? $userMember->kdMember : -1 }},
                                         success: function(data){
                                             console.log(data);
                                             console.log(selectedDate);
@@ -686,10 +690,11 @@
                     <div class="kalimatdelete2">Do you want to continue?</div>
                 </div>
                 <div class="boxsubmitdelete">
-                    <form class="yesresponsive">
-                        <button class="btnyesmodal">Yes</button>
+                    <form method="POST" action="{{ route('xtra.delete') }}" class="delConfirm">
+                        @csrf
+                        <button class="btnyesmodal" id="confirmDeleteYes">Yes</button>
                     </form>
-                    <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
+                    <button class="btncancelmodal" id="btncancelmodal3">Cancel</button>
                 </div>
             </div>
         </div>
@@ -941,38 +946,54 @@
     </script>
 
     <script>
-        //SCRIPT MODAL DELETE======================================
-        // Get modal
-        var modaldelete = document.getElementById("modaldelete")
+        function del(kdExtracurricular) {
+            //SCRIPT MODAL DELETE======================================
+            // Get modal
+            var modaldelete = document.getElementById("modaldelete")
 
-        // Get button that opens modal
-        var btndelete = document.getElementById("deletebtn");
+            // Get button that opens modal
+            var btndelete = document.getElementById("deletebtn");
 
-        // Get the <span> element that closes the modal
-        var spandelete = document.getElementsByClassName("closedelete")[0];
-        var btncancel = document.getElementById("btncancelmodal2");
+            // Get the <span> element that closes the modal
+            var spandelete = document.getElementsByClassName("closedelete")[0];
+            var btncancel = document.getElementById("btncancelmodal3");
+            var btnyes = document.getElementById("confirmDeleteYes");
 
-        // When the user clicks the button, open the modal
-        btndelete.onclick = function() {
-            modaldelete.style.display = "block";
-        }
+            // When the user clicks the button, open the modal
+            // btndelete.onclick = function() {
+                modaldelete.style.display = "block";
+            // }
 
-        // When the user clicks on <span> (x), close the modal
-        spandelete.onclick = function() {
-            modaldelete.style.display = "none";
-        }
+            // When the user clicks on yes
+            btnyes.onclick = function() {
+                var form = document.querySelector('.delConfirm');
 
-        btncancel.onclick = function() {
-            modaldelete.style.display = "none";
-        }
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'kdXtra';
+                input.value = kdExtracurricular;
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modaldelete) {
+                form.appendChild(input);
+                form.submit();
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            spandelete.onclick = function() {
                 modaldelete.style.display = "none";
             }
+
+            btncancel.onclick = function() {
+                modaldelete.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modaldelete) {
+                    modaldelete.style.display = "none";
+                }
+            }
+            // SCRIPT MODAL DELETE========================================
         }
-        // SCRIPT MODAL DELETE========================================
     </script>
 
     <script>

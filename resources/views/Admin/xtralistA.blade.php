@@ -169,6 +169,7 @@
     </div>
     {{-- Modal Tempat Sampah --}}
 
+
     <form method="POST" action="{{ route('xtra.create') }}" id="modalpopupA" class="modal h-[26vw] mt-[10vw] w-[45vw] ml-[27vw] font-nunito">
         @csrf
         <div class="flex flex-col jutify-center items-center">
@@ -356,18 +357,18 @@
             </div>
 
             <div class="rowcontainer" id="all_xtra">
-                <div id="showmodalA"class="flex flex-col">
-                    <div class="xtraboxcontainer flex justify-center items-center">
-                        <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15vw" height="15vw"
-                                viewBox="0 0 256 256">
-                                <path fill="currentColor"
-                                    d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88Zm48-88a8 8 0 0 1-8 8h-32v32a8 8 0 0 1-16 0v-32H88a8 8 0 0 1 0-16h32V88a8 8 0 0 1 16 0v32h32a8 8 0 0 1 8 8Z" />
-                            </svg>
+                @if ($xtras->count())
+                    <div id="showmodalA"class="flex flex-col">
+                        <div class="xtraboxcontainer flex justify-center items-center">
+                            <div class="mr-[0.5vw] xtrabox flex justify-center items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15vw" height="15vw"
+                                    viewBox="0 0 256 256">
+                                    <path fill="currentColor"
+                                        d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88Zm48-88a8 8 0 0 1-8 8h-32v32a8 8 0 0 1-16 0v-32H88a8 8 0 0 1 0-16h32V88a8 8 0 0 1 16 0v32h32a8 8 0 0 1 8 8Z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @if ($xtras->count())
                     @foreach ($xtras as $xtra)
                         {{-- ADMIN HAPUS XTRA -------------------------------------------------------------------------------------------------- --}}
                         <div class="flex flex-col">
@@ -405,8 +406,8 @@
                             </div>
                         </div>
                     @endforeach
-                {{-- @else
-                    <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p> --}}
+                @else
+                    <p class="text-center text-[1.7vw] flex justify-center items-center font-semibold mb-[3vw] h-[18vw]">No Extracurricular.</p>
                 @endif
             </div>
             <div class="rowcontainer" id="list_xtra"></div>
