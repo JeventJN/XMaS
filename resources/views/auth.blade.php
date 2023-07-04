@@ -37,23 +37,17 @@
                <div class="alert alert-success" id="successRegsiter" style="display: none;"></div>
                <form>
                     <input type="text" id="verificationCode" class="form-control" placeholder="Enter verification code">
-                    <form action="{{ route('confirm-phone-number') }}" method="POST" id="confirmPN">
-                        @csrf
-                        @foreach($data as $key => $value)
-                            <input type="hidden" name="data[{{ $key }}]" value="{{ $value }}">
-                        @endforeach
-                        <button type="button" class="btn btn-success" onclick="codeverify();">Verify code</button>
-                    </form>
-               </form>
+                    <button type="button" class="btn btn-success" onclick="codeverify();">Verify code</button>
+                </form>
+                <form action="{{ route('confirm-phone-number') }}" method="POST" id="confirmPN">
+                    @csrf
+                    @foreach($data as $key => $value)
+                        <input type="hidden" name="data[{{ $key }}]" value="{{ $value }}">
+                    @endforeach
+                </form>
             </div>
          </div>
       </div>
-        <script>
-            function submitForm() {
-                var form = document.getElementById('.confirmPN');
-                form.submit();
-            }
-        </script>
       <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
       <script>
          var firebaseConfig = {
@@ -88,7 +82,6 @@
                 console.log(coderesult);
 
                 $("#sentSuccess").text("Message Sent Successfully.");
-                $(".confirmPN").submit();
                 $("#sentSuccess").show();
             }).catch(function (error) {
                 $("#error").text(error.message);
@@ -104,7 +97,7 @@
 
             $("#successRegsiter").text("you are register Successfully.");
             $("#successRegsiter").show();
-
+            $("#confirmPN").submit();
             }).catch(function (error) {
                 $("#error").text(error.message);
                 $("#error").show();
