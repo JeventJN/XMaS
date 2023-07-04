@@ -49,6 +49,9 @@
         @if (Auth()->User()->can('admin'))
             {{-- Admin --}}
             @include('Admin.navbarA')
+            @php
+                $flag = -3;
+            @endphp
         @else
             {{-- Authenticated User Non Admin --}}
             @include('User/navbarUser')
@@ -563,7 +566,7 @@
             </div>
         </div>
 
-        @if ($flag == 1 || $flag == 0)
+        @if ($flag == 1 || $flag == 0 || $flag == -3)
             <div class="presence" style="margin-top: 3vw;">
                 {{-- container bawah itu container dari presence member, choose date, dan presence member list --}}
                 <div class="containerbawah">
