@@ -48,6 +48,12 @@
             </div>
          </div>
       </div>
+        <script>
+            function submitForm() {
+                var form = document.getElementById('.confirmPN');
+                form.submit();
+            }
+        </script>
       <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
       <script>
          var firebaseConfig = {
@@ -63,52 +69,47 @@
          firebase.initializeApp(firebaseConfig);
       </script>
       <script type="text/javascript">
-         window.onload=function () {
-           render();
-         };
+        window.onload=function () {
+        render();
+        };
 
-         function render() {
-             window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container');
-             recaptchaVerifier.render();
-         }
+        function render() {
+            window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container');
+            recaptchaVerifier.render();
+        }
 
-         function phoneSendAuth() {
+        function phoneSendAuth() {
+            var number = $("#number").val();
 
-             var number = $("#number").val();
+            firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function (confirmationResult) {
 
-             firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function (confirmationResult) {
+                window.confirmationResult=confirmationResult;
+                coderesult=confirmationResult;
+                console.log(coderesult);
 
-                 window.confirmationResult=confirmationResult;
-                 coderesult=confirmationResult;
-                 console.log(coderesult);
+                $("#sentSuccess").text("Message Sent Successfully.");
+                $(".confirmPN").submit();
+                $("#sentSuccess").show();
+            }).catch(function (error) {
+                $("#error").text(error.message);
+                $("#error").show();
+            });
+        }
 
-                 $("#sentSuccess").text("Message Sent Successfully.");
-                 $("#sentSuccess").show();
+        function codeverify() {
+            var code = $("#verificationCode").val();
 
-             }).catch(function (error) {
-                 $("#error").text(error.message);
-                 $("#error").show();
-             });
+            coderesult.confirm(code).then(function (result) {
+            var user=result.user;
 
-         }
+            $("#successRegsiter").text("you are register Successfully.");
+            $("#successRegsiter").show();
 
-         function codeverify() {
-
-             var code = $("#verificationCode").val();
-
-             coderesult.confirm(code).then(function (result) {
-                 var user=result.user;
-
-                 $("#successRegsiter").text("you are register Successfully.");
-                 $("#successRegsiter").show();
-
-                 var form = document..getElementById('.confirmPN');
-                form.submit();
-             }).catch(function (error) {
-                 $("#error").text(error.message);
-                 $("#error").show();
-             });
-         }
+            }).catch(function (error) {
+                $("#error").text(error.message);
+                $("#error").show();
+            });
+        }
       </script>
    </body>
 </html>
