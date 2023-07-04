@@ -194,8 +194,14 @@
                                             e.target.style.width = '35vw';
                                             e.target.style.marginTop = '-0.05vw';
                                         } else if (value == '<?php echo $leader; ?>') {
-                                            e.target.classList.add('LeaderXtra');
-                                            e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
+                                            if(value == 'No Leader Yet') {
+                                                e.target.classList.add('LeaderXtra');
+                                                e.target.style.width = '30vw';
+                                                e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
+                                            }else{
+                                                e.target.classList.add('LeaderXtra');
+                                                e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
+                                            }
                                         }
                                     });
                                     button.addEventListener('mouseout', (e) => {
@@ -415,10 +421,10 @@
                         <form action="/deletePhoto" method="POST" id="deletePhoto">
                             @csrf
                             <div class="swiper mySwiper">
-                                <div class="swiper-wrapper">
+                                <div class="swiper-wrapper" style="margin-top: 4vw;">
                                     @foreach ($xtra->documentations as $doc)
                                         <div class="swiper-slide">
-                                            <div class="card" style="width: 19vw">
+                                            <div class="card" style="width: 19vw;">
                                                 @if (Illuminate\Support\Str::contains($doc->photo, 'database-assets'))
                                                     <div class="image-container">
                                                         <img src="{{ asset('storage/' . $doc->photo) }}" alt="" style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" />
@@ -456,7 +462,7 @@
                             </div>
                         </form>
                     @else
-                        <div class="flex w-screen h-[25vw]">
+                        <div class="flex w-screen h-[25vw] w-auto">
                             <p class="text-[1.7vw] text-white font-semibold m-auto">No Extracurricular's Documentation Yet.</p>
                         </div>
                     @endif
@@ -465,6 +471,7 @@
 
                 {{-- ===Segment Member=== --}}
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div style="height: 2vw; width: auto;"></div>
                     <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span class="nummember">{{ $xtra->members->count() }}</span></div>
                     <div class="row" id="member">
                         <br />
@@ -496,13 +503,23 @@
 
                         @if ($flag == 1 || $flag == 0)
                             {{-- Untuk Leave Xtra --}}
-                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                            {{-- <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
                                 <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
                                 <div class="btn-member">
                                     <button type="button" class="leave" id="leavebtn" style="border: none">Leave Xtra</button>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- Untuk Leave Xtra --}}
+
+                            {{-- Untuk Delete Xtra --}}
+                            <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
+                                <img src="{{ asset('Assets/Xtrapageassets/stop.png') }}" alt="" class="gambarstop" />
+                                <div class="btn-member">
+                                    <button type="button" class="delete" id="deletebtn" style="border: none">Delete Xtra</button>
+                                </div>
+                            </div>
+                            {{-- Untuk Delete Xtra --}}
+
                         @elseif($flag == -1)
                             <div class="col-lg-6 col-sm-6 col-md-6 col-6" style="padding: 0 !important;">
                                 <div class="gambarhover">
@@ -530,7 +547,7 @@
                                         </div>
                                     </a>
                                     <div class="flex">
-                                        <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarJoin.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
+                                        <img class="gambarjoin" id="join" src="{{ asset('Assets/Xtrapageassets/GambarRegister.png') }}" alt="" style="height: 25vw; width: 35vw; margin:0; margin-left: 5vw;">
                                     </div>
                                 </div>
                             </div>
@@ -640,7 +657,7 @@
                         <div class="kalimatleave2">Do you want to continue?</div>
                     </div>
                     <div class="boxsubmitleave">
-                        <form action="{{ route('xtra.leave') }}" method="POST">
+                        <form action="{{ route('xtra.leave') }}" method="POST" class="yesresponsive">
                             @csrf
                             <input type="hidden" name="kdMember" value="{{ $userMember->kdMember }}">
                             <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
@@ -653,6 +670,31 @@
         </div>
     @endif
     {{-- Modal Leave --}}
+
+
+    {{-- Modal Delete --}}
+    <div id="modaldelete" class="modaldelete">
+        {{-- Modal Content --}}
+        <div class="modal-contentdelete">
+            <div class="kotakisimodal">
+                <div class="boxjudulclosedelete">
+                    <span class="closedelete">&times;</span>
+                </div>
+                <div class="isidelete">
+                    <div class="kalimatdelete1">This action
+                        will <span style="color: red;">delete</span> this Xtra.</div>
+                    <div class="kalimatdelete2">Do you want to continue?</div>
+                </div>
+                <div class="boxsubmitdelete">
+                    <form class="yesresponsive">
+                        <button class="btnyesmodal">Yes</button>
+                    </form>
+                    <button class="btncancelmodal" id="btncancelmodal2">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Modal Delete --}}
 
     {{-- Modal Add Schedule --}}
     <div id="modaladdschedule" class="modaladdschedule">
@@ -693,7 +735,7 @@
                         </div>
                         <div class="isiform">
                             <input disabled placeholder="Running" type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
-                            <input placeholder="Input here" name="activity" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+                            <input placeholder="Input here" name="activity" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw; color: black;" />
 
                             <div class="boxjamaddschedule">
                                 <input type="time" id="appt1" name="timeStart" min="09:00" max="21:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
@@ -701,7 +743,7 @@
                                 <input type="time" id="appt2" name="timeEnd" min="09:00" max="21:00" style="font-size: 1.5vw; width: 11.35vw; height: 3.8vw; padding-left: 1vw; display: block;">
                             </div>
 
-                            <input placeholder="Input here" name="location" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+                            <input placeholder="Input here" name="location" type="text" class="form-control" id="locationAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw; color: black;" />
                             <input type="hidden" name="kdXtra" value="{{$xtra->kdExtracurricular}}">
                             <button type="submit" class="btnconfirmmodal" id="confirmbtn">Confirm</button>
                         </div>
@@ -726,7 +768,7 @@
     {{-- Modal Pop Up Notif --}}
 
     <!-- footer -->
-    @include('../footer')
+    @include('footer')
     <!-- footer -->
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -896,6 +938,41 @@
             }
         }
         // SCRIPT MODAL LEAVE========================================
+    </script>
+
+    <script>
+        //SCRIPT MODAL DELETE======================================
+        // Get modal
+        var modaldelete = document.getElementById("modaldelete")
+
+        // Get button that opens modal
+        var btndelete = document.getElementById("deletebtn");
+
+        // Get the <span> element that closes the modal
+        var spandelete = document.getElementsByClassName("closedelete")[0];
+        var btncancel = document.getElementById("btncancelmodal2");
+
+        // When the user clicks the button, open the modal
+        btndelete.onclick = function() {
+            modaldelete.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        spandelete.onclick = function() {
+            modaldelete.style.display = "none";
+        }
+
+        btncancel.onclick = function() {
+            modaldelete.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modaldelete) {
+                modaldelete.style.display = "none";
+            }
+        }
+        // SCRIPT MODAL DELETE========================================
     </script>
 
     <script>
