@@ -16,7 +16,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="overflow scrollbar-hide">
+<body class="overflow-hidden scrollbar-hide">
     {{-- Navbar Options --}}
 
     {{-- popup --}}
