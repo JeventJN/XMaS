@@ -38,7 +38,7 @@
     <button class="cursor-default" onmouseover ="hover()" onmouseout="out()">
             <div id="smallFooter">
                 <footer id="footerA">
-                    <div class="spasipengisi" style="background: white; height: 13vw; border: white 3vw solid;"></div>
+                    <div class="spasipengisi" style="background: white; height: 9.95vw; border: white 3vw solid;"></div>
                     <div class="footer-flex">
                         <div class="copyright">
                             &copy;<strong><span>2023 Sneakys</span></strong>.
