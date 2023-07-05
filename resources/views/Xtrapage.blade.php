@@ -156,6 +156,7 @@
                                 <div class="button-elips" onmouseover="hover()" onmouseout="out()">
                                     <a class="buttons" data-value="{{ Str::limit($xtra->name, 12, '...') }}" data-text="Xtra">Xtra</a>
                                     @php
+                                        $name = Str::limit($xtra->name, 12, '...');
                                         if($xtra->latest_schedule != NULL){
                                             $schedule = date('D', strtotime($xtra->latest_schedule?->date)) . ' (' . date('H.i', strtotime($xtra->latest_schedule?->timeStart)) . ' - ' . date('H.i', strtotime($xtra->latest_schedule?->timeEnd)) . ')';
                                         } else{
@@ -190,7 +191,7 @@
                                         e.target.style.paddingBottom = '4.1vw';
 
 
-                                        if (value == '<?php echo Str::limit($xtra->name, 12, '...'); ?>') {
+                                        if (value == '<?php echo $name; ?>') {
                                             e.target.classList.add('JudulXtra');
                                             e.target.style.padding = '1.3vw 4vw 3.5vw 16vw';
                                         } else if (value == '<?php echo $schedule; ?>') {
@@ -586,8 +587,10 @@
                             <div id="flag" value="{{ $flag }}">
                             <div class="kotakisiPME" id="presenceLatest">
                                 @if($xtra->latest_schedule?->presences?->count() > 0)
-                                    @if ($xtra->latest_schedule?->presences->where('kdMember', '=', $userMember->kdMember)->first() != NULL)
-                                        <span class="badgeMePML">{{ $userMember->userXmas?->name }}</span>
+                                    @if ($flag != -3)
+                                        @if ($xtra->latest_schedule?->presences->where('kdMember', '=', $userMember->kdMember)->first() != NULL)
+                                            <span class="badgeMePML">{{ $userMember->userXmas?->name }}</span>
+                                        @endif
                                     @endif
                                     @foreach ($xtra->latest_schedule?->presences as $presence)
                                             @if ($userMember != NULL)
