@@ -224,7 +224,7 @@
                                                 </script>
                                                 <div class="w-[2.5vw] h-[2.5vw]">
                                                     {{-- TEMBAK CHAT --}}
-                                                    <a href="/chat">
+                                                    <a href="https://wa.me/{{ $xtra->leader?->userXmas?->phoneNumber }}">
                                                         <img class="ml-[1.5vw] w-[2.5vw] h-[2.5vw] hover:scale-[1.1]" src="{{asset('Assets/chat.png')}}" alt="">
                                                     </a>
                                                 </div>
