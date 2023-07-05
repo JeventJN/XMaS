@@ -173,7 +173,7 @@
             <div class="w-screen h-[2vw]"></div>
         </div>
     </div>
-    <div class="mt-[6vw]"></div>
+    <div class="mt-[12vw]"></div>
     @include('footer')
 
     <script>
