@@ -37,15 +37,15 @@
                                 $presentCount = 0;
                                 foreach ($members as $member) {
                                     ?>
-                                    <div class="w-[100%] bg-[#395474] rounded-[1vw]">
+                                    <div class="w-[100%] bg-[#395474] rounded-[1vw] hover:cursor-pointer" id="attandee" onclick="triggerCheckboxClick('checkbox-{{$member->kdMember}}')">
                                         <div class="flex w-[100%] h-[2.5vw] items-center justify-start">
                                             {{-- label isi nama anggota --}}
                                             <div class="w-[90%] h-[2.2vw] flex items-center">
-                                                <label class="ml-[2vw] text-[1.5vw] text-white font-light">{{$member->userXmas?->name}}</label>
+                                                <label class="ml-[2vw] text-[1.5vw] text-white font-light hover:cursor-pointer">{{$member->userXmas?->name}}</label>
                                             </div>
                                             {{-- value isi nama anggota --}}
-                                            <div class="w-[10%] flex justify-center items-center">
-                                                <input class="h-[1.5vw] rounded-[1vw] w-[1.5vw]" type="checkbox" value="{{$member->kdMember}}" label="{{$member->userXmas?->name}}" onclick="updateAttendanceCount(this)">
+                                            <div class="w-[10%] flex justify-center items-center" onclick="triggerCheckboxClick('checkbox-{{$member->kdMember}}')">
+                                                <input id="checkbox-{{$member->kdMember}}" class="h-[1.5vw] rounded-[1vw] w-[1.5vw] hover:cursor-pointer" type="checkbox" value="{{$member->kdMember}}" label="{{$member->userXmas?->name}}" onclick="updateAttendanceCount(this)">
                                             </div>
                                         </div>
                                     </div>
@@ -53,6 +53,15 @@
                                     <?php
                                 }
                             ?>
+
+                            <script>
+                                function triggerCheckboxClick(checkboxId) {
+                                    const checkbox = document.getElementById(checkboxId);
+                                    if (checkbox) {
+                                        checkbox.click();
+                                    }
+                                }
+                            </script>
                         </div>
                     </div>
                 </div>
