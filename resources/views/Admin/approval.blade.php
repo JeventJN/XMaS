@@ -88,7 +88,7 @@
     {{-- popup --}}
 
     @include('Admin.navbarA')
-    <div class="w-full h-[60vw] overflow-scroll-y">
+    <div class="w-full h-[60vw] overflow-scroll-y bg-red-500">
         <div class="w-screen flex justify-center items-center font-nunito">
             <div class="w-[80%] bg-[#E5E5E5] h-fit mt-[12vw] h-[100vh] flex flex-col items-center justify-center rounded-[1vw]">
                 <div class="w-screen h-[2vw]"></div>
@@ -174,7 +174,7 @@
             <div class="w-screen h-[2vw]"></div>
         </div>
     </div>
-    <div class="mt-[8.5vw]"></div>
+    <div class="mt-[12vw]"></div>
     @include('footer')
 
     <script>
