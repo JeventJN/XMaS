@@ -139,46 +139,43 @@
                                 Deny
                             </button>
 
-                            {{-- Modal Deny --}}
-                            <div id="modaldeny" class="modaldeny">
-                                {{-- Modal Content --}}
-                                <div class="modal-contentdeny">
-                                    <div class="kotakisimodal">
-                                        <div class="boxjudulclosedeny">
-                                            <span class="closedeny">&times;</span>
-                                        </div>
-                                        <div class="isideny">
-                                            <div class="kalimatdeny1">This action will <span style="color: red;">deny</span> the
-                                                requester.</div>
-                                            <div class="kalimatdeny2">Do you want to continue?</div>
-                                        </div>
-                                        <div class="boxsubmitdeny">
-                                            <form action="/denyReq" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="NIP" value="{{$member->NIP}}">
-                                                <input type="hidden" name="xtra" value="{{$member->kdExtracurricular}}">
-                                                <button class="btnyesmodal">Yes</button>
-                                            </form>
-                                            <button class="btncancelmodal3" id="btncancelmodal3">Cancel</button>
-                                        </div>
+                        {{-- Modal Deny --}}
+                        <div id="modaldeny" class="modaldeny">
+                            {{-- Modal Content --}}
+                            <div class="modal-contentdeny">
+                                <div class="kotakisimodal">
+                                    <div class="boxjudulclosedeny">
+                                        <span class="closedeny">&times;</span>
+                                    </div>
+                                    <div class="isideny">
+                                        <div class="kalimatdeny1">This action will <span style="color: red;">deny</span> the
+                                            requester.</div>
+                                        <div class="kalimatdeny2">Do you want to continue?</div>
+                                    </div>
+                                    <div class="boxsubmitdeny">
+                                        <form action="/denyReq" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="NIP" value="{{$member->NIP}}">
+                                            <input type="hidden" name="xtra" value="{{$member->kdExtracurricular}}">
+                                            <button class="btnyesmodal">Yes</button>
+                                        </form>
+                                        <button class="btncancelmodal3" id="btncancelmodal3">Cancel</button>
                                     </div>
                                 </div>
                             </div>
-                            {{-- Modal Deny --}}
                         </div>
-                    @endforeach
-                @else
-                    <p class="text-center text-[1.7vw] font-semibold justify-center items-center flex">There is no request.</p>
-                @endif
-                <div class="w-screen h-[2vw]"></div>
-            </div>
-        </div>
-        <div class="absolute z-50 w-full flex items-end">
-            @include('footer')
+                        {{-- Modal Deny --}}
+
+                    </div>
+                @endforeach
+            @else
+                <p class="text-center text-[1.7vw] font-semibold justify-center items-center flex">There is no request.</p>
+            @endif
+            <div class="w-screen h-[2vw]"></div>
         </div>
     </div>
-
-
+    <div class="mt-[6vw]"></div>
+    @include('footer')
 
     <script>
         //SCRIPT MODAL ACCEPT======================================
