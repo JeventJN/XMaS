@@ -86,7 +86,7 @@
                     @if (Illuminate\Support\Str::contains(Auth::user()->photo, 'database-assets'))
                         <img class="m-auto mt-[-0.15vw] min-w-[24.7vw] max-w-[24.7vw] min-h-[27.65vw] max-h-[27.65vw]" src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ Auth::User()->name }}" style="object-fit: cover; width: 24.7vw; height: 27.65vw; border-radius: 1.95vw;">
                     @else
-                        <img class="m-auto mt-[-0.15vw] min-w-[24.7vw] max-w-[24.7vw] min-h-[27.65vw] max-h-[27.65vw]" src="{{ asset('Assets/UserDP.png') }}" alt="{{Auth::User()->name}}">
+                        <img class="fotouserDP" src="{{ asset('Assets/UserDP.png') }}" alt="{{Auth::User()->name}}">
                     @endif
                 @endif
 
@@ -282,7 +282,7 @@
 
                     {{-- ini untuk leader --}}
                     @if ($flag == 1)
-                        <form action="/reportform" method="POST">
+                        <form action="/reportform" method="POST" class="ERresponsive">
                             @csrf
                             <input type="hidden" name="NIP" id="NIP" value="{{str_pad(Auth::user()->NIP, 4, '0', STR_PAD_LEFT)}}">
                             <button type="submit" class="request">Extracurricular Report</button>

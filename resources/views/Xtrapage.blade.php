@@ -132,7 +132,7 @@
                     <div id="jumbotron" class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('{{ asset('Assets/Xtrapageassets/' . $xtra->backgroundImage) }}'); cursor: pointer;">
                 @endif
                     <div class="image-overlay">
-                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}" style="margin-top: -10vw;">
+                        <img class="fotocamera" for="upload-photo" src="{{ asset('Assets/Profileassets/Edit Photo.svg') }}">
                         <input type="file" name="fileupload" id="fileupload" style="display: none" accept="image/*">
                     </div>
                 </div>
@@ -212,7 +212,6 @@
                                     });
                                     button.addEventListener('mouseout', (e) => {
                                         const text = e.target.getAttribute('data-text');
-
                                         e.target.innerHTML = text;
                                         e.target.style.backgroundColor = '#d9d9d9';
                                         e.target.style.color = '#1B2F45';
@@ -338,7 +337,6 @@
             <div class="tab-content" id="myTabContent">
                 {{-- ===Segment Description=== --}}
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
                     {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
                     @if ($edit == 1)
                         <form action="/editActivity" method="POST" class="KotakForm" id="editActivityForm">
@@ -348,7 +346,7 @@
                                     <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                                     <label for="exampleFormControlTextarea1" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapageassets/Vector.png') }}" alt=""/></label>
                                 </div>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" placeholder="{{ $xtra->description }}" style="height: 15vw; border-radius: 2.5vw"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" placeholder="{{ $xtra->description }}" style="height: 15vw; border-radius: 2.5vw; font-size: 1.28vw"></textarea>
                             </div>
 
                             <div class="form-group" id="KotakAct">
@@ -356,12 +354,12 @@
                                     <label for="exampleFormControlTextarea2" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
                                     <label for="exampleFormControlTextarea2" style="margin-left: auto"><img class="gambarpensil" src="{{ asset('Assets/Xtrapageassets/Vector.png') }}" alt=""/></label>
                                 </div>
-                                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" placeholder="{{ $xtra->latest_schedule?->activity }}" style="height: 9vw; border-radius: 2.5vw;"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" placeholder="{{ $xtra->latest_schedule?->activity }}" style="height: 9vw; border-radius: 2.5vw; font-size: 1.28vw"></textarea>
                             </div>
                             <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
 
                             {{-- Button save --}}
-                            <div class="kotakbtnsave mt-[2vw]" id="saveKotak">
+                            <div class="kotakbtnsave" id="saveKotak">
                                 <a type="button" class="btnsave" id="savebtn">
                                     Save
                                 </a>
@@ -401,7 +399,7 @@
                                 <div class="boxlabeledit">
                                     <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Description :</label>
                                 </div>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" disabled>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descriptiontextarea" style="height: 15vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.28vw; color: black;" disabled>
                                     {{ $xtra->description }}
                                 </textarea>
                             </div>
@@ -410,7 +408,7 @@
                                 <div class="boxlabeledit">
                                     <label for="exampleFormControlTextarea1" style="font-size: 1.5vw; margin-bottom: 0 !important;">Activity :</label>
                                 </div>
-                                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.3vw; color: black;" disabled>
+                                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" name="activitytextarea" style="height: 9vw; border-radius: 2.5vw; padding: 1vw 1.5vw 1vw 1.5vw; word-break: break-all; background-color: #d9d9d9; line-height: 1.4vw; font-size: 1.28vw; color: black;" disabled>
                                     {{ $xtra->latest_schedule?->activity }}
                                 </textarea>
                             </div>
@@ -427,7 +425,7 @@
                         <form action="/deletePhoto" method="POST" id="deletePhoto">
                             @csrf
                             <div class="swiper mySwiper">
-                                <div class="swiper-wrapper" style="margin-top: 4vw;">
+                                <div class="swiper-wrapper" style="margin-top: 3vw;">
                                     @foreach ($xtra->documentations as $doc)
                                         <div class="swiper-slide">
                                             <div class="card" style="width: 19vw;">
@@ -477,7 +475,7 @@
 
                 {{-- ===Segment Member=== --}}
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <div style="height: 2vw; width: auto;"></div>
+                    <div style="height: 1vw; width: auto;"></div>
                     <div class="font-weight-bold" style="font-size: 1.45vw; padding-left: 1vw;">Member : <span class="nummember">{{ $xtra->members->count() }}</span></div>
                     <div class="row" id="member">
                         <br />

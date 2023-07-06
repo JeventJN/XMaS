@@ -1,53 +1,55 @@
 <html>
    <head>
-      <title>Phone Number Authentication using Firebase In Laravel 8</title>
+      <title>Phone Number Authentication</title>
       <!-- CSS only -->
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+       {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> --}}
+       <link rel="stylesheet" href="{{ asset('css/auth.css') }}" />
        <!-- Js only -->
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    </head>
-   <body>
-      <div class="container">
-      <div class="jumbotron">
-      <div class="container text-center">
-         <p>Phone Number Authentication using Firebase In Laravel 8</p>
-      </div>
-      </div>
 
-         <div class="alert alert-danger" id="error" style="display: none;"></div>
-         <div class="card">
-            <div class="card-header">
-               Enter Phone Number
+   <body>
+        <div class="bgimg">
+            <div class="containerall">
+                <div class="alert alert-danger" id="error" style="display: none;"></div>
+                <div class="section1">
+                    <div class="judul">Authentication</div>
+                    <div class="perintah1">
+                    Please enter your phone number
+                    </div>
+                    <div class="sub-section1">
+                    <div class="alert alert-success" id="sentSuccess" style="display: none;"></div>
+                    <form class="formAuth1">
+                        <div class="boxPN">
+                            <label class="keteranganPN">Phone Number:</label>
+                            <input type="text" id="number" class="formPNV" placeholder="+62********" value="{{ '+' . $data['phoneNumber'] }}">
+                        </div>
+                        <div id="recaptcha-container" class="captcha"></div>
+                        <button type="button" class="btn btn-successSend" onclick="phoneSendAuth();">Send Code</button>
+                    </form>
+                    </div>
+                </div>
+
+                <div class="section2">
+                    <div class="perintah2">
+                    Enter Verification code
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success" id="successRegsiter" style="display: none;"></div>
+                        <form class="formAuth2">
+                            <input type="text" id="verificationCode" class="formPNV" placeholder="Input verification code">
+                            <button type="button" class="btn btn-successVerify" onclick="codeverify();">Verify Code</button>
+                        </form>
+                        <form action="{{ route('confirm-phone-number') }}" method="POST" id="confirmPN">
+                            @csrf
+                            @foreach($data as $key => $value)
+                                <input type="hidden" name="data[{{ $key }}]" value="{{ $value }}">
+                            @endforeach
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-               <div class="alert alert-success" id="sentSuccess" style="display: none;"></div>
-               <form>
-                  <label>Phone Number:</label>
-                  <input type="text" id="number" class="form-control" placeholder="+91********" value="{{ '+' . $data['phoneNumber'] }}">
-                  <div id="recaptcha-container"></div>
-                  <button type="button" class="btn btn-success" onclick="phoneSendAuth();">SendCode</button>
-               </form>
-            </div>
-         </div>
-         <div class="card" style="margin-top: 10px">
-            <div class="card-header">
-               Enter Verification code
         </div>
-            <div class="card-body">
-               <div class="alert alert-success" id="successRegsiter" style="display: none;"></div>
-               <form>
-                    <input type="text" id="verificationCode" class="form-control" placeholder="Enter verification code">
-                    <button type="button" class="btn btn-success" onclick="codeverify();">Verify code</button>
-                </form>
-                <form action="{{ route('confirm-phone-number') }}" method="POST" id="confirmPN">
-                    @csrf
-                    @foreach($data as $key => $value)
-                        <input type="hidden" name="data[{{ $key }}]" value="{{ $value }}">
-                    @endforeach
-                </form>
-            </div>
-         </div>
-      </div>
       <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
       <script>
          var firebaseConfig = {

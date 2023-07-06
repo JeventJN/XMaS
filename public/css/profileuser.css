@@ -75,6 +75,16 @@ body {
     cursor: pointer;
 }
 
+.fotocamera{
+    width: 100%;
+    height: 100%;
+}
+
+.fotouserDP{
+    width: 100%;
+    height: 100%;
+}
+
 .boxluarprofile {
     width: 65vw;
     height: 25vw;
@@ -212,6 +222,11 @@ body {
     padding-left: 1.75vw;
     padding-right: 1.75vw;
     /* border: cyan solid; */
+}
+
+.ERresponsive{
+    display: flex;
+    flex-direction: row;
 }
 
 /* ============================ untuk member: Request Leader Access!!! ============================ */
@@ -651,6 +666,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+/* input[type=number] {
   -moz-appearance: textfield;
-}
+} */
