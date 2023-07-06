@@ -36,9 +36,8 @@
 
 <body>
     <button class="cursor-default" onmouseover ="hover()" onmouseout="out()">
-            <div id="smallFooter">
+            <div id="smallFooter" style="margin-top: 10.9vw">
                 <footer id="footerA">
-                    <div class="spasipengisi" style="background: white; height: 9.95vw; border: white 3vw solid;"></div>
                     <div class="footer-flex">
                         <div class="copyright">
                             &copy;<strong><span>2023 Sneakys</span></strong>.
@@ -71,7 +70,7 @@
 
                             <div class="border-[0.1vw] w-[0.1vw] h-[11.8vw] absolute ml-[24.6vw] mt-[5.5vw] leading-[-3vw]"></div>
 
-                            <div class="w-[30vw] h-[auto] mt-[0.1vw] m-auto grid grid-cols-2">
+                            <div class="footertengah w-[30vw] h-[auto] mt-[0.1vw] m-auto grid grid-cols-2">
                                 @foreach ($xtras as $xtra)
                                     @if ($xtra->kdExtracurricular % 2 == 1)
                                         <a href="/xtrapage/{{$xtra->kdExtracurricular}}" class="text-right  hover:no-underline hover:font-semibold hover:text-white mr-[0.5vw]">{{$xtra->name}}</a>
