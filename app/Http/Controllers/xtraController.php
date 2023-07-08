@@ -364,7 +364,7 @@ class xtraController extends Controller
     public function createXtra(Request $request) {
         $data = [
             'name' => $request->xtraname,
-            'logo' => 'RunningLogo.png',
+            'logo' => 'logoDefault.png',
             'backgroundImage' => 'image_jumbo.png',
             'category' => $request->category
         ];
