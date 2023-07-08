@@ -95,7 +95,7 @@
 
                                 <div class="contact-data">
                                     <div class="datasmartphone">+62-82175932808</div>
-                                    <div class="datamail">jeventjn@gmail.com</div>
+                                    <div class="datamail">xmas@gmail.com</div>
                                     <div class="datainstagram">XtracurricularMaS</div>
                                     <div class="dataphone">+1 234 567 890</div>
                                     <div class="datahome">Sentul City, Jl. Pakuan No.3, Sumur Batu, Babakan Madang, Bogor Regency, West Java 16810</div>

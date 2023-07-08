@@ -56,7 +56,7 @@
                     @if (Illuminate\Support\Str::contains(Auth::user()->photo, 'database-assets'))
                         <img src="{{ asset('storage/' . Auth::user()->photo) }}" alt="{{ asset('Assets/UserDP.png') }}" style="object-fit: cover; width: 5vw; height: 5vw; border-radius: 50%;">
                     @else
-                        <img src="{{ asset('Assets/UserDP.png') }}" alt="{{ asset('Assets/UserDP.png') }}" style="object-fit: cover; width: 5vw; height: 5vw; border-radius: 50%;">
+                        <img class="fotouserDP" src="{{ asset('Assets/' . Auth::user()->photo) }}" alt="{{Auth::User()->name}}" style="object-fit: cover; width: 5vw; height: 5vw; border-radius: 50%;  ">
                     @endif
                 @endif
             </a>

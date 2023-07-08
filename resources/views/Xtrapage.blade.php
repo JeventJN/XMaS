@@ -142,7 +142,7 @@
             @if (Illuminate\Support\Str::contains($xtra->backgroundImage, 'database-assets'))
                 <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('{{ asset('storage/' . $xtra->backgroundImage) }}');">
             @else
-                <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('../../Assets/Xtrapageassets/{{ $xtra->backgroundImage }}');">
+                <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0vw !important; background-image: url('{{ asset('Assets/Xtrapageassets/' . $xtra->backgroundImage) }}');">
             @endif
                 </div>
         @endif
@@ -445,7 +445,7 @@
                                                     </div>
                                                 @else
                                                     <div class="image-container">
-                                                        <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." />
+                                                        <img src="{{ asset('Assets/Xtrapageassets/foto/' . $doc->photo) }}" class="card-img-top" alt="..." style="object-fit: cover; width: 19vw; height: 25.5vw; border-radius: 1.6vw;" />
                                                         @if ($edit == 1)
                                                             <div class="hover-content">
                                                                 <div class="card-img-top hover-image bg-white/[0.4] flex">

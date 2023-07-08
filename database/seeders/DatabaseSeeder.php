@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6281369668941',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'JeffersonJohan.png'
         ]);
 
         userXmas::create([
@@ -95,16 +95,16 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6282175932808',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'JeventNatthannael.jpg'
         ]);
 
         userXmas::create([
             'NIP'=>'0003',
-            'name'=>'Michele Angela',
+            'name'=>'Michelle Angela',
             'program'=>'PPTI',
             'phoneNumber'=>'6287720967940',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'MichelleAngela.jpg'
         ]);
 
         userXmas::create([
@@ -113,7 +113,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'628567100608',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'Winita.jpg'
         ]);
 
         userXmas::create([
@@ -122,7 +122,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6281357398150',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'ZakariaBerlam.jpg'
         ]);
 
         userXmas::create([
@@ -131,7 +131,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6287858885955',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'IntanParamitha.png'
         ]);
 
         userXmas::create([
@@ -140,7 +140,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'62895635863956',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'VanessaKwandinata.png'
         ]);
 
         userXmas::create([
@@ -149,7 +149,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6282215308090',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'FrenricoChang.jpeg'
         ]);
 
         userXmas::create([
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6281319363809',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'CeciliaAudrey.jpg'
         ]);
 
         userXmas::create([
@@ -167,7 +167,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6287875286211',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'AbdiNurhuda.jpg.png'
         ]);
 
         userXmas::create([
@@ -176,7 +176,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6281296491530',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'AmandaArdianti.jpg'
         ]);
 
         userXmas::create([
@@ -185,7 +185,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'628155212255',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'AliciaJosephine.jpg'
         ]);
 
         userXmas::create([
@@ -194,7 +194,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6283891690775',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'ArdoDamarjati.jpg'
         ]);
 
         userXmas::create([
@@ -203,7 +203,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6282157318364',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'BrychanArtanto.jpeg'
         ]);
 
         userXmas::create([
@@ -212,7 +212,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6281295487364',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'CharleneJovannie.png'
         ]);
 
         userXmas::create([
@@ -221,7 +221,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6282353257881',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'ChrystaliaGlenys.jpeg'
         ]);
 
         userXmas::create([
@@ -230,7 +230,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'62811260377',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'DanielZerge.jpg'
         ]);
 
         userXmas::create([
@@ -239,7 +239,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6282158870631',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'Devin.jpg'
         ]);
 
         userXmas::create([
@@ -248,7 +248,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6281256726461',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'FannyAngelia.png'
         ]);
 
         userXmas::create([
@@ -257,7 +257,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6281388336135',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'Hansen.jpg'
         ]);
 
         userXmas::create([
@@ -266,7 +266,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'62812780194',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'Hasna.png'
         ]);
 
 
@@ -276,7 +276,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6281238320178',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'DenioPranatha.jpg'
         ]);
 
         userXmas::create([
@@ -285,7 +285,7 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6285847671769',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'JasonSitumeang.jpg'
         ]);
 
         userXmas::create([
@@ -294,54 +294,54 @@ class DatabaseSeeder extends Seeder
             'program'=>'PPTI',
             'phoneNumber'=>'6283818713523',
             'password'=> bcrypt('123456'),
-            'photo'=>'1.png'
+            'photo'=>'MichaelBaptista.jpg'
         ]);
 
         // Xtra
         extracurricular::create([
             'name'=>'Chess',
-            'logo'=>'1.png',
-            'backgroundImage' => '1.png',
+            'logo'=>'ChessImg.png',
+            'backgroundImage' => 'ChessBg.jpg',
             'description'=>'Xtra for smart people',
             'category'=>'Non-Phsyical'
         ]);
 
         extracurricular::create([
             'name'=>'Running',
-            'logo'=>'RunningLogo.png',
-            'backgroundImage' => '1.png',
+            'logo'=>'ELITE.png',
+            'backgroundImage' => 'image_jumbo.png',
             'description'=>'Merasa tidak berbakat? Join Xtra Running. Tidak butuh bakat hanya butuh kerja keras karena dari nenek moyang kitaa pun kita sudah selalu "Running". Running is not a gift, It is our self. God Create Human To Be a RUNNER',
             'category'=>'Phsyical'
         ]);
 
         extracurricular::create([
             'name'=>'Dance',
-            'logo'=>'1.png',
-            'backgroundImage' => '1.png',
+            'logo'=>'DanceImg.jpeg',
+            'backgroundImage' => 'DanceBg.jpeg',
             'description'=>'Xtra for flexible people',
             'category'=>'Phsyical'
         ]);
 
         extracurricular::create([
             'name'=>'Band',
-            'logo'=>'1.png',
-            'backgroundImage' => '1.png',
+            'logo'=>'BandImg.png',
+            'backgroundImage' => 'BandBg.jpg',
             'description'=>'Xtra for virtuoso people',
             'category'=>'Non-Phsyical'
         ]);
 
         extracurricular::create([
             'name'=>'Basketball',
-            'logo'=>'1.png',
-            'backgroundImage' => '1.png',
+            'logo'=>'BasketImg.png',
+            'backgroundImage' => 'BasketBg.jpg',
             'description'=>'Xtra for athletic and tall people',
             'category'=>'Phsyical'
         ]);
 
         extracurricular::create([
             'name'=>'Choir',
-            'logo'=>'1.png',
-            'backgroundImage' => '1.png',
+            'logo'=>'ChoirImg.jpg',
+            'backgroundImage' => 'ChoirBg.jpeg',
             'description'=>"Xtra for God's angel with heavenly voice",
             'category'=>'Non-Phsyical'
         ]);
@@ -865,81 +865,81 @@ class DatabaseSeeder extends Seeder
         // Chess
         documentation::create([
             'kdExtracurricular' => 1,
-            'photo' => '',
+            'photo' => 'ChessDoc1.jpg',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 1,
-            'photo' => '',
+            'photo' => 'ChessDoc2.jpg',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 1,
-            'photo' => '',
+            'photo' => 'ChessDoc3.jpeg',
         ]);
 
         // Running
         documentation::create([
             'kdExtracurricular' => 2,
-            'photo' => '',
+            'photo' => 'RunningDoc1.png',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 2,
-            'photo' => '',
+            'photo' => 'RunningDoc2.png',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 2,
-            'photo' => '',
+            'photo' => 'RunningDoc3.png',
         ]);
 
         // Dance
         documentation::create([
             'kdExtracurricular' => 3,
-            'photo' => '',
+            'photo' => 'DanceDoc1.jpeg',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 3,
-            'photo' => '',
+            'photo' => 'DanceDoc2.jpeg',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 3,
-            'photo' => '',
+            'photo' => 'DanceDoc3.jpeg',
         ]);
 
         // Band
         documentation::create([
             'kdExtracurricular' => 4,
-            'photo' => '',
+            'photo' => 'BandDoc1.jpg',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 4,
-            'photo' => '',
+            'photo' => 'BandDoc2.jpeg',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 4,
-            'photo' => '',
+            'photo' => 'BandDoc3.png',
         ]);
 
         // Basketball
         documentation::create([
             'kdExtracurricular' => 5,
-            'photo' => '',
+            'photo' => 'BasketDoc1.jpeg',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 5,
-            'photo' => '',
+            'photo' => 'BasketDoc2.jpeg',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 5,
-            'photo' => '',
+            'photo' => 'BasketDoc3.jpeg',
         ]);
 
         // for ($i = 0; $i < 10; $i++) {
