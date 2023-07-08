@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('extracurriculars', function (Blueprint $table) {
             $table->increments('kdExtracurricular');
             $table->string('name');
-            $table->string('logo');
+            $table->string('logo')->default('logoDefault.png');
             $table->string('backgroundImage');
             $table->text('description')->nullable();
             $table->string('category');
