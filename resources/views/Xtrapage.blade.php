@@ -194,6 +194,11 @@
                                         if (value == '<?php echo $name; ?>') {
                                             e.target.classList.add('JudulXtra');
                                             e.target.style.padding = '1.3vw 4vw 3.5vw 16vw';
+                                            if(('<?php echo $name; ?>').length > 12){
+                                                e.target.style.width = '31vw';
+                                            }else{
+                                                e.target.style.width = 'fit-content';
+                                            }
                                         } else if (value == '<?php echo $schedule; ?>') {
                                             e.target.classList.add('ScheduleXtra');
                                             e.target.style.padding = '1.3vw 1vw 3.5vw 17.5vw';
@@ -204,6 +209,10 @@
                                                 e.target.classList.add('LeaderXtra');
                                                 e.target.style.width = '30vw';
                                                 e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
+                                            }else if(('<?php echo $leader; ?>').length > 12) {
+                                                e.target.classList.add('LeaderXtra');
+                                                e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
+                                                e.target.style.width = '32vw'
                                             }else{
                                                 e.target.classList.add('LeaderXtra');
                                                 e.target.style.padding = '1.3vw 3.5vw 3.5vw 16vw';
@@ -336,9 +345,9 @@
 
             <div class="tab-content" id="myTabContent">
                 {{-- ===Segment Description=== --}}
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
-                    @if ($edit == 1)
+                {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
+                @if ($edit == 1)
+                    <div class="tab-pane fade show active canEdit" id="home" role="tabpanel" aria-labelledby="home-tab" style="height: 100% !important">
                         <form action="/editActivity" method="POST" class="KotakForm" id="editActivityForm">
                             @csrf
                             <div class="form-group" id="KotakDesc">
@@ -365,35 +374,12 @@
                                 </a>
                             </div>
                             {{-- Button save --}}
-
-                            {{-- Modal button save --}}
-                            <div id="modalsave" class="modalsave">
-                                {{-- Modal Content --}}
-                                <div class="modal-contentsave">
-                                    <div class="kotakisimodal">
-                                        <div class="boxjudulclosesave">
-                                            <span class="closesave">&times;</span>
-                                        </div>
-                                        <div class="isisave">
-                                            <div class="kalimatsave1 text-black">You have <span style="color: red;">edited</span> this page.
-                                            </div>
-                                            <div class="kalimatsave2 text-black">Do you want to save?</div>
-                                        </div>
-                                        <div class="boxsubmitsave">
-                                            <button class="btnyesmodal">Yes</button>
-                                            <div class="btncancelmodal flex" id="btncancelmodal2">
-                                                <p class="m-auto">Cancel</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- Modal button save --}}
                         </form>
                         {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
 
-                    @else
-                        {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
+                {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
+                @else
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="KotakForm">
                             <div class="form-group" id="KotakDesc">
                                 <div class="boxlabeledit">
@@ -414,8 +400,7 @@
                             </div>
                         </div>
                         {{-- Untuk Non-Ketua yang tidak bisa edit isi Desc dan Act --}}
-                    @endif
-
+                @endif
                 </div>
                 {{-- ===Segment Description=== --}}
 
@@ -425,7 +410,7 @@
                         <form action="/deletePhoto" method="POST" id="deletePhoto">
                             @csrf
                             <div class="swiper mySwiper">
-                                <div class="swiper-wrapper" style="margin-top: 3vw;">
+                                <div class="swiper-wrapper" style="margin-top: 4vw;">
                                     @foreach ($xtra->documentations as $doc)
                                         <div class="swiper-slide">
                                             <div class="card" style="width: 19vw;">
@@ -701,6 +686,30 @@
         </div>
     </div>
     {{-- Modal Delete --}}
+
+    {{-- Modal button save --}}
+    <div id="modalsave" class="modalsave">
+        {{-- Modal Content --}}
+        <div class="modal-contentsave">
+            <div class="kotakisimodal">
+                <div class="boxjudulclosesave">
+                    <span class="closesave">&times;</span>
+                </div>
+                <div class="isisave">
+                    <div class="kalimatsave1 text-black">You have <span style="color: red;">edited</span> this page.
+                    </div>
+                    <div class="kalimatsave2 text-black">Do you want to save?</div>
+                </div>
+                <div class="boxsubmitsave">
+                    <button class="btnyesmodal">Yes</button>
+                    <div class="btncancelmodal flex" id="btncancelmodal2">
+                        <p class="m-auto">Cancel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Modal button save --}}
 
     {{-- Modal Add Schedule --}}
     <div id="modaladdschedule" class="modaladdschedule">
