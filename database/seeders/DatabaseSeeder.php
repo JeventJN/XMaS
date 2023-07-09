@@ -955,6 +955,110 @@ class DatabaseSeeder extends Seeder
 
         // FACTORY
         // report::factory(20)->create();
+
+        // Chess
+        report::create([
+            'kdSchedule' => mt_rand(1, 5),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Bidak Hilang',
+            'explanation' => 'Ratu putih hilang karena masuk ke kolong meja dan tidak pernah ditemukan lagi',
+            'photo' => '1.jpg'
+        ]);
+
+        report::create([
+            'kdSchedule' => mt_rand(1, 5),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Set Catur Baru',
+            'explanation' => 'Ekskul catur butuh set catur baru. Karena jumlah anggota ekskul catur semakin banyak dan jumlah set catur yang dimiliki tidak mencukupi untuk itu',
+            'photo' => '1.jpg'
+        ]);
+
+        report::create([
+            'kdSchedule' => mt_rand(1, 5),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Pembelian Timer',
+            'explanation' => 'Anggota ekskul catur mulai bermain dengan profesional, sehingga diperlukan timer',
+            'photo' => '1.jpg'
+        ]);
+
+
+        // Running
+        report::create([
+            'kdSchedule' => mt_rand(6, 11),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Pembelian Cone',
+            'explanation' => 'Cone dibutuhkan untuk latihan reaksi untuk persiapan lomba',
+            'photo' => '1.jpg'
+        ]);
+
+        report::create([
+            'kdSchedule' => mt_rand(6, 11),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Tambahan P3K',
+            'explanation' => 'Terdapat anggota ekskul lari yang terjatuh dan terluka pada ekskul hari ini, karena P3K yang terbatas, kami membutuhkan tambahan P3k',
+            'photo' => '1.jpg'
+        ]);
+
+        report::create([
+            'kdSchedule' => mt_rand(6, 11),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Lintasan Lari',
+            'explanation' => 'Jalan di RTB terbuat dari aspal dan semen, kurang cocok untuk kegiatan lari yang lintasannya karet',
+            'photo' => '1.jpg'
+        ]);
+
+
+        // Dance
+        report::create([
+            'kdSchedule' => mt_rand(12, 16),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Kostum Lomba',
+            'explanation' => 'Anggota dance akan segera mengikuti lomba di auditorium, kostum yang akan digunakan adalah kostum yang berwarna ungu',
+            'photo' => '1.jpg'
+        ]);
+
+        report::create([
+            'kdSchedule' => mt_rand(12, 16),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Konsumsi Lomba',
+            'explanation' => 'Besar harapan anggota dance untuk mendapatkan konsumsi pada hari H lomba',
+            'photo' => '1.jpg'
+        ]);
+
+        report::create([
+            'kdSchedule' => mt_rand(12, 16),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Penyediaan Ankle Support',
+            'explanation' => 'Cukup banyak anggota ekskul dance yang terkilir saat latihan untuk lomba, tetapi hanya sedikit anggota ekskul dance yang memiliki ankle support',
+            'photo' => '1.jpg'
+        ]);
+
+
+        // Band
+        report::create([
+            'kdSchedule' => mt_rand(17, 21),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Speaker Rusak',
+            'explanation' => 'Speaker yang saat ini digunakan sudah rusak karena termakan usia, sehingga ekskul band membutuhkan speaker baru',
+            'photo' => '1.jpg'
+        ]);
+
+        report::create([
+            'kdSchedule' => mt_rand(17, 21),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Stik Drum Hilang',
+            'explanation' => 'Stik drum hilang sebelah semenjak 3 hari yang lalu sehingga drummer tidak bisa latihan',
+            'photo' => '1.jpg'
+        ]);
+
+        report::create([
+            'kdSchedule' => mt_rand(17, 21),
+            'kdState' => mt_rand(3, 5),
+            'title' => 'Mic Rusak',
+            'explanation' => 'Mic yang digunakan vocalis terjatuh dan rusak, sehingga perlu membeli yang baru',
+            'photo' => '1.jpg'
+        ]);
+
         presence::factory(100)->create();
         // documentation::factory(20)->create();
         // chat::factory(20)->create();
