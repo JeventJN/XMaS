@@ -303,7 +303,7 @@ class DatabaseSeeder extends Seeder
             'logo'=>'ChessImg.png',
             'backgroundImage' => 'ChessBg.jpg',
             'description'=>'Xtra for smart people',
-            'category'=>'Non-Phsyical'
+            'category'=>'Non-Physique'
         ]);
 
         extracurricular::create([
@@ -311,7 +311,7 @@ class DatabaseSeeder extends Seeder
             'logo'=>'ELITE.png',
             'backgroundImage' => 'image_jumbo.png',
             'description'=>'Merasa tidak berbakat? Join Xtra Running. Tidak butuh bakat hanya butuh kerja keras karena dari nenek moyang kitaa pun kita sudah selalu "Running". Running is not a gift, It is our self. God Create Human To Be a RUNNER',
-            'category'=>'Phsyical'
+            'category'=>'Physique'
         ]);
 
         extracurricular::create([
@@ -319,7 +319,7 @@ class DatabaseSeeder extends Seeder
             'logo'=>'DanceImg.jpeg',
             'backgroundImage' => 'DanceBg.jpeg',
             'description'=>'Xtra for flexible people',
-            'category'=>'Phsyical'
+            'category'=>'Physique'
         ]);
 
         extracurricular::create([
@@ -327,7 +327,7 @@ class DatabaseSeeder extends Seeder
             'logo'=>'BandImg.png',
             'backgroundImage' => 'BandBg.jpg',
             'description'=>'Xtra for virtuoso people',
-            'category'=>'Non-Phsyical'
+            'category'=>'Non-Physique'
         ]);
 
         extracurricular::create([
@@ -335,7 +335,7 @@ class DatabaseSeeder extends Seeder
             'logo'=>'BasketImg.png',
             'backgroundImage' => 'BasketBg.jpg',
             'description'=>'Xtra for athletic and tall people',
-            'category'=>'Phsyical'
+            'category'=>'Physique'
         ]);
 
         extracurricular::create([
@@ -343,7 +343,7 @@ class DatabaseSeeder extends Seeder
             'logo'=>'ChoirImg.jpg',
             'backgroundImage' => 'ChoirBg.jpeg',
             'description'=>"Xtra for God's angel with heavenly voice",
-            'category'=>'Non-Phsyical'
+            'category'=>'Non-Physique'
         ]);
 
 
@@ -518,7 +518,7 @@ class DatabaseSeeder extends Seeder
 
         // Member Basket
         member::create([
-            'NIP'=>'0008',
+            'NIP'=>'0010',
             'kdExtracurricular'=>5,
             'kdState'=>1,
             'reason'=>''
@@ -929,17 +929,17 @@ class DatabaseSeeder extends Seeder
         // Basketball
         documentation::create([
             'kdExtracurricular' => 5,
-            'photo' => 'BasketDoc1.jpeg',
+            'photo' => 'BasketDoc1.png',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 5,
-            'photo' => 'BasketDoc2.jpeg',
+            'photo' => 'BasketDoc2.jpg',
         ]);
 
         documentation::create([
             'kdExtracurricular' => 5,
-            'photo' => 'BasketDoc3.jpeg',
+            'photo' => 'BasketDoc3.jpg',
         ]);
 
         // for ($i = 0; $i < 10; $i++) {

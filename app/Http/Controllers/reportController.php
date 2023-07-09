@@ -191,10 +191,8 @@ class reportController extends Controller
     }
 
     public function new(Request $request){
-        $schedule = Schedule::where('date', '=', $request->reportdate)->first();
-
-        $data = [
-            'kdSchedule' => $schedule->kdSchedule,
+       $data = [
+            'kdSchedule' => $request->reportdate,
             'kdState' => '3',
             'title' => $request->title,
             'explanation' => $request->explanation,

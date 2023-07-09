@@ -83,7 +83,7 @@
                                             Choose a date
                                         </option>
                                         @foreach ($member->xtras?->schedules as $schedule)
-                                            <option value="{{$schedule->date}}">
+                                            <option value="{{$schedule->kdSchedule}}">
                                                 {{ date('D', strtotime($schedule->date)) . ', ' . date('d', strtotime($schedule->date)) . ' '  . date('M', strtotime($schedule->date)) . ' ' . date('Y', strtotime($schedule->date)) }}
                                             </option>
                                         @endforeach
