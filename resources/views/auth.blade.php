@@ -11,15 +11,10 @@
 </head>
 
 <body>
-    <div class="bgimg" style="background-image: url('Assets/SignUp.png')">
-        <div class="alertContainer">
-            <div class="flex text-green-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="sentSuccess" style="display: none"></div>
-            <div class="flex text-blue-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="successRegsiter" style="display: none"></div>
-            <div class="flex text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="error" style="display: none"></div>
-            {{-- <div class="alert alert-success" id="sentSuccess" style="display: none; margin-bottom: 0;"></div>
+    <div class="bgimg" style="background-image: url('Assets/Auth.png');">
+        {{-- <div class="alert alert-success" id="sentSuccess" style="display: none; margin-bottom: 0;"></div>
             <div class="alert alert-success" id="successRegsiter" style="display: none; margin-bottom: 0;"></div>
             <div class="alert alert-danger" id="error" style="display: none; margin-bottom: 0;"></div> --}}
-        </div>
         <div class="containerall">
             <div class="section1">
                 <div class="judul">Authentication</div>
@@ -30,10 +25,15 @@
                     <form class="formAuth1">
                         <div class="boxPN">
                             <label class="keteranganPN">Phone Number:</label>
-                            <input type="text" id="number" class="formPNV" placeholder="+62********"
-                                value="{{ '+' . $data['phoneNumber'] }}" disabled>
+                            <input type="text" id="number" class="formPNV1" placeholder="+62********" value="{{ '+' . $data['phoneNumber'] }}" style="border-radius: 1vw" disabled>
                         </div>
-                        <div id="recaptcha-container" class="captcha"></div>
+                        <div class="captchaContainer">
+                            <div id="recaptcha-container" class="captcha"></div>
+                        </div>
+                        <div class="alertContainer1">
+                            <div class="flex text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="error" style="display: none"></div>
+                            <div class="flex text-green-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="sentSuccess" style="display: none"></div>
+                        </div>
                         <button type="button" class="btn-successSend" onclick="phoneSendAuth();">Send Code</button>
                     </form>
                 </div>
@@ -43,9 +43,13 @@
                 <div class="perintah2">
                     Enter Verification code
                 </div>
+                <div class="alertContainer2">
+                    <div class="flex text-green-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="sentSuccess" style="display: none"></div>
+                    <div class="flex text-blue-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="successRegsiter" style="display: none"></div>
+                </div>
                 <div class="sub-section2">
                     <form class="formAuth2">
-                        <input type="text" id="verificationCode" class="formPNV"
+                        <input type="text" id="verificationCode" class="formPNV2"
                             placeholder="Input verification code">
                         <button type="button" class="btn-successVerify" onclick="codeverify();">Verify Code</button>
                     </form>
