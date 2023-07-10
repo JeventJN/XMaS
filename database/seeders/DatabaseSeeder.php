@@ -378,7 +378,7 @@ class DatabaseSeeder extends Seeder
 
         member::create([
             'NIP'=>'0006',
-            'kdExtracurricular'=>6,
+            'kdExtracurricular'=>4,
             'kdState'=>2,
             'reason'=>'Membawa anggota tim ke Indonesian Idol'
         ]);
