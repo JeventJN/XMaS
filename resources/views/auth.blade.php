@@ -18,9 +18,9 @@
         <div class="containerall">
             <div class="section1">
                 <div class="judul">Authentication</div>
-                <div class="perintah1">
+                {{-- <div class="perintah1">
                     This phone number will be sent a verification code
-                </div>
+                </div> --}}
                 <div class="sub-section1">
                     <form class="formAuth1">
                         <div class="boxPN">

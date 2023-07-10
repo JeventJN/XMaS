@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="radiobutton text-white ml-[5vw] text-[1.5vw] font-nunito">
-                            <label class="text-[1.3vw]" for="PPTI">Program</label>
+                            <label class="text-[1.3vw] font-bold" for="PPTI">Program</label>
                             <div class="flex items-center">
                                 <input type="radio" id="PPTI" name="program" value="PPTI" {{ old('program') == 'PPTI' ? 'checked' : '' }} class="ml-[0.3vw] h-[1.2vw] w-[1.2vw]">
                                 <label class="ml-[0.8vw] text-[1.2vw]" for="PPTI">PPTI</label>
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="boxfield2">
-                        <p class="text-white font-nunito text-[1.2vw] mt-[5vw]">Upload your photo</p>
+                        <p class="text-white font-nunito text-[1.2vw] mt-[5vw] font-bold">Upload your photo</p>
                         <div class="upload" >
                             <img class="h-[26vw]" id="photoContainer" src="{{asset('Assets/UploadPhoto.png')}}" alt="">
                             <input class="absolute h-[26vw] w-[15vw] mt-[-26vw] opacity-0 hover:cursor-pointer" accept="image/*" type="file" name="photo" id="photo" oninput="photoContainer.src='{{asset('Assets/PhotoUploaded.png')}}'">
