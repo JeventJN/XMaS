@@ -96,7 +96,7 @@
                 @if ($members->count())
                     @foreach ($members as $member)
                         <div
-                            class="w-[95%] h-[5vw] bg-white rounded-[1vw] flex items-center mt-[1vh] mb-[1vw] border border-[0.2vw] border-black flex">
+                            class="w-[95%] h-[5vw] bg-white rounded-[1vw] flex items-center mt-[1vh] mb-[1vh] border border-[0.2vw] border-black flex">
                             <div class="text-[1.5vw] ml-[1vw] w-[65%]">
                                 <mark class="bg-white font-bold"> {{$member->userXmas?->name}}  </mark> as <mark
                                     class="bg-white font-bold">{{$member->xtras?->name}}</mark> Xtra's Leader
