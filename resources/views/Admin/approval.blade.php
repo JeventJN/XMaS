@@ -88,56 +88,53 @@
     {{-- popup --}}
 
     @include('Admin.navbarA')
-    <div class="w-full h-[60vw] overflow-scroll-y">
-        <div class="w-screen flex justify-center items-center font-nunito">
-            <div class="w-[80%] bg-[#E5E5E5] h-fit mt-[25vh] h-[100vh] flex flex-col items-center justify-center rounded-[1vw]">
-                <div class="w-screen h-[2vw]"></div>
-                {{-- FOR EACH DARI SINI --}}
-                @if ($members->count())
-                    @foreach ($members as $member)
-                        <div
-                            class="w-[95%] h-[5vw] bg-white rounded-[1vw] flex items-center mt-[1vh] mb-[1vh] border border-[0.2vw] border-black flex">
-                            <div class="text-[1.5vw] ml-[1vw] w-[65%]">
-                                <mark class="bg-white font-bold"> {{$member->userXmas?->name}}  </mark> as <mark
-                                    class="bg-white font-bold">{{$member->xtras?->name}}</mark> Xtra's Leader
-                            </div>
+    <div class="w-screen h-[11.2vh]"></div>
+    <div class="w-screen h-[47vh] mt-[3vh] flex flex-col items-center justify-center overflow-y scrollbar-hide">
+        <div class="w-[85%] max-h-[47vh] bg-[#E5E5E5] rounded-[1vw] flex flex-col items-center overflow overflow-y-auto scrollbar-hide">
+            @if ($members->count())
+                @foreach ($members as $member)
+                    <div class="w-[80vw] min-h-[5vw] bg-white rounded-[1vw] flex items-center mt-[2vh] mb-[2vh] border border-[0.2vw] border-black flex">
+                        <div class="text-[1.5vw] ml-[1vw] w-[65%]">
+                            <mark class="bg-white font-bold"> {{$member->userXmas?->name}}  </mark> as <mark
+                                class="bg-white font-bold">{{$member->xtras?->name}}</mark> Xtra's Leader
+                        </div>
 
-                            <button type="button" id="acceptbtn"
-                                class="acceptbtn flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
-                                Accept
-                            </button>
+                        <button type="button" id="acceptbtn"
+                            class="acceptbtn flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
+                            Accept
+                        </button>
 
-                            {{-- Modal Accept --}}
-                            <div id="modalaccept" class="modalaccept">
-                                {{-- Modal Content --}}
-                                <div class="modal-contentaccept">
-                                    <div class="kotakisimodal">
-                                        <div class="boxjudulcloseaccept">
-                                            <span class="closeaccept">&times;</span>
-                                        </div>
-                                        <div class="isiaccept">
-                                            <div class="kalimataccept1">This action will <span style="color: red;">give</span>
-                                                leader access to requester.</div>
-                                            <div class="kalimataccept2">Do you want to continue?</div>
-                                        </div>
-                                        <div class="boxsubmitaccept">
-                                            <form action="/acceptReq" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="NIP" value="{{$member->NIP}}">
-                                                <input type="hidden" name="xtra" value="{{$member->kdExtracurricular}}">
-                                                <button class="btnyesmodal">Yes</button>
-                                            </form>
-                                            <button class="btncancelmodal1" id="btncancelmodal1">Cancel</button>
-                                        </div>
+                        {{-- Modal Accept --}}
+                        <div id="modalaccept" class="modalaccept">
+                            {{-- Modal Content --}}
+                            <div class="modal-contentaccept">
+                                <div class="kotakisimodal">
+                                    <div class="boxjudulcloseaccept">
+                                        <span class="closeaccept">&times;</span>
+                                    </div>
+                                    <div class="isiaccept">
+                                        <div class="kalimataccept1">This action will <span style="color: red;">give</span>
+                                            leader access to requester.</div>
+                                        <div class="kalimataccept2">Do you want to continue?</div>
+                                    </div>
+                                    <div class="boxsubmitaccept">
+                                        <form action="/acceptReq" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="NIP" value="{{$member->NIP}}">
+                                            <input type="hidden" name="xtra" value="{{$member->kdExtracurricular}}">
+                                            <button class="btnyesmodal">Yes</button>
+                                        </form>
+                                        <button class="btncancelmodal1" id="btncancelmodal1">Cancel</button>
                                     </div>
                                 </div>
                             </div>
-                            {{-- Modal Accept --}}
+                        </div>
+                        {{-- Modal Accept --}}
 
-                            <button type="button" id="denybtn"
-                                class="denybtn ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
-                                Deny
-                            </button>
+                        <button type="button" id="denybtn"
+                            class="denybtn ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
+                            Deny
+                        </button>
 
                         {{-- Modal Deny --}}
                         <div id="modaldeny" class="modaldeny">
@@ -165,17 +162,15 @@
                             </div>
                         </div>
                         {{-- Modal Deny --}}
-
                     </div>
                 @endforeach
             @else
                 <p class="text-center text-[1.7vw] font-semibold justify-center items-center flex">There is no request.</p>
             @endif
-            <div class="w-screen h-[2vw]"></div>
         </div>
     </div>
-    <div class="mt-[20vh]"></div>
-    @include('footer')
+        @include('footer')
+
 
     <script>
         //SCRIPT MODAL ACCEPT======================================
