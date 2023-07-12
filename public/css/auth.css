@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
 * {
     padding: 0;
     margin: 0;
@@ -13,6 +16,7 @@ body {
     font-family: "Nunito", sans-serif;
     overflow-x: hidden;
     overflow-y: hidden;
+    font-family: Nunito;
     /* border: red solid; */
 }
 
@@ -23,6 +27,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     /* background-image: url("Assets/SignUp.png") !important; */
 }
 
@@ -31,26 +38,32 @@ body {
     width: 100%;
 }
 
-.alertContainer {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    height: 5vw;
-    margin-bottom: 2.5vw;
-    border: cyan solid;
-}
-
 .containerall {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 37vw;
-    width: 28vw;
+    height: 39.5vw;
+    width: 30vw;
     border-radius: 4vw;
-    padding-left: 0.2vw;
-    padding-right: 0.2vw;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    margin-left: 13vw;
     border: none;
     background-color: #395474;
+}
+
+.alertContainer1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 1.8vw;
+    margin-top: 1vw;
+    margin-bottom: 0.2vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    /* border: cyan solid; */
 }
 
 .section1 {
@@ -58,34 +71,26 @@ body {
     flex-direction: column;
     height: auto;
     width: 100%;
-    margin-top: 2vw;
     align-items: center;
+    margin-top: 3.3vw;
     margin-bottom: 0.8vw;
     color: white;
     /* border: yellow solid; */
 }
 
 .judul {
-    font-size: 2vw;
+    font-size: 2.2vw;
     text-align: center;
     justify-content: center;
     margin-bottom: 1.2vw;
-}
-
-.perintah1 {
-    font-size: 1.4vw;
-    text-align: left;
-    width: 100%;
-    padding-left: 1.55vw;
-    margin-bottom: 0.7vw;
-    /* border: red solid; */
+    font-weight: 700;
 }
 
 .formAuth1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.1vw;
+    padding: 1.1vw 1.1vw 0.85vw 1.1vw;
     /* border: orange solid; */
 }
 
@@ -94,42 +99,70 @@ body {
     flex-direction: row;
     justify-content: space-around;
     gap: 0.5vw;
-    margin-bottom: 1vw;
+    margin-bottom: 1.5vw;
     /* border: purple solid; */
+}
+
+.captchaContainer {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 6.2vw;
+    margin-bottom: 0.75vw;
+    /* border: pink solid; */
 }
 
 .keteranganPN {
     font-size: 1.25vw;
     text-align: left;
+    font-weight: 600;
+    /* border: red solid; */
 }
 
-.formPNV {
+.formPNV1 {
     font-size: 1.2vw;
     width: 15vw;
+    padding-left: 0.75vw;
+    border-radius: 1vw;
+}
+
+.formPNV2 {
+    font-size: 1.2vw;
+    width: 15vw;
+    padding-left: 0.75vw;
+    padding-top: 0.25vw;
+    padding-bottom: 0.25vw;
+    border-radius: 1vw;
+    background-color: #708399;
+    color: white;
+}
+
+.formPNV2::placeholder {
+    color: white;
 }
 
 .btn-successSend {
     font-size: 1.1vw;
     border-radius: 0.4vw;
     color: white;
-    background-color: #1b2f45;
+    background-color: #1b2f45 !important;
     height: 3vw;
     width: 8vw;
-    margin-top: 1vw;
+    margin-top: 0.5vw;
     border: none;
     cursor: pointer;
 }
 
 .btn-successSend:hover {
     font-weight: 600;
-    background-color: #000000;
+    background-color: #000000 !important;
 }
 
 .btn-successVerify {
     font-size: 1.1vw;
     border-radius: 0.4vw;
     color: white;
-    background-color: #1b2f45;
+    background-color: #1b2f45 !important;
     height: 3vw;
     width: 9vw;
     border: none;
@@ -138,7 +171,7 @@ body {
 
 .btn-successVerify:hover {
     font-weight: 600;
-    background-color: #000000;
+    background-color: #000000 !important;
 }
 
 .section2 {
@@ -151,12 +184,13 @@ body {
     /* border: green solid; */
 }
 
-.perintah2 {
-    font-size: 1.4vw;
+.perintah {
+    font-size: 1.25vw;
     text-align: left;
     width: 100%;
-    padding-left: 1.55vw;
-    margin-bottom: 0.7vw;
+    padding-left: 2vw;
+    margin-bottom: 0.75vw;
+    font-weight: 600;
     /* border: red solid; */
 }
 

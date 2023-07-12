@@ -5,48 +5,45 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}" />
+
     <!-- Js only -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     @vite('resources/css/app.css')
 </head>
 
 <body>
-    <div class="bgimg" style="background-image: url('Assets/SignUp.png')">
-        <div class="alertContainer">
-            <div class="flex text-green-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="sentSuccess" style="display: none"></div>
-            <div class="flex text-blue-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="successRegsiter" style="display: none"></div>
-            <div class="flex text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="error" style="display: none"></div>
-            {{-- <div class="alert alert-success" id="sentSuccess" style="display: none; margin-bottom: 0;"></div>
+    <div class="bgimg" style="background-image: url('Assets/Auth.png');">
+        {{-- <div class="alert alert-success" id="sentSuccess" style="display: none; margin-bottom: 0;"></div>
             <div class="alert alert-success" id="successRegsiter" style="display: none; margin-bottom: 0;"></div>
             <div class="alert alert-danger" id="error" style="display: none; margin-bottom: 0;"></div> --}}
-        </div>
         <div class="containerall">
             <div class="section1">
                 <div class="judul">Authentication</div>
-                <div class="perintah1">
-                    This phone number will be sent a verification code
-                </div>
                 <div class="sub-section1">
                     <form class="formAuth1">
                         <div class="boxPN">
-                            <label class="keteranganPN">Phone Number:</label>
-                            <input type="text" id="number" class="formPNV" placeholder="+62********"
-                                value="{{ '+' . $data['phoneNumber'] }}" disabled>
+                            <div class="keteranganPN">Phone Number:</div>
+                            <input type="text" id="number" class="formPNV1" placeholder="+62********" value="{{ '+' . $data['phoneNumber'] }}" disabled>
                         </div>
-                        <div id="recaptcha-container" class="captcha"></div>
+                        <div class="captchaContainer">
+                            <div id="recaptcha-container" class="captcha"></div>
+                        </div>
                         <button type="button" class="btn-successSend" onclick="phoneSendAuth();">Send Code</button>
+                        <div class="alertContainer1">
+                            <div class="flex text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="error" style="display: none"></div>
+                            <div class="flex text-green-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="sentSuccess" style="display: none"></div>
+                        </div>
                     </form>
                 </div>
             </div>
 
             <div class="section2">
-                <div class="perintah2">
-                    Enter Verification code
+                <div class="perintah">
+                    Verification code
                 </div>
                 <div class="sub-section2">
                     <form class="formAuth2">
-                        <input type="text" id="verificationCode" class="formPNV"
-                            placeholder="Input verification code">
+                        <input type="text" id="verificationCode" class="formPNV2" placeholder="Input verification code">
                         <button type="button" class="btn-successVerify" onclick="codeverify();">Verify Code</button>
                     </form>
                     <form action="{{ route('confirm-phone-number') }}" method="POST" id="confirmPN">
