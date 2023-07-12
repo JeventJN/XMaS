@@ -22,7 +22,7 @@
     {{-- popup --}}
     {{-- accept --}}
     @if (session()->has('appAcc'))
-        <div id="modalpopupACC" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+        <div id="modalpopupACC" class="fixed w-screen flex justify-center items-center mt-[2.7vh] z-50">
             <div
                 class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
                 <div
@@ -55,7 +55,7 @@
 
     {{-- deny --}}
     @if (session()->has('denyAcc'))
-        <div id="modalpopupDN" class="fixed w-screen flex justify-center items-center mt-[2.7vw] z-50">
+        <div id="modalpopupDN" class="fixed w-screen flex justify-center items-center mt-[2.7vh] z-50">
             <div
                 class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
                 <div
@@ -90,13 +90,13 @@
     @include('Admin.navbarA')
     <div class="w-full h-[60vw] overflow-scroll-y">
         <div class="w-screen flex justify-center items-center font-nunito">
-            <div class="w-[80%] bg-[#E5E5E5] h-fit mt-[12vw] h-[100vh] flex flex-col items-center justify-center rounded-[1vw]">
+            <div class="w-[80%] bg-[#E5E5E5] h-fit mt-[25vh] h-[100vh] flex flex-col items-center justify-center rounded-[1vw]">
                 <div class="w-screen h-[2vw]"></div>
                 {{-- FOR EACH DARI SINI --}}
                 @if ($members->count())
                     @foreach ($members as $member)
                         <div
-                            class="w-[95%] h-[5vw] bg-white rounded-[1vw] flex items-center mt-[1vw] mb-[1vw] border border-[0.2vw] border-black flex">
+                            class="w-[95%] h-[5vw] bg-white rounded-[1vw] flex items-center mt-[1vh] mb-[1vw] border border-[0.2vw] border-black flex">
                             <div class="text-[1.5vw] ml-[1vw] w-[65%]">
                                 <mark class="bg-white font-bold"> {{$member->userXmas?->name}}  </mark> as <mark
                                     class="bg-white font-bold">{{$member->xtras?->name}}</mark> Xtra's Leader
@@ -174,7 +174,7 @@
             <div class="w-screen h-[2vw]"></div>
         </div>
     </div>
-    <div class="mt-[12.7vw]"></div>
+    <div class="mt-[20vh]"></div>
     @include('footer')
 
     <script>
