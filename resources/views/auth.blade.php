@@ -43,9 +43,12 @@
                 </div>
                 <div class="sub-section2">
                     <form class="formAuth2">
-                        <input type="text" id="verificationCode" class="formPNV2" placeholder="Input verification code">
+                        <input type="text" id="verificationCode" class="formPNV2" placeholder="Input verification code" autocomplete="off">
                         <button type="button" class="btn-successVerify" onclick="codeverify();">Verify Code</button>
                     </form>
+                    <div class="alertContainer2">
+                        <div class="flex text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="errorV" style="display: none;"></div>
+                    </div>
                     <form action="{{ route('confirm-phone-number') }}" method="POST" id="confirmPN">
                         @csrf
                         @foreach ($data as $key => $value)
@@ -89,9 +92,11 @@
                 coderesult = confirmationResult;
                 console.log(coderesult);
 
+                $("#error").hide(); // Hide the error alert
                 $("#sentSuccess").text("Message Sent Successfully.");
                 $("#sentSuccess").show();
             }).catch(function(error) {
+                $("#sentSuccess").hide(); // Hide the success alert
                 $("#error").text(error.message);
                 $("#error").show();
             });
@@ -102,11 +107,12 @@
 
             coderesult.confirm(code).then(function(result) {
                 var user = result.user;
-
                 $("#confirmPN").submit();
             }).catch(function(error) {
-                $("#error").text(error.message);
-                $("#error").show();
+                $("#sentSuccess").hide(); // Hide the success alert
+                $("#error").hide(); // Hide the error alert
+                $("#errorV").text(error.message);
+                $("#errorV").show();
             });
         }
     </script>
