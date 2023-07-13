@@ -27,10 +27,10 @@ class adminController extends Controller
             }
         }
 
-        $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
+        // $NIP = str_pad($request->NIP, 4, '0', STR_PAD_LEFT);
 
         foreach ($members as $member) {
-            if ($member->NIP == $NIP) {
+            if ($member->kdMember == $request->kdMember) {
                 if ($member->kdState == 3) {
                     $member->kdState = 2;
 

@@ -24,9 +24,9 @@
     @if (session()->has('appAcc'))
         <div id="modalpopupACC" class="fixed w-screen flex justify-center items-center mt-[2.7vh] z-50">
             <div
-                class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                class="w-[67vw] h-[5vw] flex items-center justify-center font-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
                 <div
-                    class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                    class="w-[66vw] h-[4vw] flex items-center justify-center font-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
                     Request is successfully accepted
                     <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalACC"
                         class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
@@ -57,9 +57,9 @@
     @if (session()->has('denyAcc'))
         <div id="modalpopupDN" class="fixed w-screen flex justify-center items-center mt-[2.7vh] z-50">
             <div
-                class="w-[67vw] h-[5vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
+                class="w-[67vw] h-[5vw] flex items-center justify-center font-nunito font-semibold text-[1.7vw] bg-[#FFFFFF] rounded-[1.5vw]">
                 <div
-                    class="w-[66vw] h-[4vw] flex items-center justify-center text-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
+                    class="w-[66vw] h-[4vw] flex items-center justify-center font-nunito font-semibold text-[1.7vw] bg-[#D9D9D9] rounded-[1vw] border-[#395474] border-[0.4vw]">
                     Request is successfully denied
                     <svg xmlns="http://www.w3.org/2000/svg" id="hidemodalDN"
                         class="absolute ml-[61.5vw] w-[2vw] h-[2vw] cursor-pointer" viewBox="0 0 256 256">
@@ -94,13 +94,13 @@
             @if ($members->count())
                 @foreach ($members as $member)
                     <div class="w-[80vw] min-h-[5vw] bg-white rounded-[1vw] flex items-center mt-[2vh] mb-[2vh] border border-[0.2vw] border-black flex">
-                        <div class="text-[1.5vw] ml-[1vw] w-[65%]">
+                        <div class="text-[1.5vw] ml-[1vw] w-[65%] font-nunito">
                             <mark class="bg-white font-bold"> {{$member->userXmas?->name}}  </mark> as <mark
                                 class="bg-white font-bold">{{$member->xtras?->name}}</mark> Xtra's Leader
                         </div>
 
                         <button type="button" id="acceptbtn"
-                            class="acceptbtn flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw]  hover:cursor-pointer hover:font-bold">
+                            class="acceptbtn flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw] font-nunito hover:cursor-pointer hover:font-nunito hover:font-bold">
                             Accept
                         </button>
 
@@ -114,25 +114,25 @@
                                     </div>
                                     <div class="isiaccept">
                                         <div class="kalimataccept1">This action will <span style="color: red;">give</span>
-                                            leader access to requester.</div>
+                                            leader access to requester. {{$member->userXmas?->name}}</div>
                                         <div class="kalimataccept2">Do you want to continue?</div>
                                     </div>
                                     <div class="boxsubmitaccept">
                                         <form action="/acceptReq" method="POST">
                                             @csrf
-                                            <input type="hidden" name="NIP" value="{{$member->NIP}}">
+                                            <input type="hidden" name="kdMember" value="{{$member->kdMember}}">
                                             <input type="hidden" name="xtra" value="{{$member->kdExtracurricular}}">
-                                            <button class="btnyesmodal">Yes</button>
+                                            <button class="btnyesmodal font-nunito">Yes</button>
                                         </form>
-                                        <button class="btncancelmodal1" id="btncancelmodal1">Cancel</button>
+                                        <button class="btncancelmodal1 font-nunito" id="btncancelmodal1">Cancel</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         {{-- Modal Accept --}}
 
-                        <button type="button" id="denybtn"
-                            class="denybtn ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:text-white hover:font-bold">
+                        <button type="button" id="denybtn font-nunito"
+                            class="denybtn ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:font-nunito hover:text-white hover:font-bold">
                             Deny
                         </button>
 
@@ -154,9 +154,9 @@
                                             @csrf
                                             <input type="hidden" name="NIP" value="{{$member->NIP}}">
                                             <input type="hidden" name="xtra" value="{{$member->kdExtracurricular}}">
-                                            <button class="btnyesmodal">Yes</button>
+                                            <button class="btnyesmodal font-nunito">Yes</button>
                                         </form>
-                                        <button class="btncancelmodal3" id="btncancelmodal3">Cancel</button>
+                                        <button class="btncancelmodal3 font-nunito" id="btncancelmodal3">Cancel</button>
                                     </div>
                                 </div>
                             </div>
