@@ -100,10 +100,25 @@
                 $("#error").hide(); // Hide the error alert
                 $("#sentSuccess").text("Message Sent Successfully.");
                 $("#sentSuccess").show();
+
+                setTimeout(function() {
+                    $("#error").hide();
+                }, 3000);
+                setTimeout(function() {
+                    $("#sentSuccess").hide();
+                }, 3000);
+                
             }).catch(function(error) {
                 $("#sentSuccess").hide(); // Hide the success alert
                 $("#error").text(error.message);
                 $("#error").show();
+
+                setTimeout(function() {
+                    $("#error").hide();
+                }, 3000);
+                setTimeout(function() {
+                    $("#sentSuccess").hide();
+                }, 3000);
             });
         }
 
