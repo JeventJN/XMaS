@@ -773,7 +773,7 @@
                             <div class="">:</div>
                         </div>
                         <div class="isiform">
-                            <input disabled placeholder="Running" type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
+                            <input disabled placeholder="{{$xtra->name}}" type="email" class="form-control" id="xtraAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw" />
                             <input placeholder="Input here" name="activity" type="text" class="form-control" id="activityAS" style="background-color: #D9D9D9; font-size: 1.5vw; padding-left: 1.5vw; color: black;" />
 
                             <div class="boxjamaddschedule">
