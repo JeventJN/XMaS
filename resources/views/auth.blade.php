@@ -23,15 +23,18 @@
                     <form class="formAuth1">
                         <div class="boxPN">
                             <div class="keteranganPN">Phone Number:</div>
-                            <input type="text" id="number" class="formPNV1" placeholder="+62********" value="{{ '+' . $data['phoneNumber'] }}" disabled>
+                            <input type="text" id="number" class="formPNV1" placeholder="+62********"
+                                value="{{ '+' . $data['phoneNumber'] }}" disabled>
                         </div>
                         <div class="captchaContainer">
                             <div id="recaptcha-container" class="captcha"></div>
                         </div>
                         <button type="button" class="btn-successSend" onclick="phoneSendAuth();">Send Code</button>
                         <div class="alertContainer1">
-                            <div class="flex text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="error" style="display: none"></div>
-                            <div class="flex text-green-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="sentSuccess" style="display: none"></div>
+                            <div class="flex text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold"
+                                id="error" style="display: none"></div>
+                            <div class="flex text-green-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold"
+                                id="sentSuccess" style="display: none"></div>
                         </div>
                     </form>
                 </div>
@@ -43,11 +46,13 @@
                 </div>
                 <div class="sub-section2">
                     <form class="formAuth2">
-                        <input type="text" id="verificationCode" class="formPNV2" placeholder="Input verification code" autocomplete="off">
+                        <input type="text" id="verificationCode" class="formPNV2"
+                            placeholder="Input verification code" autocomplete="off">
                         <button type="button" class="btn-successVerify" onclick="codeverify();">Verify Code</button>
                     </form>
                     <div class="alertContainer2">
-                        <div class="flex text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold" id="errorV" style="display: none;"></div>
+                        <div class="flex text-red-500 text-[1vw] mt-[0.5vw] items-left w-full font-semibold"
+                            id="errorV" style="display: none;"></div>
                     </div>
                     <form action="{{ route('confirm-phone-number') }}" method="POST" id="confirmPN">
                         @csrf
@@ -111,8 +116,12 @@
             }).catch(function(error) {
                 $("#sentSuccess").hide(); // Hide the success alert
                 $("#error").hide(); // Hide the error alert
-                $("#errorV").text(error.message);
+                $("#errorV").text("Code is invalid");
                 $("#errorV").show();
+
+                setTimeout(function() {
+                    $("#errorV").hide();
+                }, 3000);
             });
         }
     </script>

@@ -90,22 +90,23 @@
     @include('Admin.navbarA')
     <div class="w-screen h-[11.2vh]"></div>
     <div class="w-screen h-[47vh] mt-[3vh] flex flex-col items-center justify-center overflow-y scrollbar-hide">
-        <div class="w-[85%] max-h-[47vh] bg-[#E5E5E5] rounded-[1vw] flex flex-col items-center overflow overflow-y-auto scrollbar-hide">
+        <div
+            class="w-[85%] max-h-[47vh] bg-[#E5E5E5] rounded-[1vw] flex flex-col items-center overflow overflow-y-auto scrollbar-hide">
             @if ($members->count())
                 @foreach ($members as $member)
-                    <div class="w-[80vw] min-h-[5vw] bg-white rounded-[1vw] flex items-center mt-[2vh] mb-[2vh] border border-[0.2vw] border-black flex">
+                    <div
+                        class="w-[80vw] min-h-[5vw] bg-white rounded-[1vw] flex items-center mt-[2vh] mb-[2vh] border border-[0.2vw] border-black flex">
                         <div class="text-[1.5vw] ml-[1vw] w-[65%] font-nunito">
-                            <mark class="bg-white font-bold"> {{$member->userXmas?->name}}  </mark> as <mark
-                                class="bg-white font-bold">{{$member->xtras?->name}}</mark> Xtra's Leader
+                            <mark class="bg-white font-bold"> {{ $member->userXmas?->name }} </mark> as <mark
+                                class="bg-white font-bold">{{ $member->xtras?->name }}</mark> Xtra's Leader
                         </div>
 
-                        <button type="button" id="acceptbtn"
-                            class="acceptbtn flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw] font-nunito hover:cursor-pointer hover:font-nunito hover:font-bold">
-                            Accept
-                        </button>
+                        <button type="button"
+                            class="acceptbtn flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#398E20] rounded-[0.2vw] text-white hover:bg-[#145003] text-[1.3vw] font-nunito hover:cursor-pointer hover:font-nunito hover:font-bold"
+                            data-modal="modalaccept{{ $loop->iteration }}">Accept</button>
 
                         {{-- Modal Accept --}}
-                        <div id="modalaccept" class="modalaccept">
+                        <div id="modalaccept{{ $loop->iteration }}" class="modalaccept">
                             {{-- Modal Content --}}
                             <div class="modal-contentaccept">
                                 <div class="kotakisimodal">
@@ -113,15 +114,17 @@
                                         <span class="closeaccept">&times;</span>
                                     </div>
                                     <div class="isiaccept">
-                                        <div class="kalimataccept1">This action will <span style="color: red;">give</span>
-                                            leader access to requester. {{$member->userXmas?->name}}</div>
+                                        <div class="kalimataccept1">This action will <span
+                                                style="color: red;">give</span> leader access to requester.
+                                        </div>
                                         <div class="kalimataccept2">Do you want to continue?</div>
                                     </div>
                                     <div class="boxsubmitaccept">
                                         <form action="/acceptReq" method="POST">
                                             @csrf
-                                            <input type="hidden" name="kdMember" value="{{$member->kdMember}}">
-                                            <input type="hidden" name="xtra" value="{{$member->kdExtracurricular}}">
+                                            <input type="hidden" name="kdMember" value="{{ $member->kdMember }}">
+                                            <input type="hidden" name="xtra"
+                                                value="{{ $member->kdExtracurricular }}">
                                             <button class="btnyesmodal font-nunito">Yes</button>
                                         </form>
                                         <button class="btncancelmodal1 font-nunito" id="btncancelmodal1">Cancel</button>
@@ -131,13 +134,12 @@
                         </div>
                         {{-- Modal Accept --}}
 
-                        <button type="button" id="denybtn font-nunito"
-                            class="denybtn ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:font-nunito hover:text-white hover:font-bold">
-                            Deny
-                        </button>
+                        <button type="button"
+                            class="denybtn ml-[2vw] flex items-center justify-center w-[11vw] h-[2.5vw] bg-[#FF0000] rounded-[0.2vw] text-[1.3vw] hover:bg-[#6D0000] hover:cursor-pointer text-black hover:font-nunito hover:text-white hover:font-bold"
+                            data-modal="modaldeny{{ $loop->iteration }}">Deny</button>
 
                         {{-- Modal Deny --}}
-                        <div id="modaldeny" class="modaldeny">
+                        <div id="modaldeny{{ $loop->iteration }}" class="modaldeny">
                             {{-- Modal Content --}}
                             <div class="modal-contentdeny">
                                 <div class="kotakisimodal">
@@ -145,15 +147,16 @@
                                         <span class="closedeny">&times;</span>
                                     </div>
                                     <div class="isideny">
-                                        <div class="kalimatdeny1">This action will <span style="color: red;">deny</span> the
-                                            requester.</div>
+                                        <div class="kalimatdeny1">This action will <span style="color: red;">deny</span>
+                                            the requester. </div>
                                         <div class="kalimatdeny2">Do you want to continue?</div>
                                     </div>
                                     <div class="boxsubmitdeny">
                                         <form action="/denyReq" method="POST">
                                             @csrf
-                                            <input type="hidden" name="NIP" value="{{$member->NIP}}">
-                                            <input type="hidden" name="xtra" value="{{$member->kdExtracurricular}}">
+                                            <input type="hidden" name="NIP" value="{{ $member->NIP }}">
+                                            <input type="hidden" name="xtra"
+                                                value="{{ $member->kdExtracurricular }}">
                                             <button class="btnyesmodal font-nunito">Yes</button>
                                         </form>
                                         <button class="btncancelmodal3 font-nunito" id="btncancelmodal3">Cancel</button>
@@ -166,92 +169,102 @@
                 @endforeach
             @else
                 <div class="h-[2vh]"></div>
-                <p class="text-center text-[1.7vw] font-semibold justify-center items-center flex">There is no request.</p>
+                <p class="text-center text-[1.7vw] font-semibold justify-center items-center flex">There is no request.
+                </p>
                 <div class="h-[2vh]"></div>
             @endif
         </div>
     </div>
-        @include('footer')
+    @include('footer')
 
 
     <script>
-        //SCRIPT MODAL ACCEPT======================================
-        // Get modal
-        var modalaccept = document.getElementById("modalaccept")
+        // Get all accept buttons
+        var acceptButtons = document.getElementsByClassName("acceptbtn");
 
-        // Get button that opens modal
-        var btnaccept = document.getElementsByClassName("acceptbtn");
+        // Attach event listeners to each accept button
+        for (var i = 0; i < acceptButtons.length; i++) {
+            acceptButtons[i].addEventListener("click", function() {
+                var modalId = this.getAttribute("data-modal");
+                var modal = document.getElementById(modalId);
 
-        // Get the <span> element that closes the modal
-        var spanaccept = document.getElementsByClassName("closeaccept")[0];
-        var btncancel = document.getElementsByClassName("btncancelmodal1")[0];
-
-        // Function to open the modal
-        function openModal() {
-            modalaccept.style.display = "block";
+                // Open the corresponding modal
+                modal.style.display = "block";
+            });
         }
 
-        // Function to close the modal
-        function closeModal() {
-            modalaccept.style.display = "none";
+        // Get all deny buttons
+        var denyButtons = document.getElementsByClassName("denybtn");
+
+        // Attach event listeners to each deny button
+        for (var i = 0; i < denyButtons.length; i++) {
+            denyButtons[i].addEventListener("click", function() {
+                var modalId = this.getAttribute("data-modal");
+                var modal = document.getElementById(modalId);
+
+                // Open the corresponding modal
+                modal.style.display = "block";
+            });
         }
 
-        // Assign event listeners to the buttons
-        for (var i = 0; i < btnaccept.length; i++) {
-            btnaccept[i].addEventListener("click", openModal);
+        // Get all close buttons for the accept modals
+        var closeAcceptButtons = document.getElementsByClassName("closeaccept");
+        var cancelAcceptButtons = document.getElementsByClassName("btncancelmodal1");
+
+        // Attach event listeners to each close button for the accept modals
+        for (var i = 0; i < closeAcceptButtons.length; i++) {
+            closeAcceptButtons[i].addEventListener("click", function() {
+                var modal = this.closest(".modalaccept");
+
+                // Close the corresponding modal
+                modal.style.display = "none";
+            });
+
+            cancelAcceptButtons[i].addEventListener("click", function() {
+                var modal = this.closest(".modalaccept");
+
+                // Close the corresponding modal
+                modal.style.display = "none";
+            });
         }
 
-        // Assign event listener to the close button
-        spanaccept.addEventListener("click", closeModal);
-        btncancel.addEventListener("click", closeModal);
+        // Get all close buttons for the deny modals
+        var closeDenyButtons = document.getElementsByClassName("closedeny");
+        var cancelDenyButtons = document.getElementsByClassName("btncancelmodal3");
 
-        // Assign event listener to the overlay
+        // Attach event listeners to each close button for the deny modals
+        for (var i = 0; i < closeDenyButtons.length; i++) {
+            closeDenyButtons[i].addEventListener("click", function() {
+                var modal = this.closest(".modaldeny");
+
+                // Close the corresponding modal
+                modal.style.display = "none";
+            });
+
+            cancelDenyButtons[i].addEventListener("click", function() {
+                var modal = this.closest(".modaldeny");
+
+                // Close the corresponding modal
+                modal.style.display = "none";
+            });
+        }
+
+        // Close the modals when clicking outside the modal content
         window.addEventListener("click", function(event) {
-            if (event.target === modalaccept) {
-                closeModal();
+            var modals = document.getElementsByClassName("modalaccept");
+            for (var i = 0; i < modals.length; i++) {
+                if (event.target === modals[i]) {
+                    modals[i].style.display = "none";
+                }
+            }
+
+            var modalsDeny = document.getElementsByClassName("modaldeny");
+            for (var i = 0; i < modalsDeny.length; i++) {
+                if (event.target === modalsDeny[i]) {
+                    modalsDeny[i].style.display = "none";
+                }
             }
         });
-        // SCRIPT MODAL ACCEPT========================================
-    </script>
-
-    <script>
-        //SCRIPT MODAL DENY======================================
-        // Get modal
-        var modaldeny = document.getElementById("modaldeny")
-
-        // Get button that opens modal
-        var btndeny = document.getElementsByClassName("denybtn");
-
-        // Get the <span> element that closes the modal
-        var spandeny = document.getElementsByClassName("closedeny")[0];
-        var btncancel = document.getElementsByClassName("btncancelmodal3")[0];
-
-        // Function to open the modal
-        function openModal() {
-            modaldeny.style.display = "block";
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            modaldeny.style.display = "none";
-        }
-
-        // Assign event listeners to the buttons
-        for (var i = 0; i < btndeny.length; i++) {
-            btndeny[i].addEventListener("click", openModal);
-        }
-
-        // Assign event listener to the close button
-        spandeny.addEventListener("click", closeModal);
-        btncancel.addEventListener("click", closeModal);
-
-        // Assign event listener to the overlay
-        window.addEventListener("click", function(event) {
-            if (event.target === modaldeny) {
-                closeModal();
-            }
-        });
-        // SCRIPT MODAL DENY========================================
     </script>
 
 
