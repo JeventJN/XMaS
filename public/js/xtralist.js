@@ -3,6 +3,8 @@ var showmodal = document.getElementById('showmodal');
 var hidemodal = document.getElementById('hidemodal');
 var reset = document.getElementById('reset');
 var window = document.getElementById('window');
+var radio1 = document.getElementById('asc');
+var radio2 = document.getElementById('desc')
 
 showmodal.addEventListener('click', openModal);
 hidemodal.addEventListener('click', closeModal);
@@ -26,6 +28,12 @@ function resetfun(){
                 checkbox.checked = false;
             }
         }
+    }
+    if(asc.checked == true){
+        asc.checked = false;
+    }
+    if(desc.checked == true){
+        desc.checked = false;
     }
 }
 
