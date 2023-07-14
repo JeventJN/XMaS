@@ -42,7 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 39.5vw;
+    height: 38vw;
     width: 30vw;
     border-radius: 4vw;
     padding-left: 0.5vw;
@@ -59,7 +59,7 @@ body {
     align-items: center;
     width: auto;
     height: 1.8vw;
-    margin-top: 1vw;
+    margin-top: 0.7vw;
     padding-left: 2vw;
     padding-right: 2vw;
     /* border: cyan solid; */
@@ -70,8 +70,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: auto;
-    height: 1.8vw;
+    width: 25vw;
+    height: 2.5vw;
     margin-top: 1vw;
     padding-left: 2vw;
     padding-right: 2vw;
