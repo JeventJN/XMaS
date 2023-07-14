@@ -165,7 +165,9 @@
                     </div>
                 @endforeach
             @else
+                <div class="h-[2vh]"></div>
                 <p class="text-center text-[1.7vw] font-semibold justify-center items-center flex">There is no request.</p>
+                <div class="h-[2vh]"></div>
             @endif
         </div>
     </div>
