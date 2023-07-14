@@ -368,12 +368,36 @@
                             <input type="hidden" name="kdXtra" value="{{ $xtra->kdExtracurricular }}">
 
                             {{-- Button save --}}
-                            <div class="kotakbtnsave" id="saveKotak">
+                            <div class="kotakbtnsave mt-[2vw]" id="saveKotak">
                                 <a type="button" class="btnsave" id="savebtn">
                                     Save
                                 </a>
                             </div>
                             {{-- Button save --}}
+
+                            {{-- Modal button save --}}
+                            <div id="modalsave" class="modalsave">
+                                {{-- Modal Content --}}
+                                <div class="modal-contentsave">
+                                    <div class="kotakisimodal">
+                                        <div class="boxjudulclosesave">
+                                            <span class="closesave">&times;</span>
+                                        </div>
+                                        <div class="isisave">
+                                            <div class="kalimatsave1 text-black">You have <span style="color: red;">edited</span> this page.
+                                            </div>
+                                            <div class="kalimatsave2 text-black">Do you want to save?</div>
+                                        </div>
+                                        <div class="boxsubmitsave">
+                                            <button class="btnyesmodal">Yes</button>
+                                            <div class="btncancelmodal flex" id="btncancelmodal2">
+                                                <p class="m-auto">Cancel</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- Modal button save --}}
                         </form>
                         {{-- Untuk Ketua yang bisa edit isi Desc dan Act --}}
 
@@ -688,9 +712,9 @@
     {{-- Modal Delete --}}
 
     {{-- Modal button save --}}
-    <div id="modalsave" class="modalsave">
+    {{-- <div id="modalsave" class="modalsave"> --}}
         {{-- Modal Content --}}
-        <div class="modal-contentsave">
+        {{-- <div class="modal-contentsave">
             <div class="kotakisimodal">
                 <div class="boxjudulclosesave">
                     <span class="closesave">&times;</span>
@@ -708,7 +732,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- Modal button save --}}
 
     {{-- Modal Add Schedule --}}
