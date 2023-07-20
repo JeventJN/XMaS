@@ -1,9 +1,11 @@
+
+https://github.com/FrenricoChang/XMaS/assets/99463854/083778eb-bc49-4867-a09d-41385d4a9dc2
 # XMaS (Xtracurricular Management System)
 
-## Description
+## Description 👀
 XMaS is a user-friendly website that helps manage and organize various Xtra activities in the Rumah Talenta BCA area and the BCA Learning Institute. It serves as a central place for administrators (DPP), all PPTI/PPBP students, and the wider community to efficiently plan, participate in, and stay informed about different Xtra programs and events. XMaS enables administrators (DPP) and Xtra leaders to coordinate and oversee activities effectively. The platform is designed to meet the specific needs of the organization, providing features that improve organization, engagement, and communication.
 
-## Our Technologies
+## Our Technologies ⚙
 In the XMaS website development project, we utilized several technologies, such as:
 1.	Laravel (PHP Framework)
 2.	XAMPP
@@ -19,7 +21,7 @@ In the XMaS website development project, we utilized several technologies, such 
 12.	Firebase Authentication
 13.	Ajax
 
-## Installations & Usages
+## Installations & Usages 🔑
 Here are some steps that need to be done to be able to run the XMaS website:
 1.  Make sure that your desktop is always connected to the internet.
 2.	Make sure that you’ve installed Laravel, XAMPP, and NPM on your desktop. Here’s the installation guide for:
@@ -111,15 +113,68 @@ It is necessary because the Github file ignores .env from my real project so you
     ```
     ![localhost](https://github.com/FrenricoChang/XMaS/assets/99463854/05feff83-4872-4a4e-b622-9192ba39a934)
 
-## Features
+## Features ✔
+On XMaS website, users are divided into 4 types:
+
 ### Guest:
+On the home page for guests, there is a banner inviting them to Sign Up as a user on XMaS website. 
+![image](https://github.com/FrenricoChang/XMaS/assets/99463854/7cd4700b-7782-4f68-8f38-56965cd0db64)
+Guests can access the Xtra List to view available Xtras and use the search feature to find Xtras by name and filter them by category (physical and non-physical) and the date of the Xtra event. Guests will then proceed to Sign Up and register as users on the website by providing personal information such as their name, Employee ID (NIP), program they are following, phone number, password, and profile photo. After providing the Sign Up data, guests will receive an OTP (One-Time Password) for verification.
+
+
+https://github.com/FrenricoChang/XMaS/assets/99463854/63eddebb-68d7-4ebb-8259-b83d4ce9c389
+
+
 
 ### Non-Member:
+On the home page for Non-Members, there is a different banner than the one shown to guests. 
+![image](https://github.com/FrenricoChang/XMaS/assets/99463854/d017d85e-7ad8-4ab3-beb2-e1a52c4c9894)
+Non-Members can directly log in using their Employee ID (NIP) and registered password. They can register for Xtras on the Xtra Registration Page, update their profile photo and registered phone number, access the Xtra Page to view Xtra descriptions, documentation, and members, and also log out and delete their account on the profile page.
+
+
+https://github.com/FrenricoChang/XMaS/assets/99463854/86fcbe87-1a81-4713-8c78-6c2168e89e7d
+
+
 
 ### Member:
+Members of an Xtra can use the MyClub menu to access the WhatsApp contact of the Xtra's Leader. They can also use the "Request Leader Access" feature on the profile page to apply as the leader of the Xtra they are following. On the Xtra Page, members can check the "Presence Member List" to see who attended the Xtra event on a particular date.
+
+
+https://github.com/FrenricoChang/XMaS/assets/99463854/97003a26-938f-4add-b97d-f60047504aae
+
 
 ### Leader:
+Leaders of Xtras have a different view of the MyClub page. They can use the edit button to modify the data related to the Xtra they lead, such as Xtra logo, background picture, description, and documentation. Leaders also have access to create a report form on the profile page, and they can perform "Add Schedule" and "Add Attendance" on the Xtra page.
+
+
+https://github.com/FrenricoChang/XMaS/assets/99463854/26ad0ee4-f733-4241-8d2f-122ea3ce5c49
+
+
 
 ### Admin:
+To log in as Admin, use this NIP and Password:
+- NIP        : 0000
+- Password   : 12.345
+On the Admin's home page, there are additional sections labeled "Newest Report" and "Check Report." 
+![screencapture-127-0-0-1-8000-home-2023-07-20-23_52_03](https://github.com/FrenricoChang/XMaS/assets/99463854/78ed0bcf-10fa-41b4-a606-ade7f27007ab)
+On the Xtra List Admin page, the Admin can create a new Xtra using the "Add Xtra" feature and delete existing Xtras using the "Delete Xtra" feature. On the Report List menu, the Admin can search for reports using live search and filters (based on response status and report creation date), and can also approve or deny the reports. The Admin can access the approval menu to accept or deny the "Request Leader Access" that has been submitted. Finally, the Admin can log out.
+
+
+https://github.com/FrenricoChang/XMaS/assets/99463854/2b713830-81ce-4556-8084-fb11b64f539a
+
+
+## Others 🎁
+- Middleware
+- Eager loading for n+1 problem
+- Live search using ajax
+- Filter
+- session
+- Eloquent ORM: relationship between model
+- Factory
+- Database seeder
+- Faker
+- Authentication
+- Form validation
+- CRUD
 
 
