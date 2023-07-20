@@ -450,7 +450,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         member::create([
-            'NIP'=>'0020    ',
+            'NIP'=>'0020',
             'kdExtracurricular'=>2,
             'kdState'=>1,
             'reason'=>''

@@ -160,9 +160,9 @@
                 <div class="boxsubmitsampah">
                     <form method="POST" action="{{ route('xtra.delete') }}" class="delConfirm">
                         @csrf
-                        <button class="btnyesmodal" id="btnDeleteConfirm">Yes</button>
+                        <button class="btnyesmodal hover:font-nunito" id="btnDeleteConfirm">Yes</button>
                     </form>
-                    <button class="btncancelmodal" id="btncancelmodal1">Cancel</button>
+                    <button class="btncancelmodal hover:font-nunit" id="btncancelmodal1">Cancel</button>
                 </div>
             </div>
         </div>
