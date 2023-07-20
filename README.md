@@ -1,5 +1,3 @@
-
-https://github.com/FrenricoChang/XMaS/assets/99463854/083778eb-bc49-4867-a09d-41385d4a9dc2
 # XMaS (Xtracurricular Management System)
 
 ## Description 👀
