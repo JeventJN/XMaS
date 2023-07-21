@@ -131,26 +131,24 @@ On XMaS website, users are divided into 5 types:
     https://github.com/FrenricoChang/XMaS/assets/99463854/e3e961a1-0c8c-4369-930b-f106a65b65eb
 
 
-- Guests will then proceed to Sign Up and register as users on the website by providing personal information such as their name, Employee ID (NIP), program they are following, phone number, password, and profile photo. After providing the Sign Up data, guests will receive an OTP (One-Time Password) for verification.
+### Non-Member:
+- To become a Non-Member user, Guests must register on the website by providing personal information such as their name, Employee ID (NIP), program they are following, phone number, password, and profile photo. After entering the registration data, guests will receive an OTP (One-Time Password) for verification.
 ![WhatsApp Image 2023-07-21 at 14 50 39](https://github.com/FrenricoChang/XMaS/assets/99463854/fa24eff6-8aed-479a-9d78-263200c6cf0e)
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/6b209103-f3f5-44bc-9b1c-0f3f7200bb24
 
-
-
-### Non-Member:
-- On the home page for Non-Members, there is a different banner than the one shown to guests. 
-![image](https://github.com/FrenricoChang/XMaS/assets/99463854/d017d85e-7ad8-4ab3-beb2-e1a52c4c9894)
-
-
-    https://github.com/FrenricoChang/XMaS/assets/99463854/c4d26d3f-d8c7-4c52-b30b-afbef00d0ba4
-
-
+  
 - Non-Members can directly log in using their Employee ID (NIP) and registered password.
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/2e27f6a8-2167-4c32-b2b8-05ab82d08dab
 
+  
+- On the home page for Non-Members, there is a different banner than the one shown to guests. 
+![image](https://github.com/FrenricoChang/XMaS/assets/99463854/d017d85e-7ad8-4ab3-beb2-e1a52c4c9894)
+
+
+    https://github.com/FrenricoChang/XMaS/assets/99463854/c4d26d3f-d8c7-4c52-b30b-afbef00d0ba4
 
 - They can register for Xtras on the Xtra Registration Page
   
