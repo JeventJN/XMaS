@@ -21,7 +21,7 @@ In the XMaS website development project, we utilized several technologies, such 
 
 ## 🔑 Installations & Usages 
 Here are some steps that need to be done to be able to run the XMaS website:
-1.  Make sure that your desktop is always connected to the internet.
+1.  Make sure that your desktop is **always connected** to the internet.
 2.	Make sure that you’ve installed Laravel, XAMPP, and NPM on your desktop. Here’s the installation guide for:
     -	<a href="https://laravel.com/docs/8.x/installation">Laravel</a>
     -	<a href="https://www.apachefriends.org/download.html">XAMPP</a>
