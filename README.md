@@ -1,6 +1,6 @@
 # XMaS (Xtracurricular Management System)
 
-## 👀 Description 
+## 📝 Description 
 XMaS is a user-friendly website that helps manage and organize various Xtra activities in the Rumah Talenta BCA area and the BCA Learning Institute. It serves as a central place for administrators (DPP), all PPTI/PPBP students, and the wider community to efficiently plan, participate in, and stay informed about different Xtra programs and events. XMaS enables administrators (DPP) and Xtra leaders to coordinate and oversee activities effectively. The platform is designed to meet the specific needs of the organization, providing features that improve organization, engagement, and communication.
 
 ## ⚙ Our Technologies 
@@ -58,7 +58,7 @@ It is necessary because the Github file ignores .env from my real project so you
     ![composer install done](https://github.com/FrenricoChang/XMaS/assets/99463854/82b09089-37ff-4074-9f2b-76d2266fd988)
 
 
-12. To generate random string for apps encryption and decryption, type:
+12. To generate random key for apps encryption and decryption, type:
 ```php artisan key:generate```
 
     ![php artisan keygenerate](https://github.com/FrenricoChang/XMaS/assets/99463854/2568b113-2eae-4556-86aa-3e82b23675bc)
@@ -114,8 +114,8 @@ It is necessary because the Github file ignores .env from my real project so you
     ```
     ![localhost](https://github.com/FrenricoChang/XMaS/assets/99463854/05feff83-4872-4a4e-b622-9192ba39a934)
 
-## ✔ Features 
-On XMaS website, users are divided into 4 types:
+## ✍️ Features
+On XMaS website, users are divided into 5 types:
 
 ### Guest:
 - On the home page for guests, there is a banner inviting them to Sign Up as a user on XMaS website. 
@@ -267,7 +267,7 @@ On XMaS website, users are divided into 4 types:
 
 
 
-## 🎁 Others 
+## 🪧 Others 
 - Middleware
 - Eager loading for n+1 problem
 - Live search using ajax
