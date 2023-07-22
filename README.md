@@ -121,7 +121,6 @@ On XMaS website, users are divided into 5 types:
 - On the home page for guests, there is a banner inviting them to Sign Up as a user on XMaS website. 
 ![image](https://github.com/FrenricoChang/XMaS/assets/99463854/7cd4700b-7782-4f68-8f38-56965cd0db64)
 
-
     https://github.com/FrenricoChang/XMaS/assets/99463854/56a69b2c-f224-4b58-a7e9-9c8bebcfd014
 
 
@@ -131,26 +130,24 @@ On XMaS website, users are divided into 5 types:
     https://github.com/FrenricoChang/XMaS/assets/99463854/e3e961a1-0c8c-4369-930b-f106a65b65eb
 
 
-- Guests will then proceed to Sign Up and register as users on the website by providing personal information such as their name, Employee ID (NIP), program they are following, phone number, password, and profile photo. After providing the Sign Up data, guests will receive an OTP (One-Time Password) for verification.
+
+### Non-Member:
+- To become a Non-Member user, Guests must register on the website by providing personal information such as their name, Employee ID (NIP), program they are following, phone number, password, and profile photo. After entering the registration data, guests will receive an OTP (One-Time Password) for verification.
 ![WhatsApp Image 2023-07-21 at 14 50 39](https://github.com/FrenricoChang/XMaS/assets/99463854/fa24eff6-8aed-479a-9d78-263200c6cf0e)
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/6b209103-f3f5-44bc-9b1c-0f3f7200bb24
 
-
-
-### Non-Member:
-- On the home page for Non-Members, there is a different banner than the one shown to guests. 
-![image](https://github.com/FrenricoChang/XMaS/assets/99463854/d017d85e-7ad8-4ab3-beb2-e1a52c4c9894)
-
-
-    https://github.com/FrenricoChang/XMaS/assets/99463854/c4d26d3f-d8c7-4c52-b30b-afbef00d0ba4
-
-
+  
 - Non-Members can directly log in using their Employee ID (NIP) and registered password.
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/2e27f6a8-2167-4c32-b2b8-05ab82d08dab
 
+  
+- On the home page for Non-Members, there is a different banner than the one shown to guests. 
+![image](https://github.com/FrenricoChang/XMaS/assets/99463854/d017d85e-7ad8-4ab3-beb2-e1a52c4c9894)
+
+    https://github.com/FrenricoChang/XMaS/assets/99463854/c4d26d3f-d8c7-4c52-b30b-afbef00d0ba4
 
 - They can register for Xtras on the Xtra Registration Page
   
@@ -161,25 +158,22 @@ On XMaS website, users are divided into 5 types:
 - Update their profile photo and registered phone number
   
 
-    https://github.com/FrenricoChang/XMaS/assets/99463854/57a31c34-53c1-4349-b0a9-0885a243be4b
+    https://github.com/FrenricoChang/XMaS/assets/99463854/90a0dec4-c27c-4783-a5cb-ba4d09330192
 
 
 - Access the Xtra Page to view Xtra descriptions, documentation, and members
   
 
-    https://github.com/FrenricoChang/XMaS/assets/99463854/09936f35-809b-41c6-80c7-61a4ab839356
+    https://github.com/FrenricoChang/XMaS/assets/99463854/d9891bc3-012d-4d84-a8bb-6b592dce4d04
 
 
 - Log out and delete their account on the profile page.
+
   
-
-
-    https://github.com/FrenricoChang/XMaS/assets/99463854/74f0bfff-0de4-44c1-ad3d-0be523106c79
-
-
-    https://github.com/FrenricoChang/XMaS/assets/99463854/88f11fa5-763d-41a4-bed9-5bdedac3aa98
-
-
+    https://github.com/FrenricoChang/XMaS/assets/99463854/622b7552-5ab7-4dc4-8837-a16a1d1fe795
+  
+    https://github.com/FrenricoChang/XMaS/assets/99463854/2f81a277-1274-4bd6-a900-90503ad7620d
+  
 
 
 ### Member:
@@ -219,12 +213,8 @@ On XMaS website, users are divided into 5 types:
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/0fbd5c56-09e7-4c5d-b99a-19374a5e7938
-
-
-
+  
     https://github.com/FrenricoChang/XMaS/assets/99463854/bd2cf907-565c-46f3-91e0-697b2ea6ba00
-
-
 
 
 
@@ -234,7 +224,6 @@ On XMaS website, users are divided into 5 types:
     - Password   : 12.345
 - On the Admin's home page, there are additional sections labeled "Newest Report" and "Check Report."                                                                                                                           
 ![screencapture-127-0-0-1-8000-home-2023-07-20-23_52_03](https://github.com/FrenricoChang/XMaS/assets/99463854/78ed0bcf-10fa-41b4-a606-ade7f27007ab)
-
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/a5b0b04a-7954-43d8-afc9-e65200108781
 
