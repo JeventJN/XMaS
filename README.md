@@ -28,7 +28,9 @@ Here are some steps that need to be done to be able to run the XMaS website:
     -	<a href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">NPM</a>
 3.	Make sure that you’ve installed Git on your desktop and have it connected to your GitHub account. Here’s the installation guide for <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a>.
 4.	Find the GitHub url of the XMaS project by accessing the following link: https://github.com/JeventJN/XMaS.git
-5.	Launch XAMPP by clicking on the Start buttons for the Apache and MySQL sections, and then click on the Admin button in the MySQL section.
+5.	Launch XAMPP by clicking on the Start buttons for the Apache and MySQL sections, and then click on the Admin button in the MySQL section.                                                                                   
+    ![xampp](https://github.com/FrenricoChang/XMaS/assets/99463854/29b411f2-4e33-4d95-97fc-d5b30cbd2c26)
+
 6.	Create a new folder
 7.	Access the command prompt (terminal) in Visual Studio Code and navigate to the created folder by entering the command 'cd' followed by the folder name:
 ```cd directory_name```
@@ -164,7 +166,7 @@ On XMaS website, users are divided into 5 types:
 - Access the Xtra Page to view Xtra descriptions, documentation, and members
   
 
-    https://github.com/FrenricoChang/XMaS/assets/99463854/d9891bc3-012d-4d84-a8bb-6b592dce4d04
+    https://github.com/FrenricoChang/XMaS/assets/99463854/3c4c0c5b-f99c-412f-9af0-af3f8e5c1a2d
 
 
 - Log out and delete their account on the profile page.
@@ -192,7 +194,7 @@ On XMaS website, users are divided into 5 types:
 - On the Xtra Page, members can check the "Presence Member List" to see who attended the Xtra event on a particular date.
   
 
-    https://github.com/FrenricoChang/XMaS/assets/99463854/5e39ae1a-3cf8-4ea1-8fa6-0c0281a6b02a
+    https://github.com/FrenricoChang/XMaS/assets/99463854/6b6a8ff1-0808-434a-806e-4bfb44a5d114
 
 
 
@@ -214,7 +216,7 @@ On XMaS website, users are divided into 5 types:
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/0fbd5c56-09e7-4c5d-b99a-19374a5e7938
   
-    https://github.com/FrenricoChang/XMaS/assets/99463854/bd2cf907-565c-46f3-91e0-697b2ea6ba00
+    https://github.com/FrenricoChang/XMaS/assets/99463854/4256c6d0-749a-49c5-8098-00716bd13a78
 
 
 
