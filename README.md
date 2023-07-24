@@ -124,7 +124,7 @@ On XMaS website, users are divided into 5 types:
     https://github.com/FrenricoChang/XMaS/assets/99463854/56a69b2c-f224-4b58-a7e9-9c8bebcfd014
 
 
-- Guests can access the Xtra List to view available Xtras and use the search feature to find Xtras by name and filter them by category (physical and non-physical) and the date of the Xtra event.
+- Guests can access the Xtra List to view available Xtras and use the live search feature to find Xtras by name and filter them by category (physical and non-physical) and the da of the Xtra event.
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/e3e961a1-0c8c-4369-930b-f106a65b65eb
@@ -256,7 +256,8 @@ On XMaS website, users are divided into 5 types:
 
 
 
-## 🪧 Others 
+## 🎁 Others
+### Our website also implements:
 - Middleware
 - Eager loading for n+1 problem
 - Live search using ajax
@@ -269,6 +270,8 @@ On XMaS website, users are divided into 5 types:
 - Authentication
 - Form validation
 - CRUD
+
+
 
 ## 🤓 Our Teammates
 -	Cecilia Audrey Herli	– 2502040461
