@@ -120,13 +120,13 @@ It is necessary because the Github file ignores .env from my real project so you
 On XMaS website, users are divided into 5 types:
 
 ### Guest:
-- On the home page for guests, there is a banner inviting them to Sign Up as a user on XMaS website. 
+- On the Home Page for Guests, there is a banner inviting them to Sign Up as a user on XMaS website. 
 ![image](https://github.com/FrenricoChang/XMaS/assets/99463854/7cd4700b-7782-4f68-8f38-56965cd0db64)
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/56a69b2c-f224-4b58-a7e9-9c8bebcfd014
 
 
-- Guests can access the Xtra List to view available Xtras and use the live search feature to find Xtras by name and filter them by category (physical and non-physical) and the da of the Xtra event.
+- Guests can access the Xtra List to view available Xtras and use the live search feature to find Xtras by name and filter them by category (physical and non-physical) and the day of the Xtra event.
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/e3e961a1-0c8c-4369-930b-f106a65b65eb
@@ -134,19 +134,19 @@ On XMaS website, users are divided into 5 types:
 
 
 ### Non-Member:
-- To become a Non-Member user, Guests must register on the website by providing personal information such as their name, Employee ID (NIP), program they are following, phone number, password, and profile photo. After entering the registration data, guests will receive an OTP (One-Time Password) for verification.
+- To become a Non-Member user, Guests must register on the website by providing personal information such as their name, employee ID (NIP), program they are following, phone number, password, and profile photo. After entering the registration data, Guests will receive an OTP (One-Time Password) for verification.
 ![WhatsApp Image 2023-07-21 at 14 50 39](https://github.com/FrenricoChang/XMaS/assets/99463854/fa24eff6-8aed-479a-9d78-263200c6cf0e)
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/6b209103-f3f5-44bc-9b1c-0f3f7200bb24
 
   
-- Non-Members can directly log in using their Employee ID (NIP) and registered password.
+- Non-Members can directly log in using their employee ID (NIP) and registered password.
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/2e27f6a8-2167-4c32-b2b8-05ab82d08dab
 
   
-- On the home page for Non-Members, there is a different banner than the one shown to guests. 
+- On the Home Page for Non-Members, there is a different banner than the one shown to Guests. 
 ![image](https://github.com/FrenricoChang/XMaS/assets/99463854/d017d85e-7ad8-4ab3-beb2-e1a52c4c9894)
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/c4d26d3f-d8c7-4c52-b30b-afbef00d0ba4
@@ -169,7 +169,7 @@ On XMaS website, users are divided into 5 types:
     https://github.com/FrenricoChang/XMaS/assets/99463854/3c4c0c5b-f99c-412f-9af0-af3f8e5c1a2d
 
 
-- Log out and delete their account on the profile page.
+- Log out and delete their account on the Profile Page.
 
   
     https://github.com/FrenricoChang/XMaS/assets/99463854/622b7552-5ab7-4dc4-8837-a16a1d1fe795
@@ -185,7 +185,7 @@ On XMaS website, users are divided into 5 types:
     https://github.com/FrenricoChang/XMaS/assets/99463854/4d868275-60f1-4fcd-afbc-23ac567ed15e
 
 
-- They can also use the "Request Leader Access" feature on the profile page to apply as the leader of the Xtra they are following.
+- They can also use the "Request Leader Access" feature on the Profile Page to apply as the leader of the Xtra they are following.
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/32ccd6e4-c0ec-4f8c-abc5-643ed1d3cb08
@@ -199,19 +199,19 @@ On XMaS website, users are divided into 5 types:
 
 
 ### Leader:
-- Leaders of Xtras have a different view of the MyClub page. They can use the edit button to modify the data related to the Xtra they lead, such as Xtra logo, background picture, description, and documentation.
+- Leaders of Xtras have a different view of the MyClub Page. They can use the edit button to modify the data related to the Xtra they lead, such as Xtra logo, background picture, description, and documentation.
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/db4b8646-64dc-47cf-834c-e7ac37615a15
 
 
-- Leaders also have access to create a report form on the profile page
+- Leaders also have access to create a report form on the Profile Page
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/b9aa7929-f38a-40bd-b2f7-768971bff2b0
 
 
-- Leaders can perform "Add Schedule" and "Make Attendance" on the Xtra page.
+- Leaders can perform "Add Schedule" and "Make Attendance" on the Xtra Page.
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/0fbd5c56-09e7-4c5d-b99a-19374a5e7938
@@ -224,13 +224,13 @@ On XMaS website, users are divided into 5 types:
 - To log in as Admin, use this NIP and Password:
     - NIP        : 0000
     - Password   : 12.345
-- On the Admin's home page, there are additional sections labeled "Newest Report" and "Check Report."                                                                                                                           
+- On the Admin's Home Page, there are additional sections labeled "Newest Report" and "Check Report."                                                                                                                           
 ![screencapture-127-0-0-1-8000-home-2023-07-20-23_52_03](https://github.com/FrenricoChang/XMaS/assets/99463854/78ed0bcf-10fa-41b4-a606-ade7f27007ab)
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/a5b0b04a-7954-43d8-afc9-e65200108781
 
 
-- On the Xtra List Admin page, the Admin can create a new Xtra using the "Add Xtra" feature and delete existing Xtras using the "Delete Xtra" feature.
+- On the Xtra List Admin Page, the Admin can create a new Xtra using the "Add Xtra" feature and delete existing Xtras using the "Delete Xtra" feature.
   
 
     https://github.com/FrenricoChang/XMaS/assets/99463854/7ae39b9d-801b-4b61-ad2e-07ccadbb6a50
@@ -261,10 +261,10 @@ On XMaS website, users are divided into 5 types:
 ## 🎁 Others
 ### Our website also implements:
 - Middleware
-- Eager loading for n+1 problem
+- Eager loading for N+1 problem
 - Live search using ajax
 - Filter
-- session
+- Session
 - Eloquent ORM: relationship between model
 - Factory
 - Database seeder
